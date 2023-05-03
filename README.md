@@ -1,14 +1,10 @@
-# Titulo del proyecto
+# PATAGONIC
 
-*Bienvenidos a nuestra tienda (nombre)*.....
+*Bienvenidos a nuestra tienda online Patagonic.*
 
 ## Descripción
 
 Somos una tienda online dedicada a la venta de ropa y accesorios de montaña. Ofrecemos una amplia variedad de productos, desde camperas para deportes de aventura hasta mochilas de senderismo, ropa para nieve y articulos de campamento. 
-
-#### Tecnologias usadas
-
-En nuestra página web estaremos utilizando HTML, CSS, JavaScript, NODE.js .....para crear una experiencia de usuario intuitiva y atractiva. Contamos con paginas detalladas, con informacion completa de cada producto, de sus características y también con fotografías den alta resolucion para el usuario así, apreciar con detalle antes de la compra.
 
 ### Mercado orientado
 
@@ -16,11 +12,11 @@ Nuestra tienda está orientada principalmente a aquellos amantes de la montaña 
 
 #### Referencias para el armado del proyecto
 Inspiración, fragmentos de código, etc.
-* [](https://)
-* [](https://)
-* [](https://)
-* [](https://)
-* [](https://)
+* [Dynafit](https://www.dynafit.com)
+* [Ansilta](https://www.ansilta.com)
+* [Adidas](https://www.adidas.com.ar/)
+* [Mercado Libre](https://www.mercadolibre.com.ar/)
+* [Autos Pilar](https://https://autospilar.com/)
 
 ### Equipo detrás del proyecto
 
@@ -29,6 +25,8 @@ Inspiración, fragmentos de código, etc.
 
 - **Cecilia Peruzzi** recibida en Artes Visuales, amante del diseño de indumentaria, y la música. Iniciante en el mundo de la programación y entusiasta en aprender cosas nuevas. 
  Estudiante de Programación Full Stack en *Digital House*.
+
+ - **Virginia Melo** amante de la tecnología y el mundo digital. Lo que la llevó a estudiar programación web actualmente, en *Digital House*. 
  
 - **Antonella Martinez** Lic. en turismo y guia de turismo aventura, amante de los deportes y la naturaleza.
  Siempre interesada en el mundo tecnológico.
