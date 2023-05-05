@@ -19,6 +19,10 @@ Inspiración, fragmentos de código, etc.
 * [Autos Pilar](https://https://autospilar.com)
 * [Runner](https://www.tradeinn.com/runnerinn/es)
 
+## Archivo Wireframe(pdf)
+* [grupo4](https://github.com/gabrielbetelu/dh_grupo4_archivos/blob/203e61af96d0ee37e8fcf580f64457701a350e80/Wireframe.pdf)
+
+
 ### Equipo detrás del proyecto
 
 - **Gabriel Betelu** autodidacta en lo que a programación se trata. Ingeniero Civil que al principio de la carrera recibió los primeros conocimientos sobre programación.
