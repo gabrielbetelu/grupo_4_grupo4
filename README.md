@@ -19,11 +19,12 @@ Inspiración, fragmentos de código, etc.
 * [Autos Pilar](https://https://autospilar.com)
 * [Runner](https://www.tradeinn.com/runnerinn/es)
 
-## Archivo Wireframe(pdf)
-* [grupo4](https://github.com/gabrielbetelu/dh_grupo4_archivos/blob/203e61af96d0ee37e8fcf580f64457701a350e80/Wireframe.pdf)
+#### Archivo Wireframe(pdf) y TRELLO
+* [WIREFRAME](https://github.com/gabrielbetelu/dh_grupo4_archivos/blob/203e61af96d0ee37e8fcf580f64457701a350e80/Wireframe.pdf)
+* [TRELLO](https://trello.com/b/fTQanW8j/tablero-de-tareas-sprint1-grupo-4)
 
 
-### Equipo detrás del proyecto
+#### Equipo detrás del proyecto
 
 - **Gabriel Betelu** autodidacta en lo que a programación se trata. Ingeniero Civil que al principio de la carrera recibió los primeros conocimientos sobre programación.
  Actualmente estudia en *Digital House* el curso de Programación Web Full Stack.
@@ -33,7 +34,7 @@ Inspiración, fragmentos de código, etc.
 
 - **Virginia Melo** amante de la tecnología y el mundo digital. Lo que la llevó a estudiar programación web actualmente, en *Digital House*. 
 
-- **Victor**
+- **Victor Sagüez** estudiante avanzado de ingeniería electromecánica, interesado en las matemáticas y física. Actualmente haciendo el curso de Programación Full Stack en *Digital House*.
  
 - **Antonella Martinez** Lic. en turismo y guia de turismo aventura, amante de los deportes y la naturaleza.
  Siempre interesada en el mundo tecnológico.
