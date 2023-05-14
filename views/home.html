@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href = "/css/styles.css" rel = "stylesheet"> 
     <title>PATAGONIC</title>
     <link rel="shortcut icon" href="/images/Logo Patagonic sin fondo.jpg">
@@ -15,35 +15,49 @@
 <body>
     <header>
         <img class= "logotipo" src= "/images/Logo Patagonic sin fondo.jpg" alt="Logo Patagonic">
-        <div>
-            <i class="fas fa-user"></i>
-            <i class="fas fa-shopping-cart"></i>
+        <div class="opciones">
+            <div class="log-cart">
+                <i class="fas fa-user"></i>
+                <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="menu-buscador">
+                <nav class="oculto">
+                    <ul>
+                        <li>
+                            <a href = "#">Inicio</a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <a href = "#">Productos</a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <a href = "#">Promos y Cuotas</a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <a href = "/empresas.html" target="_blank">Empresa</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="burger-menu visible">
+                    <i id="logo-burguer" class="fas fa-bars visible"></i>
+                </div>
+                <div class="area-buscar">
+                    <input id="buscar" placeholder="Buscar     ">
+                    <div class="buscador">
+                        <i id="logo-lupa" class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    
+                </div>
+                  
+            </div>
         </div>
-        <nav>
-            <ul>
-                <li>
-                    <a href = "#">Inicio</a>
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    <a href = "#">Productos</a>
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    <a href = "#">Promos y Cuotas</a>
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    <a href = "#">Empresa</a>
-                </li>
-            </ul>
-        </nav>
-        <div class="burger-menu visible">
-            <i id="logo-burguer" class="fas fa-bars visible"></i>
-        </div>
+        
+        
     </header>
     <main>
         <h1>Hola</h1>

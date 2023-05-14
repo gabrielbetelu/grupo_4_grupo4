@@ -1,3 +1,72 @@
+body {
+    margin: 0;
+    font-family: 'Ubuntu' , sans-serif;
+}
+
+header {
+    width: 100vw;
+    background-color: #ebebeb;
+    display: flex;
+}
+
+.opciones {
+    padding-right: 7vw;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
 header .logotipo {
-    width: 120px;
+    
+    width: 50px;
+    height: 50px;
+    padding: 1vw 7vw;
+}
+
+.oculto {
+    display: none;
+}
+
+header .opciones .log-cart {
+    display: flex;
+    justify-content: flex-end;
+    padding-left: 2vw;
+}
+
+header .opciones .log-cart i{
+    padding-left: 5vw;
+}
+
+
+header .opciones .menu-buscador {
+    display: flex;
+    justify-content: flex-end;
+}
+
+header .opciones .menu-buscador .burger-menu {
+    padding-right: 2vw;
+}
+
+header .opciones .menu-buscador .area-buscar {
+    padding-left: 2vw;
+}
+
+header .opciones .menu-buscador #buscar {
+    font-size: 10px;
+    font-family: "Font Awesome 6 Free";
+    font-weight: 700;
+    content: "\f002";
+}
+
+header .opciones .menu-buscador .area-buscar .buscador {
+    display: inline-block;
+    font-size: 10px;
+}
+
+#logo-lupa {
+    padding: 2px;
+    border: solid 1px #000;
+    background-color: #fff;
+    border-radius: 3px;    
 }
