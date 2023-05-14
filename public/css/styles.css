@@ -1,4 +1,5 @@
 body {
+    width: 100vw;
     margin: 0;
     font-family: 'Ubuntu' , sans-serif;
 }
@@ -6,22 +7,27 @@ body {
 header {
     width: 100vw;
     background-color: #ebebeb;
-    display: flex;
+    display: flex; 
+    justify-content: space-around; 
+ }
+
+main {
+    width: 100vw;
 }
 
-.opciones {
-    padding-right: 7vw;
+header .opciones {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    padding-right: 5vw;
 }
 
 header .logotipo {
     
     width: 50px;
     height: 50px;
-    padding: 1vw 7vw;
+    padding: 1vw 5vw;
 }
 
 .oculto {
@@ -31,10 +37,10 @@ header .logotipo {
 header .opciones .log-cart {
     display: flex;
     justify-content: flex-end;
-    padding-left: 2vw;
+    padding-left: 5vw;
 }
 
-header .opciones .log-cart i{
+header .opciones .log-cart i {
     padding-left: 5vw;
 }
 
@@ -45,15 +51,22 @@ header .opciones .menu-buscador {
 }
 
 header .opciones .menu-buscador .burger-menu {
-    padding-right: 2vw;
+    padding-right: 4vw;    
+}
+
+#logo-burguer {
+    font-size: 22px;
 }
 
 header .opciones .menu-buscador .area-buscar {
-    padding-left: 2vw;
+    padding-left: 4vw;
 }
 
 header .opciones .menu-buscador #buscar {
-    font-size: 10px;
+    height: 15px;
+    font-size: 12px;
+    border: solid 1px #000;
+    border-radius: 3px;
     font-family: "Font Awesome 6 Free";
     font-weight: 700;
     content: "\f002";
@@ -65,8 +78,22 @@ header .opciones .menu-buscador .area-buscar .buscador {
 }
 
 #logo-lupa {
+    font-size: 12px;
     padding: 2px;
     border: solid 1px #000;
     background-color: #fff;
     border-radius: 3px;    
+}
+
+main h1 {
+    width: 100vw;
+    display: flex;
+}
+
+main section .carrousel {
+    width: 100vw;
+    height: 35vw;
+    border: solid 1px #000;
+    display: flex;
+    justify-content: space-evenly;
 }
