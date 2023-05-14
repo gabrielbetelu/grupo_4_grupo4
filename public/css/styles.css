@@ -97,3 +97,29 @@ main section .carrousel {
     display: flex;
     justify-content: space-evenly;
 }
+main section .controles {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: solid 3px #000;
+}
+
+main section .atras-adelante {
+    font-size: 24px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+main section .circulo {
+    width: 1.2vw;
+    height: 1.2vw;
+    border: solid 2px #000;
+    border-radius: 10vw;
+    margin: auto 10px;
+}
+
+main section .posicion {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+}
