@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+header {
+  width: 100vw;
+  background-color: #ebebeb;
+  display: flex; 
+  justify-content: space-around; 
+}
+
+main {
+  width: 100vw;
+}
+
+header .opciones {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding-right: 5vw;
+}
+
+header .logotipo {
+  
+  width: 50px;
+  height: 50px;
+  padding: 1vw 5vw;
+}
+
+.oculto {
+  display: none;
+}
+
+header .opciones .log-cart {
+  display: flex;
+  justify-content: flex-end;
+  padding-left: 5vw;
+}
+
+header .opciones .log-cart i {
+  padding-left: 5vw;
+}
+
+header .opciones .menu-buscador {
+  display: flex;
+  justify-content: flex-end;
+}
+
+header .opciones .menu-buscador .burger-menu {
+  padding-right: 4vw;    
+}
+
+#logo-burguer {
+  font-size: 22px;
+}
+
+header .opciones .menu-buscador .area-buscar {
+  padding-left: 4vw;
+}
+
+header .opciones .menu-buscador #buscar {
+  height: 15px;
+  font-size: 12px;
+  border: solid 1px #000;
+  border-radius: 3px;
+  font-family: "Font Awesome 6 Free";
+  font-weight: 700;
+  content: "\f002";
+}
+
+header .opciones .menu-buscador .area-buscar .buscador {
+  display: inline-block;
+  font-size: 10px;
+}
+
+#logo-lupa {
+  font-size: 12px;
+  padding: 2px;
+  border: solid 1px #000;
+  background-color: #fff;
+  border-radius: 3px;    
+}
+main section .posicion {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  
+}
+body {
+  width: 100vw;
+  margin: 0;
+  font-family: 'Ubuntu', sans-serif;
+  background-image: url('\images\patagonia.jpg');
+}
+.formulario {
+  width: 400px;
+  height: 340px;
+  background: #556b2f;
+  margin: auto;
+  margin-top: 20px;
+  box-shadow: 7px 13px 38px #000;
+  padding: 20px 30px;
+  border-top: 4px solid rgb(18, 94, 18);
+  color: whitesmoke;
+}
+.formulario h5 {
+  margin: 0;
+  text-align: center;
+  height: 40px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid;
+  font-size: 20px;
+}
+.control {
+  width: 100%;
+  border: 1px solid grey;
+  margin-bottom: 15px;
+  padding: 11px 10px;
+  background: #252323;
+  font-size: 14px;
+  font-weight: bold;
+}
+.boton {
+  width: 100%;
+  height: 40px;
+  background: #228b22 ;
+  border: none;
+  color: white;
+  margin-bottom: 16px;
+}
+.formulaio p {
+  height: 40px;
+  text-align: center;
+  border-bottom: 1px solid;
+}
+.formulario a {
+  color: whitesmoke;
+  text-decoration: none;
+  font-size: 14px;
+}
+.formulario a:hover {
+  text-decoration: underline;
+}
+ 
