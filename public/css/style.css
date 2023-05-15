@@ -5,12 +5,12 @@
 }
 body {
   font-family: 'Ubuntu', sans-serif;
-  background-image: url('trekking.jpg');
+  background-image: url('\images\patagonia.jpg');
 }
 .formulario {
   width: 400px;
   height: 340;
-  background: rgb(73, 203, 73);
+  background: #556b2f;
   margin: auto;
   margin-top: 180;
   box-shadow: 7px 13px 38px #000;
@@ -38,7 +38,7 @@ body {
 .boton {
   width: 100%;
   height: 40px;
-  background: lightskyblue ;
+  background: #228b22 ;
   border: none;
   color: white;
   margin-bottom: 16px;
