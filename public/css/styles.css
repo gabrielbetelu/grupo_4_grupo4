@@ -16,7 +16,7 @@ body {
 
 header {
     width: 100vw;
-    background-color: #ebebeb;
+    background-color: #C9F4B0;
     display: flex; 
     justify-content: space-around; 
  }
@@ -47,10 +47,12 @@ header .logotipo {
 header .opciones .log-cart {
     display: flex;
     justify-content: flex-end;
-    padding-left: 5vw;
+    padding-left: 5vw;  
+    font-size: 20px;  
 }
 
 header .opciones .log-cart i {
+    color: #000;
     padding-left: 5vw;
 }
 
@@ -144,52 +146,59 @@ main section .posicion {
 /*    background-image: url("/images/trekking.jpg"); */
     display:flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-evenly;    
 }
 
-.camperasYBuzos, .pantalonesYShorts, .zapatillasYBotas, .carpasYBolsas, .mochilasYBolsos, .accesorios {
+.generoEdad {
+    padding-bottom: 10px;
+}
+
+.camperasYBuzos, .pantalonesYShorts, .zapatillasYBotas, .carpasYBolsas, .mochilasYBolsos, .accesorios  {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    width: 50vw; 
-    padding: 4vw 0;  
+    width: 50%; 
+    padding: 4% 0;  
     position: relative; 
 }
 
-.camperasYBuzos img, .pantalonesYShorts img, .zapatillasYBotas img, .carpasYBolsas img, .mochilasYBolsos img, .accesorios img{    
-    width: 80%;
+.camperasYBuzos h3,.camperasYBuzos h3, .pantalonesYShorts h3, .zapatillasYBotas h3, .carpasYBolsas h3, .mochilasYBolsos h3, .accesorios h3  {
+    position: absolute;
+    top: 55%;
+    text-align: center;
+    max-width: 80%;
+    color: #fff;
+    font-weight: 500;    
+}
+
+.camperasYBuzos img, .pantalonesYShorts img, .zapatillasYBotas img, .carpasYBolsas img, .mochilasYBolsos img, .accesorios img {    
+    width: 100%;
     height: 40vw;  
     padding: 0;
     box-shadow: 1vw 1vw 1vw #000;     
 }
 
-.camperasYBuzos a, .pantalonesYShorts a, .zapatillasYBotas a, .carpasYBolsas a, .mochilasYBolsos a, .accesorios a {
-    position: absolute;
-    top: 30vw;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 25vw;
-    color: #fff;
-    font-weight: 500;
-    
-}
+
+
+
+
 
 .hombre, .mujer, .ninios {
     display: flex;
     justify-content: center;
-    width: 33vw; 
+    width: 30vw; 
     padding: 4vw 0; 
     position: relative;  
 }
 
 .hombre img, .mujer img, .ninios img {
-    width: 80%;
-    height: 25vw;  
+    width: 100%;
+    height: 35vw;  
     padding: 0;
     box-shadow: 1vw 1vw 1vw #000;
-
 }
 
-.hombre a, .mujer a, .ninios a {
+.hombre h3, .mujer h3, .ninios h3 {
     position: absolute;
     top: 20vw;
     margin-left: auto;
