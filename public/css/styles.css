@@ -1,2 +1,131 @@
 
-  
+body {
+    width: 100vw;
+    margin: 0;
+    font-family: 'Ubuntu' , sans-serif;
+}
+
+header {
+    width: 100vw;
+    background-color: #ebebeb;
+    display: flex; 
+    justify-content: space-around; 
+ }
+
+main {
+    width: 100vw;
+}
+
+header .opciones {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding-right: 5vw;
+}
+
+header .logotipo {
+    
+    width: 50px;
+    height: 50px;
+    padding: 1vw 5vw;
+}
+
+.oculto {
+    display: none;
+}
+
+header .opciones .log-cart {
+    display: flex;
+    justify-content: flex-end;
+    padding-left: 5vw;
+}
+
+header .opciones .log-cart i {
+    padding-left: 5vw;
+}
+
+
+header .opciones .menu-buscador {
+    display: flex;
+    justify-content: flex-end;
+}
+
+header .opciones .menu-buscador .burger-menu {
+    padding-right: 4vw;    
+}
+
+#logo-burguer {
+    font-size: 22px;
+}
+
+header .opciones .menu-buscador .area-buscar {
+    padding-left: 4vw;
+}
+
+header .opciones .menu-buscador #buscar {
+    height: 15px;
+    font-size: 12px;
+    border: solid 1px #000;
+    border-radius: 3px;
+    font-family: "Font Awesome 6 Free";
+    font-weight: 700;
+    content: "\f002";
+}
+
+header .opciones .menu-buscador .area-buscar .buscador {
+    display: inline-block;
+    font-size: 10px;
+}
+
+#logo-lupa {
+    font-size: 12px;
+    padding: 2px;
+    border: solid 1px #000;
+    background-color: #fff;
+    border-radius: 3px;    
+}
+
+main h1 {
+    width: 100vw;
+    display: flex;
+}
+
+main section .carrousel {
+    width: 100vw;
+    height: 35vw;
+    border: solid 1px #000;
+    display: flex;
+    justify-content: space-evenly;
+}
+main section .controles {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: solid 3px #000;
+}
+
+main section .atras-adelante {
+    font-size: 24px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+main section .circulo {
+    width: 1.2vw;
+    height: 1.2vw;
+    border: solid 2px #000;
+    border-radius: 10vw;
+    margin: auto 10px;
+}
+
+main section .enfocado {
+    background-color: #000;
+}
+
+main section .posicion {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+}
+
