@@ -9,20 +9,24 @@ Paleta de colores:  verde claro   #C9F4B0
 -----------------------------------------------------------*/
 
 body {
-    width: 100vw;
+    width: 100%;
     margin: 0;
     font-family: 'Ubuntu' , sans-serif;
 }
 
 header {
-    width: 100vw;
+    width: 100%;
     background-color: #C9F4B0;
     display: flex; 
-    justify-content: space-around; 
+    justify-content: space-between; 
  }
 
 main {
-    width: 100vw;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #7AB35B;
 }
 
 header .opciones {
@@ -30,14 +34,20 @@ header .opciones {
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    padding-right: 5vw;
+    align-items: flex-end;   
+    padding-right: 2%; 
 }
 
-header .logotipo {
-    
+header .logo-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10%;
+}
+
+header .logo-header .logotipo {    
     width: 50px;
-    height: 50px;
-    padding: 1vw 5vw;
+    height: 50px;    
 }
 
 .oculto {
@@ -46,14 +56,13 @@ header .logotipo {
 
 header .opciones .log-cart {
     display: flex;
-    justify-content: flex-end;
-    padding-left: 5vw;  
-    font-size: 20px;  
+    width: 40%;
+    justify-content: space-between;
+    font-size: 20px;      
 }
 
 header .opciones .log-cart i {
-    color: #000;
-    padding-left: 5vw;
+    color: #000;    
 }
 
 
@@ -71,7 +80,8 @@ header .opciones .menu-buscador .burger-menu {
 }
 
 header .opciones .menu-buscador .area-buscar {
-    padding-left: 4vw;
+    display: flex;
+    padding-left: 4%;
 }
 
 header .opciones .menu-buscador #buscar {
@@ -109,6 +119,7 @@ main section .carrousel {
     display: flex;
     justify-content: space-evenly;
 }
+
 main section .controles {
     display: flex;
     justify-content: space-around;
@@ -136,19 +147,17 @@ main section .enfocado {
 main section .posicion {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    
+    justify-content: center;    
 }
 
 .rubros, .generoEdad {
-    width: 100%;
-    background-color: #7AB35B; 
+    width: 98%;
 /*    background-image: url("/images/trekking.jpg"); */
     display:flex;
     flex-wrap: wrap;
     justify-content: space-evenly;    
 }
-
+ 
 .generoEdad {
     padding-bottom: 10px;
 }
@@ -162,13 +171,14 @@ main section .posicion {
     position: relative; 
 }
 
-.camperasYBuzos h3,.camperasYBuzos h3, .pantalonesYShorts h3, .zapatillasYBotas h3, .carpasYBolsas h3, .mochilasYBolsos h3, .accesorios h3  {
+.camperasYBuzos h4,.camperasYBuzos h4, .pantalonesYShorts h4, .zapatillasYBotas h4, .carpasYBolsas h4, .mochilasYBolsos h4, .accesorios h4  {
     position: absolute;
-    top: 55%;
+    top: 35%;
     text-align: center;
     max-width: 80%;
     color: #fff;
-    font-weight: 500;    
+    font-weight: 500; 
+    font-size: 14px;    
 }
 
 .camperasYBuzos img, .pantalonesYShorts img, .zapatillasYBotas img, .carpasYBolsas img, .mochilasYBolsos img, .accesorios img {    
@@ -177,11 +187,6 @@ main section .posicion {
     padding: 0;
     box-shadow: 1vw 1vw 1vw #000;     
 }
-
-
-
-
-
 
 .hombre, .mujer, .ninios {
     display: flex;
@@ -193,21 +198,168 @@ main section .posicion {
 
 .hombre img, .mujer img, .ninios img {
     width: 100%;
-    height: 35vw;  
+    height: 25vw;  
     padding: 0;
     box-shadow: 1vw 1vw 1vw #000;
 }
 
-.hombre h3, .mujer h3, .ninios h3 {
+.hombre h4, .mujer h4, .ninios h4 {
     position: absolute;
-    top: 20vw;
+    top: 40%;
     margin-left: auto;
     margin-right: auto;
     color: #fff;
     font-weight: 500;
 }
 
+@media (min-width : 481px) {
+    header {
+        justify-content: space-between;
+    }
 
+    header .logo-header .logotipo {    
+        width: 100%;
+        height: 100%;
+        max-width: 140px;
+        max-height: 140x;
+        align-self: center;
+        justify-self: center;        
+    }
+
+    header .logo-header {
+        width: 25%;
+        padding: 2%;
+        border: dashed 2px rgb(0, 162, 255); 
+    }
+
+    header .opciones {
+        width: 75%;
+        flex-direction: row-reverse;
+        align-items: flex-start;
+        border: dashed 2px rgb(221, 255, 0);
+    }
+
+    header .opciones .log-cart {
+        width: 25%;
+        padding: 2% 0  0 0; 
+        border: dashed 2px red;      
+    }
+
+    header .opciones .menu-buscador {
+        width: 68%;  
+        padding: 2% 0  0 0;
+        border: dashed 2px rgb(94, 26, 84);   
+        flex-direction: column-reverse; 
+        align-items: center; 
+        justify-content: space-between;  
+    }
+    
+    header .opciones .menu-buscador .area-buscar {
+        align-self: flex-start;
+        border: dashed 2px red;
+    }
+
+    .oculto {
+        display: flex;
+    } 
+
+    header .opciones .menu-buscador nav {
+        display: flex;
+        flex-direction: column;
+        align-self: flex-start;
+        margin-top: 5%;
+    }
+
+    header .opciones .menu-buscador nav ul {
+        margin: 0;
+        padding: 1% 0 0 5%;
+    }
+
+    header .opciones .menu-buscador nav ul li {
+        list-style-type: none;        
+    }
+
+    header .opciones .menu-buscador nav ul li a {
+        color: #000;
+        text-decoration: none;
+    }
+
+    header .opciones .menu-buscador .burger-menu {
+        display: none;    
+    }
+
+    main section .carrousel {
+        max-height: 220px;
+        justify-content: center;
+    }
+
+    .camperasYBuzos, .pantalonesYShorts, .zapatillasYBotas, .carpasYBolsas, .mochilasYBolsos, .accesorios  {
+        width: 25%;  
+    }
+
+    .camperasYBuzos img, .pantalonesYShorts img, .zapatillasYBotas img, .carpasYBolsas img, .mochilasYBolsos img, .accesorios img {    
+        height: 20vw;           
+    }
+
+    .camperasYBuzos h4,.camperasYBuzos h4, .pantalonesYShorts h4, .zapatillasYBotas h4, .carpasYBolsas h4, .mochilasYBolsos h4, .accesorios h4  {
+        top: 25%;
+        font-size: 16px;    
+    }
+
+    .hombre img, .mujer img, .ninios img {        
+        height: 70%;          
+    }
+
+    .hombre, .mujer, .ninios {
+        width: 22%; 
+    } 
+}
+
+@media (min-width : 769px) {
+    header .logotipo {    
+        width: 100px;
+        height: 100px;
+    }
+
+    .rubros {
+        justify-content: space-between;
+    }
+
+    header .opciones .menu-buscador .area-buscar {
+        align-self: flex-end;
+        padding-right: 5%;
+        border: dashed 2px red;
+    }
+
+    header .opciones .menu-buscador nav {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 100px;
+        padding-bottom: 5px;
+    }
+
+    .camperasYBuzos, .pantalonesYShorts, .zapatillasYBotas, .carpasYBolsas, .mochilasYBolsos, .accesorios  {
+        width: 15%;  
+    }
+
+    .camperasYBuzos img, .pantalonesYShorts img, .zapatillasYBotas img, .carpasYBolsas img, .mochilasYBolsos img, .accesorios img {    
+        height: 100%;           
+    }
+
+    .camperasYBuzos h4,.camperasYBuzos h4, .pantalonesYShorts h4, .zapatillasYBotas h4, .carpasYBolsas h4, .mochilasYBolsos h4, .accesorios h4  {
+        top: 30%;   
+    }    
+
+    .hombre img, .mujer img, .ninios img {        
+        height: 80%;          
+    }
+
+    .hombre, .mujer, .ninios {
+        width: 18%; 
+    }
+
+}
 
 
 
