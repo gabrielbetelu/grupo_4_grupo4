@@ -1,6 +1,12 @@
+/* --------------
+Paleta de colores:  verde claro   #C9F04B
+                    verde medio claro  #7AB35B
+                    verde medio oscuro   #7FAD58
+                    verde oscuro   #497330
+                    ocre    #EBB54B
+-----------------*/
+
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 header {
@@ -26,7 +32,6 @@ header .logotipo {
   
   width: 50px;
   height: 50px;
-  padding: 1vw 5vw;
 }
 
 .oculto {
@@ -88,24 +93,27 @@ main section .posicion {
   justify-content: center;
   
 }
+
 body {
   width: 100vw;
   margin: 0;
   font-family: 'Ubuntu', sans-serif;
-  background-image: url('\images\patagonia.jpg');
+
 }
-.formulario {
-  width: 400px;
-  height: 340px;
-  background: #556b2f;
+
+.regisstro{
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  background: #497330;
   margin: auto;
-  margin-top: 20px;
+  margin-top: 25px;
   box-shadow: 7px 13px 38px #000;
   padding: 20px 30px;
-  border-top: 4px solid rgb(18, 94, 18);
+  border-top: 4px solid #7FAD58;
   color: whitesmoke;
 }
-.formulario h5 {
+.regisstro h5 {
   margin: 0;
   text-align: center;
   height: 40px;
@@ -113,7 +121,7 @@ body {
   border-bottom: 1px solid;
   font-size: 20px;
 }
-.control {
+.form-usu {
   width: 100%;
   border: 1px solid grey;
   margin-bottom: 15px;
@@ -122,25 +130,25 @@ body {
   font-size: 14px;
   font-weight: bold;
 }
-.boton {
+.botEnter {
   width: 100%;
   height: 40px;
-  background: #228b22 ;
+  background: rgb(18, 94, 18);
   border: none;
-  color: white;
+  color: whitesmoke;
   margin-bottom: 16px;
 }
-.formulaio p {
+.regisstro p {
   height: 40px;
   text-align: center;
   border-bottom: 1px solid;
 }
-.formulario a {
+.regisstro a {
   color: whitesmoke;
   text-decoration: none;
   font-size: 14px;
 }
-.formulario a:hover {
+.regisstro a:hover {
   text-decoration: underline;
+  color: #EBB54B
 }
- 
