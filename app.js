@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, '/views/login.html'))
 })
 
-/*app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, '/views/login.html'))ruta para el registro de usuario
-})*/
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, '/views/registro.html'))
+})
 
