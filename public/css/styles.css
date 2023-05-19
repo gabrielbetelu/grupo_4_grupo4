@@ -126,9 +126,10 @@ body {
   border: 1px solid grey;
   margin-bottom: 15px;
   padding: 11px 10px;
-  background: #252323;
+  background: #232c1c;
   font-size: 14px;
   font-weight: bold;
+  color: #c79430
 }
 .botEnter {
   width: 100%;
@@ -137,18 +138,4 @@ body {
   border: none;
   color: whitesmoke;
   margin-bottom: 16px;
-}
-.regisstro p {
-  height: 40px;
-  text-align: center;
-  border-bottom: 1px solid;
-}
-.regisstro a {
-  color: whitesmoke;
-  text-decoration: none;
-  font-size: 14px;
-}
-.regisstro a:hover {
-  text-decoration: underline;
-  color: #EBB54B
 }
