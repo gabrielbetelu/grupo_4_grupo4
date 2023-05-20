@@ -84,3 +84,43 @@ header .opciones .menu-buscador .area-buscar .buscador {
     background-color: #fff;
     border-radius: 3px;    
 }
+
+body section h2 {
+    text-align: center;
+    margin-top: 7vh;
+}
+
+article {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px;
+    margin: 20px;
+    margin-top: 7vh;
+    border-bottom: solid 1px #777777;
+    border-top: solid 1px #777777;
+}
+
+body section article .prod {
+    display: flex;
+    width: 150px;
+    height: 180px;
+}
+
+body section article div p{
+    display: flex;
+    margin: 4px;
+}
+
+.desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5px;
+    margin: 15px;
+}
+.desc .n {
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
