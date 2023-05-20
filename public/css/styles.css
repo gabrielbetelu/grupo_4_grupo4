@@ -97,8 +97,8 @@ article {
     padding: 10px;
     margin: 20px;
     margin-top: 7vh;
-    border-bottom: solid 1px #777777;
-    border-top: solid 1px #777777;
+    border-bottom: solid 1px #666;
+    border-top: solid 1px #666;
 }
 
 body section article .prod {
@@ -119,8 +119,39 @@ body section article div p{
     padding: 5px;
     margin: 15px;
 }
+
 .desc .n {
     font-weight: bold;
     padding-bottom: 5px;
 }
 
+.cantidad {
+    text-align: center;
+    width: 45px;
+    border: solid 1px #666;
+    border-radius: 5%;
+}
+
+.carrbotones {
+    display: flex;
+    margin: 4px;
+    padding-top: 5px;
+}
+
+.carrmenos {
+    border: solid 1px #666;
+    border-radius: 5%;
+    background: transparent;
+}
+
+.carrmas {
+    border: solid 1px #666;
+    border-radius: 5%;
+    margin-right: 8.5vw;
+    background: transparent;
+}
+
+.carrBas {
+    display: flex;
+    margin-top: 2px;
+}
