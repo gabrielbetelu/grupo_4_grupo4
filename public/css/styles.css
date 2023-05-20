@@ -56,23 +56,26 @@ header .logo-header .logotipo {
 
 header .opciones .log-cart {
     display: flex;
-    width: 40%;
-    justify-content: space-between;
+    width: 60%;
+    justify-content: end;
     font-size: 20px;      
 }
 
-header .opciones .log-cart i {
-    color: #000;    
+header .opciones .log-cart a {
+    color: #000; 
+    padding: 0 4%;   
 }
 
 
 header .opciones .menu-buscador {
+    width: 100%;
     display: flex;
     justify-content: flex-end;
 }
 
 header .opciones .menu-buscador .burger-menu {
-    padding-right: 4vw;    
+    padding-right: 3%;  
+    padding-left: 3%;  
 }
 
 #logo-burguer {
@@ -85,6 +88,7 @@ header .opciones .menu-buscador .area-buscar {
 }
 
 header .opciones .menu-buscador #buscar {
+    width: 85%;
     height: 15px;
     font-size: 12px;
     border: solid 1px #000;
@@ -107,17 +111,23 @@ header .opciones .menu-buscador .area-buscar .buscador {
     border-radius: 3px;    
 }
 
-main h1 {
-    width: 100vw;
+
+main {
+    width: 100%;
     display: flex;
 }
 
+
 main section .carrousel {
-    width: 100vw;
+    width: 100%;
     height: 35vw;
     border: solid 1px #000;
     display: flex;
     justify-content: space-evenly;
+}
+
+main section .carrousel img {
+    width: 33.33%;
 }
 
 main section .controles {
