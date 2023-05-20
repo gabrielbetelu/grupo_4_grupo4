@@ -118,6 +118,13 @@ main {
     display: flex;
 }
 
+main section {  
+    justify-items: center;  
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 
 main section .carrousel {
     width: 100%;
@@ -135,6 +142,7 @@ main section .controles {
     display: flex;
     justify-content: space-around;
     border: solid 1px #000;
+    width: 100%;
 }
 
 main section .atras-adelante {
@@ -166,7 +174,7 @@ main section .posicion {
 /*    background-image: url("/images/trekking.jpg"); */
     display:flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;    
+    justify-content: space-evenly;      
 }
  
 .generoEdad {
@@ -511,6 +519,10 @@ footer .copyright p {
         padding-top: 1%;
     }
 
+    header .opciones .menu-buscador {
+        width: 75%;
+    }
+
     header .opciones .menu-buscador .area-buscar {
         align-self: flex-end;
         padding-right: 5%;
@@ -522,6 +534,10 @@ footer .copyright p {
         width: 100%;
         margin-top: 50px;
         padding-bottom: 5px;
+    }
+
+    header .opciones .menu-buscador nav ul li {
+        font-size: 17px;        
     }
 
     .camperasYBuzos, .pantalonesYShorts, .zapatillasYBotas, .carpasYBolsas, .mochilasYBolsos, .accesorios  {
