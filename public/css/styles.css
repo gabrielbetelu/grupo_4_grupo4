@@ -234,8 +234,15 @@ footer {
     padding-bottom: 2px;
 }
 
-footer .legales, footer .servicios-cliente, footer .redes, footer .contactos, footer .copyright {
+footer .footer-mitad {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 90%;
+}
+
+footer .legales, footer .servicios-cliente, footer .redes, footer .contactos, footer .copyright {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -427,6 +434,26 @@ footer .copyright p {
     .hombre h4, .mujer h4, .ninios h4 {
         top: 30%;
     }
+
+    footer {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    footer .footer-mitad {
+        width: 40%;
+    }
+
+    .izquierda {
+        align-self: flex-start;
+    }
+
+    .derecha {
+        align-self: flex-end;
+    }
+
+
 }
 
 @media (min-width : 769px) {
@@ -476,6 +503,22 @@ footer .copyright p {
     .hombre h4, .mujer h4, .ninios h4 {
         top: 35%;
     }
+
+    footer .footer-mitad {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 40%;
+    }
+
+    footer .legales, footer .servicios-cliente, footer .redes , footer .contactos {
+        width: 40%;
+    }
+
+    .derecha {
+        align-self: flex-start;
+    }
+
 }
 
 
