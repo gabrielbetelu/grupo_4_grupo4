@@ -314,6 +314,7 @@ footer .contactos div {
 footer .contactos div a { 
     text-decoration: none;
     color: #000;
+    font-size: 6px;
     margin: 2px 0;
 }
 
@@ -343,26 +344,22 @@ footer .copyright p {
     header .logo-header {
         width: 25%;
         padding: 2%;
-        border: dashed 2px rgb(0, 162, 255); 
     }
 
     header .opciones {
         width: 75%;
         flex-direction: row-reverse;
         align-items: flex-start;
-        border: dashed 2px rgb(221, 255, 0);
     }
 
     header .opciones .log-cart {
         width: 25%;
-        padding: 2% 0  0 0; 
-        border: dashed 2px red;      
+        padding: 2% 0  0 0;    
     }
 
     header .opciones .menu-buscador {
         width: 68%;  
-        padding: 2% 0  0 0;
-        border: dashed 2px rgb(94, 26, 84);   
+        padding: 2% 0  0 0;  
         flex-direction: column-reverse; 
         align-items: center; 
         justify-content: space-between;  
@@ -370,7 +367,6 @@ footer .copyright p {
     
     header .opciones .menu-buscador .area-buscar {
         align-self: flex-start;
-        border: dashed 2px red;
     }
 
     .oculto {
@@ -450,10 +446,50 @@ footer .copyright p {
     }
 
     .derecha {
-        align-self: flex-end;
+        align-self: flex-start;
     }
 
+    footer h5 {        
+        font-size: 8px;
+    }
+    
+    footer .legales a {
+        font-size: 8px;
+    }
 
+    footer .servicios-cliente div.detalle-servicios{
+        font-size: 8px;
+    }
+      
+    footer .servicios-cliente a {
+        font-size: 8px;
+    }
+
+    footer .servicios-cliente a i {
+        font-size: 8px;
+    }
+
+    footer .redes div {
+        width: 60%;
+    }
+
+    footer .redes div.detalle-redes {
+        font-size: 8px;    
+    }
+
+    footer .redes div.detalle-redes a {
+        font-size: 16px;    
+    }
+
+    footer .contactos div.detalle-contactos a i{ 
+        font-size: 14px;
+    }
+
+    footer .contactos div.detalle-contactos a { 
+        font-size: 8px;
+    }
+    
+    
 }
 
 @media (min-width : 769px) {
@@ -469,7 +505,6 @@ footer .copyright p {
     header .opciones .menu-buscador .area-buscar {
         align-self: flex-end;
         padding-right: 5%;
-        border: dashed 2px red;
     }
 
     header .opciones .menu-buscador nav {
@@ -517,6 +552,10 @@ footer .copyright p {
 
     .derecha {
         align-self: flex-start;
+    }
+
+    footer .redes div {
+        width: 100%;
     }
 
 }
