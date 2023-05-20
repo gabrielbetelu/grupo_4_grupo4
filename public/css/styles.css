@@ -133,7 +133,7 @@ main section .carrousel img {
 main section .controles {
     display: flex;
     justify-content: space-around;
-    border-bottom: solid 3px #000;
+    border: solid 1px #000;
 }
 
 main section .atras-adelante {
@@ -169,7 +169,7 @@ main section .posicion {
 }
  
 .generoEdad {
-    padding-bottom: 10px;
+    padding-bottom: 0;
 }
 
 .camperasYBuzos, .pantalonesYShorts, .zapatillasYBotas, .carpasYBolsas, .mochilasYBolsos, .accesorios  {
@@ -188,7 +188,7 @@ main section .posicion {
     max-width: 80%;
     color: #fff;
     font-weight: 500; 
-    font-size: 14px;    
+    font-size: 12px;    
 }
 
 .camperasYBuzos img, .pantalonesYShorts img, .zapatillasYBotas img, .carpasYBolsas img, .mochilasYBolsos img, .accesorios img {    
@@ -219,8 +219,105 @@ main section .posicion {
     margin-left: auto;
     margin-right: auto;
     color: #fff;
+    font-size: 12px;
     font-weight: 500;
 }
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 6px;
+    color: #000;
+    background-color: #C9F4B0;
+    padding-bottom: 2px;
+}
+
+footer .legales, footer .servicios-cliente, footer .redes, footer .contactos, footer .copyright {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 2px;
+    font-size: 6px;
+    color: #000;
+    border-top: solid 1px #000;
+}
+
+footer h5 {
+    margin: 0 0 2px 0;
+    font-size: 6px;
+    color: #000;
+}
+
+footer .legales a {
+    text-decoration: none;
+    margin: 2px 0;
+    font-size: 6px;
+    color: #000;
+}
+
+footer .servicios-cliente div.detalle-servicios{
+    width: 90%;
+    display: flex;    
+    justify-content: space-between;
+    align-items: center;
+    margin: 2px 0;
+    font-size: 6px;
+    color: #000;
+}
+
+footer .servicios-cliente div.detalle-servicios div {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 6px;
+    color: #000;
+}
+
+footer .servicios-cliente a {
+    text-decoration: none;
+    margin: 2px 0;
+    font-size: 6px;
+    color: #000;
+}
+
+footer .redes div {
+    width: 45%;
+    display: flex;    
+    justify-content: space-between;
+    align-items: center;
+    margin: 2px 0;
+    font-size: 8px;    
+}
+
+footer .redes div a i {
+    color: #000;
+}
+
+footer .contactos div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer .contactos div a { 
+    text-decoration: none;
+    color: #000;
+    margin: 2px 0;
+}
+
+footer .contactos div a i {
+    color: #000;
+}
+
+footer .copyright p {
+    margin-bottom: 4px;
+}
+
 
 @media (min-width : 481px) {
     header {
@@ -312,17 +409,24 @@ main section .posicion {
     }
 
     .camperasYBuzos h4,.camperasYBuzos h4, .pantalonesYShorts h4, .zapatillasYBotas h4, .carpasYBolsas h4, .mochilasYBolsos h4, .accesorios h4  {
-        top: 25%;
-        font-size: 16px;    
+        top: 40%;
     }
 
     .hombre img, .mujer img, .ninios img {        
         height: 70%;          
     }
 
+    .generoEdad {
+        padding-bottom: 0;
+    }
+    
     .hombre, .mujer, .ninios {
         width: 22%; 
     } 
+
+    .hombre h4, .mujer h4, .ninios h4 {
+        top: 30%;
+    }
 }
 
 @media (min-width : 769px) {
@@ -369,6 +473,9 @@ main section .posicion {
         width: 18%; 
     }
 
+    .hombre h4, .mujer h4, .ninios h4 {
+        top: 35%;
+    }
 }
 
 
