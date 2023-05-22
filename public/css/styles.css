@@ -112,6 +112,7 @@ body {
   padding: 20px 30px;
   border-top: 4px solid #7FAD58;
   color: whitesmoke;
+  max-width:650px;
 }
 .login-form h5 {
   margin: 0;
