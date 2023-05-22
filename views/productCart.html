@@ -13,7 +13,8 @@
 </head>
 <body>
     <header>
-        <img class= "logotipo" src= "/images/Logo-Patagonic-sin-fondo.jpg" alt="Logo Patagonic">
+    
+        <a href="/home.html"><img class= "logotipo" src= "\images\Logo-Patagonic-sin-fondo.jpg" alt="Logo Patagonic"></a>
         <div class="opciones">
             <div class="log-cart">
                 <i class="fas fa-user"></i>
@@ -57,67 +58,69 @@
         </div>
     
     </header>
-    <section>
-        <h2>Carrito de compras</h2>
-
-        <article>
-            <div class="prod">
-                <img src="./images/campera_quehuar_6_dama_imagen1.jpg" alt="campera-dama">
-            </div>
+    
+    <main >
+        <section class="secCarrito">
+            <div class="carrFondo">
             
-            <div class="desc">
-                <p class="n">Campera Quehuar 6</p>
-                <p>Color: Verde</p>
-                <p>Talle: M</p>
-                <p>$55.200</p>
+                <h2>Carrito de compras</h2>
 
-                <div class="carrbotones">
-
-                    <button class="carrmenos" type="button">
-                        <i class="fa-solid fa-minus"></i>
-                    </button>
-
-                    <input class="cantidad" id="cantidad" type="text" value="1">
-
-                    <button class="carrmas" type="button">
-                        <i class="fa-solid fa-plus"></i>
-                    </button>
-
-                    <div class="carrBas"> 
-                        <i class="fa-solid fa-trash"></i>
+                <article>
+                    
+                    <div class="prod">
+                        <img src="./images/campera_quehuar_6_dama_imagen1.jpg" alt="campera-dama">
                     </div>
                     
-                </div>
+                    <div class="desc">
+                        <p class="n">Campera Quehuar 6</p>
+                        <p>Color: Verde</p>
+                        <p>Talle: M</p>
+                        <p>$55.200</p>
+
+                        <div class="carrbotones">
+
+                            <button class="carrmenos" type="button">
+                                <i class="fa-solid fa-minus"></i>
+                            </button>
+
+                            <input class="cantidad" id="cantidad" type="text" value="1">
+
+                            <button class="carrmas" type="button">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+
+                            <div class="carrBas"> 
+                                <i class="fa-solid fa-trash"></i>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </article>
+
+                <article class="carrCompra">
+
+                    <h3>Total: $55.200</h3>
+
+                    <div>    
+                        
+                        <a href="#"><button class="carrTrash botonesCarrito" type="menu">
+                            <i class="fa-solid fa-trash"></i>Limpiar carrito</button>
+                        </a> 
+
+                    </div>
+
+                    <div>
+                        <a href="#"><button class="carrReturn botonesCarrito" type="menu">
+                            <i class="fa-solid fa-reply"></i>Seguir comprando</button>
+                        </a> 
+                    </div>
+
+                    <div>
+                        <a href="#"><button class="carrFin botonesCarrito" type="submit">Finalizar compra</button></a> 
+                    </div>
+                </article>
             </div>
-        </article>
-
-    </section>
-
-    <section>
-        <article class="carrCompra">
-
-            <h3>Total: $55.200</h3>
-
-            <div class="carrTrash">    
-                <i class="fa-solid fa-trash"> </i>
-                <p>Limpiar Carrito</p>
-            </div>
-
-            <div class="carrReturn">
-                <i class="fa-solid fa-reply"></i>
-                <p>Seguir comprando</p>
-            </div>
-
-        </article>
-        
-        <article class="boton">
-            <div class="carrFin">
-            <button class="botonFin">Finalizar compra</button>
-            </div>
-        </article>
-    
-    </section>
-
-
+        </section>
+    </main>
 </body>
 </html>
