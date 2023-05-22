@@ -143,3 +143,81 @@ body {
   color: whitesmoke;
   margin-bottom: 16px;
 }
+
+footer {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+footer .footer-mitad {
+  width: 40%;
+}
+
+.izquierda {
+  align-self: flex-start;
+}
+
+.derecha {
+  align-self: flex-start;
+}
+
+footer h5 {        
+  font-size: 8px;
+}
+
+footer .legales a {
+  font-size: 8px;
+}
+
+footer .servicios-cliente div.detalle-servicios{
+  font-size: 8px;
+}
+
+footer .servicios-cliente a {
+  font-size: 8px;
+}
+
+footer .servicios-cliente a i {
+  font-size: 8px;
+}
+
+footer .redes div {
+  width: 60%;
+}
+
+footer .redes div.detalle-redes {
+  font-size: 8px;    
+}
+
+footer .redes div.detalle-redes a {
+  font-size: 16px;    
+}
+
+footer .contactos div.detalle-contactos a i{ 
+  font-size: 14px;
+}
+
+footer .contactos div.detalle-contactos a { 
+  font-size: 8px;
+}
+
+footer .footer-mitad {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 40%;
+}
+
+footer .legales, footer .servicios-cliente, footer .redes , footer .contactos {
+  width: 40%;
+}
+
+.derecha {
+  align-self: flex-start;
+}
+
+footer .redes div {
+  width: 100%;
+}
+
