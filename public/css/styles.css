@@ -215,4 +215,106 @@ main section {
   color: #EBB54B;
 }
 
- 
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 6px;
+  color: #000;
+  background-color: #C9F4B0;
+  padding-bottom: 2px;
+}
+
+footer .footer-mitad {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+}
+
+footer .legales, footer .servicios-cliente, footer .redes, footer .contactos, footer .copyright {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 2px;
+  font-size: 6px;
+  color: #000;
+  border-top: solid 1px #000;
+}
+
+footer h5 {
+  margin: 0 0 2px 0;
+  font-size: 6px;
+  color: #000;
+}
+
+footer .legales a {
+  text-decoration: none;
+  margin: 2px 0;
+  font-size: 6px;
+  color: #000;
+}
+
+footer .servicios-cliente div.detalle-servicios{
+  width: 90%;
+  display: flex;    
+  justify-content: space-between;
+  align-items: center;
+  margin: 2px 0;
+  font-size: 6px;
+  color: #000;
+}
+
+footer .servicios-cliente div.detalle-servicios div {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 6px;
+  color: #000;
+}
+
+footer .servicios-cliente a {
+  text-decoration: none;
+  margin: 2px 0;
+  font-size: 6px;
+  color: #000;
+}
+
+footer .redes div {
+  width: 45%;
+  display: flex;    
+  justify-content: space-between;
+  align-items: center;
+  margin: 2px 0;
+  font-size: 8px;    
+}
+
+footer .redes div a i {
+  color: #000;
+}
+
+footer .contactos div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+footer .contactos div a { 
+  text-decoration: none;
+  color: #000;
+  font-size: 6px;
+  margin: 2px 0;
+}
+
+footer .contactos div a i {
+  color: #000;
+}
+
+footer .copyright p {
+  margin-bottom: 4px;
+}
+
