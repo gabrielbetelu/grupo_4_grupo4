@@ -1,6 +1,6 @@
 # PATAGONIC
 
-*Bienvenidos a nuestra tienda online Patagonic.*
+*Bienvenidos a nuestra tienda online Patagonic. Hola*
 
 ## Descripción
 
