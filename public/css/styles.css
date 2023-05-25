@@ -1,23 +1,22 @@
-/* --------------
-Paleta de colores:  verde claro   #C9F04B
-                    verde medio claro  #7AB35B
-                    verde medio oscuro   #7FAD58
-                    verde oscuro   #497330
-                    ocre    #EBB54B
------------------*/
-
-* {
-  box-sizing: border-box;
+body {
+  width: 100%;
+  margin: 0;
+  font-family: 'Ubuntu' , sans-serif;
 }
+
 header {
-  width: 100vw;
-  background-color: #ebebeb;
+  width: 100%;
+  background-color: #C9F4B0;
   display: flex; 
-  justify-content: space-around; 
+  justify-content: space-between; 
 }
 
 main {
-  width: 100vw;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #7AB35B;
 }
 
 header .opciones {
@@ -25,13 +24,20 @@ header .opciones {
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  padding-right: 5vw;
+  align-items: flex-end;   
+  padding-right: 2%; 
 }
 
-header .logotipo {
-  
+header .logo-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 10%;
+}
+
+header .logo-header .logotipo {    
   width: 50px;
-  height: 50px;
+  height: 50px;    
 }
 
 .oculto {
@@ -40,21 +46,26 @@ header .logotipo {
 
 header .opciones .log-cart {
   display: flex;
-  justify-content: flex-end;
-  padding-left: 5vw;
+  flex-direction: row-reverse;
+  width: 60%;
+  justify-content: end;
+  font-size: 20px;      
 }
 
-header .opciones .log-cart i {
-  padding-left: 5vw;
+header .opciones .log-cart a {
+  color: #000; 
+  padding: 0 4%;   
 }
 
 header .opciones .menu-buscador {
+  width: 100%;
   display: flex;
   justify-content: flex-end;
 }
 
 header .opciones .menu-buscador .burger-menu {
-  padding-right: 4vw;    
+  padding-right: 3%;  
+  padding-left: 3%;  
 }
 
 #logo-burguer {
@@ -62,10 +73,12 @@ header .opciones .menu-buscador .burger-menu {
 }
 
 header .opciones .menu-buscador .area-buscar {
-  padding-left: 4vw;
+  display: flex;
+  padding-left: 4%;
 }
 
 header .opciones .menu-buscador #buscar {
+  width: 85%;
   height: 15px;
   font-size: 12px;
   border: solid 1px #000;
@@ -86,19 +99,6 @@ header .opciones .menu-buscador .area-buscar .buscador {
   border: solid 1px #000;
   background-color: #fff;
   border-radius: 3px;    
-}
-main section .posicion {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  
-}
-
-body {
-  width: 100vw;
-  margin: 0;
-  font-family: 'Ubuntu', sans-serif;
-
 }
 
 .registro{
@@ -145,79 +145,106 @@ body {
 }
 
 footer {
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
+  font-size: 6px;
+  color: #000;
+  background-color: #C9F4B0;
+  padding-bottom: 2px;
 }
 
 footer .footer-mitad {
-  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
 }
 
-.izquierda {
-  align-self: flex-start;
+footer .legales, footer .servicios-cliente, footer .redes, footer .contactos, footer .copyright {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 2px;
+  font-size: 6px;
+  color: #000;
+  border-top: solid 1px #000;
 }
 
-.derecha {
-  align-self: flex-start;
-}
-
-footer h5 {        
-  font-size: 8px;
+footer h5 {
+  margin: 0 0 2px 0;
+  font-size: 6px;
+  color: #000;
 }
 
 footer .legales a {
-  font-size: 8px;
+  text-decoration: none;
+  margin: 2px 0;
+  font-size: 6px;
+  color: #000;
 }
 
 footer .servicios-cliente div.detalle-servicios{
-  font-size: 8px;
+  width: 90%;
+  display: flex;    
+  justify-content: space-between;
+  align-items: center;
+  margin: 2px 0;
+  font-size: 6px;
+  color: #000;
+}
+
+footer .servicios-cliente div.detalle-servicios div {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 6px;
+  color: #000;
 }
 
 footer .servicios-cliente a {
-  font-size: 8px;
-}
-
-footer .servicios-cliente a i {
-  font-size: 8px;
+  text-decoration: none;
+  margin: 2px 0;
+  font-size: 6px;
+  color: #000;
 }
 
 footer .redes div {
-  width: 60%;
-}
-
-footer .redes div.detalle-redes {
+  width: 45%;
+  display: flex;    
+  justify-content: space-between;
+  align-items: center;
+  margin: 2px 0;
   font-size: 8px;    
 }
 
-footer .redes div.detalle-redes a {
-  font-size: 16px;    
+footer .redes div a i {
+  color: #000;
 }
 
-footer .contactos div.detalle-contactos a i{ 
-  font-size: 14px;
+footer .contactos div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-footer .contactos div.detalle-contactos a { 
-  font-size: 8px;
+footer .contactos div a { 
+  text-decoration: none;
+  color: #000;
+  font-size: 6px;
+  margin: 2px 0;
 }
 
-footer .footer-mitad {
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 40%;
+footer .contactos div a i {
+  color: #000;
 }
 
-footer .legales, footer .servicios-cliente, footer .redes , footer .contactos {
-  width: 40%;
+footer .copyright p {
+  margin-bottom: 4px;
 }
 
-.derecha {
-  align-self: flex-start;
-}
-
-footer .redes div {
-  width: 100%;
-}
 
