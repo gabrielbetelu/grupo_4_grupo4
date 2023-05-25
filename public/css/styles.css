@@ -75,7 +75,6 @@ header .logo-header .logotipo {
   100% {background-image: url("/images/animacion-logo-6.jpg");}
 }
 
-
 .oculto {
   display: none;
 }
@@ -157,105 +156,6 @@ main section {
   flex-wrap: wrap;
 }
 
-
-
-
-
-/* --------------
-Paleta de colores:  verde claro   #C9F04B0
-                    verde medio claro  #7AB35B
-                    verde medio oscuro   #7FAD58
-                    verde oscuro   #497330
-                    ocre    #EBB54B
------------------*/
-
-* {
-  box-sizing: border-box;
-}
-main {
-  width: 100vw;
-}
-
-header .opciones {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  padding-right: 5vw;
-}
-
-header .logotipo {
-  
-  width: 50px;
-  height: 50px;
-}
-
-.oculto {
-  display: none;
-}
-
-header .opciones .log-cart {
-  display: flex;
-  justify-content: flex-end;
-  padding-left: 5vw;
-}
-
-header .opciones .log-cart i {
-  padding-left: 5vw;
-}
-
-header .opciones .menu-buscador {
-  display: flex;
-  justify-content: flex-end;
-}
-
-header .opciones .menu-buscador .burger-menu {
-  padding-right: 4vw;    
-}
-
-#logo-burguer {
-  font-size: 22px;
-}
-
-header .opciones .menu-buscador .area-buscar {
-  padding-left: 4vw;
-}
-
-header .opciones .menu-buscador #buscar {
-  height: 15px;
-  font-size: 12px;
-  border: solid 1px #000;
-  border-radius: 3px;
-  font-family: "Font Awesome 6 Free";
-  font-weight: 700;
-  content: "\f002";
-}
-
-header .opciones .menu-buscador .area-buscar .buscador {
-  display: inline-block;
-  font-size: 10px;
-}
-
-#logo-lupa {
-  font-size: 12px;
-  padding: 2px;
-  border: solid 1px #000;
-  background-color: #fff;
-  border-radius: 3px;    
-}
-main section .posicion {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  
-}
-
-body {
-  width: 100vw;
-  margin: 0;
-  font-family: 'Ubuntu', sans-serif;
-
-}
 /* -------------------login-----------*/
 .login-form {
   display: flex;
