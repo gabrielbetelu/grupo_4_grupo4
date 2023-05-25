@@ -26,18 +26,43 @@ header .opciones {
   justify-content: space-evenly;
   align-items: flex-end;   
   padding-right: 2%; 
+  width: 70%;
 }
 
 header .logo-header {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-left: 10%;
+  width: 30%;
+  padding: 1% 0 1% 0;
 }
 
 header .logo-header .logotipo {    
   width: 50px;
-  height: 50px;    
+  height: 50px;   
+  background-color: #fff;
+  background-image: url("/images/animacion logo 1.jpg");
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  background-position: 0 0;
+  background-repeat: no-repeat 0px -40px;
+  left: 0;
+  animation: movimiento 0.8s steps(11) infinite alternate both; 
+}
+
+@keyframes movimiento {
+  0% {background-image: url("/images/animacion-logo-1.jpg");}
+  10% {background-image: url("/images/animacion-logo-1bis.jpg");}
+  20% {background-image: url("/images/animacion-logo-2.jpg");}
+  30% {background-image: url("/images/animacion-logo-2 bis.jpg");}
+  40% {background-image: url("/images/animacion-logo-3.jpg");}
+  50% {background-image: url("/images/animacion-logo-3bis.jpg");}
+  60% {background-image: url("/images/animacion-logo-4.jpg");}
+  70% {background-image: url("/images/animacion-logo-4bis.jpg");}
+  80% {background-image: url("/images/animacion-logo-5.jpg");}
+  90% {background-image: url("/images/animacion-logo-5bis.jpg");}
+  100% {background-image: url("/images/animacion-logo-6.jpg");}
 }
 
 .oculto {
@@ -57,10 +82,14 @@ header .opciones .log-cart a {
   padding: 0 4%;   
 }
 
+header .opciones .log-cart a:hover {
+  color: #EBB54B;
+}
+
 header .opciones .menu-buscador {
   width: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
 header .opciones .menu-buscador .burger-menu {
@@ -75,16 +104,18 @@ header .opciones .menu-buscador .burger-menu {
 header .opciones .menu-buscador .area-buscar {
   display: flex;
   padding-left: 4%;
+  width: 100%;
+  max-width: 250px;
 }
 
 header .opciones .menu-buscador #buscar {
-  width: 85%;
+  width: 100%;
   height: 15px;
   font-size: 12px;
   border: solid 1px #000;
   border-radius: 3px;
-  font-family: "Font Awesome 6 Free";
-  font-weight: 700;
+  font-family: Ubuntu;
+  font-weight: 400;
   content: "\f002";
 }
 
@@ -99,6 +130,18 @@ header .opciones .menu-buscador .area-buscar .buscador {
   border: solid 1px #000;
   background-color: #fff;
   border-radius: 3px;    
+}
+
+main {
+  width: 100%;
+  display: flex;
+}
+
+main section {  
+  justify-items: center;  
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .registro{
@@ -246,5 +289,4 @@ footer .contactos div a i {
 footer .copyright p {
   margin-bottom: 4px;
 }
-
 
