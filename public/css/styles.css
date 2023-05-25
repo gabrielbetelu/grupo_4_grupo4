@@ -93,6 +93,10 @@ header .opciones .log-cart a {
     padding: 0 4%;   
 }
 
+header .opciones .log-cart a:hover {
+    color: #EBB54B;
+}
+
 
 header .opciones .menu-buscador {
     width: 100%;
@@ -122,8 +126,8 @@ header .opciones .menu-buscador #buscar {
     font-size: 12px;
     border: solid 1px #000;
     border-radius: 3px;
-    font-family: "Font Awesome 6 Free";
-    font-weight: 700;
+    font-family: Ubuntu;
+    font-weight: 400;
     content: "\f002";
 }
 
@@ -459,14 +463,18 @@ footer .copyright p {
 }
 
 .producto .producto-elejido .producto-boton {
-    width: 100%;
+    width: 70%;
     height: 40px;
-    background: rgb(18, 94, 18);
+    background-color: rgb(18, 94, 18);
     color: whitesmoke;
     margin-bottom: 16px;
     border: none;
 }
 
+article div .producto-info button.producto-boton:hover {
+    background-color: #7FAD58;
+}
+   
 
 .producto .producto-elejido .producto-descripcion {
     background-color: #EBB54B;
@@ -483,14 +491,33 @@ footer .copyright p {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-
+    justify-content: center;
+    padding: 0;
 }
 
 .producto .producto-elejido .producto-descripcion ul li {  
+    list-style: none;
     width: 42%;
-    margin-left: -8%;
-    margin-right: 1%;
+    min-width: 110px;
+}
+
+.whatsapp-div {
+    display: flex;
+    justify-content: center;
+    align-self: flex-end;
+    align-items: center;
+    background-color: #fff;
+    width: 50px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+}
+
+.whatsapp-logo {
+    color: green;
+    font-size: 35px;
 }
 
 /* ------------------------------------------------*/
