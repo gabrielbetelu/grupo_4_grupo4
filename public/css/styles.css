@@ -136,10 +136,13 @@ body {
 .botonLog {
   width: 100%;
   height: 40px;
-  background: rgb(18, 94, 18);
+  background-color: rgb(18, 94, 18);
   color: whitesmoke;
   margin-bottom: 16px;
   border: none;
+}
+.botonLog:hover{
+  background-color: #7FAD58;
 }
 .login-form p {
   height: 40px;
@@ -153,7 +156,7 @@ body {
 }
 .login-form a:hover {
   text-decoration: underline;
-  color: #EBB54B
+  color: #EBB54B;
 }
 
  
