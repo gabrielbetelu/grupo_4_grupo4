@@ -9,22 +9,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href = "/css/styles.css" rel = "stylesheet"> 
-    <title>Carrito</title>
+    <title>PATAGONIC</title>
+    <link rel="shortcut icon" href="/images/Logo-Patagonic-sin-fondo.jpg">
 </head>
 <body>
     <header>
-    
-        <a href="/home.html"><img class= "logotipo" src= "\images\Logo-Patagonic-sin-fondo.jpg" alt="Logo Patagonic"></a>
+        <div class="logo-header">
+            <a href="/">
+                <div class= "logotipo">
+                    
+                </div>   
+            </a>            
+        </div>        
         <div class="opciones">
             <div class="log-cart">
-                <i class="fas fa-user"></i>
-                <i class="fas fa-shopping-cart"></i>
+                <a href = "registro.html"><i class="fa-solid fa-id-card"></i></a>                
+                <a href="login.html"><i class="fas fa-user"></i></a>
+                <a href = "carrito.html"><i class="fas fa-shopping-cart"></i></a>                
             </div>
             <div class="menu-buscador">
                 <nav class="oculto">
                     <ul>
                         <li>
-                            <a href = "#">Inicio</a>
+                            <a href = "/">Inicio</a>
                         </li>
                     </ul>
                     <ul>
@@ -47,25 +54,22 @@
                     <i id="logo-burguer" class="fas fa-bars visible"></i>
                 </div>
                 <div class="area-buscar">
-                    <input id="buscar" placeholder="Buscar     ">
+                    <input id="buscar" placeholder="Buscar producto">
                     <div class="buscador">
                         <i id="logo-lupa" class="fa-solid fa-magnifying-glass"></i>
-                    </div>
-                    
-                </div>
-                  
+                    </div>                    
+                </div>                  
             </div>
-        </div>
-    
-    </header>
+        </div>       
+    </header> 
     
     <main >
         <section class="secCarrito">
             <div class="carrFondo">
             
-                <h2>Carrito de compras</h2>
+                <h2 class="carrTitulo">Carrito de compras</h2>
 
-                <article>
+                <article class="carrito">
                     
                     <div class="prod">
                         <img src="./images/campera_quehuar_6_dama_imagen1.jpg" alt="campera-dama">
@@ -122,5 +126,51 @@
             </div>
         </section>
     </main>
+    <footer>
+        <div class="footer-mitad izquierda">
+            <section class="legales">
+                <a href="#">POLITICAS DE PRIVACIDAD</a>
+                <a href="#">TERMINOS Y CONDICIONES</a>
+                <a href="#">POLITICAS DE GARANTIA Y DEVOLUCIONES</a>
+            </section>
+            <section class="servicios-cliente">
+                <h5>SERVICIOS AL CLIENTE</h5>
+                <div class="detalle-servicios">
+                    <div>
+                        <a href="#">CENTRO DE AYURA  <i class="fa-solid fa-headset"></i></a>
+                        <a href="#">ENVIOS  <i class="fa-solid fa-truck-fast"></i></a>
+                    </div>
+                    <div>
+                        <a href="#">METODOS DE PAGO  <i class="fa-regular fa-credit-card"></i></a>                
+                        <a href="#">CAMBIOS Y DEVOLUCIONES  <i class="fa-solid fa-shirt"></i></a>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="footer-mitad derecha">
+            <section class="redes">
+                <h5>REDES SOCIALES</h5>
+                <div class="detalle-redes">                
+                        <a href="#"><i class="fab fa-facebook-square"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>                
+                        <a href="#"><i class="fab fa-twitter-square"></i></a>                
+                        <a href="#"><i class="fab fa-pinterest-square"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </section>
+            <section class="contactos">
+                <h5>CONTACTENOS</h5>
+                <div class="detalle-contactos">                
+                        <a href="#"><i class="fa-solid fa-square-phone"></i>   +54 9 11 1234-5678</a>
+                        <a href="#"><i class="fa-solid fa-envelope"></i>   info@patagonic.com.ar</a>                
+                        <a href="#">COMPRA POR WHATSAPP    <i class="fa-brands fa-whatsapp"></i></a> 
+                </div>
+            </section>
+        </div>
+        
+        <section class="copyright">
+            <p>   Copyright © 2023-2027 PATAGONIC</p>            
+        </section> 
+    </footer>           
 </body>
 </html>

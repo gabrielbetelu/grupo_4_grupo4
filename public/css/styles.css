@@ -1,91 +1,153 @@
 body {
-    width: 100vw;
-    margin: 0;
-    font-family: 'Ubuntu' , sans-serif;
+  width: 100%;
+  margin: 0;
+  font-family: 'Ubuntu' , sans-serif;
 }
 
 header {
-    width: 100vw;
-    background-color: #ebebeb;
-    display: flex; 
-    justify-content: space-around; 
- }
+  width: 100%;
+  background-color: #C9F4B0;
+  display: flex; 
+  justify-content: space-between; 
+}
 
 main {
-    width: 100vw;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #7AB35B;
 }
 
 header .opciones {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    padding-right: 5vw;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: flex-end;   
+  padding-right: 2%; 
+  width: 70%;
 }
 
-header .logotipo {
-    
-    width: 50px;
-    height: 50px;
-    padding: 1vw 5vw;
+header .logo-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  padding: 1% 0 1% 0;
+}
+
+header .logo-header .logotipo {    
+  width: 50px;
+  height: 50px;   
+  background-color: #fff;
+  background-image: url("/images/animacion logo 1.jpg");
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  background-position: 0 0;
+  background-repeat: no-repeat 0px -40px;
+  left: 0;
+  animation: movimiento 0.8s steps(11) infinite alternate both; 
+}
+
+@keyframes movimiento {
+  0% {background-image: url("/images/animacion-logo-1.jpg");}
+  10% {background-image: url("/images/animacion-logo-1bis.jpg");}
+  20% {background-image: url("/images/animacion-logo-2.jpg");}
+  30% {background-image: url("/images/animacion-logo-2 bis.jpg");}
+  40% {background-image: url("/images/animacion-logo-3.jpg");}
+  50% {background-image: url("/images/animacion-logo-3bis.jpg");}
+  60% {background-image: url("/images/animacion-logo-4.jpg");}
+  70% {background-image: url("/images/animacion-logo-4bis.jpg");}
+  80% {background-image: url("/images/animacion-logo-5.jpg");}
+  90% {background-image: url("/images/animacion-logo-5bis.jpg");}
+  100% {background-image: url("/images/animacion-logo-6.jpg");}
 }
 
 .oculto {
-    display: none;
+  display: none;
 }
 
 header .opciones .log-cart {
-    display: flex;
-    justify-content: flex-end;
-    padding-left: 5vw;
+  display: flex;
+  flex-direction: row-reverse;
+  width: 60%;
+  justify-content: end;
+  font-size: 20px;      
 }
 
-header .opciones .log-cart i {
-    padding-left: 5vw;
+header .opciones .log-cart a {
+  color: #000; 
+  padding: 0 4%;   
 }
 
+header .opciones .log-cart a:hover {
+  color: #EBB54B;
+}
 
 header .opciones .menu-buscador {
-    display: flex;
-    justify-content: flex-end;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 header .opciones .menu-buscador .burger-menu {
-    padding-right: 4vw;    
+  padding-right: 3%;  
+  padding-left: 3%;  
 }
 
 #logo-burguer {
-    font-size: 22px;
+  font-size: 22px;
 }
 
 header .opciones .menu-buscador .area-buscar {
-    padding-left: 4vw;
+  display: flex;
+  padding-left: 4%;
+  width: 100%;
+  max-width: 250px;
 }
 
 header .opciones .menu-buscador #buscar {
-    height: 15px;
-    font-size: 12px;
-    border: solid 1px #000;
-    border-radius: 3px;
-    font-family: "Font Awesome 6 Free";
-    font-weight: 700;
-    content: "\f002";
+  width: 100%;
+  height: 15px;
+  font-size: 12px;
+  border: solid 1px #000;
+  border-radius: 3px;
+  font-family: Ubuntu;
+  font-weight: 400;
+  content: "\f002";
 }
 
 header .opciones .menu-buscador .area-buscar .buscador {
-    display: inline-block;
-    font-size: 10px;
+  display: inline-block;
+  font-size: 10px;
 }
 
 #logo-lupa {
-    font-size: 12px;
-    padding: 2px;
-    border: solid 1px #000;
-    background-color: #fff;
-    border-radius: 3px;    
+  font-size: 12px;
+  padding: 2px;
+  border: solid 1px #000;
+  background-color: #fff;
+  border-radius: 3px;    
 }
 
-body section h2 {
+
+main {
+  width: 100%;
+  display: flex;
+}
+
+main section {  
+  justify-items: center;  
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ----- carrito -----*/
+
+.carrTitulo {
     text-align: center;
     margin: 0;
     margin-top: 5px;
@@ -106,11 +168,7 @@ body section h2 {
     max-width: 650px;
 }
 
-.carrFondo {
-    background-color: #7FAD58;
-}
-
-article {
+.carrito{
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -198,14 +256,10 @@ body section article h3 {
     text-align: center;
 }
 
-
-
 .fa-solid.fa-trash {
     margin-top: 4.5px;
     margin-right: 5px;
 }
-
-
 
 .fa-solid.fa-reply {
     margin-top: 4.5px;
@@ -225,3 +279,293 @@ body section article h3 {
     color: whitesmoke;
     transition: all 1000ms;
 }
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 6px;
+    color: #000;
+    background-color: #C9F4B0;
+    padding-bottom: 2px;
+  }
+  
+  footer .footer-mitad {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+  }
+  
+  footer .legales, footer .servicios-cliente, footer .redes, footer .contactos, footer .copyright {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 2px;
+    font-size: 6px;
+    color: #000;
+    border-top: solid 1px #000;
+  }
+  
+  footer h5 {
+    margin: 0 0 2px 0;
+    font-size: 6px;
+    color: #000;
+  }
+  
+  footer .legales a {
+    text-decoration: none;
+    margin: 2px 0;
+    font-size: 6px;
+    color: #000;
+  }
+  
+  footer .servicios-cliente div.detalle-servicios{
+    width: 90%;
+    display: flex;    
+    justify-content: space-between;
+    align-items: center;
+    margin: 2px 0;
+    font-size: 6px;
+    color: #000;
+  }
+  
+  footer .servicios-cliente div.detalle-servicios div {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 6px;
+    color: #000;
+  }
+  
+  footer .servicios-cliente a {
+    text-decoration: none;
+    margin: 2px 0;
+    font-size: 6px;
+    color: #000;
+  }
+  
+  footer .redes div {
+    width: 45%;
+    display: flex;    
+    justify-content: space-between;
+    align-items: center;
+    margin: 2px 0;
+    font-size: 8px;    
+  }
+  
+  footer .redes div a i {
+    color: #000;
+  }
+  
+  footer .contactos div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  footer .contactos div a { 
+    text-decoration: none;
+    color: #000;
+    font-size: 6px;
+    margin: 2px 0;
+  }
+  
+  footer .contactos div a i {
+    color: #000;
+  }
+  
+  footer .copyright p {
+    margin-bottom: 4px;
+  }
+  
+  @media (min-width : 481px) {
+    header {
+        justify-content: space-between;
+    }
+  
+    header .logo-header a {
+        width: 100%;
+        max-width: 95px;
+        aspect-ratio: 1/1;
+    }
+  
+    header .logo-header .logotipo {    
+        width: 100%;
+        height: 100%;
+    }
+  
+    header .opciones {
+        width: 75%;
+        flex-direction: row-reverse;
+        align-items: flex-start;
+    }
+  
+    header .opciones .log-cart {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        width: 22%;
+        padding: 2% 0  0 0;    
+    }
+  
+    header .opciones .menu-buscador {
+        width: 68%;  
+        padding: 2% 0  0 0;  
+        flex-direction: column-reverse; 
+        align-items: center; 
+        justify-content: space-between;  
+    }
+    
+    header .opciones .menu-buscador .area-buscar {
+        align-self: flex-start;
+    }
+  
+    .oculto {
+        display: flex;
+    } 
+  
+    header .opciones .menu-buscador nav {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-self: flex-start;
+        margin: 1% 0 1% 0;
+    }
+  
+    header .opciones .menu-buscador nav ul {
+        margin: 0;
+        padding: 1% 0 0 5%;
+    }
+  
+    header .opciones .menu-buscador nav ul li {
+        list-style-type: none;
+        font-size: 14px;        
+    }
+  
+    header .opciones .menu-buscador nav ul li a {
+        color: #000;
+        text-decoration: none;
+    }
+  
+    header .opciones .menu-buscador .burger-menu {
+        display: none;    
+    }
+  
+    footer {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+  
+    footer .footer-mitad {
+        width: 40%;
+    }
+  
+    .izquierda {
+        align-self: flex-start;
+    }
+  
+    .derecha {
+        align-self: flex-start;
+    }
+  
+    footer h5 {        
+        font-size: 8px;
+    }
+    
+    footer .legales a {
+        font-size: 8px;
+    }
+  
+    footer .servicios-cliente div.detalle-servicios{
+        font-size: 8px;
+    }
+      
+    footer .servicios-cliente a {
+        font-size: 8px;
+    }
+  
+    footer .servicios-cliente a i {
+        font-size: 8px;
+    }
+  
+    footer .redes div {
+        width: 60%;
+    }
+  
+    footer .redes div.detalle-redes {
+        font-size: 8px;    
+    }
+  
+    footer .redes div.detalle-redes a {
+        font-size: 16px;    
+    }
+  
+    footer .contactos div.detalle-contactos a i{ 
+        font-size: 14px;
+    }
+  
+    footer .contactos div.detalle-contactos a { 
+        font-size: 8px;
+    }  
+  }
+  
+  @media (min-width : 769px) {
+    header .logotipo {    
+        width: 100px;
+        height: 100px;
+    }
+  
+    .rubros {
+        justify-content: space-between;
+    }
+  
+    header .opciones {
+        padding-top: 1%;
+    }
+  
+    header .opciones .menu-buscador {
+        width: 75%;
+    }
+  
+    header .opciones .menu-buscador .area-buscar {
+        align-self: flex-end;
+        padding-right: 5%;
+    }
+  
+    header .opciones .menu-buscador nav {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 50px;
+        padding-bottom: 5px;
+    }
+  
+    header .opciones .menu-buscador nav ul li {
+        font-size: 17px;        
+    }
+  
+    footer .footer-mitad {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 40%;
+    }
+  
+    footer .legales, footer .servicios-cliente, footer .redes , footer .contactos {
+        width: 40%;
+    }
+  
+    .derecha {
+        align-self: flex-start;
+    }
+  
+    footer .redes div {
+        width: 100%;
+    }
+  
+  }
