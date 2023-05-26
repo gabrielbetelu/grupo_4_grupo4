@@ -1,0 +1,773 @@
+/* ---------------------------------------------------------
+Paleta de colores:  verde claro   #C9F4B0
+                    verde medio claro  #7AB35B
+                    verde medio oscuro   #7FAD58
+                    verde oscuro   #497330
+                    ocre    #EBB54B
+
+
+-----------------------------------------------------------*/
+
+body {
+    width: 100%;
+    margin: 0;
+    font-family: 'Ubuntu' , sans-serif;
+}
+
+header {
+    width: 100%;
+    background-color: #C9F4B0;
+    display: flex; 
+    justify-content: space-between; 
+ }
+
+main {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #7AB35B;
+}
+
+header .opciones {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: flex-end;   
+    padding-right: 2%; 
+    width: 70%;
+}
+
+header .logo-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    padding: 1% 0 1% 0;
+}
+
+header .logo-header .logotipo {    
+    width: 50px;
+    height: 50px;   
+    background-color: #fff;
+    background-image: url("/images/animacion logo 1.jpg");
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    background-position: 0 0;
+    background-repeat: no-repeat 0px -40px;
+    left: 0;
+    animation: movimiento 0.8s steps(11) infinite alternate both; 
+}
+
+@keyframes movimiento {
+    0% {background-image: url("/images/animacion-logo-1.jpg");}
+    10% {background-image: url("/images/animacion-logo-1bis.jpg");}
+    20% {background-image: url("/images/animacion-logo-2.jpg");}
+    30% {background-image: url("/images/animacion-logo-2 bis.jpg");}
+    40% {background-image: url("/images/animacion-logo-3.jpg");}
+    50% {background-image: url("/images/animacion-logo-3bis.jpg");}
+    60% {background-image: url("/images/animacion-logo-4.jpg");}
+    70% {background-image: url("/images/animacion-logo-4bis.jpg");}
+    80% {background-image: url("/images/animacion-logo-5.jpg");}
+    90% {background-image: url("/images/animacion-logo-5bis.jpg");}
+    100% {background-image: url("/images/animacion-logo-6.jpg");}
+}
+
+
+.oculto {
+    display: none;
+}
+
+header .opciones .log-cart {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 60%;
+    justify-content: end;
+    font-size: 20px;      
+}
+
+header .opciones .log-cart a {
+    color: #000; 
+    padding: 0 4%;   
+}
+
+header .opciones .log-cart a:hover {
+    color: #EBB54B;
+}
+
+
+header .opciones .menu-buscador {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+header .opciones .menu-buscador .burger-menu {
+    padding-right: 3%;  
+    padding-left: 3%;  
+}
+
+#logo-burguer {
+    font-size: 22px;
+}
+
+header .opciones .menu-buscador .area-buscar {
+    display: flex;
+    padding-left: 4%;
+    width: 100%;
+    max-width: 250px;
+}
+
+header .opciones .menu-buscador #buscar {
+    width: 100%;
+    height: 15px;
+    font-size: 12px;
+    border: solid 1px #000;
+    border-radius: 3px;
+    font-family: Ubuntu;
+    font-weight: 400;
+    content: "\f002";
+}
+
+header .opciones .menu-buscador .area-buscar .buscador {
+    display: inline-block;
+    font-size: 10px;
+}
+
+#logo-lupa {
+    font-size: 12px;
+    padding: 2px;
+    border: solid 1px #000;
+    background-color: #fff;
+    border-radius: 3px;    
+}
+
+
+main {
+    width: 100%;
+    display: flex;
+}
+
+main section {  
+    justify-items: center;  
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ---------------seccion carrousel -----------------*/
+
+main section .carrousel {
+    width: 100%;
+    height: 35vw;
+    border: solid 1px #000;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+main section .carrousel img {
+    width: 33.33%;
+}
+
+main section .controles {
+    display: flex;
+    justify-content: space-around;
+    border: solid 1px #000;
+    width: 100%;
+}
+
+main section .atras-adelante {
+    font-size: 24px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+main section .circulo {
+    width: 1.2vw;
+    height: 1.2vw;
+    border: solid 2px #000;
+    border-radius: 10vw;
+    margin: auto 10px;
+}
+
+main section .enfocado {
+    background-color: #000;
+}
+
+/*-----------------------------------------------------*/
+
+/*------------------------galeria----------------------*/
+
+main section .posicion {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;    
+}
+
+.rubros, .generoEdad {
+    width: 98%;
+/*    background-image: url("/images/trekking.jpg"); */
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;      
+}
+ 
+.generoEdad {
+    padding-bottom: 0;
+}
+
+.camperasYBuzos, .pantalonesYShorts, .zapatillasYBotas, .carpasYBolsas, .mochilasYBolsos, .accesorios  {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 50%; 
+    padding: 4% 0;  
+    position: relative; 
+}
+
+.camperasYBuzos h4,.camperasYBuzos h4, .pantalonesYShorts h4, .zapatillasYBotas h4, .carpasYBolsas h4, .mochilasYBolsos h4, .accesorios h4  {
+    position: absolute;
+    top: 35%;
+    text-align: center;
+    max-width: 80%;
+    color: #fff;
+    font-weight: 500; 
+    font-size: 12px;    
+}
+
+.camperasYBuzos img, .pantalonesYShorts img, .zapatillasYBotas img, .carpasYBolsas img, .mochilasYBolsos img, .accesorios img {    
+    width: 100%;
+    height: 40vw;  
+    padding: 0;
+    box-shadow: 1vw 1vw 1vw #000;     
+}
+
+.hombre, .mujer, .ninios {
+    display: flex;
+    justify-content: center;
+    width: 30vw; 
+    padding: 4vw 0; 
+    position: relative;  
+}
+
+.hombre img, .mujer img, .ninios img {
+    width: 100%;
+    height: 25vw;  
+    padding: 0;
+    box-shadow: 1vw 1vw 1vw #000;
+}
+
+.hombre h4, .mujer h4, .ninios h4 {
+    position: absolute;
+    top: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/*-----------------------------------------------*/
+
+/* -------------------FOOTER---------------------*/
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 6px;
+    color: #000;
+    background-color: #C9F4B0;
+    padding-bottom: 2px;
+}
+
+footer .footer-mitad {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+}
+
+footer .legales, footer .servicios-cliente, footer .redes, footer .contactos, footer .copyright {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 2px;
+    font-size: 6px;
+    color: #000;
+    border-top: solid 1px #000;
+}
+
+footer h5 {
+    margin: 0 0 2px 0;
+    font-size: 6px;
+    color: #000;
+}
+
+footer .legales a {
+    text-decoration: none;
+    margin: 2px 0;
+    font-size: 6px;
+    color: #000;
+}
+
+footer .servicios-cliente div.detalle-servicios{
+    width: 90%;
+    display: flex;    
+    justify-content: space-between;
+    align-items: center;
+    margin: 2px 0;
+    font-size: 6px;
+    color: #000;
+}
+
+footer .servicios-cliente div.detalle-servicios div {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 6px;
+    color: #000;
+}
+
+footer .servicios-cliente a {
+    text-decoration: none;
+    margin: 2px 0;
+    font-size: 6px;
+    color: #000;
+}
+
+footer .redes div {
+    width: 45%;
+    display: flex;    
+    justify-content: space-between;
+    align-items: center;
+    margin: 2px 0;
+    font-size: 8px;    
+}
+
+footer .redes div a i {
+    color: #000;
+}
+
+footer .contactos div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer .contactos div a { 
+    text-decoration: none;
+    color: #000;
+    font-size: 6px;
+    margin: 2px 0;
+}
+
+footer .contactos div a i {
+    color: #000;
+}
+
+footer .copyright p {
+    margin-bottom: 4px;
+}
+
+/*---------------------------------------------------*/
+
+/* -------------- productos.html --------------------*/
+
+.productos {
+    width: 95%;  
+    margin: auto;      
+}
+
+.productos .productos-rubros {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 5%;
+}
+
+.productos .productos-rubros div {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.productos .productos-rubros div a img{
+    width: 95%;
+}
+
+
+
+/* ------------------------------------------------*/
+
+
+
+/* -------------- producto.html --------------------*/
+
+.producto {
+    width: 95%;  
+    margin: auto;      
+}
+
+.producto .producto-elejido {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 5%;
+}
+
+.producto .producto-elejido div {
+    width: 85%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+
+.producto .producto-elejido div .producto-imagenes {
+    margin: 0 0 20px 0;
+}
+
+.producto .producto-elejido h3 {
+    font-size: 30px;
+    margin: 0;
+}
+
+.producto .producto-elejido p {
+    width: 70%;
+    text-align: center;
+    margin: 0 0 20px 0;
+}
+
+.producto .producto-elejido div img{
+    width: 33%;
+}
+
+.producto .producto-elejido .producto-info {
+    width: 50%;
+    background-color: #C9F4B0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.producto .producto-elejido .producto-boton {
+    width: 70%;
+    height: 40px;
+    background-color: rgb(18, 94, 18);
+    color: whitesmoke;
+    margin-bottom: 16px;
+    border: none;
+}
+
+article div .producto-info button.producto-boton:hover {
+    background-color: #7FAD58;
+}
+   
+
+.producto .producto-elejido .producto-descripcion {
+    background-color: #EBB54B;
+    width: 90%;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.producto .producto-elejido .producto-descripcion h3 {
+    font-size: 20px;
+}
+
+.producto .producto-elejido .producto-descripcion ul {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+}
+
+.producto .producto-elejido .producto-descripcion ul li {  
+    list-style: none;
+    width: 42%;
+    min-width: 110px;
+}
+
+.whatsapp-div {
+    display: flex;
+    justify-content: center;
+    align-self: flex-end;
+    align-items: center;
+    background-color: #fff;
+    width: 50px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+}
+
+.whatsapp-logo {
+    color: green;
+    font-size: 35px;
+}
+
+/* ------------------------------------------------*/
+
+@media (min-width : 481px) {
+    header {
+        justify-content: space-between;
+    }
+
+    header .logo-header a {
+        width: 100%;
+        max-width: 95px;
+        aspect-ratio: 1/1;
+    }
+
+    header .logo-header .logotipo {    
+        width: 100%;
+        height: 100%;
+    }
+
+    header .opciones {
+        width: 75%;
+        flex-direction: row-reverse;
+        align-items: flex-start;
+    }
+
+    header .opciones .log-cart {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        width: 22%;
+        padding: 2% 0  0 0;    
+    }
+
+    header .opciones .menu-buscador {
+        width: 68%;  
+        padding: 2% 0  0 0;  
+        flex-direction: column-reverse; 
+        align-items: center; 
+        justify-content: space-between;  
+    }
+    
+    header .opciones .menu-buscador .area-buscar {
+        align-self: flex-start;
+    }
+
+    .oculto {
+        display: flex;
+    } 
+
+    header .opciones .menu-buscador nav {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-self: flex-start;
+        margin: 1% 0 1% 0;
+    }
+
+    header .opciones .menu-buscador nav ul {
+        margin: 0;
+        padding: 1% 0 0 5%;
+    }
+
+    header .opciones .menu-buscador nav ul li {
+        list-style-type: none;
+        font-size: 14px;        
+    }
+
+    header .opciones .menu-buscador nav ul li a {
+        color: #000;
+        text-decoration: none;
+    }
+
+    header .opciones .menu-buscador .burger-menu {
+        display: none;    
+    }
+
+    main section .carrousel {
+        max-height: 220px;
+        justify-content: center;
+    }
+
+    .camperasYBuzos, .pantalonesYShorts, .zapatillasYBotas, .carpasYBolsas, .mochilasYBolsos, .accesorios  {
+        width: 25%;  
+    }
+
+    .camperasYBuzos img, .pantalonesYShorts img, .zapatillasYBotas img, .carpasYBolsas img, .mochilasYBolsos img, .accesorios img {    
+        height: 20vw;           
+    }
+
+    .camperasYBuzos h4,.camperasYBuzos h4, .pantalonesYShorts h4, .zapatillasYBotas h4, .carpasYBolsas h4, .mochilasYBolsos h4, .accesorios h4  {
+        top: 40%;
+    }
+
+    .hombre img, .mujer img, .ninios img {        
+        height: 70%;          
+    }
+
+    .generoEdad {
+        padding-bottom: 0;
+    }
+    
+    .hombre, .mujer, .ninios {
+        width: 22%; 
+    } 
+
+    .hombre h4, .mujer h4, .ninios h4 {
+        top: 30%;
+    }
+
+    footer {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    footer .footer-mitad {
+        width: 40%;
+    }
+
+    .izquierda {
+        align-self: flex-start;
+    }
+
+    .derecha {
+        align-self: flex-start;
+    }
+
+    footer h5 {        
+        font-size: 8px;
+    }
+    
+    footer .legales a {
+        font-size: 8px;
+    }
+
+    footer .servicios-cliente div.detalle-servicios{
+        font-size: 8px;
+    }
+      
+    footer .servicios-cliente a {
+        font-size: 8px;
+    }
+
+    footer .servicios-cliente a i {
+        font-size: 8px;
+    }
+
+    footer .redes div {
+        width: 60%;
+    }
+
+    footer .redes div.detalle-redes {
+        font-size: 8px;    
+    }
+
+    footer .redes div.detalle-redes a {
+        font-size: 16px;    
+    }
+
+    footer .contactos div.detalle-contactos a i{ 
+        font-size: 14px;
+    }
+
+    footer .contactos div.detalle-contactos a { 
+        font-size: 8px;
+    }
+    
+    
+    
+}
+
+@media (min-width : 769px) {
+    header .logotipo {    
+        width: 100px;
+        height: 100px;
+    }
+
+    .rubros {
+        justify-content: space-between;
+    }
+
+    header .opciones {
+        padding-top: 1%;
+    }
+
+    header .opciones .menu-buscador {
+        width: 75%;
+    }
+
+    header .opciones .menu-buscador .area-buscar {
+        align-self: flex-end;
+        padding-right: 5%;
+    }
+
+    header .opciones .menu-buscador nav {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 50px;
+        padding-bottom: 5px;
+    }
+
+    header .opciones .menu-buscador nav ul li {
+        font-size: 17px;        
+    }
+
+    .camperasYBuzos, .pantalonesYShorts, .zapatillasYBotas, .carpasYBolsas, .mochilasYBolsos, .accesorios  {
+        width: 15%;  
+    }
+
+    .camperasYBuzos img, .pantalonesYShorts img, .zapatillasYBotas img, .carpasYBolsas img, .mochilasYBolsos img, .accesorios img {    
+        height: 100%;           
+    }
+
+    .camperasYBuzos h4,.camperasYBuzos h4, .pantalonesYShorts h4, .zapatillasYBotas h4, .carpasYBolsas h4, .mochilasYBolsos h4, .accesorios h4  {
+        top: 30%;   
+    }    
+
+    .hombre img, .mujer img, .ninios img {        
+        height: 80%;          
+    }
+
+    .hombre, .mujer, .ninios {
+        width: 18%; 
+    }
+
+    .hombre h4, .mujer h4, .ninios h4 {
+        top: 35%;
+    }
+
+    footer .footer-mitad {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 40%;
+    }
+
+    footer .legales, footer .servicios-cliente, footer .redes , footer .contactos {
+        width: 40%;
+    }
+
+    .derecha {
+        align-self: flex-start;
+    }
+
+    footer .redes div {
+        width: 100%;
+    }
+
+}
+
+
+
