@@ -19,9 +19,12 @@ Inspiración, fragmentos de código, etc.
 * [Autos Pilar](https://https://autospilar.com)
 * [Runner](https://www.tradeinn.com/runnerinn/es)
 
-#### Archivo Wireframe(pdf) y TRELLO
+#### Archivos Wireframe(pdf) y TRELLO
 * [WIREFRAME](https://github.com/gabrielbetelu/dh_grupo4_archivos/blob/203e61af96d0ee37e8fcf580f64457701a350e80/Wireframe.pdf)
 * [TRELLO](https://trello.com/b/fTQanW8j/tablero-de-tareas-sprint1-grupo-4)
+
+* [WIREFRAME (correciones del sprint 1)](https://github.com/gabrielbetelu/dh_grupo4_archivos.git)
+
 
 
 #### Equipo detrás del proyecto
