@@ -16,5 +16,5 @@
 **###Qué deberíamos hacer menos**
 - Reuniones un poco mas cortas.
 
-*## Conclusiones del Sprint 1*
+***## Conclusiones del Sprint 1***
 - Debemos continuar con este ritmo de trabajo, disminuir el tiempo de reuniones y mantenernos diariamente comunicados, respecto de avances, cambios o cualquier tipo de inconveniente.
