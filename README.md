@@ -1,4 +1,5 @@
 # PATAGONIC
+![Logo](public\images\Logo-Patagonic-sin-fondo.jpg "Indumentaria de montaña") 
 
 *Bienvenidos a nuestra tienda online Patagonic.*
 
