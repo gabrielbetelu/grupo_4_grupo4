@@ -83,12 +83,7 @@ body {
     font-family: 'Ubuntu' , sans-serif;
 }
 
-header {
-    width: 100%;
-    background-color: #C9F4B0;
-    display: flex; 
-    justify-content: space-between; 
- }
+
 
 main {
     width: 100%;
@@ -96,6 +91,15 @@ main {
     flex-wrap: wrap;
     justify-content: center;
     background-color: #7AB35B;
+}
+
+/* ----------------------HEADER--------------------------*/
+
+header {
+    width: 100%;
+    background-color: #C9F4B0;
+    display: flex; 
+    justify-content: space-between; 
 }
 
 header .opciones {
@@ -225,6 +229,8 @@ main section {
     justify-content: center;
     flex-wrap: wrap;
 }
+
+/*-----------------------------------------------------*/
 
 /* ---------------seccion carrousel -----------------*/
 
