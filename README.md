@@ -24,7 +24,9 @@ Inspiración, fragmentos de código, etc.
 * [WIREFRAME](https://github.com/gabrielbetelu/dh_grupo4_archivos/blob/203e61af96d0ee37e8fcf580f64457701a350e80/Wireframe.pdf)
 * [TRELLO](https://trello.com/b/fTQanW8j/tablero-de-tareas-sprint1-grupo-4)
 
+
 * [WIREFRAME (correciones del sprint 1)](https://github.com/gabrielbetelu/dh_grupo4_archivos.git)
+* [TRELLO] (https://trello.com/invite/b/9azon182/ATTI41d6af55005eebc1711a4a4866568d907B97F1BF/tablero-de-tareas-sprint2-grupo-4) 
 
 
 
