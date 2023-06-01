@@ -1,5 +1,5 @@
 # PATAGONIC
-![Logo](https://ibb.co/LtJgwD8) 
+![Logo](/public/images/Logo_Patagonic_sin_fondo_baja_resolucion.jpg) 
 
 *Bienvenidos a nuestra tienda online Patagonic.*
 
