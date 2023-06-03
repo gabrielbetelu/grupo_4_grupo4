@@ -61,3 +61,9 @@ app.get("/registro.html", (req, res) => {
     res.sendFile(path.join(__dirname, '/views/registro.html'))
 })
 
+app.get("/edicion.html", (req, res) => {
+    res.sendFile(path.join(__dirname, '/views/edicion.html'))
+})
+
+
+
