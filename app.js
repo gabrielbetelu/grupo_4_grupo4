@@ -32,6 +32,10 @@ app.get("/producto.html", (req, res) => {
     res.sendFile(path.join(__dirname, '/views/producto.html'))
 })
 
+app.get("/edicion.html", (req, res) => {
+    res.sendFile(path.join(__dirname, '/views/edicion.html'))
+})
+
 
 
 
