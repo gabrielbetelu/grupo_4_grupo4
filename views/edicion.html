@@ -28,10 +28,7 @@
             <div class="imagenesEdicion">
                 <p>Imagenes del producto</p>
                 <input type="file" name="img" accept=".png, .jpg, .jpeg" multiple>
-            </div>
-            <div>
-                <input type="text" name="categoria"  placeholder=" Categoria">
-            </div>            
+            </div>           
             <div class="categoria">
                 <div>
                     <input type="checkbox" name="abrigos" value="abrigos" id="abrigos">
@@ -71,10 +68,10 @@
             </div>           
             <div class="botonesEdicion">
                 <div>
-                    <button class="botones botonNuevo" type="submit" name="nuevo" value="nuevo">Nuevo</button>
+                    <button class="botones botonNuevo" type="reset" name="nuevo" value="nuevo">Nuevo</button>
                 </div>
                 <div>
-                    <button class="botones botonGuardar" type="button" name="guardar" value="Guardar">Guardar</button>
+                    <button class="botones botonGuardar" type="submit" name="guardar" value="Guardar">Guardar</button>
                 </div>
                 <div>
                     <button class="botones botonBuscar" type="button" name="buscar" value="buscar">Buscar</button>
@@ -83,10 +80,9 @@
                     <button class="botones botonEliminar" type="reset" name="eliminar" value="eliminar">Eliminar</button>
                 </div>
                 <div>
-                    <button class="botones botonCerrar" type="button" name="cerrar" value="cerrar">Cerrar</button>
+                    <a href="/home.html"><button class="botones botonCerrar" type="button" name="cerrar" value="cerrar">Cerrar</button></a>
                 </div> 
-            </div>
-               
+            </div>               
         </form>
     </main>
 </body>
