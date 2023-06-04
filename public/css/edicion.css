@@ -1,8 +1,8 @@
 .mainEdicion {
     padding-bottom: 20px;
-  }
-  
-  .edicion-form {
+}
+
+.edicion-form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -15,25 +15,25 @@
     border-top: 4px solid #7FAD58;
     color: whitesmoke;
     max-width:650px;
-  }
- 
-  .edicion-form h5 {
+}
+
+.edicion-form h5 {
     width: 90%;
     margin: 0;
     text-align: center;
     height: 40px;
     margin-bottom: 30px;
     border-bottom: 1px solid;
-    font-size: 20px;
+    font-size: 17px;
     font-style: oblique;
-  }
+}
 
-  .mainEdicion .edicion-form div {
+.mainEdicion .edicion-form div {
     width: 90%;
     text-align: center;
-  }
- 
-  .mainEdicion .edicion-form input, .mainEdicion .edicion-form textarea {
+}
+
+.mainEdicion .edicion-form input, .mainEdicion .edicion-form textarea {
     width: 100%;
     border: 1px solid grey;
     margin-bottom: 15px;
@@ -42,34 +42,98 @@
     font-size: 14px;
     font-weight: lighter;
     color: #c79430;
-  }
+}
 
-  .mainEdicion .edicion-form .botones {
+.mainEdicion .edicion-form .imagenesEdicion {
+    border-bottom: 1px solid;
+    margin-bottom: 25px;
+}
+.mainEdicion .edicion-form p {
+    height: 40px;
+    font-size: 17px;
+    font-style: oblique;
+    text-align: center;
+    border-top: 1px solid;
+    margin: 0;
+    padding-top: 16px;
+}
+
+.mainEdicion .edicion-form input[type="file"] {
+    width: 100%;
+    border: 1px solid grey;
+    margin-bottom: 15px;
+    padding: 11px 0;
+    background: #232c1c;
+    font-size: 14px;
+    font-weight: lighter;
+    color: #808080;
+}
+
+.mainEdicion .edicion-form input[type="number"] {
+    width: 25%;
+    min-width: 150px;
+}
+
+
+
+.mainEdicion .edicion-form .botonesEdicion {
     width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0px;
+    border-top: 1px solid;
+}
+
+.mainEdicion .edicion-form .botonesEdicion div {
+    width: 90%;
+    margin-top: 16px;
+}
+
+
+.mainEdicion .edicion-form .botonesEdicion .botones {
+    width: 100%;
     height: 40px;
     background-color: rgb(18, 94, 18);
     color: whitesmoke;
-    margin-bottom: 16px;
+    margin: 0;
+    padding: 0;
     border: none;
-  }
+}
 
-  .mainEdicion .edicion-form .botones:hover{
+.mainEdicion .edicion-form .botonesEdicion .botones:hover{
     background-color: #7FAD58;
-  }
-  
-  .login-form p {
+}
+
+.login-form p {
     height: 40px;
     text-align: center;
     border-bottom: 1px solid;
-  }
+}
 
-  .mainEdicion .edicion-form .primerBoton {
-    margin-top: 0px;
-    border-top: 1px solid;
-  }
 
-  .mainEdicion .edicion-form .botonNuevo {
-    margin-top: 30px;
-  }
+@media (min-width : 481px) {
+    .edicion-form h5 {
+        font-size: 20px;
+    }
+
+    .mainEdicion .edicion-form p {
+        font-size: 20px;
+    }
+
+    .mainEdicion .edicion-form .botonesEdicion {
+        width: 90%;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-top: 0px;
+        border-top: 1px solid;
+        }
+
+    .mainEdicion .edicion-form .botonesEdicion div {
+        width: 18%;
+        }    
+
+}
 
 
