@@ -17,20 +17,20 @@
         <form class="edicion-form" action="" method="GET" >
             <h5>Edición y creación de producto</h5>
             <div>
-                <input type="text" name="codigo" value="codigo" placeholder="Codigo de producto">
+                <input type="text" name="codigo" placeholder="Codigo de producto">
             </div>
             <div>
-                <input type="text" name="nombre" value="nombre" placeholder="Nombre del producto">
+                <input type="text" name="nombre" placeholder="Nombre del producto">
             </div>
             <div>
                 <textarea name="textarea" placeholder="Descipcion del producto"></textarea>
             </div>
-            <div>
-                <p>Imagen del producto</p>
-                <input type="file" name="img" value="img" accept="image/png,.jpg">
+            <div class="imagenesEdicion">
+                <p>Imagenes del producto</p>
+                <input type="file" name="img" accept=".png, .jpg, .jpeg" multiple>
             </div>
             <div>
-                <input type="text" name="categoria" value="categoria" placeholder=" Categoria">
+                <input type="text" name="categoria"  placeholder=" Categoria">
             </div>            
             <div class="categoria">
                 <div>
@@ -69,21 +69,24 @@
             <div>
                 <input type="number" name="precio" value="precio" placeholder="Precio del producto">
             </div>           
-            <div>
-                <button class="botones botonNuevo" type="submit" name="nuevo" value="nuevo">Nuevo</button>
+            <div class="botonesEdicion">
+                <div>
+                    <button class="botones botonNuevo" type="submit" name="nuevo" value="nuevo">Nuevo</button>
+                </div>
+                <div>
+                    <button class="botones botonGuardar" type="button" name="guardar" value="Guardar">Guardar</button>
+                </div>
+                <div>
+                    <button class="botones botonBuscar" type="button" name="buscar" value="buscar">Buscar</button>
+                </div>
+                <div>
+                    <button class="botones botonEliminar" type="reset" name="eliminar" value="eliminar">Eliminar</button>
+                </div>
+                <div>
+                    <button class="botones botonCerrar" type="button" name="cerrar" value="cerrar">Cerrar</button>
+                </div> 
             </div>
-            <div>
-                <button class="botones botonGuardar" type="button" name="guardar" value="Guardar">Guardar</button>
-            </div>
-            <div>
-                <button class="botones botonBuscar" type="button" name="buscar" value="buscar">Buscar</button>
-            </div>
-            <div>
-                <button class="botones botonEliminar" type="reset" name="eliminar" value="eliminar">Eliminar</button>
-            </div>
-            <div>
-                <button class="botones botonCerrar" type="button" name="cerrar" value="cerrar">Cerrar</button>
-            </div>    
+               
         </form>
     </main>
 </body>
