@@ -46,9 +46,9 @@
 
 .mainEdicion .edicion-form .imagenesEdicion {
     border-bottom: 1px solid;
-    margin-bottom: 25px;
 }
-.mainEdicion .edicion-form p {
+
+.mainEdicion .edicion-form .imagenesEdicion p {
     height: 40px;
     font-size: 17px;
     font-style: oblique;
@@ -56,6 +56,41 @@
     border-top: 1px solid;
     margin: 0;
     padding-top: 16px;
+}
+
+.mainEdicion .edicion-form .categoriaEdicion {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    border-bottom: 1px solid;
+}
+
+.mainEdicion .edicion-form .categoriaEdicion p {
+    width: 100%;
+    font-size: 17px;
+    font-style: oblique;
+    text-align: center;
+}
+
+.mainEdicion .edicion-form .categoriaEdicion .checkboxEdicion {
+    display: flex;    
+    width: 33.33%;
+    min-width: 110px;
+}
+
+.mainEdicion .edicion-form .categoriaEdicion .checkboxEdicion label {
+    font-size: 14px;
+    text-align: left;
+}
+
+.mainEdicion .edicion-form .categoriaEdicion .checkboxEdicion input[type="checkbox"] {
+    width: 25px;
+    text-align: left;
+}
+
+.mainEdicion .edicion-form .precioEdicion {
+    padding-top: 20px;
 }
 
 .mainEdicion .edicion-form input[type="file"] {
@@ -128,11 +163,20 @@
         flex-wrap: wrap;
         margin-top: 0px;
         border-top: 1px solid;
-        }
+    }
 
     .mainEdicion .edicion-form .botonesEdicion div {
         width: 18%;
-        }    
+    }   
+    
+    .mainEdicion .edicion-form .imagenesEdicion p {
+        font-size: 20px;
+    }
+    
+    .mainEdicion .edicion-form .categoriaEdicion p {
+        font-size: 20px;
+    }
+    
 
 }
 
