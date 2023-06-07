@@ -160,7 +160,10 @@ header .opciones .log-cart {
     flex-direction: row-reverse;
     width: 60%;
     justify-content: end;
-    font-size: 20px;      
+    font-size: 20px;
+/* ******************************************* */
+    position: relative; 
+/* ******************************************* */     
 }
 
 header .opciones .log-cart a {
@@ -171,6 +174,28 @@ header .opciones .log-cart a {
 header .opciones .log-cart a:hover {
     color: #EBB54B;
 }
+
+/* ******************************************* */
+header .opciones .log-cart #productosCargaEdicion {
+    display: flex;
+    
+    position: absolute;
+    left: -60px;
+    font-size: 20px;
+   
+}
+
+header .opciones .log-cart #productosCargaEdicion i.fa-square-plus {
+    padding-top: 3px;
+}
+
+header .opciones .log-cart #productosCargaEdicion i{
+    color: #EBB54B;
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+/* ******************************************* */
 
 
 header .opciones .menu-buscador {
@@ -627,6 +652,17 @@ article div .producto-info button.producto-boton:hover {
         width: 22%;
         padding: 2% 0  0 0;    
     }
+
+    /* ******************************************* */
+    header .opciones .log-cart #productosCargaEdicion {
+        bottom: -70px;
+        left: unset;
+        right: 5px;
+    }
+
+    /* ******************************************* */
+
+
 
     header .opciones .menu-buscador {
         width: 68%;  
