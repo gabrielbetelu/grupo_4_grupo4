@@ -4,6 +4,8 @@
 
 @import 'edicion.css';
 
+@import 'creacion.css';
+
 /* -------------------login-----------*/
 .mainLogin {
   padding-bottom: 20px;
