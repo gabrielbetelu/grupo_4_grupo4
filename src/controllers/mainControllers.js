@@ -22,5 +22,9 @@ module.exports = {
     edicion: (req, res) => {
         return res.render('edicion')
         
+    },
+    creacion: (req, res) => {
+        return res.render('creacion')
+        
     }
-}
+};
