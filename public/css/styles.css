@@ -416,15 +416,16 @@ main section .posicion {
 /* -------------- producto.html --------------------*/
 
 .producto {
-    width: 95%;  
-    margin: auto;      
+    width: 100%;  
+    margin: auto;   
+    background-color: #7FAD58;   
 }
 
 .producto .producto-elejido {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: center;
     margin-top: 5%;
 }
 
@@ -442,25 +443,29 @@ main section .posicion {
 
 .producto .producto-elejido h3 {
     font-size: 30px;
+    font-style: oblique;
+    color: white;
     margin: 0;
 }
 
 .producto .producto-elejido p {
-    width: 70%;
-    text-align: center;
+    width: 100%;
     margin: 0 0 20px 0;
+    justify-self: center;
 }
 
 .producto .producto-elejido div img{
     width: 33%;
+    box-shadow: 10px 20px 40px #000;
 }
 
 .producto .producto-elejido .producto-info {
-    width: 50%;
+    width: 51%;
     background-color: #C9F4B0;
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-shadow: 10px 7px 10px #000;
 }
 
 .producto .producto-elejido .producto-boton {
@@ -470,22 +475,26 @@ main section .posicion {
     color: whitesmoke;
     margin-bottom: 16px;
     border: none;
+    font-size: 16px;
 }
 
 article div .producto-info button.producto-boton:hover {
-    background-color: #7FAD58;
+    background-color: #c79430;
 }
    
 
 .producto .producto-elejido .producto-descripcion {
-    background-color: #EBB54B;
-    width: 90%;
+    background-color: #497330;
+    width: 51%;
     text-align: center;
     margin: 10px 0;
+    box-shadow: 10px 7px 10px #000;
 }
 
 .producto .producto-elejido .producto-descripcion h3 {
     font-size: 20px;
+    color: whitesmoke;
+    font-style: oblique;
 }
 
 .producto .producto-elejido .producto-descripcion ul {
@@ -500,6 +509,7 @@ article div .producto-info button.producto-boton:hover {
     list-style: none;
     width: 42%;
     min-width: 110px;
+    color: whitesmoke;
 }
 
 .whatsapp-div {
