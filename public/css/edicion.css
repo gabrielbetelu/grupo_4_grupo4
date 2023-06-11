@@ -4,7 +4,34 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+.buscaEdit {
+    position: relative;
+    
+}
+
+.buscaEdit input{
+    margin-top: 5px;
+}
+.buscadorEdicion {
+    position: absolute;
+    background-color: #232c1c;
+    right: 25px;
+    bottom: 22px;
+
+}
+
+#lupa-edicion {
+    background-color: #232c1c;
+    color: #c79430;
+    font-size: 20px;
+
+
+} 
 
 .edicion-form {
     display: flex;
