@@ -418,7 +418,8 @@ main section .posicion {
 .producto {
     width: 100%;  
     margin: auto;   
-    background-color: #7FAD58;   
+    background-color: #7FAD58;  
+    padding-bottom: 15px; 
 }
 
 .producto .producto-elejido {
@@ -443,7 +444,7 @@ main section .posicion {
 }
 
 .producto .producto-elejido div .producto-imagenes {
-    margin: 0 0 20px 0;
+    margin: 0 0 25px 0;
 }
 
 .producto .producto-elejido h3 {
@@ -456,7 +457,7 @@ main section .posicion {
 .producto .producto-elejido p {
     width: 100%;
     margin: 0 0 20px 0;
-    justify-self: center;
+    text-align: center;
 }
 
 .producto .producto-elejido div img{
@@ -471,6 +472,7 @@ main section .posicion {
     flex-direction: column;
     align-items: center;
     box-shadow: 10px 7px 10px #000;
+    margin-bottom: 10px;
 }
 
 .producto .producto-elejido .producto-boton {
