@@ -1,3 +1,10 @@
+const fs = require ('fs');
+const path = require ('path');
+const rutaJSON = path.resolve('./src/database/products.json');
+const products = JSON.parse (fs.readFileSync(rutaJSON));
+
+
+
 module.exports = {
     home : (req, res) => {
         return res.render('home')
@@ -26,5 +33,23 @@ module.exports = {
     creacion: (req, res) => {
         return res.render('./products/creacion')
         
+    },
+    processCreate: (req, res) => {
+        let productoNuevo = { 
+            'id': producto.length +1, 
+            'nombre': req.body.name,
+            'descripcion': req.body.desc,
+            'img': req.file.filename,
+            'abrigo': req.body.abrigos,
+            'pantalon': req.body.pantalones,
+            'calzado': req.body.calzado,
+            'camping': req.body.camping,
+            'mochilas': req.body.mochilas,
+            'mujer': req.body.mujer,
+            'hombre': req.body.hombre,
+            'ninio': req.body.niño, 
+            'precio': req.body.precio,
+            'borrado': false
+        }
     }
 };
