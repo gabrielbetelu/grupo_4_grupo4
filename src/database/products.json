@@ -1,0 +1,65 @@
+ [
+  {
+    "id": 1,
+    "nombre": "Camiseta",
+    "descripción": "Una camiseta de algodón",
+    "imagen": "camiseta.jpg",
+    "abrigo": true,
+    "pantalon": false,
+    "calzado": false,
+    "camping": false,
+    "mochilas": false,
+    "mujer": true,
+    "hombre": false,
+    "ninio": false, 
+    "precio": 20.99
+  },
+  {
+    "id": 2,
+    "nombre": "Zapatos",
+    "descripción": "zapatillas de trekking",
+    "imagen": "zapatos.jpg",
+    "abrigo": false,
+    "pantalon": false,
+    "calzado": true,
+    "camping": false,
+    "mochilas": false,
+    "mujer": true,
+    "hombre": true,
+    "ninio": false,
+    "precio": 59.99
+  },
+  {
+    "id": 3,
+    "nombre": "Bolso",
+    "descripción": "Un bolso de escalada",
+    "imagen": "bolso.jpg",
+    "abrigo": false,
+    "pantalon": false,
+    "calzado": false,
+    "camping": false,
+    "mochilas": true,
+    "mujer": true,
+    "hombre": true,
+    "ninio": false,
+    "precio": 309.99
+  },
+  {
+    "id": 4,
+    "nombre": "pantalon",
+    "descripción": "pantalon de ski",
+    "imagen": "pantalon.jpg",
+    "abrigo": false,
+    "pantalon": true,
+    "calzado": false,
+    "camping": false,
+    "mochilas": false,
+    "mujer": false,
+    "hombre": false,
+    "ninio": true,
+    "precio": 599.99
+  }
+  
+
+]
+
