@@ -17,8 +17,11 @@ const multerDiskStorage = multer.diskStorage ({
 })
 
 const fileUpload = multer ({storage:multerDiskStorage});
-
-
+/* app.post('/producto', upload.array('img'), function (req, res, next) {
+    console.log(req.files) --> esto devuelve un objeto con los datos del archivo
+    res.send('Archivos subidos')
+})
+*/
 router.get('/', controller.home);
 router.get('/login', controller.login);
 router.get('/registro', controller.registro);
