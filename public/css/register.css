@@ -1,13 +1,19 @@
-.main-registro {
-    padding: 60px 0;
-    background-image: url(../images/patagonia-argentina.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-     
+  .main-registro {
+   /* position: relative;*/
+    padding: 0;
+    box-sizing: content-box;
+    
+    
   }
-
-  .registro{
+  .fondo-image {
+  
+    opacity: 0.5;
+    background-size: cover;
+    
+  } 
+    
+   .registro{
+    position: absolute;
     display: flex;
     flex-direction: column;
     width: 80%;
