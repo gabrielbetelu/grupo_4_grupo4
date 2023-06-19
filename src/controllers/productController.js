@@ -16,12 +16,14 @@ module.exports = {
         
     },
     edicion: (req, res) => {
+        console.log("Entró por edicion")
         return res.render('./products/edicion')
         
     },
     creacion: (req, res) => {
+        console.log("Entró por creacion")
         return res.render('./products/creacion')
-        
+         
     },
     processCreate: (req, res) => {
         let productoNuevo = { 
