@@ -17,7 +17,12 @@ app.set('view engine', 'ejs');
 app.listen(3004, () => 
 console.log ('servidor corriendo en el puerto 3004'));
 
+
 app.use(mainRouter);
+
+app.use('/user', userRouter);
+app.use('/product', productRouter);
+
 
 
 
