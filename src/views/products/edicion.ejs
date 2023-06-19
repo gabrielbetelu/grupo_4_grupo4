@@ -1,25 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href = "/css/styles.css" rel = "stylesheet"> 
-    <title>PATAGONIC</title>
-    <link rel="shortcut icon" href="/images/Logo-Patagonic-sin-fondo.jpg">
-</head>
+    <%- include('../partials/head') %>
 <body>
-    <main class="mainCreacion">
+    <main class="mainEdicion">
         <form class="edicion-form" action="" method="GET" >
-            <h5> Creación de producto</h5>
-            <div class="buscador">
-                <label for="codigo"> Buscar producto por código</label>
+            <h5>Edición de producto</h5>
+            <div class="buscaEdit">
+                <label class= "codProd" for="codigo"> Buscar producto por código</label>
                 <input type="search" name="codigo" id ="codigo" placeholder="  Codigo de producto">
+                <button class="buscadorEdicion" type="submit">
+                    <i id="lupa-edicion" class="fa-solid fa-magnifying-glass"></i>
+                </button>                
             </div>
+        </form>
+        <form class="edicion-form" action="" method="POST" >
             <div>
                 <input type="text" name="nombre" placeholder="  Nombre del producto">
             </div>
@@ -30,58 +24,57 @@
                 <p>Imagenes del producto</p>
                 <input type="file" name="img" accept=".png, .jpg, .jpeg" multiple>
             </div>           
-            <div class="categoriaCreacion">
+            <div class="categoriaEdicion">
                 <p>Categorías</p>
-                <div class="checkboxCreacion">
+                <div class="checkboxEdicion">
                     <input type="checkbox" name="abrigos" value="abrigos" id="abrigos">
-                    <label for="abrigos">Abrigos</label>
+                    <label for="Abrigos">Abrigos</label>
                 </div>
-                <div class="checkboxCreacion">
+                <div class="checkboxEdicion">
                     <input type="checkbox" name="pantalones" value="pantalones" id="pantalones">
                     <label for="Pantalones">Pantalones</label>
                 </div>
-                <div class="checkboxCreacion">
+                <div class="checkboxEdicion">
                     <input type="checkbox" name="calzado" value="calzado" id="calzado">
                     <label for="Calzado">Calzado</label>
                 </div>
-                <div class="checkboxCreacion">
+                <div class="checkboxEdicion">
                     <input type="checkbox" name="camping" value="camping" id="camping">
                     <label for="Camping">Camping</label>
                 </div>
-                <div class="checkboxCreacion">
+                <div class="checkboxEdicion">
                     <input type="checkbox" name="mochilas" value="mochilas" id="mochilas">
                     <label for="Mochilas">Mochilas</label>
                 </div>
-                <div class="checkboxCreacion">
+                <div class="checkboxEdicion">
                     <input type="checkbox" name="accesorios" value="accesorios" id="accesorios">
                     <label for="Accesorios">Accesorios</label>
                 </div>
-                <div class="checkboxCreacion">
+                <div class="checkboxEdicion">
                     <input type="checkbox" name="mujer" value="mujer" id="mujer">
                     <label for="Mujer">Mujer</label>
                 </div>
-                <div class="checkboxCreacion">
+                <div class="checkboxEdicion">
                     <input type="checkbox" name="hombre" value="hombre" id="hombre">
                     <label for="Hombre">Hombre</label>
                 </div>
-                <div class="checkboxCreacion">
+                <div class="checkboxEdicion">
                     <input type="checkbox" name="niño" value="niño" id="niño">
                     <label for="Niño">Niño</label>
                 </div>
-                <div class="checkboxCreacion">
-                    <input type="checkbox" name="otros" value="" id="otros">
-                    <label for="otros">Otros</label>
-                </div>
             </div> 
-            <div class="precioCreacion">
+            <div class="precioEdicion">
                 <input type="number" name="precio" value="precio" placeholder="  Precio del producto">
             </div>           
-            <div class="botonesCreacion">
+            <div class="botonesEdicion">
                 <div>
                     <button class="botones botonGuardar" type="submit" name="guardar" value="Guardar">Guardar</button>
                 </div>
                 <div>
-                    <button class="botones botonEliminar" type="reset" name="eliminar" value="eliminar">Eliminar</button>
+                    <button class="botones botonEliminar" type="submit" name="eliminar" value="eliminar">Eliminar</button>
+                </div>
+                <div>
+                    <a href="creacion"><button class="botones botonBuscar" type="button" >Crear</button></a>
                 </div>
                 <div>
                     <a href="/"><button class="botones botonCerrar" type="button" name="cerrar" value="cerrar">Cerrar</button></a>

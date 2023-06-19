@@ -4,11 +4,15 @@
 
 @import 'edicion.css';
 
-@import 'creacion.css';
-
+@import 'footer.css';
 /* -------------------login-----------*/
 .mainLogin {
-  padding-bottom: 20px;
+  padding: 60px 0;
+  background-image: url(../images/patagonia-argentina.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  
 }
 
 .login-form {
@@ -18,7 +22,7 @@
   background: #497330;
   margin: auto;
   margin-top: 15px;
-  box-shadow: 7px 13px 38px #000;
+  box-shadow: 15px 25px 50px #000;
   padding: 20px 30px;
   border-top: 4px solid #7FAD58;
   color: whitesmoke;
@@ -382,113 +386,6 @@ main section .posicion {
 
 /*-----------------------------------------------*/
 
-/* -------------------FOOTER---------------------*/
-
-footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    font-size: 6px;
-    color: #000;
-    background-color: #C9F4B0;
-    padding-bottom: 2px;
-}
-
-footer .footer-mitad {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 90%;
-}
-
-footer .legales, footer .servicios-cliente, footer .redes, footer .contactos, footer .copyright {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 2px;
-    font-size: 6px;
-    color: #000;
-    border-top: solid 1px #000;
-}
-
-footer h5 {
-    margin: 0 0 2px 0;
-    font-size: 6px;
-    color: #000;
-}
-
-footer .legales a {
-    text-decoration: none;
-    margin: 2px 0;
-    font-size: 6px;
-    color: #000;
-}
-
-footer .servicios-cliente div.detalle-servicios{
-    width: 90%;
-    display: flex;    
-    justify-content: space-between;
-    align-items: center;
-    margin: 2px 0;
-    font-size: 6px;
-    color: #000;
-}
-
-footer .servicios-cliente div.detalle-servicios div {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    font-size: 6px;
-    color: #000;
-}
-
-footer .servicios-cliente a {
-    text-decoration: none;
-    margin: 2px 0;
-    font-size: 6px;
-    color: #000;
-}
-
-footer .redes div {
-    width: 45%;
-    display: flex;    
-    justify-content: space-between;
-    align-items: center;
-    margin: 2px 0;
-    font-size: 8px;    
-}
-
-footer .redes div a i {
-    color: #000;
-}
-
-footer .contactos div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-footer .contactos div a { 
-    text-decoration: none;
-    color: #000;
-    font-size: 6px;
-    margin: 2px 0;
-}
-
-footer .contactos div a i {
-    color: #000;
-}
-
-footer .copyright p {
-    margin-bottom: 4px;
-}
-
-/*---------------------------------------------------*/
-
 /* -------------- productos.html --------------------*/
 
 .productos {
@@ -526,15 +423,17 @@ footer .copyright p {
 /* -------------- producto.html --------------------*/
 
 .producto {
-    width: 95%;  
-    margin: auto;      
+    width: 100%;  
+    margin: auto;   
+    background-color: #7FAD58;  
+    padding-bottom: 15px; 
 }
 
 .producto .producto-elejido {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: center;
     margin-top: 5%;
 }
 
@@ -542,35 +441,45 @@ footer .copyright p {
     width: 85%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    
+    justify-content: center;    
+}
+
+#encabezadoProducto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .producto .producto-elejido div .producto-imagenes {
-    margin: 0 0 20px 0;
+    margin: 0 0 25px 0;
 }
 
 .producto .producto-elejido h3 {
     font-size: 30px;
+    font-style: oblique;
+    color: white;
     margin: 0;
 }
 
 .producto .producto-elejido p {
-    width: 70%;
-    text-align: center;
+    width: 100%;
     margin: 0 0 20px 0;
+    text-align: center;
 }
 
 .producto .producto-elejido div img{
     width: 33%;
+    box-shadow: 10px 20px 40px #000;
 }
 
 .producto .producto-elejido .producto-info {
-    width: 50%;
+    width: 51%;
     background-color: #C9F4B0;
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-shadow: 10px 7px 10px #000;
+    margin-bottom: 10px;
 }
 
 .producto .producto-elejido .producto-boton {
@@ -580,22 +489,26 @@ footer .copyright p {
     color: whitesmoke;
     margin-bottom: 16px;
     border: none;
+    font-size: 16px;
 }
 
 article div .producto-info button.producto-boton:hover {
-    background-color: #7FAD58;
+    background-color: #c79430;
 }
    
 
 .producto .producto-elejido .producto-descripcion {
-    background-color: #EBB54B;
-    width: 90%;
+    background-color: #497330;
+    width: 51%;
     text-align: center;
     margin: 10px 0;
+    box-shadow: 10px 7px 10px #000;
 }
 
 .producto .producto-elejido .producto-descripcion h3 {
     font-size: 20px;
+    color: whitesmoke;
+    font-style: oblique;
 }
 
 .producto .producto-elejido .producto-descripcion ul {
@@ -610,6 +523,7 @@ article div .producto-info button.producto-boton:hover {
     list-style: none;
     width: 42%;
     min-width: 110px;
+    color: whitesmoke;
 }
 
 .whatsapp-div {
@@ -749,66 +663,6 @@ article div .producto-info button.producto-boton:hover {
         top: 30%;
     }
 
-    footer {
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-    }
-
-    footer .footer-mitad {
-        width: 40%;
-    }
-
-    .izquierda {
-        align-self: flex-start;
-    }
-
-    .derecha {
-        align-self: flex-start;
-    }
-
-    footer h5 {        
-        font-size: 8px;
-    }
-    
-    footer .legales a {
-        font-size: 8px;
-    }
-
-    footer .servicios-cliente div.detalle-servicios{
-        font-size: 8px;
-    }
-      
-    footer .servicios-cliente a {
-        font-size: 8px;
-    }
-
-    footer .servicios-cliente a i {
-        font-size: 8px;
-    }
-
-    footer .redes div {
-        width: 60%;
-    }
-
-    footer .redes div.detalle-redes {
-        font-size: 8px;    
-    }
-
-    footer .redes div.detalle-redes a {
-        font-size: 16px;    
-    }
-
-    footer .contactos div.detalle-contactos a i{ 
-        font-size: 14px;
-    }
-
-    footer .contactos div.detalle-contactos a { 
-        font-size: 8px;
-    }
-    
-    
-    
 }
 
 @media (min-width : 769px) {
@@ -868,25 +722,6 @@ article div .producto-info button.producto-boton:hover {
 
     .hombre h4, .mujer h4, .ninios h4 {
         top: 35%;
-    }
-
-    footer .footer-mitad {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
-        width: 40%;
-    }
-
-    footer .legales, footer .servicios-cliente, footer .redes , footer .contactos {
-        width: 40%;
-    }
-
-    .derecha {
-        align-self: flex-start;
-    }
-
-    footer .redes div {
-        width: 100%;
     }
 
 }
