@@ -25,7 +25,7 @@ module.exports = {
     },
     processCreate: (req, res) => {
         let productoNuevo = { 
-            'id': producto.length +1, 
+            'id': productos.length +1, 
             'nombre': req.body.name,
             'descripcion': req.body.desc,
             'img': req.file.filename,

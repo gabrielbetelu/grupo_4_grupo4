@@ -27,6 +27,6 @@ router.get('/productos', controller.productos);
 router.get('/edicion', controller.edicion);
 //FORM CREACION
 router.get('/creacion', controller.creacion);
-router.post('/producto', fileUpload.array('img'), controller.processCreate);
+router.post('/productos', fileUpload.array('img'), controller.processCreate);
 
 module.exports = router;

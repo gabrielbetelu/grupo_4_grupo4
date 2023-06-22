@@ -22,4 +22,5 @@ const fileUpload = multer ({storage:multerDiskStorage});
 router.get('/login', controller.login);
 router.get('/registro', controller.registro);
 
+
 module.exports = router;

@@ -1,8 +1,8 @@
  [
   {
     "id": 1,
-    "nombre": "Camiseta",
-    "descripción": "Una camiseta de algodón",
+    "nombre": "Camiseta termica",
+    "descripcion": "Una camiseta de algodón",
     "imagen": "camiseta.jpg",
     "abrigo": true,
     "pantalon": false,
@@ -17,7 +17,7 @@
   {
     "id": 2,
     "nombre": "Zapatos",
-    "descripción": "zapatillas de trekking",
+    "descripcion": "zapatillas de trekking",
     "imagen": "zapatos.jpg",
     "abrigo": false,
     "pantalon": false,
@@ -32,7 +32,7 @@
   {
     "id": 3,
     "nombre": "Bolso",
-    "descripción": "Un bolso de escalada",
+    "descripcion": "Un bolso de escalada",
     "imagen": "bolso.jpg",
     "abrigo": false,
     "pantalon": false,
@@ -47,7 +47,7 @@
   {
     "id": 4,
     "nombre": "pantalon",
-    "descripción": "pantalon de ski",
+    "descripcion": "pantalon de ski",
     "imagen": "pantalon.jpg",
     "abrigo": false,
     "pantalon": true,
