@@ -5,13 +5,15 @@
 <body>
     <main class="mainProductos">
         <h3 id="tituloProduct">Productos</h3>
-        <article>
+        <% productos.forEach((row) =>{ %>
+        <article>    
         <div class="imagenesProd">
-            <img src="/images/1809trekkingcalzado-1034715.png" alt = "imgcalzado">
-            <h4> Botas de trekking</h4>
-            <p class="precio">$ 150.000 </p>
-        </div>
+            <img src="/images/<%= row.imagen %>" alt = "<%= row.imagen %>">
+            <h4><%= row.name %></h4>
+            <p class="precio"> $ <%= row.price %></p>
+        </div> 
         </article>
+        <% }) %>
         <article>
         <div class="imagenesProd">
             <img src="/images/camiseta_ares_26_imagen1.png" alt="imgcamiseta">

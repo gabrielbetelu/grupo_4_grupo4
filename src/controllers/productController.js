@@ -16,13 +16,27 @@ module.exports = {
         
     },
     edicion: (req, res) => {
-        return res.render('./products/edicion')
+        const editando = products.find((row) => row.id== req.params.id)
+        return res.render('productos', {productos:editando});
+       
+       // return res.render('./products/edicion')
         
     },
+    processEdit: (req, res) => {
+        const prod = productos.find((row)=> row.id == req.params.id)
+        for(let propiedad in req.body) {
+            prod[propiedad] = req.body[propiedad]
+        }
+        fs.writeFileSync(path.resolve(__dirname,'../database/products.json'),JSON.stringify([productos], null, 2));
+       return res.redirect('/');
+        
+    },
+
     creacion: (req, res) => {
         return res.render('./products/creacion')
         
     },
+
     processCreate: (req, res) => {
         let productoNuevo = { 
             'id': productos.length +1, 
@@ -40,5 +54,6 @@ module.exports = {
             'precio': req.body.precio,
             'borrado': false
         }
+        
     }
 };
