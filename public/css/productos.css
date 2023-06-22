@@ -1,0 +1,16 @@
+.mainProductos {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+#tituloProduct {
+    color: antiquewhite;
+    font-style: oblique;
+}
+
+.mainProductos div img {
+    width: 150px;
+    
+
+}
+

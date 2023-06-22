@@ -1,0 +1,93 @@
+[
+    {
+      "id": 1,
+      "nombre": "Juan",
+      "apellido": "García",
+      "email": "juangarcia@example.com",
+      "contraseña": "qwerty123",
+      "imagen": "https://ejemplo.com/imagenes/juan.jpg",
+      "categoria": "administrador"
+    },
+    {
+      "id": 2,
+      "nombre": "María",
+      "apellido": "López",
+      "email": "marialopez@example.com",
+      "contraseña": "password123",
+      "imagen": "https://ejemplo.com/imagenes/maria.jpg",
+      "categoria": "cliente"
+    },
+    {
+      "id": 3,
+      "nombre": "Pedro",
+      "apellido": "Martínez",
+      "email": "pedromartinez@example.com",
+      "contraseña": "abc123",
+      "imagen": "https://ejemplo.com/imagenes/pedro.jpg",
+      "categoria": "empleado"
+    },
+    {
+      "id": 4,
+      "nombre": "Laura",
+      "apellido": "Rodríguez",
+      "email": "laurarodriguez@example.com",
+      "contraseña": "secreto123",
+      "imagen": "https://ejemplo.com/imagenes/laura.jpg",
+      "categoria": "cliente"
+    },
+    {
+      "id": 5,
+      "nombre": "Carlos",
+      "apellido": "Fernández",
+      "email": "carlosfernandez@example.com",
+      "contraseña": "pass1234",
+      "imagen": "https://ejemplo.com/imagenes/carlos.jpg",
+      "categoria": "empleado"
+    },
+    {
+      "id": 6,
+      "nombre": "Ana",
+      "apellido": "Gómez",
+      "email": "anagomez@example.com",
+      "contraseña": "hello123",
+      "imagen": "https://ejemplo.com/imagenes/ana.jpg",
+      "categoria": "cliente"
+    },
+    {
+      "id": 7,
+      "nombre": "Sergio",
+      "apellido": "Sánchez",
+      "email": "sergiosanchez@example.com",
+      "contraseña": "welcome123",
+      "imagen": "https://ejemplo.com/imagenes/sergio.jpg",
+      "categoria": "empleado"
+    },
+    {
+      "id": 8,
+      "nombre": "Elena",
+      "apellido": "Hernández",
+      "email": "elenahernandez@example.com",
+      "contraseña": "secure123",
+      "imagen": "https://ejemplo.com/imagenes/elena.jpg",
+      "categoria": "cliente"
+    },
+    {
+      "id": 9,
+      "nombre": "Luis",
+      "apellido": "Pérez",
+      "email": "luisperez@example.com",
+      "contraseña": "12345678",
+      "imagen": "https://ejemplo.com/imagenes/luis.jpg",
+      "categoria": "empleado"
+    },
+    {
+      "id": 10,
+      "nombre": "Marta",
+      "apellido": "Romero",
+      "email": "martaromero@example.com",
+      "contraseña": "test123",
+      "imagen": "https://ejemplo.com/imagenes/marta.jpg",
+      "categoria": "cliente"
+    }
+  ]
+  

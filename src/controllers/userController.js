@@ -6,14 +6,14 @@ const products = JSON.parse (fs.readFileSync(rutaJSON));
 
 
 module.exports = {
-    home : (req, res) => {
-        return res.render('home')
-    },
     login : (req, res) => {
         return res.render('./users/login')
+
     },
     registro :(req, res) => {
-            return res.render('./users/registro')        
+            return res.render('./users/registro')
+            
     },
+   
     
 };
