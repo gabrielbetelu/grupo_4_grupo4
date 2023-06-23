@@ -25,9 +25,10 @@ router.get('/producto', productController.producto);
 router.get('/productos', productController.productos);
 
 //FORM EDICION
-router.get('/edicion', productController.edicion);
-router.get('/edicion', productController.processEdit);
-router.get('/edicion/:id', fileUpload.array('img'), productController.processEdit);
+router.get('/edicion', controller.edicion);
+router.post('/producto/:id', controller.editId);
+router.get('/producto/:id/edit', controller.processEdit);
+
 //FORM CREACION
 router.get('/creacion', productController.creacion);
 router.post('/productos', fileUpload.array('img'), productController.processCreate);
