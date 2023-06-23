@@ -42,8 +42,9 @@ module.exports = {
     },
 
     creacion: (req, res) => {
+        console.log("Entró por creacion")
         return res.render('./products/creacion')
-        
+         
     },
 
     processCreate: (req, res) => {

@@ -252,12 +252,19 @@ header .opciones .menu-buscador #buscar {
 
 header .opciones .menu-buscador .area-buscar .buscador {
     display: inline-block;
-    font-size: 10px;
+    font-size: 10px;  
+    padding-right: 2.5%;  
 }
+
+header .opciones .menu-buscador .area-buscar .buscador .botonLupa {
+    border: none;
+    padding: 0;
+}
+
 
 #logo-lupa {
     font-size: 12px;
-    padding: 2px;
+    padding: 1px;
     border: solid 1px #000;
     background-color: #fff;
     border-radius: 3px;    
