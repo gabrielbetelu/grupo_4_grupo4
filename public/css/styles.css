@@ -5,6 +5,8 @@
 @import 'edicion.css';
 
 @import 'footer.css';
+
+@import 'productos.css';
 /* -------------------login-----------*/
 .mainLogin {
   padding: 60px 0;
