@@ -12,12 +12,12 @@ module.exports = {
         
     },
     productos : (req, res) => {
-        return res.render('./products/productos')
+        return res.render('./products/productos', {productos: products});
         
     },
     edicion: (req, res) => {
         const editando = products.find((row) => row.id== req.params.id)
-        return res.render('productos', {productos:editando});
+        return res.render('./products/productos', {productos:editando});
        
        // return res.render('./products/edicion')
         
