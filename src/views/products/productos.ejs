@@ -11,14 +11,14 @@
         <% prod.forEach((row) =>{ %>
         <article class="productArticle"> 
                
-        <div class="imagenesProd">
-            <div class="contenedorImagenProd">
-                <img id="imagenProducto" src="/images/<%= row.imagen %>" alt = "<%= row.imagen %>">
-            </div>
+            <div class="imagenesProd">
+                <a id="linkProd" href="/product/producto"><div class="contenedorImagenProd">
+                    <img id="imagenProducto" src="/images/<%= row.imagen %>" alt = "<%= row.imagen %>">
+                </div></a>
             
-            <h4><%= row.nombre %></h4>
-            <p class="precio"> $ <%= row.precio %></p>
-        </div>
+                <h4><%= row.nombre %></h4>
+                <p class="precio"> $ <%= row.precio %></p>
+            </div>
         
         </article>
         <% }) %>

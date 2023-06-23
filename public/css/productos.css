@@ -34,15 +34,20 @@ main.mainProductos article.productArticle {
 
 .contenedorImagenProd {
     width: 100%;
-    aspect-ratio: 1/1.2;
+    aspect-ratio: 1/1.20;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 15px 25px 50px #000;
+    box-shadow: 15px 20px 50px #000;
+}
+#linkProd {
+    height: 0;
 }
 
 #imagenProducto {
     width: 100%;
+    aspect-ratio: 1/1.20;
+    object-fit: initial;
 }
 
 main.mainProductos article.productArticle h4 {
