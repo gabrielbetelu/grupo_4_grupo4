@@ -1,12 +1,12 @@
   .main-registro {
-   /* position: relative;*/
+    position: relative;
     padding: 0;
     box-sizing: content-box;
-    
+  
     
   }
   .fondo-image {
-  
+    
     opacity: 0.5;
     background-size: cover;
     
@@ -16,7 +16,7 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 50%;
     background: #497330;
     margin: auto;
     margin-top: 35px;
@@ -60,3 +60,12 @@
   .botEnter:hover {
     background-color: #7FAD58;
   }
+
+
+ 
+  
+  
+  
+  
+  
+  

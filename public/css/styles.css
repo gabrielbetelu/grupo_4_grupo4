@@ -6,27 +6,40 @@
 
 @import 'footer.css';
 /* -------------------login-----------*/
-.mainLogin {
+/*.mainLogin {
   padding: 60px 0;
   background-image: url(../images/patagonia-argentina.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center;*/
+  .mainLogin {
+    position: relative;
+    padding: 0;
+    box-sizing: content-box;
   
-}
+    
+  }
+  /*.fondo-image {
+    
+    opacity: 0.5;
+    background-size: cover;
+    
+  } */
 
-.login-form {
-  display: flex;
-  flex-direction: column;
-  width: 80%;
-  background: #497330;
-  margin: auto;
-  margin-top: 15px;
-  box-shadow: 15px 25px 50px #000;
-  padding: 20px 30px;
-  border-top: 4px solid #7FAD58;
-  color: whitesmoke;
-  max-width:650px;
+
+    .login-form {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    background: #497330;
+    margin: auto;
+    margin-top: 35px;
+    box-shadow: 15px 25px 50px #000;
+    padding: 20px 30px;
+    border-top: 4px solid #7FAD58;
+    color: whitesmoke;
+    max-width:650px;
 }
 .login-form h5 {
   margin: 0;
