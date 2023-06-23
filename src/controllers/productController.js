@@ -52,12 +52,41 @@ module.exports = {
     editId: (req , res)=> {
         console.log("entraste a buscar el item" , req.body.codigo);
         const producto = products.find (elemento => elemento.id == req.body.codigo);
+        console.log(producto);
         return res.render('./products/edicion', {prod: producto})
     },
 
     processEdit: (req , res)=> {
-        console.log("entraste a editar el item" , req.params.id);
+        console.log("entraste a editar el item");
+        
         const productoId = products.find (elemento => elemento.id == req.params.id);
+        console.log(productoId)
         return res.render('products/edicion',{prod: productoId})
+    },
+
+    processModificar: (req , res)=> {
+        console.log("entraste a modificar el item" , req.body.id);
+        const productoId = products.find (elemento => elemento.id == req.body.id);
+        console.log(productoId)
+        console.log(req.body)
+        for (let propiedad in req.body) {
+            if (propiedad == "id") {
+                productoId[propiedad] = Number(req.body[propiedad]) ;
+                console.log(propiedad , "    " ,productoId[propiedad] , "<----");
+                console.log(propiedad , "    " ,Number(req.body[propiedad]) , "<----");
+            } else if (propiedad == "guardar") {
+
+            } else {
+            productoId[propiedad] = req.body[propiedad];
+            console.log(propiedad , "    " ,productoId[propiedad]);
+            console.log(propiedad , "    " ,req.body[propiedad] , "<----");
+        }
+           
+        }
+        console.log("-------------FIN----------------");
+        console.log(products);
+        console.log("-------------FIN----------------");
+        fs.writeFileSync(path.resolve(__dirname, '../database/products.json'),JSON.stringify(products, null , 2));
+        return res.render('products/edicion' , {prod : "vacio"})
     }
 };

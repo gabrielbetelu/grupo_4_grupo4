@@ -29,9 +29,11 @@
     background-color: #232c1c;
     color: #c79430;
     font-size: 20px;
-
-
 } 
+
+#edicionInvisible {
+    display: none;
+}
 
 .edicion-form {
     display: flex;
