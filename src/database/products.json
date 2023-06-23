@@ -1,8 +1,8 @@
  [
   {
     "id": 1,
-    "nombre": "Camiseta termica",
-    "descripcion": "Una camiseta de algodón",
+    "nombre": "Camiseta",
+    "descripción": "Una camiseta de algodón",
     "imagen": "camiseta.jpg",
     "abrigo": true,
     "pantalon": false,
