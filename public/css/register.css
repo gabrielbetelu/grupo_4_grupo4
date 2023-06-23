@@ -1,15 +1,19 @@
   .main-registro {
+    width: 100%;
     position: relative;
     padding: 0;
     box-sizing: content-box;
+    display: flex;
+    justify-content: center;
   
     
   }
   .fondo-image {
-    
+   
     opacity: 0.5;
-    background-size: cover;
-    
+    width: 100%;
+    min-height: 650px;
+       
   } 
     
    .registro{
@@ -25,12 +29,14 @@
     border-top: 4px solid #7FAD58;
     color: whitesmoke;
     max-width: 650px;
+  
   }
   .registro h5 {
     margin: 0;
     text-align: center;
     height: 40px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
     border-bottom: 1px solid;
     font-size: 20px;
     font-style: oblique;
@@ -62,7 +68,13 @@
   }
 
 
- 
+@media(min-width: 1024px){
+  .main-registro .fondo-image{
+    min-height: 550px;
+  }
+
+}
+
   
   
   
