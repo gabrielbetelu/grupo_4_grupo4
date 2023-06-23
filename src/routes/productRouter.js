@@ -27,6 +27,7 @@ router.get('/productos', controller.productos);
 router.get('/edicion', controller.edicion);
 router.post('/producto/:id', controller.editId);
 router.get('/producto/:id/edit', controller.processEdit);
+router.post('/producto/:id/edit', controller.processModificar);
 
 //FORM CREACION
 router.get('/creacion', controller.creacion);

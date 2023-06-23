@@ -14,6 +14,13 @@
             </div>
         </form>
         <form class="edicion-form" action="/product/producto/:id/edit" method="POST" >
+            <div id="edicionInvisible">
+                <% if (prod == "vacio") {%>
+                    <input type="text" name="id">
+                    <%} else {%>
+                    <input type="text" name="id" value="<%=prod.id%>" placeholder="  Nombre del producto" >
+                <% }%>
+            </div>
             <div>
                 <% if (prod == "vacio") {%>
                     <input type="text" name="nombre"  placeholder="  Nombre del producto" >
@@ -23,23 +30,23 @@
             </div>
            <div>
                 <% if (prod == "vacio") {%>
-                    <textarea name="textarea" placeholder=" Descipcion del producto" ></textarea>
+                    <textarea name="descripcion" placeholder=" Descipcion del producto" ></textarea>
                     <%} else {%>
-                        <textarea name="textarea" placeholder=" Descipcion del producto" ><%=" "+prod.descripcion%></textarea>
+                        <textarea name="descripcion" placeholder=" Descipcion del producto" ><%=" "+prod.descripcion%></textarea>
                 <% }%>
             </div>
             <div class="imagenesEdicion">
                 <p>Imagenes del producto</p>
-                <input type="file" name="img" accept=".png, .jpg, .jpeg" multiple>
+                <input type="file" name="imagen" accept=".png, .jpg, .jpeg" multiple>
             </div>           
             <div class="categoriaEdicion">
                 <p>Categorías</p>
                 <div class="checkboxEdicion">
-                    <input type="checkbox" name="abrigos" value="abrigos" id="abrigos">
+                    <input type="checkbox" name="abrigo" value="abrigos" id="abrigos">
                     <label for="Abrigos">Abrigos</label>
                 </div>
                 <div class="checkboxEdicion">
-                    <input type="checkbox" name="pantalones" value="pantalones" id="pantalones">
+                    <input type="checkbox" name="pantalon" value="pantalones" id="pantalones">
                     <label for="Pantalones">Pantalones</label>
                 </div>
                 <div class="checkboxEdicion">
@@ -67,7 +74,7 @@
                     <label for="Hombre">Hombre</label>
                 </div>
                 <div class="checkboxEdicion">
-                    <input type="checkbox" name="niño" value="niño" id="niño">
+                    <input type="checkbox" name="ninio" value="niño" id="niño">
                     <label for="Niño">Niño</label>
                 </div>
             </div> 
