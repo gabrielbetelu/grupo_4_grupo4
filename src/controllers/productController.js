@@ -12,12 +12,16 @@ module.exports = {
         
     },
     productos : (req, res) => {
-        return res.render('./products/productos')
+        console.log("entraste a productos" );
+        
+        console.log(productos);
+
+        return res.render('./products/productos' , {prod : products})
         
     },
     edicion: (req, res) => {
         console.log("Entró por edicion")
-        return res.render('./products/edicion')
+        return res.render('./products/edicion' , {prod : "vacio"})
         
     },
     creacion: (req, res) => {
@@ -46,18 +50,14 @@ module.exports = {
     },
 
     editId: (req , res)=> {
-        console.log(req.params);
-        console.log("entraste a buscar el item" , req.params.id);
-        let codigo = req.params.id
-       const producto = products.find (elemento => elemento.id == req.params.id);
-        console.log(producto);
-        return res.render('./products/edicion',{prod: productoId})
+        console.log("entraste a buscar el item" , req.body.codigo);
+        const producto = products.find (elemento => elemento.id == req.body.codigo);
+        return res.render('./products/edicion', {prod: producto})
     },
 
     processEdit: (req , res)=> {
         console.log("entraste a editar el item" , req.params.id);
         const productoId = products.find (elemento => elemento.id == req.params.id);
-        console.log(productoId);
         return res.render('products/edicion',{prod: productoId})
     }
 };

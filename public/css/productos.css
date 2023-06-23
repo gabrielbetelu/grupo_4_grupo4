@@ -1,0 +1,19 @@
+
+.imagenesProd {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    aspect-ratio: 1.5/1;
+
+}
+.imagenesProd img {
+    width: 80%;
+    overflow-clip-margin: 0;
+
+}
+article{
+    display: flex;
+    width: 25%;
+    justify-content: center;
+    aspect-ratio: 1.5/1;
+}
