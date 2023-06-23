@@ -3,22 +3,30 @@
     <%- include('../partials/head') %>
 <body>
     <main class="mainEdicion">
-        <form class="edicion-form" action="/product/productos:id" method="GET" >
+        <form class="edicion-form" action="/product/producto/:id" method="POST" >
             <h5>Edición de producto</h5>
             <div class="buscaEdit">
                 <label class= "codProd" for="codigo"> Buscar producto por código</label>
-                <input type="search" name="codigo" id ="codigo" placeholder="  Codigo de producto">
+                <input type="text" name="codigo" id ="codigo" placeholder="  Codigo de producto" >
                 <button class="buscadorEdicion" type="submit">
                     <i id="lupa-edicion" class="fa-solid fa-magnifying-glass"></i>
                 </button>                
             </div>
         </form>
-        <form class="edicion-form" action="/product/productos/:id/edit" method="POST" >
+        <form class="edicion-form" action="/product/producto/:id/edit" method="POST" >
             <div>
-                <input type="text" name="nombre" placeholder="  Nombre del producto">
+                <% if (prod == "vacio") {%>
+                    <input type="text" name="nombre"  placeholder="  Nombre del producto" >
+                    <%} else {%>
+                    <input type="text" name="nombre" value="<%= "  " + prod.nombre%>" placeholder="  Nombre del producto" >
+                <% }%>
             </div>
-            <div>
-                <textarea name="textarea" placeholder=" Descipcion del producto"></textarea>
+           <div>
+                <% if (prod == "vacio") {%>
+                    <textarea name="textarea" placeholder=" Descipcion del producto" ></textarea>
+                    <%} else {%>
+                        <textarea name="textarea" placeholder=" Descipcion del producto" ><%=" "+prod.descripcion%></textarea>
+                <% }%>
             </div>
             <div class="imagenesEdicion">
                 <p>Imagenes del producto</p>
@@ -64,7 +72,12 @@
                 </div>
             </div> 
             <div class="precioEdicion">
-                <input type="number" name="precio" value="precio" placeholder="  Precio del producto">
+                <% if (prod == "vacio") {%>
+                    <input type="number" name="precio" placeholder="  Precio del producto">
+                    <%} else {%>
+                        <input type="number" name="precio" value="<%=prod.precio%>" placeholder="  Precio del producto">
+                <% }%>
+                
             </div>           
             <div class="botonesEdicion">
                 <div>
@@ -79,7 +92,8 @@
                 <div>
                     <a href="/"><button class="botones botonCerrar" type="button" name="cerrar" value="cerrar">Cerrar</button></a>
                 </div> 
-            </div>               
+            </div> 
+                          
         </form>
     </main>
 </body>

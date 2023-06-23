@@ -48,6 +48,7 @@ module.exports = {
     },
 
     processCreate: (req, res) => {
+        console.log(req)
         let productoNuevo = { 
             'id': productos.length +1, 
             'nombre': req.body.name,
