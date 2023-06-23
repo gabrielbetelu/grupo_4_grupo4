@@ -49,9 +49,9 @@ module.exports = {
         console.log(req.params);
         console.log("entraste a buscar el item" , req.params.id);
         let codigo = req.params.id
-       const producto = products.filter (elemento => elemento.id == req.params.id);
+       const producto = products.find (elemento => elemento.id == req.params.id);
         console.log(producto);
-        return res.render('./products/edicion')
+        return res.render('./products/edicion',{prod: productoId})
     },
 
     processEdit: (req , res)=> {
