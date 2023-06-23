@@ -26,6 +26,7 @@ module.exports = {
          
     },
     processCreate: (req, res) => {
+        console.log(req)
         let productoNuevo = { 
             'id': producto.length +1, 
             'nombre': req.body.name,
@@ -42,5 +43,21 @@ module.exports = {
             'precio': req.body.precio,
             'borrado': false
         }
+    },
+
+    editId: (req , res)=> {
+        console.log(req.params);
+        console.log("entraste a buscar el item" , req.params.id);
+        let codigo = req.params.id
+       const producto = products.filter (elemento => elemento.id == req.params.id);
+        console.log(producto);
+        return res.render('./products/edicion')
+    },
+
+    processEdit: (req , res)=> {
+        console.log("entraste a editar el item" , req.params.id);
+        const productoId = products.find (elemento => elemento.id == req.params.id);
+        console.log(productoId);
+        return res.render('products/edicion',{prod: productoId})
     }
 };
