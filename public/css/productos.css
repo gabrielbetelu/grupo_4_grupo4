@@ -1,16 +1,19 @@
-.mainProductos {
+
+.imagenesProd {
+    width: 100%;
     display: flex;
-    flex-wrap: wrap;
+    justify-content: center;
+    aspect-ratio: 1.5/1;
 
 }
-#tituloProduct {
-    color: antiquewhite;
-    font-style: oblique;
-}
-
-.mainProductos div img {
-    width: 150px;
-    
+.imagenesProd img {
+    width: 80%;
+    overflow-clip-margin: 0;
 
 }
-
+article{
+    display: flex;
+    width: 25%;
+    justify-content: center;
+    aspect-ratio: 1.5/1;
+}

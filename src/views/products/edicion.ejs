@@ -3,7 +3,7 @@
     <%- include('../partials/head') %>
 <body>
     <main class="mainEdicion">
-        <form class="edicion-form" action="/product/:id" method="GET" >
+        <form class="edicion-form" action="/product/productos:id" method="GET" >
             <h5>Edición de producto</h5>
             <div class="buscaEdit">
                 <label class= "codProd" for="codigo"> Buscar producto por código</label>
@@ -13,7 +13,7 @@
                 </button>                
             </div>
         </form>
-        <form class="edicion-form" action="" method="POST" >
+        <form class="edicion-form" action="/product/productos/:id/edit" method="POST" >
             <div>
                 <input type="text" name="nombre" placeholder="  Nombre del producto">
             </div>

@@ -28,6 +28,8 @@ router.get('/productos', productController.productos);
 router.get('/edicion', productController.edicion);
 router.get('/edicion', productController.processEdit);
 router.get('/edicion/:id', fileUpload.array('img'), productController.processEdit);
+router.post('/productos/:id/edit', productController.processEdit)
+
 //FORM CREACION
 router.get('/creacion', productController.creacion);
 router.post('/productos', fileUpload.array('img'), productController.processCreate);

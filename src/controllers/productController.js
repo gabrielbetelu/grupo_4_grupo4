@@ -1,7 +1,7 @@
 const fs = require ('fs');
 const path = require ('path');
 const rutaJSON = path.resolve('./src/database/products.json');
-const products = JSON.parse (fs.readFileSync(rutaJSON));
+const products = JSON.parse(fs.readFileSync(rutaJSON));
 
 module.exports = {
     carrito:(req, res) => {
@@ -12,18 +12,27 @@ module.exports = {
         
     },
     productos : (req, res) => {
+        console.log(products)
         return res.render('./products/productos', {productos: products});
         
     },
     edicion: (req, res) => {
-        const editando = products.find((row) => row.id== req.params.id)
+        console.log(products)
+        const editando = products.find((row) => row.id == req.params.id);
+        console.log('edicion')
+        console.log(editando)
+        
         return res.render('./products/productos', {productos:editando});
        
        // return res.render('./products/edicion')
         
     },
     processEdit: (req, res) => {
+        console.log('processEdit')
+        console.log(products)
+        console.log(req.params.id)
         const prod = productos.find((row)=> row.id == req.params.id)
+        
         for(let propiedad in req.body) {
             prod[propiedad] = req.body[propiedad]
         }

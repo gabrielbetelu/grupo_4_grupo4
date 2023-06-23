@@ -3,33 +3,36 @@
 <%-include('../partials/head') %>
 <%-include('../partials/header')%>
 <body>
-    <main class="mainProductos">
+<main class="mainProductos">
         <h3 id="tituloProduct">Productos</h3>
         <% productos.forEach((row) =>{ %>
-        <article>    
+        <article> 
+               
         <div class="imagenesProd">
             <img src="/images/<%= row.imagen %>" alt = "<%= row.imagen %>">
-            <h4><%= row.name %></h4>
-            <p class="precio"> $ <%= row.price %></p>
-        </div> 
+            <h4><%= row.nombre %></h4>
+            <p class="precio"> $ <%= row.precio %></p>
+        </div>
+        
         </article>
         <% }) %>
+        <!--
         <article>
         <div class="imagenesProd">
-            <img src="/images/camiseta_ares_26_imagen1.png" alt="imgcamiseta">
+            <img src="/images/camiseta_ares_26_imagen1.jpg" alt="imgcamiseta">
         </div>
         </article>
         <article>
             <div class="imagenesProd">
-            <img src="/images/guide_34_escalada_imagen1.png" alt="imgbolsa">
+            <img src="/images/guide_34_escalada_imagen1.jpg" alt="imgbolsa">
             </div>
         </article>
         <article>
         <div class="imagenesProd">
-            <img src="/images/pantalon_nea_3_gore_tex_2c_performance_shell_nino_imagen3.png" alt="imgpantalon">
+            <img src="/images/pantalon_nea_3_gore_tex_2c_performance_shell_nino_imagen3.jpg" alt="imgpantalon">
         </div>
-        </article>
-</main>    
+        </article>-->
+</main>   
 </body>
 
 <%-include('../partials/footer')%>
