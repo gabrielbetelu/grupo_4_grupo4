@@ -123,7 +123,27 @@
 }
 
 .mainEdicion .edicion-form .precioEdicion {
-    padding-top: 20px;
+    padding-top: 20px; 
+    width: 90%;
+}
+
+#imagenesExistentes {
+    width: 20%;
+}
+#fotosProd {
+    width: 35px;
+}
+
+#archivosImagenesProd {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#conFotos {
+    width:75%;
 }
 
 .mainEdicion .edicion-form input[type="file"] {
@@ -146,7 +166,9 @@
     min-width: 125px;
 }
 
-
+#divBotonesEdicion{
+    width: 90%;
+}
 
 .mainEdicion .edicion-form .botonesEdicion {
     width: 90%;
@@ -225,7 +247,7 @@ button.botonEliminar {
     }
 
     .mainEdicion .edicion-form .botonesEdicion {
-        width: 90%;
+        width: 100%;
         flex-direction: row;
         justify-content: space-between;
         flex-wrap: wrap;

@@ -37,44 +37,57 @@
             </div>
             <div class="imagenesEdicion">
                 <p>Imagenes del producto</p>
-                <input type="file" name="imagen" accept=".png, .jpg, .jpeg" multiple>
+                <div id="archivosImagenesProd">
+                    <% if (prod == "vacio") {%>
+                        <input type="file" name="imagen" accept=".png, .jpg, .jpeg" multiple>
+                        <%} else {%>
+                            <div id="imagenesExistentes">
+                                <%  let tamanio = prod.imagen.length
+                                    for (i = 0 ; i < tamanio ; i++) {%>
+                                <img id="fotosProd" src="<%= prod.imagen[i]%>">
+                            <%}%>
+                            </div>
+                            <input id="conFotos" type="file" name="imagen" accept=".png, .jpg, .jpeg" multiple >
+                    <% }%>
+                </div>
+                
             </div>           
             <div class="categoriaEdicion">
                 <p>Categorías</p>
                 <div class="checkboxEdicion">
-                    <input type="checkbox" name="abrigo" value="abrigos" id="abrigos">
+                    <input <%= (prod.abrigo == "abrigo") ? "checked" : ""%> type="checkbox" name="abrigo" value="abrigo" id="abrigos">
                     <label for="Abrigos">Abrigos</label>
                 </div>
-                <div class="checkboxEdicion">
-                    <input type="checkbox" name="pantalon" value="pantalones" id="pantalones">
+                <div class="checkboxEdicion"> 
+                    <input <%= (prod.pantalon == "pantalon") ? "checked" : ""%> type="checkbox" name="pantalon" value="pantalon" id="pantalones">
                     <label for="Pantalones">Pantalones</label>
                 </div>
                 <div class="checkboxEdicion">
-                    <input type="checkbox" name="calzado" value="calzado" id="calzado">
+                    <input <%= (prod.calzado == "calzado") ? "checked" : ""%> type="checkbox" name="calzado" value="calzado" id="calzado">
                     <label for="Calzado">Calzado</label>
                 </div>
                 <div class="checkboxEdicion">
-                    <input type="checkbox" name="camping" value="camping" id="camping">
+                    <input <%= (prod.camping == "camping") ? "checked" : ""%> type="checkbox" name="camping" value="camping" id="camping">
                     <label for="Camping">Camping</label>
                 </div>
                 <div class="checkboxEdicion">
-                    <input type="checkbox" name="mochilas" value="mochilas" id="mochilas">
+                    <input <%= (prod.mochilas == "mochilas") ? "checked" : ""%> type="checkbox" name="mochilas" value="mochilas" id="mochilas">
                     <label for="Mochilas">Mochilas</label>
                 </div>
                 <div class="checkboxEdicion">
-                    <input type="checkbox" name="accesorios" value="accesorios" id="accesorios">
+                    <input <%= (prod.accesorios == "accesorios") ? "checked" : ""%> type="checkbox" name="accesorios" value="accesorios" id="accesorios">
                     <label for="Accesorios">Accesorios</label>
                 </div>
                 <div class="checkboxEdicion">
-                    <input type="checkbox" name="mujer" value="mujer" id="mujer">
+                    <input <%= (prod.mujer == "mujer") ? "checked" : ""%> type="checkbox" name="mujer" value="mujer" id="mujer">
                     <label for="Mujer">Mujer</label>
                 </div>
                 <div class="checkboxEdicion">
-                    <input type="checkbox" name="hombre" value="hombre" id="hombre">
+                    <input <%= (prod.hombre == "hombre") ? "checked" : ""%> type="checkbox" name="hombre" value="hombre" id="hombre">
                     <label for="Hombre">Hombre</label>
                 </div>
                 <div class="checkboxEdicion">
-                    <input type="checkbox" name="ninio" value="niño" id="niño">
+                    <input <%= (prod.ninio == "niño") ? "checked" : ""%> type="checkbox" name="ninio" value="niño" id="niño">
                     <label for="Niño">Niño</label>
                 </div>
             </div> 
@@ -86,7 +99,7 @@
                 <% }%>
                 
             </div>           
-            <div class="botonesEdicion">
+            <div class="botonesEdicion" id="divBotonesEdicion">
                 <div>
                     <button class="botones botonGuardar" type="submit" name="guardar" value="Guardar">Guardar</button>
                 </div>

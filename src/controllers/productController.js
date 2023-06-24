@@ -52,15 +52,12 @@ module.exports = {
     editId: (req , res)=> {
         console.log("entraste a buscar el item" , req.body.codigo);
         const producto = products.find (elemento => elemento.id == req.body.codigo);
-    //    console.log(producto);
         return res.render('./products/edicion', {prod: producto})
     },
 
     processEdit: (req , res)=> {
-        console.log("entraste a editar el item");
-        
+        console.log("entraste a editar el item", req.params.id);
         const productoId = products.find (elemento => elemento.id == req.params.id);
-    //    console.log(productoId)
         return res.render('products/edicion',{prod: productoId})
     },
 
@@ -68,13 +65,15 @@ module.exports = {
         console.log("entraste a modificar el item" , req.body.id);
         const productoId = products.find (elemento => elemento.id == req.body.id);    
         let arrayImg = [];
-        console.log("entraste a imágenes")
-                if (req.files.length > 0) {
-                    req.files.forEach((file) => {
-                        arrayImg.push("/images/" + file.filename);                        
-                })
+        let oldImagen = productoId.imagen;
+            if (req.files.length > 0) {
+                req.files.forEach((file) => {
+                    arrayImg.push("/images/" + file.filename);                        
+            })
+            } else {
+                arrayImg = oldImagen;
             }
-        productoId.imagen = arrayImg
+        productoId.imagen = arrayImg;
         for (let propiedad in req.body) {
             if (propiedad == "id") {
                 productoId[propiedad] = Number(req.body[propiedad]) ;    
@@ -82,7 +81,7 @@ module.exports = {
             } else {
             productoId[propiedad] = req.body[propiedad];    
             }
-        }    
+        }
         fs.writeFileSync(path.resolve(__dirname, '../database/products.json'),JSON.stringify(products, null , 2));
         return res.render('products/edicion' , {prod : "vacio"})
     },
@@ -91,7 +90,6 @@ module.exports = {
         const producto = products.find (elemento => elemento.id == req.params.id);
         producto.borrado = true;
         fs.writeFileSync(path.resolve(__dirname, '../database/products.json'),JSON.stringify(products, null , 2));
-    //    console.log(producto);
         return res.render('./products/edicion', {prod: producto})
     },
 }

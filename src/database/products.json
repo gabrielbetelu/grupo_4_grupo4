@@ -4,17 +4,17 @@
     "nombre": "Camiseta",
     "descripcion": "Una camiseta de algodón",
     "imagen": [
-      "/images/1687614046174.jpg"
+      "/images/1687627065052.jpg"
     ],
-    "abrigo": true,
+    "abrigo": "abrigo",
     "pantalon": false,
     "calzado": false,
     "camping": false,
     "mochilas": false,
-    "mujer": true,
+    "mujer": "mujer",
     "hombre": false,
     "ninio": false,
-    "precio": "20.99",
+    "precio": "21.99",
     "borrado": false
   },
   {
@@ -26,31 +26,31 @@
     ],
     "abrigo": false,
     "pantalon": false,
-    "calzado": true,
+    "calzado": "calzado",
     "camping": false,
     "mochilas": false,
-    "mujer": true,
-    "hombre": true,
-    "ninio": false,
+    "mujer": "mujer",
+    "hombre": "hombre",
+    "ninio": "niño",
     "precio": "59.99",
     "borrado": false
   },
   {
     "id": 3,
-    "nombre": "  Bolso Chico",
-    "descripcion": " Un bolso de escalada chico",
+    "nombre": "Bolso Chico",
+    "descripcion": "Un bolso de escalada chico",
     "imagen": [
-      "/images/1687609972455.jpg",
-      "/images/1687609972464.jpg",
-      "/images/1687609972470.jpg"
+      "/images/1687627727723.jpg",
+      "/images/1687627727727.jpg",
+      "/images/1687627727729.jpg"
     ],
     "abrigo": false,
     "pantalon": false,
     "calzado": false,
     "camping": false,
-    "mochilas": true,
-    "mujer": true,
-    "hombre": true,
+    "mochilas": "mochilas",
+    "mujer": "mujer",
+    "hombre": "hombre",
     "ninio": false,
     "precio": "309.99",
     "borrado": false
@@ -63,13 +63,13 @@
       "/images/1687610285502.jpg"
     ],
     "abrigo": false,
-    "pantalon": true,
+    "pantalon": "pantalon",
     "calzado": false,
     "camping": false,
     "mochilas": false,
     "mujer": false,
     "hombre": false,
-    "ninio": true,
+    "ninio": "niño",
     "precio": "599.99",
     "borrado": false
   }
