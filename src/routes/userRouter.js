@@ -3,7 +3,7 @@ const router = express.Router();
 const multer = require('multer');
 const path = require('path');
 
-const controller = require("../controllers/mainControllers");
+const controller = require("../controllers/userController");
 
 const multerDiskStorage = multer.diskStorage ({
     destination: function (req, file, cb) {
@@ -17,12 +17,9 @@ const multerDiskStorage = multer.diskStorage ({
 })
 
 const fileUpload = multer ({storage:multerDiskStorage});
-/* app.post('/producto', upload.array('img'), function (req, res, next) {
-    console.log(req.files) --> esto devuelve un objeto con los datos del archivo
-    res.send('Archivos subidos')
-})
-*/
-router.get('/', controller.home);
 
+
+router.get('/login', controller.login);
+router.get('/registro', controller.registro);
 
 module.exports = router;

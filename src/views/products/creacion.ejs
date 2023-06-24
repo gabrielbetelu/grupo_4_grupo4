@@ -3,7 +3,7 @@
     <%- include('../partials/head') %>
 <body>
     <main class="mainEdicion">
-        <form class="edicion-form" action="/producto" method="POST" enctype="multipart/form-data" >
+        <form class="edicion-form" action="/product/producto" method="POST" enctype="multipart/form-data" >
             <h5> Creación de producto</h5>
             <!--
             <div>
@@ -23,7 +23,7 @@
             <div class="categoriaEdicion">
                 <p>Categorías</p>
                 <div class="checkboxEdicion">
-                    <input type="checkbox" name="abrigos" value="abrigos" id="abrigos">
+                    <input type="checkbox" name="abrigos"  id="abrigos">
                     <label for="abrigos">Abrigos</label>
                 </div>
                 <div class="checkboxEdicion">
@@ -55,14 +55,9 @@
                     <label for="Hombre">Hombre</label>
                 </div>
                 <div class="checkboxEdicion">
-                    <input type="checkbox" name="niño" value="niño" id="niño">
-                    <label for="Niño">Niño</label>
+                    <input type="checkbox" name="ninio" value="ninio" id="ninio">
+                    <label for="Ninio">Niño</label>
                 </div>
-                <div class="checkboxEdicion">
-                    <input type="checkbox" name="otros" value="" id="otros">
-                    <label for="otros">Otros</label>
-                </div>
-            </div> 
             <div class="precioEdicion">
                 <input type="number" name="precio" value="precio" placeholder="  Precio del producto">
             </div>           

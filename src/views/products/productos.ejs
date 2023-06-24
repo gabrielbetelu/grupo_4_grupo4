@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<%-include('../partials/head') %>
+<%-include('../partials/header')%>
+<body>
+<main class="mainProductos">
+    <div id="productTitle">
+        <h3 id="tituloProduct">Productos</h3>
+    </div>
+    <div class="galeriaProductos">
+        <% prod.forEach((row) =>{ %>
+        <article class="productArticle"> 
+               
+            <div class="imagenesProd">
+                <a id="linkProd" href="/product/producto"><div class="contenedorImagenProd">
+                    <img id="imagenProducto" src="/images/<%= row.imagen %>" alt = "<%= row.imagen %>">
+                </div></a>
+            
+                <h4><%= row.nombre %></h4>
+                <p class="precio"> $ <%= row.precio %></p>
+            </div>
+        
+        </article>
+        <% }) %>
+    </div>
+        <!--
+        <article>
+        <div class="imagenesProd">
+            <img src="/images/camiseta_ares_26_imagen1.jpg" alt="imgcamiseta">
+        </div>
+        </article>
+        <article>
+            <div class="imagenesProd">
+            <img src="/images/guide_34_escalada_imagen1.jpg" alt="imgbolsa">
+            </div>
+        </article>
+        <article>
+        <div class="imagenesProd">
+            <img src="/images/pantalon_nea_3_gore_tex_2c_performance_shell_nino_imagen3.jpg" alt="imgpantalon">
+        </div>
+        </article>-->
+</main>   
+</body>
+
+<%-include('../partials/footer')%>
+
+</html>

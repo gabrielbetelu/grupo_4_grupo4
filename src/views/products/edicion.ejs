@@ -3,35 +3,50 @@
     <%- include('../partials/head') %>
 <body>
     <main class="mainEdicion">
-        <form class="edicion-form" action="" method="GET" >
+        <form class="edicion-form" action="/product/producto/:id" method="POST" >
             <h5>Edición de producto</h5>
             <div class="buscaEdit">
                 <label class= "codProd" for="codigo"> Buscar producto por código</label>
-                <input type="search" name="codigo" id ="codigo" placeholder="  Codigo de producto">
+                <input type="text" name="codigo" id ="codigo" placeholder="  Codigo de producto" >
                 <button class="buscadorEdicion" type="submit">
                     <i id="lupa-edicion" class="fa-solid fa-magnifying-glass"></i>
                 </button>                
             </div>
         </form>
-        <form class="edicion-form" action="" method="POST" >
-            <div>
-                <input type="text" name="nombre" placeholder="  Nombre del producto">
+        <form class="edicion-form" action="/product/producto/:id/edit" method="POST" >
+            <div id="edicionInvisible">
+                <% if (prod == "vacio") {%>
+                    <input type="text" name="id">
+                    <%} else {%>
+                    <input type="text" name="id" value="<%=prod.id%>" placeholder="  Nombre del producto" >
+                <% }%>
             </div>
             <div>
-                <textarea name="textarea" placeholder=" Descipcion del producto"></textarea>
+                <% if (prod == "vacio") {%>
+                    <input type="text" name="nombre"  placeholder="  Nombre del producto" >
+                    <%} else {%>
+                    <input type="text" name="nombre" value="<%= "  " + prod.nombre%>" placeholder="  Nombre del producto" >
+                <% }%>
+            </div>
+           <div>
+                <% if (prod == "vacio") {%>
+                    <textarea name="descripcion" placeholder=" Descipcion del producto" ></textarea>
+                    <%} else {%>
+                        <textarea name="descripcion" placeholder=" Descipcion del producto" ><%=" "+prod.descripcion%></textarea>
+                <% }%>
             </div>
             <div class="imagenesEdicion">
                 <p>Imagenes del producto</p>
-                <input type="file" name="img" accept=".png, .jpg, .jpeg" multiple>
+                <input type="file" name="imagen" accept=".png, .jpg, .jpeg" multiple>
             </div>           
             <div class="categoriaEdicion">
                 <p>Categorías</p>
                 <div class="checkboxEdicion">
-                    <input type="checkbox" name="abrigos" value="abrigos" id="abrigos">
+                    <input type="checkbox" name="abrigo" value="abrigos" id="abrigos">
                     <label for="Abrigos">Abrigos</label>
                 </div>
                 <div class="checkboxEdicion">
-                    <input type="checkbox" name="pantalones" value="pantalones" id="pantalones">
+                    <input type="checkbox" name="pantalon" value="pantalones" id="pantalones">
                     <label for="Pantalones">Pantalones</label>
                 </div>
                 <div class="checkboxEdicion">
@@ -59,12 +74,17 @@
                     <label for="Hombre">Hombre</label>
                 </div>
                 <div class="checkboxEdicion">
-                    <input type="checkbox" name="niño" value="niño" id="niño">
+                    <input type="checkbox" name="ninio" value="niño" id="niño">
                     <label for="Niño">Niño</label>
                 </div>
             </div> 
             <div class="precioEdicion">
-                <input type="number" name="precio" value="precio" placeholder="  Precio del producto">
+                <% if (prod == "vacio") {%>
+                    <input type="number" name="precio" placeholder="  Precio del producto">
+                    <%} else {%>
+                        <input type="number" name="precio" value="<%=prod.precio%>" placeholder="  Precio del producto">
+                <% }%>
+                
             </div>           
             <div class="botonesEdicion">
                 <div>
@@ -79,7 +99,8 @@
                 <div>
                     <a href="/"><button class="botones botonCerrar" type="button" name="cerrar" value="cerrar">Cerrar</button></a>
                 </div> 
-            </div>               
+            </div> 
+                          
         </form>
     </main>
 </body>

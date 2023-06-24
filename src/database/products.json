@@ -1,8 +1,8 @@
- [
+[
   {
     "id": 1,
     "nombre": "Camiseta",
-    "descripción": "Una camiseta de algodón",
+    "descripcion": "Una camiseta de algodón",
     "imagen": "camiseta.jpg",
     "abrigo": true,
     "pantalon": false,
@@ -11,13 +11,13 @@
     "mochilas": false,
     "mujer": true,
     "hombre": false,
-    "ninio": false, 
+    "ninio": false,
     "precio": 20.99
   },
   {
     "id": 2,
-    "nombre": "Zapatos",
-    "descripción": "zapatillas de trekking",
+    "nombre": "  Zapatos trekking",
+    "descripcion": " zapatillas de trekking",
     "imagen": "zapatos.jpg",
     "abrigo": false,
     "pantalon": false,
@@ -27,12 +27,12 @@
     "mujer": true,
     "hombre": true,
     "ninio": false,
-    "precio": 59.99
+    "precio": "59.99"
   },
   {
     "id": 3,
-    "nombre": "Bolso",
-    "descripción": "Un bolso de escalada",
+    "nombre": "      Bolso Chico",
+    "descripcion": "   Un bolso de escalada chico",
     "imagen": "bolso.jpg",
     "abrigo": false,
     "pantalon": false,
@@ -42,12 +42,12 @@
     "mujer": true,
     "hombre": true,
     "ninio": false,
-    "precio": 309.99
+    "precio": "319.99"
   },
   {
     "id": 4,
     "nombre": "pantalon",
-    "descripción": "pantalon de ski",
+    "descripcion": "pantalon de ski",
     "imagen": "pantalon.jpg",
     "abrigo": false,
     "pantalon": true,
@@ -59,7 +59,4 @@
     "ninio": true,
     "precio": 599.99
   }
-  
-
 ]
-
