@@ -37,11 +37,15 @@
             </div>
             <div class="imagenesEdicion">
                 <p>Imagenes del producto</p>
+                <% if (prod == "vacio") { }
+                    else {%>
+                    <p id="parrafoFotos">Fotos actuales</p>
+                    <%}%>
                 <div id="archivosImagenesProd">
                     <% if (prod == "vacio") {%>
                         <input type="file" name="imagen" accept=".png, .jpg, .jpeg" multiple>
                         <%} else {%>
-                            <div id="imagenesExistentes">
+                            <div id="imagenesExistentes">                                
                                 <%  let tamanio = prod.imagen.length
                                     for (i = 0 ; i < tamanio ; i++) {%>
                                 <img id="fotosProd" src="<%= prod.imagen[i]%>">

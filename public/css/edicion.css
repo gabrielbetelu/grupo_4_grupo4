@@ -127,11 +127,22 @@
     width: 90%;
 }
 
-#imagenesExistentes {
-    width: 20%;
+#imagenesExistentes {    
+    max-width: 100px;
 }
+
+#parrafoFotos{
+    border: none;
+    font-size: 12px;
+    margin: 0;
+    padding: 0 0 5px 5px;
+    max-height: 12px;
+    text-align: left;
+}
+
 #fotosProd {
-    width: 35px;
+    width: 25px;
+    padding: 0 1.5px;
 }
 
 #archivosImagenesProd {
@@ -268,6 +279,15 @@ button.botonEliminar {
     }
     form.deleteProdForm {
         width: 16.2%;
+    }
+    
+    #imagenesExistentes {    
+        max-width: 140px;
+    }
+        
+    #fotosProd {
+        width: 35px;
+        padding: 0 3px;
     }
     
     
