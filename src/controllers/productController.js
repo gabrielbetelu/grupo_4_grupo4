@@ -66,27 +66,24 @@ module.exports = {
 
     processModificar: (req , res)=> {
         console.log("entraste a modificar el item" , req.body.id);
-        const productoId = products.find (elemento => elemento.id == req.body.id);
-        console.log(productoId)
-        console.log(req.body)
+        const productoId = products.find (elemento => elemento.id == req.body.id);    
+        let arrayImg = [];
+        console.log("entraste a imágenes")
+                if (req.files.length > 0) {
+                    req.files.forEach((file) => {
+                        arrayImg.push("/images/" + file.filename);                        
+                })
+            }
+        productoId.imagen = arrayImg
         for (let propiedad in req.body) {
             if (propiedad == "id") {
-                productoId[propiedad] = Number(req.body[propiedad]) ;
-                console.log(propiedad , "    " ,productoId[propiedad] , "<----");
-                console.log(propiedad , "    " ,Number(req.body[propiedad]) , "<----");
+                productoId[propiedad] = Number(req.body[propiedad]) ;    
             } else if (propiedad == "guardar") {
-
             } else {
-            productoId[propiedad] = req.body[propiedad];
-            console.log(propiedad , "    " ,productoId[propiedad]);
-            console.log(propiedad , "    " ,req.body[propiedad] , "<----");
-        }
-           
-        }
-        console.log("-------------FIN----------------");
-        console.log(products);
-        console.log("-------------FIN----------------");
+            productoId[propiedad] = req.body[propiedad];    
+            }
+        }    
         fs.writeFileSync(path.resolve(__dirname, '../database/products.json'),JSON.stringify(products, null , 2));
         return res.render('products/edicion' , {prod : "vacio"})
     }
-};
+}

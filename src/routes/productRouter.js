@@ -11,7 +11,7 @@ const multerDiskStorage = multer.diskStorage ({
     },
 
     filename: function (req, file, cb) {
-        let imageName = Data.now() + path.extname(file.originalname);
+        let imageName = Date.now() + path.extname(file.originalname);
         cb(null, imageName);
     },
 })
@@ -27,7 +27,7 @@ router.get('/productos', controller.productos);
 router.get('/edicion', controller.edicion);
 router.post('/producto/:id', controller.editId);
 router.get('/producto/:id/edit', controller.processEdit);
-router.post('/producto/:id/edit', controller.processModificar);
+router.put('/producto/:id/edit', fileUpload.any('imagen'),controller.processModificar);
 
 //FORM CREACION
 router.get('/creacion', controller.creacion);

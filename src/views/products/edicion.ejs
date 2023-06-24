@@ -13,7 +13,7 @@
                 </button>                
             </div>
         </form>
-        <form class="edicion-form" action="/product/producto/:id/edit" method="POST" >
+        <form class="edicion-form" action="/product/producto/:id/edit?_method=PUT" method="POST" enctype="multipart/form-data" >
             <div id="edicionInvisible">
                 <% if (prod == "vacio") {%>
                     <input type="text" name="id">
