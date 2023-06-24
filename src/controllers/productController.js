@@ -52,7 +52,7 @@ module.exports = {
     editId: (req , res)=> {
         console.log("entraste a buscar el item" , req.body.codigo);
         const producto = products.find (elemento => elemento.id == req.body.codigo);
-        console.log(producto);
+    //    console.log(producto);
         return res.render('./products/edicion', {prod: producto})
     },
 
@@ -60,7 +60,7 @@ module.exports = {
         console.log("entraste a editar el item");
         
         const productoId = products.find (elemento => elemento.id == req.params.id);
-        console.log(productoId)
+    //    console.log(productoId)
         return res.render('products/edicion',{prod: productoId})
     },
 
@@ -85,5 +85,13 @@ module.exports = {
         }    
         fs.writeFileSync(path.resolve(__dirname, '../database/products.json'),JSON.stringify(products, null , 2));
         return res.render('products/edicion' , {prod : "vacio"})
-    }
+    },
+    eliminar: (req , res)=> {
+        console.log("entraste a eliminar el item" , req.params.id);
+        const producto = products.find (elemento => elemento.id == req.params.id);
+        producto.borrado = true;
+        fs.writeFileSync(path.resolve(__dirname, '../database/products.json'),JSON.stringify(products, null , 2));
+    //    console.log(producto);
+        return res.render('./products/edicion', {prod: producto})
+    },
 }

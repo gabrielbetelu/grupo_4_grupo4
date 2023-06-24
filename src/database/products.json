@@ -1,10 +1,10 @@
 [
   {
     "id": 1,
-    "nombre": "  Camiseta",
-    "descripcion": " Una camiseta de algodón",
+    "nombre": "Camiseta",
+    "descripcion": "Una camiseta de algodón",
     "imagen": [
-      "/images/1687610349500.jpg"
+      "/images/1687614046174.jpg"
     ],
     "abrigo": true,
     "pantalon": false,
@@ -14,7 +14,8 @@
     "mujer": true,
     "hombre": false,
     "ninio": false,
-    "precio": "20.99"
+    "precio": "20.99",
+    "borrado": false
   },
   {
     "id": 2,
@@ -31,7 +32,8 @@
     "mujer": true,
     "hombre": true,
     "ninio": false,
-    "precio": "59.99"
+    "precio": "59.99",
+    "borrado": false
   },
   {
     "id": 3,
@@ -50,7 +52,8 @@
     "mujer": true,
     "hombre": true,
     "ninio": false,
-    "precio": "309.99"
+    "precio": "309.99",
+    "borrado": false
   },
   {
     "id": 4,
@@ -67,6 +70,7 @@
     "mujer": false,
     "hombre": false,
     "ninio": true,
-    "precio": "599.99"
+    "precio": "599.99",
+    "borrado": false
   }
 ]

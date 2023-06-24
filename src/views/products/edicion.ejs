@@ -25,14 +25,14 @@
                 <% if (prod == "vacio") {%>
                     <input type="text" name="nombre"  placeholder="  Nombre del producto" >
                     <%} else {%>
-                    <input type="text" name="nombre" value="<%= "  " + prod.nombre%>" placeholder="  Nombre del producto" >
+                    <input type="text" name="nombre" value="<%= prod.nombre%>" placeholder="  Nombre del producto" >
                 <% }%>
             </div>
            <div>
                 <% if (prod == "vacio") {%>
                     <textarea name="descripcion" placeholder=" Descipcion del producto" ></textarea>
                     <%} else {%>
-                        <textarea name="descripcion" placeholder=" Descipcion del producto" ><%=" "+prod.descripcion%></textarea>
+                        <textarea name="descripcion" placeholder=" Descipcion del producto" ><%= prod.descripcion%></textarea>
                 <% }%>
             </div>
             <div class="imagenesEdicion">
@@ -90,9 +90,12 @@
                 <div>
                     <button class="botones botonGuardar" type="submit" name="guardar" value="Guardar">Guardar</button>
                 </div>
-                <div>
-                    <button class="botones botonEliminar" type="submit" name="eliminar" value="eliminar">Eliminar</button>
+    <!--            <div>
+                    <form class="edicion-form" action="/product/eliminar/<%= prod.id%>?_method=DELETE" method="post">
+                        <button class="botones botonEliminar">Eliminar</button>
+                    </form>    
                 </div>
+    -->            
                 <div>
                     <a href="creacion"><button class="botones botonBuscar" type="button" >Crear</button></a>
                 </div>
@@ -102,6 +105,11 @@
             </div> 
                           
         </form>
+        <div class="botonesEdicion botonDeleteProd">
+            <form class="edicion-form deleteProdForm" action="/product/eliminar/<%= prod.id%>?_method=DELETE" method="post">
+                <button class="botones botonEliminar">Eliminar</button>
+            </form>    
+        </div>
     </main>
 </body>
 </html>

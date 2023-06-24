@@ -28,6 +28,7 @@ router.get('/edicion', controller.edicion);
 router.post('/producto/:id', controller.editId);
 router.get('/producto/:id/edit', controller.processEdit);
 router.put('/producto/:id/edit', fileUpload.any('imagen'),controller.processModificar);
+router.delete('/eliminar/:id' , controller.eliminar);
 
 //FORM CREACION
 router.get('/creacion', controller.creacion);
