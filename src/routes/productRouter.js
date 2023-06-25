@@ -31,7 +31,7 @@ router.put('/producto/:id/edit', fileUpload.any('imagen'),controller.processModi
 router.delete('/eliminar/:id' , controller.eliminar);
 
 //FORM CREACION
-router.get('/creacion', controller.creacion);
+router.get('/producto/creacion', controller.creacion);
 router.post('/producto', fileUpload.array('img'), controller.processCreate);
 
 module.exports = router;

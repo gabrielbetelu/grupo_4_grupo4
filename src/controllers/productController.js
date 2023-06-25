@@ -82,6 +82,7 @@ module.exports = {
             productoId[propiedad] = req.body[propiedad];    
             }
         }
+//        console.log(productoId);
         fs.writeFileSync(path.resolve(__dirname, '../database/products.json'),JSON.stringify(products, null , 2));
         return res.render('products/edicion' , {prod : "vacio"})
     },

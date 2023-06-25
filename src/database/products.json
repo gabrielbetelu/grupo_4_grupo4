@@ -37,23 +37,21 @@
   },
   {
     "id": 3,
-    "nombre": "Bolso Chico",
-    "descripcion": "Un bolso de escalada chico",
+    "nombre": "Bolso ",
+    "descripcion": "Un bolso de escalada ",
     "imagen": [
       "/images/1687627727723.jpg",
       "/images/1687627727727.jpg",
       "/images/1687627727729.jpg"
     ],
-    "abrigo": false,
-    "pantalon": false,
-    "calzado": false,
-    "camping": false,
-    "mochilas": "mochilas",
-    "mujer": "mujer",
-    "hombre": "hombre",
-    "ninio": false,
     "precio": "309.99",
-    "borrado": false
+    "borrado": false,
+    "categoria": [
+      "mochilas",
+      "mujer",
+      "hombre",
+      "niño"
+    ]
   },
   {
     "id": 4,
