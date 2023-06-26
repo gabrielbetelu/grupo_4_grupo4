@@ -6,14 +6,11 @@
     "imagen": [
       "/images/1687627065052.jpg"
     ],
-    "abrigo": "abrigo",
-    "pantalon": false,
-    "calzado": false,
-    "camping": false,
-    "mochilas": false,
-    "mujer": "mujer",
-    "hombre": false,
-    "ninio": false,
+    "categoria": [
+      "abrigo",
+      "mujer",
+      "hombre"
+    ],
     "precio": "21.99",
     "borrado": false
   },
@@ -24,14 +21,12 @@
     "imagen": [
       "/images/1687610013718.jpg"
     ],
-    "abrigo": false,
-    "pantalon": false,
-    "calzado": "calzado",
-    "camping": false,
-    "mochilas": false,
-    "mujer": "mujer",
-    "hombre": "hombre",
-    "ninio": "niño",
+    "categoria": [
+      "calzado",
+      "mujer",
+      "hombre",
+      "niño"
+    ],
     "precio": "59.99",
     "borrado": false
   },
@@ -49,7 +44,6 @@
     "categoria": [
       "mochilas",
       "mujer",
-      "hombre",
       "niño"
     ]
   },
@@ -60,15 +54,100 @@
     "imagen": [
       "/images/1687610285502.jpg"
     ],
-    "abrigo": false,
-    "pantalon": "pantalon",
-    "calzado": false,
-    "camping": false,
-    "mochilas": false,
-    "mujer": false,
-    "hombre": false,
-    "ninio": "niño",
+    "categoria": [
+      "pantalon",
+      "niño"
+    ],
     "precio": "599.99",
+    "borrado": false
+  },
+  {
+    "id": 5,
+    "nombre": "carpa iglú",
+    "descripcion": "Iglú 6 personas",
+    "imagen": [
+      "/images/1687744758324.jpg"
+    ],
+    "categoria": "camping",
+    "precio": "60000",
+    "borrado": false
+  },
+  {
+    "id": 6,
+    "nombre": "Varilla de montañismo",
+    "descripcion": "Bastones de aluminio K2BAS x2 ",
+    "imagen": [
+      "/images/1687745171855.jpg",
+      "/images/1687745171857.jpg"
+    ],
+    "categoria": "accesorios",
+    "precio": "20000",
+    "borrado": false
+  },
+  {
+    "id": 7,
+    "nombre": "Mochila Camping The North Face Original",
+    "descripcion": "60 Litros",
+    "imagen": [
+      "/images/1687745339314.jpg"
+    ],
+    "categoria": [
+      "mochilas",
+      "mujer",
+      "hombre"
+    ],
+    "precio": "110000",
+    "borrado": false
+  },
+  {
+    "id": 8,
+    "nombre": "Set Mosqueton Niteize 234 ",
+    "descripcion": "Trekking Acero Inoxidable Premium",
+    "imagen": [
+      "/images/1687745562638.jpg"
+    ],
+    "categoria": "accesorios",
+    "precio": "6422",
+    "borrado": false
+  },
+  {
+    "id": 9,
+    "nombre": "Cuerda De Escalada Deportiva Edelrid Python ",
+    "descripcion": "10mm 60m ",
+    "imagen": [
+      "/images/1687745658982.jpg"
+    ],
+    "categoria": "accesorios",
+    "precio": "151150",
+    "borrado": false
+  },
+  {
+    "id": 10,
+    "nombre": "Campera Aconcagua  2 Gore-Tex Pro Expedición",
+    "descripcion": "Ideal para expediciones y largas travesías. Seguridad, confiabilidad y bajo peso.",
+    "imagen": [
+      "/images/1687746046716.jpg"
+    ],
+    "categoria": [
+      "on",
+      "mujer"
+    ],
+    "precio": "241500",
+    "borrado": false
+  },
+  {
+    "id": 11,
+    "nombre": "Borceguí Bota Alpina Action ",
+    "descripcion": "Modelo Trekking",
+    "imagen": [
+      "/images/1687746186082.jpg"
+    ],
+    "categoria": [
+      "calzado",
+      "mujer",
+      "ninio"
+    ],
+    "precio": "13590",
     "borrado": false
   }
 ]

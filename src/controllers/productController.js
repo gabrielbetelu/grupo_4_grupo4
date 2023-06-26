@@ -30,23 +30,26 @@ module.exports = {
          
     },
     processCreate: (req, res) => {
-        console.log(req)
+        console.log("entraste por creacion de item");
+        let arrayImg = [];
+        if (req.files.length > 0) {
+            req.files.forEach((file) => {
+                arrayImg.push("/images/" + file.filename);                        
+        })
+        }
         let productoNuevo = { 
-            'id': producto.length +1, 
-            'nombre': req.body.name,
-            'descripcion': req.body.desc,
-            'img': req.file.filename,
-            'abrigo': req.body.abrigos,
-            'pantalon': req.body.pantalones,
-            'calzado': req.body.calzado,
-            'camping': req.body.camping,
-            'mochilas': req.body.mochilas,
-            'mujer': req.body.mujer,
-            'hombre': req.body.hombre,
-            'ninio': req.body.niño, 
+            'id': products.length +1, 
+            'nombre': req.body.nombre,
+            'descripcion': req.body.descripcion,
+            'imagen': arrayImg,
+            'categoria': req.body.categoria,
             'precio': req.body.precio,
             'borrado': false
         }
+        products.push(productoNuevo);
+        console.log(products)
+        fs.writeFileSync(path.resolve(__dirname, '../database/products.json'),JSON.stringify(products, null , 2));
+        return res.render('products/creacion')
     },
 
     editId: (req , res)=> {
