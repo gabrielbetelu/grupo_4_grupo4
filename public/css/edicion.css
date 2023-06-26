@@ -123,7 +123,38 @@
 }
 
 .mainEdicion .edicion-form .precioEdicion {
-    padding-top: 20px;
+    padding-top: 20px; 
+    width: 90%;
+}
+
+#imagenesExistentes {    
+    max-width: 100px;
+}
+
+#parrafoFotos{
+    border: none;
+    font-size: 12px;
+    margin: 0;
+    padding: 0 0 5px 5px;
+    max-height: 12px;
+    text-align: left;
+}
+
+#fotosProd {
+    width: 25px;
+    padding: 0 1.5px;
+}
+
+#archivosImagenesProd {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#conFotos {
+    width:75%;
 }
 
 .mainEdicion .edicion-form input[type="file"] {
@@ -146,7 +177,9 @@
     min-width: 125px;
 }
 
-
+#divBotonesEdicion{
+    width: 90%;
+}
 
 .mainEdicion .edicion-form .botonesEdicion {
     width: 90%;
@@ -183,6 +216,37 @@
     border-bottom: 1px solid;
 }
 
+div.botonDeleteProd {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    background: #497330;
+    margin: auto;
+    padding: 0 30px 20px 30px;
+    color: whitesmoke;
+    max-width:650px;
+}
+
+form.deleteProdForm {
+    margin: 0;
+    padding: 0;  
+    border: none;  
+    width: 80%;
+    box-shadow: none;
+}
+
+button.botonEliminar {
+    background-color: rgb(18, 94, 18);
+    color: whitesmoke;
+    height: 40px;
+    width: 100%;
+    margin: 0;
+    padding: 0;  
+    border: none;
+}
+
+
+
 
 @media (min-width : 481px) {
     .edicion-form h5 {
@@ -194,7 +258,7 @@
     }
 
     .mainEdicion .edicion-form .botonesEdicion {
-        width: 90%;
+        width: 100%;
         flex-direction: row;
         justify-content: space-between;
         flex-wrap: wrap;
@@ -213,6 +277,19 @@
     .mainEdicion .edicion-form .categoriaEdicion p {
         font-size: 20px;
     }
+    form.deleteProdForm {
+        width: 16.2%;
+    }
+    
+    #imagenesExistentes {    
+        max-width: 140px;
+    }
+        
+    #fotosProd {
+        width: 35px;
+        padding: 0 3px;
+    }
+    
     
 
 }

@@ -52,41 +52,45 @@ module.exports = {
     editId: (req , res)=> {
         console.log("entraste a buscar el item" , req.body.codigo);
         const producto = products.find (elemento => elemento.id == req.body.codigo);
-        console.log(producto);
         return res.render('./products/edicion', {prod: producto})
     },
 
     processEdit: (req , res)=> {
-        console.log("entraste a editar el item");
-        
+        console.log("entraste a editar el item", req.params.id);
         const productoId = products.find (elemento => elemento.id == req.params.id);
-        console.log(productoId)
         return res.render('products/edicion',{prod: productoId})
     },
 
     processModificar: (req , res)=> {
         console.log("entraste a modificar el item" , req.body.id);
-        const productoId = products.find (elemento => elemento.id == req.body.id);
-        console.log(productoId)
-        console.log(req.body)
+        const productoId = products.find (elemento => elemento.id == req.body.id);    
+        let arrayImg = [];
+        let oldImagen = productoId.imagen;
+            if (req.files.length > 0) {
+                req.files.forEach((file) => {
+                    arrayImg.push("/images/" + file.filename);                        
+            })
+            } else {
+                arrayImg = oldImagen;
+            }
+        productoId.imagen = arrayImg;
         for (let propiedad in req.body) {
             if (propiedad == "id") {
-                productoId[propiedad] = Number(req.body[propiedad]) ;
-                console.log(propiedad , "    " ,productoId[propiedad] , "<----");
-                console.log(propiedad , "    " ,Number(req.body[propiedad]) , "<----");
+                productoId[propiedad] = Number(req.body[propiedad]) ;    
             } else if (propiedad == "guardar") {
-
             } else {
-            productoId[propiedad] = req.body[propiedad];
-            console.log(propiedad , "    " ,productoId[propiedad]);
-            console.log(propiedad , "    " ,req.body[propiedad] , "<----");
+            productoId[propiedad] = req.body[propiedad];    
+            }
         }
-           
-        }
-        console.log("-------------FIN----------------");
-        console.log(products);
-        console.log("-------------FIN----------------");
+//        console.log(productoId);
         fs.writeFileSync(path.resolve(__dirname, '../database/products.json'),JSON.stringify(products, null , 2));
         return res.render('products/edicion' , {prod : "vacio"})
-    }
-};
+    },
+    eliminar: (req , res)=> {
+        console.log("entraste a eliminar el item" , req.params.id);
+        const producto = products.find (elemento => elemento.id == req.params.id);
+        producto.borrado = true;
+        fs.writeFileSync(path.resolve(__dirname, '../database/products.json'),JSON.stringify(products, null , 2));
+        return res.render('./products/edicion', {prod: producto})
+    },
+}
