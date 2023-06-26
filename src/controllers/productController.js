@@ -13,9 +13,6 @@ module.exports = {
     },
     productos : (req, res) => {
         console.log("entraste a productos" );
-        
-        console.log(products);
-
         return res.render('./products/productos' , {prod : products})
         
     },
@@ -47,13 +44,17 @@ module.exports = {
             'borrado': false
         }
         products.push(productoNuevo);
-        console.log(products)
         fs.writeFileSync(path.resolve(__dirname, '../database/products.json'),JSON.stringify(products, null , 2));
         return res.render('products/creacion')
     },
 
     editId: (req , res)=> {
         console.log("entraste a buscar el item" , req.body.codigo);
+        let productoNoEncontrado = true;
+        for (i = 0 ; i < products.length ; i++) {
+            products[i].id == req.body.codigo ? productoNoEncontrado = false : "";
+        }
+        if (req.body.codigo == '' || productoNoEncontrado) {return res.render('./products/edicion' , {prod : "vacio"})};
         const producto = products.find (elemento => elemento.id == req.body.codigo);
         return res.render('./products/edicion', {prod: producto})
     },
@@ -85,7 +86,6 @@ module.exports = {
             productoId[propiedad] = req.body[propiedad];    
             }
         }
-//        console.log(productoId);
         fs.writeFileSync(path.resolve(__dirname, '../database/products.json'),JSON.stringify(products, null , 2));
         return res.render('products/edicion' , {prod : "vacio"})
     },
