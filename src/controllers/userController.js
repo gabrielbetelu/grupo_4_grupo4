@@ -8,9 +8,12 @@ const products = JSON.parse (fs.readFileSync(rutaJSON));
 module.exports = {
     login : (req, res) => {
         return res.render('./users/login')
+
     },
     registro :(req, res) => {
-            return res.render('./users/registro')        
+            return res.render('./users/registro')
+            
     },
+   
     
 };

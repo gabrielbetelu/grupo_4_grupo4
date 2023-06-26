@@ -1,16 +1,26 @@
-.main-registro {
-    padding: 60px 0;
-    background-image: url(../images/patagonia-argentina.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-     
+  .main-registro {
+    width: 100%;
+    position: relative;
+    padding: 0;
+    box-sizing: content-box;
+    display: flex;
+    justify-content: center;
+  
+    
   }
-
-  .registro{
+  .fondo-image {
+   
+    opacity: 0.5;
+    width: 100%;
+    min-height: 650px;
+       
+  } 
+    
+   .registro{
+    position: absolute;
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 50%;
     background: #497330;
     margin: auto;
     margin-top: 35px;
@@ -19,12 +29,14 @@
     border-top: 4px solid #7FAD58;
     color: whitesmoke;
     max-width: 650px;
+  
   }
   .registro h5 {
     margin: 0;
     text-align: center;
     height: 40px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
     border-bottom: 1px solid;
     font-size: 20px;
     font-style: oblique;
@@ -54,3 +66,18 @@
   .botEnter:hover {
     background-color: #7FAD58;
   }
+
+
+@media(min-width: 1024px){
+  .main-registro .fondo-image{
+    min-height: 550px;
+  }
+
+}
+
+  
+  
+  
+  
+  
+  

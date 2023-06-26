@@ -4,6 +4,7 @@ const multer = require('multer');
 const path = require('path');
 
 const controller = require("../controllers/productController");
+const productController = require('../controllers/productController');
 
 const multerDiskStorage = multer.diskStorage ({
     destination: function (req, file, cb) {
@@ -31,7 +32,7 @@ router.put('/producto/:id/edit', fileUpload.any('imagen'),controller.processModi
 router.delete('/eliminar/:id' , controller.eliminar);
 
 //FORM CREACION
-router.get('/producto/creacion', controller.creacion);
-router.post('/producto', fileUpload.array('img'), controller.processCreate);
+router.get('/creacion', controller.creacion);
+router.post('/producto', fileUpload.any('imagen'), controller.processCreate);
 
 module.exports = router;
