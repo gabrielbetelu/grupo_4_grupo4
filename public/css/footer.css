@@ -6,7 +6,7 @@ footer {
     align-items: center;
     font-size: 6px;
     color: #000;
-    background-color: #C9F4B0;
+    background: linear-gradient(to bottom, #A4D28F, #C9F4B0 );
     padding-bottom: 2px;
 }
 
@@ -75,6 +75,15 @@ footer .redes div a i {
 footer .redes .detalle-redes .fa-facebook-square {
     color: #576b95;
 }
+footer .redes div.detalle-redes a {
+    color: #000;
+    transition: transform 0.3s;
+}
+
+footer .redes div.detalle-redes a:hover {
+    transform: scale(1.2); /* Aumenta el tamaño en un 20% */
+}
+
 
 footer .redes .detalle-redes .fa-instagram {
     color: #cf3476;
@@ -87,6 +96,7 @@ footer .redes .detalle-redes .fa-twitter-square {
 footer .redes .detalle-redes .fa-youtube{
     color: #C70039;
 }
+
 
 footer .contactos div {
     display: flex;

@@ -7,73 +7,9 @@
 @import 'footer.css';
 
 @import 'productos.css';
-/* -------------------login-----------*/
-.mainLogin {
-  padding: 60px 0;
-  background-image: url(../images/patagonia-argentina.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  
-}
 
-.login-form {
-  display: flex;
-  flex-direction: column;
-  width: 80%;
-  background: #497330;
-  margin: auto;
-  margin-top: 15px;
-  box-shadow: 15px 25px 50px #000;
-  padding: 20px 30px;
-  border-top: 4px solid #7FAD58;
-  color: whitesmoke;
-  max-width:650px;
-}
-.login-form h5 {
-  margin: 0;
-  text-align: center;
-  height: 40px;
-  margin-bottom: 30px;
-  border-bottom: 1px solid;
-  font-size: 20px;
-  font-style: oblique;
-}
-.log-control {
-  width: 100%;
-  border: 1px solid grey;
-  margin-bottom: 15px;
-  padding: 11px 0;
-  background: #232c1c;
-  font-size: 14px;
-  font-weight: lighter;
-  color: #c79430;
-}
-.botonLog {
-  width: 100%;
-  height: 40px;
-  background-color: rgb(18, 94, 18);
-  color: whitesmoke;
-  margin-bottom: 16px;
-  border: none;
-}
-.botonLog:hover{
-  background-color: #7FAD58;
-}
-.login-form p {
-  height: 40px;
-  text-align: center;
-  border-bottom: 1px solid;
-}
-.login-form a {
-  color: whitesmoke;
-  text-decoration: none;
-  font-size: 14px;
-}
-.login-form a:hover {
-  text-decoration: underline;
-  color: #EBB54B;
-}
+@import 'login.css';
+
 
 /*-----------------------------------------------*/
 
@@ -107,7 +43,7 @@ main {
 
 header {
     width: 100%;
-    background-color: #C9F4B0;
+    background: linear-gradient(to bottom, #336633, #C9F4B0);
     display: flex; 
     justify-content: space-between; 
 }
@@ -263,6 +199,8 @@ header .opciones .menu-buscador .area-buscar .buscador .botonLupa {
 main {
     width: 100%;
     display: flex;
+    background: linear-gradient(to bottom, #497330, #C9F4B0);
+    
 }
 
 main section {  
@@ -281,33 +219,50 @@ main section .carrousel {
     height: 35vw;
     border: solid 1px #000;
     display: flex;
-    justify-content: space-evenly;
+    /*justify-content: space-evenly;*/
+    overflow: hidden;
 }
 
 main section .carrousel img {
     width: 33.33%;
+    height: 100%;
+    object-fit: cover;
 }
 
 main section .controles {
     display: flex;
-    justify-content: space-around;
-    border: solid 1px #000;
+    justify-content: space-between;
+    align-items: center;
+    /*border: solid 1px #000;*/
     width: 100%;
+    margin-top: 10px;
 }
-
+main section .atras-adelante {
+    font-size: 24px;
+    cursor: pointer;
+}
+/*
 main section .atras-adelante {
     font-size: 24px;
     margin-top: auto;
-    margin-bottom: auto;
+    margin-bottom: auto;*/
+main section .circulo {
+        width: 12px;
+        height: 12px;
+        border: solid 2px #000;
+        border-radius: 50%;
+        margin: 0 6px;
+        cursor: pointer;
+        background-color: transparent;
 }
-
+/*
 main section .circulo {
     width: 1.2vw;
     height: 1.2vw;
     border: solid 2px #000;
     border-radius: 10vw;
     margin: auto 10px;
-}
+}*/
 
 main section .enfocado {
     background-color: #000;
@@ -385,6 +340,65 @@ main section .posicion {
     font-size: 12px;
     font-weight: 500;
 }
+.camperasYBuzos img,
+.pantalonesYShorts img,
+.zapatillasYBotas img,
+.carpasYBolsas img,
+.mochilasYBolsos img,
+.accesorios img,
+.hombre img,
+.mujer img,
+.ninios img {
+    width: 100%;
+    height: 40vw;
+    padding: 0;
+    box-shadow: 1vw 1vw 1vw #000;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.camperasYBuzos img:hover,
+.pantalonesYShorts img:hover,
+.zapatillasYBotas img:hover,
+.carpasYBolsas img:hover,
+.mochilasYBolsos img:hover,
+.accesorios img:hover,
+.hombre img:hover,
+.mujer img:hover,
+.ninios img:hover {
+    transform: scale(1.1); 
+    box-shadow: 1vw 1vw 2vw #000; 
+}
+.camperasYBuzos img,
+.pantalonesYShorts img,
+.zapatillasYBotas img,
+.carpasYBolsas img,
+.mochilasYBolsos img,
+.accesorios img,
+.hombre img,
+.mujer img,
+.ninios img {
+    width: 100%;
+    height: 40vw;
+    padding: 0;
+    box-shadow: 1vw 1vw 1vw #000;
+    transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s;
+}
+
+.camperasYBuzos img:hover,
+.pantalonesYShorts img:hover,
+.zapatillasYBotas img:hover,
+.carpasYBolsas img:hover,
+.mochilasYBolsos img:hover,
+.accesorios img:hover,
+.hombre img:hover,
+.mujer img:hover,
+.ninios img:hover {
+    transform: scale(1.1); 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+    opacity: 0.8; 
+}
+
+
 
 /*-----------------------------------------------*/
 
