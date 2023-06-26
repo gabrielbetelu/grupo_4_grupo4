@@ -2,10 +2,8 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const mainRouter = require('./routes/mainRouter');
-
 const userRouter = require('./routes/userRouter');
 const productRouter = require('./routes/productRouter');
-
 const methodOverride = require('method-override');
 
 app.use(express.static("./public"));
