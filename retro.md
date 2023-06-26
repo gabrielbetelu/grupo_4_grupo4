@@ -51,11 +51,10 @@
 ## Analisis sobre Sprint 3
 
 **### Qué hicimos bien**
-- Como equipo logramos organizarnos en la división de tareas, lo cual nos ayudó a trabajar de manera ordenada y prolija.
-- La comunicación es fluida y excelente, nos escuchamos entre nosotros y si alguno necesita algo estamos todos disponibles para ayudarlo.
+- Cumplimos con el proyecto en tiempo y forma.
 
 **### Qué hicimos mal**
-- No utilizamos correctamente el tablero de Trello, ya que hicimos las tarjetas al principio, pero no lo teníamos actualizado día a día. Nos costó un poco incluir esta herramienta.
+- Se nos hizo un poco de lío en la organizacion de tareas.
 
 **### Qué deberíamos empezar a hacer**
 - Deberíamos implementar la daily standup para hacer las reuniones más efectivas. 
@@ -64,5 +63,5 @@
 **###Qué deberíamos hacer menos**
 - Reuniones de larga duración.
 
-***## Conclusiones del Sprint 2***
--En un principio tuvimos un problema porque uno de los integrantes no estuvo presente en las reuniones por problemas personales y tuvo dificultades para cumplir con la tarea que se le había adjudicado. Pese a la ayuda que quisimos darle, lamentablemente, este compañero decidió darse de baja del curso siendo totalmente honesto con su falta de tiempo para dedicarle. Como grupo pudimos sortear esta dificultad y los cuatro integrantes que quedamos logramos una base sólida como equipo de trabajo en el cual fluyó la comunicación de manera súper positiva para llegar a los objetivos deseados. Cada uno de nosotros pudo cumplir con su tarea en tiempo y forma, también nos ajustamos a las consignas dadas ya que en el Sprint 1 esto nos falló en algunos momentos. Esperamos seguir trabajando de esta manera a futuro. 
+***## Conclusiones del Sprint 3***
+- Pudimos cumplir con el proyecto en tiempo y forma, pero notamos que a medida que pasamos al siguiente sprint se van sumando dificultades que requieren de mucha mas organizacion para resolver de forma mas efectiva las tareas. Pese a esto, logramos solucionar los conflictos que surgieron lo cual nos confirma que como equipo funcionamos muy bien.
