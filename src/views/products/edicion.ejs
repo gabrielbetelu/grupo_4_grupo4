@@ -13,7 +13,7 @@
                 </button>                
             </div>
         </form>
-        <form class="edicion-form" action="/product/producto/:id/edit" method="POST" >
+        <form class="edicion-form" action="/product/producto/:id/edit?_method=PUT" method="POST" enctype="multipart/form-data" >
             <div id="edicionInvisible">
                 <% if (prod == "vacio") {%>
                     <input type="text" name="id">
@@ -25,56 +25,73 @@
                 <% if (prod == "vacio") {%>
                     <input type="text" name="nombre"  placeholder="  Nombre del producto" >
                     <%} else {%>
-                    <input type="text" name="nombre" value="<%= "  " + prod.nombre%>" placeholder="  Nombre del producto" >
+                    <input type="text" name="nombre" value="<%= prod.nombre%>" placeholder="  Nombre del producto" >
                 <% }%>
             </div>
            <div>
                 <% if (prod == "vacio") {%>
                     <textarea name="descripcion" placeholder=" Descipcion del producto" ></textarea>
                     <%} else {%>
-                        <textarea name="descripcion" placeholder=" Descipcion del producto" ><%=" "+prod.descripcion%></textarea>
+                        <textarea name="descripcion" placeholder=" Descipcion del producto" ><%= prod.descripcion%></textarea>
                 <% }%>
             </div>
             <div class="imagenesEdicion">
                 <p>Imagenes del producto</p>
-                <input type="file" name="imagen" accept=".png, .jpg, .jpeg" multiple>
+                <% if (prod == "vacio") { }
+                    else {%>
+                    <p id="parrafoFotos">Fotos actuales</p>
+                    <%}%>
+                <div id="archivosImagenesProd">
+                    <% if (prod == "vacio") {%>
+                        <input type="file" name="imagen" accept=".png, .jpg, .jpeg" multiple>
+                        <%} else {%>
+                            <div id="imagenesExistentes">                                
+                                <%  let tamanio = prod.imagen.length
+                                    for (i = 0 ; i < tamanio ; i++) {%>
+                                <img id="fotosProd" src="<%= prod.imagen[i]%>">
+                            <%}%>
+                            </div>
+                            <input id="conFotos" type="file" name="imagen" accept=".png, .jpg, .jpeg" multiple >
+                    <% }%>
+                </div>
+                
             </div>           
             <div class="categoriaEdicion">
-                <p>Categorías</p>
+                <p>Categorías%></p>
                 <div class="checkboxEdicion">
-                    <input type="checkbox" name="abrigo" value="abrigos" id="abrigos">
+                    <input <%= (prod != "vacio" ? ((prod.categoria.includes('abrigo') == true) ? "checked" : "") :"")%> type="checkbox" name="categoria" value="abrigo" id="abrigos">
                     <label for="Abrigos">Abrigos</label>
                 </div>
-                <div class="checkboxEdicion">
-                    <input type="checkbox" name="pantalon" value="pantalones" id="pantalones">
+                <div class="checkboxEdicion"> 
+                    <input <%= (prod != "vacio" ? ((prod.categoria.includes('pantalon') == true) ? "checked" : "") :"")%> type="checkbox" name="categoria" value="pantalon" id="pantalones">
                     <label for="Pantalones">Pantalones</label>
                 </div>
                 <div class="checkboxEdicion">
-                    <input type="checkbox" name="calzado" value="calzado" id="calzado">
+                    <input <%= (prod != "vacio" ? ((prod.categoria.includes('calzado') == true) ? "checked" : "") :"")%> type="checkbox" name="categoria" value="calzado" id="calzado">
                     <label for="Calzado">Calzado</label>
                 </div>
                 <div class="checkboxEdicion">
-                    <input type="checkbox" name="camping" value="camping" id="camping">
+                    <input <%= (prod != "vacio" ? ((prod.categoria.includes('camping') == true) ? "checked" : "") :"")%> type="checkbox" name="categoria" value="camping" id="camping">
                     <label for="Camping">Camping</label>
                 </div>
                 <div class="checkboxEdicion">
-                    <input type="checkbox" name="mochilas" value="mochilas" id="mochilas">
+                    <input <%= (prod != "vacio" ? ((prod.categoria.includes('mochilas') == true) ? "checked" : "") :"")%> type="checkbox" name="categoria" value="mochilas" id="mochilas">
                     <label for="Mochilas">Mochilas</label>
                 </div>
                 <div class="checkboxEdicion">
-                    <input type="checkbox" name="accesorios" value="accesorios" id="accesorios">
+                    <input <%= (prod != "vacio" ? ((prod.categoria.includes('accesorios') == true) ? "checked" : "") :"")%> type="checkbox" name="categoria" value="accesorios" id="accesorios">
                     <label for="Accesorios">Accesorios</label>
                 </div>
                 <div class="checkboxEdicion">
-                    <input type="checkbox" name="mujer" value="mujer" id="mujer">
+                    <input <%= (prod != "vacio" ? ((prod.categoria.includes('mujer') == true) ? "checked" : "") :"")%> type="checkbox" name="categoria" value="mujer" id="mujer">
                     <label for="Mujer">Mujer</label>
                 </div>
                 <div class="checkboxEdicion">
-                    <input type="checkbox" name="hombre" value="hombre" id="hombre">
+                    <input <%= (prod != "vacio" ? ((prod.categoria.includes('hombre') == true) ? "checked" : "") :"")%> type="checkbox" name="categoria" value="hombre" id="hombre">
                     <label for="Hombre">Hombre</label>
                 </div>
                 <div class="checkboxEdicion">
-                    <input type="checkbox" name="ninio" value="niño" id="niño">
+                    <input <%= (prod != "vacio" ? ((prod.categoria.includes('niño') == true) ? "checked" : "") :"")%> type="checkbox" name="categoria" value="niño" id="niño">
                     <label for="Niño">Niño</label>
                 </div>
             </div> 
@@ -86,13 +103,16 @@
                 <% }%>
                 
             </div>           
-            <div class="botonesEdicion">
+            <div class="botonesEdicion" id="divBotonesEdicion">
                 <div>
                     <button class="botones botonGuardar" type="submit" name="guardar" value="Guardar">Guardar</button>
                 </div>
-                <div>
-                    <button class="botones botonEliminar" type="submit" name="eliminar" value="eliminar">Eliminar</button>
+    <!--            <div>
+                    <form class="edicion-form" action="/product/eliminar/<%= prod.id%>?_method=DELETE" method="post">
+                        <button class="botones botonEliminar">Eliminar</button>
+                    </form>    
                 </div>
+    -->            
                 <div>
                     <a href="creacion"><button class="botones botonBuscar" type="button" >Crear</button></a>
                 </div>
@@ -102,6 +122,11 @@
             </div> 
                           
         </form>
+        <div class="botonesEdicion botonDeleteProd">
+            <form class="edicion-form deleteProdForm" action="/product/eliminar/<%= prod.id%>?_method=DELETE" method="post">
+                <button class="botones botonEliminar">Eliminar</button>
+            </form>    
+        </div>
     </main>
 </body>
 </html>
