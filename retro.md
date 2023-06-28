@@ -2,7 +2,7 @@
 
 ## Analisis sobre Sprint 1
 
-**### Qué hicimos bien**
+**### Qué hicimos bien***
 
 - Como grupo nos complementamos muy bien, existe una comunicación fluida lo cual facilita la división de tareas y la resolución de problemas.
 - Generamos un excelente ambiente de trabajo, y nos ayudamos entre todos, y así optimizamos la entrega de tareas.
