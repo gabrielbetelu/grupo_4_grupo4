@@ -31,6 +31,8 @@ Inspiración, fragmentos de código, etc.
 
 * [TRELLO] (https://trello.com/b/T0Ln87A5/tablero-de-tareas-sprint3-grupo4) 
 
+* [TRELLO] (https://trello.com/invite/b/Y2Ay6vTS/ATTI0ccdba305f7b38660bded8ce9f2a1f066D5E3565/tablero-de-tareas-sprint4-grupo4)
+
 
 #### Equipo detrás del proyecto
 
@@ -42,8 +44,6 @@ Inspiración, fragmentos de código, etc.
 
 - **Virginia Melo** amante de la tecnología y el mundo digital. Lo que la llevó a estudiar programación web actualmente, en *Digital House*. 
 
-- **Victor Sagüez** estudiante avanzado de ingeniería electromecánica, interesado en las matemáticas y física. Actualmente haciendo el curso de Programación Full Stack en *Digital House*.
- 
 - **Antonella Martinez** Lic. en turismo y guia de turismo aventura, amante de los deportes y la naturaleza.
  Siempre interesada en el mundo tecnológico.
  En la actualidad es estudiante de programación, desarrollo Full Stack en *Digital House*.

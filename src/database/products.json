@@ -39,13 +39,13 @@
       "/images/1687627727727.jpg",
       "/images/1687627727729.jpg"
     ],
-    "precio": "309.99",
-    "borrado": false,
     "categoria": [
       "mochilas",
       "mujer",
       "niño"
-    ]
+    ],
+    "precio": "309.99",
+    "borrado": false
   },
   {
     "id": 4,
@@ -129,7 +129,7 @@
       "/images/1687746046716.jpg"
     ],
     "categoria": [
-      "on",
+      "abrigo",
       "mujer"
     ],
     "precio": "241500",
