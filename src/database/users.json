@@ -4,7 +4,7 @@
     "nombre": "Juan",
     "apellido": "García",
     "email": "juangarcia@example.com",
-    "contrasenia": "qwerty123",
+    "contrasenia": "$2b$10$1IoIKVX2OjS758XypzGaXeHj9Sj7esQmSuHg/LWwou4cxcX3b3MMK",
     "imagen": "https://ejemplo.com/imagenes/juan.jpg",
     "categoria": "administrador",
     "borrado": false
@@ -14,7 +14,7 @@
     "nombre": "María",
     "apellido": "López",
     "email": "marialopez@example.com",
-    "contrasenia": "password123",
+    "contrasenia": "$2b$10$PTwzocjI.GizUKhAkckE8eTWXwDrKYcY14XNKqiUXqsS6HBJNXV2K",
     "imagen": "https://ejemplo.com/imagenes/maria.jpg",
     "categoria": "cliente",
     "borrado": false
@@ -24,7 +24,7 @@
     "nombre": "Pedro",
     "apellido": "Martínez",
     "email": "pedromartinez@example.com",
-    "contrasenia": "abc123",
+    "contrasenia": "$2b$10$FP6SLsKjVTmBshO2Va9GmOa/Pm.JSH3zCA77PQiT2JheMCJWaAIxS",
     "imagen": "https://ejemplo.com/imagenes/pedro.jpg",
     "categoria": "empleado",
     "borrado": false
@@ -34,7 +34,7 @@
     "nombre": "Laura",
     "apellido": "Rodríguez",
     "email": "laurarodriguez@example.com",
-    "contrasenia": "secreto123",
+    "contrasenia": "$2b$10$NNQ31.8ruw5hNZYmYOk4s.CirgmUc8DdVB.CdxX9sbBtzufSajhG2",
     "imagen": "https://ejemplo.com/imagenes/laura.jpg",
     "categoria": "cliente",
     "borrado": false
@@ -44,7 +44,7 @@
     "nombre": "Carlos",
     "apellido": "Fernández",
     "email": "carlosfernandez@example.com",
-    "contrasenia": "pass1234",
+    "contrasenia": "$2b$10$wEdGHiFD8nSvVFcctyALQ.DyjNv5XCs.j8DhwetuyJoq7ytjE.QM.",
     "imagen": "https://ejemplo.com/imagenes/carlos.jpg",
     "categoria": "empleado",
     "borrado": false
@@ -54,7 +54,7 @@
     "nombre": "Ana",
     "apellido": "Gómez",
     "email": "anagomez@example.com",
-    "contrasenia": "hello123",
+    "contrasenia": "$2b$10$xhNZXAMhcYJJPC.5eKSaZu95SACyu.b7CCLAHCiOSAJAM1zGmTqVi",
     "imagen": "https://ejemplo.com/imagenes/ana.jpg",
     "categoria": "cliente",
     "borrado": false
@@ -64,7 +64,7 @@
     "nombre": "Sergio",
     "apellido": "Sánchez",
     "email": "sergiosanchez@example.com",
-    "contrasenia": "welcome123",
+    "contrasenia": "$2b$10$YdOGXtcz8IqspPnN2uHrDO.4ocqsUuXpunk9q/J5RagFtD7lbgmdm",
     "imagen": "https://ejemplo.com/imagenes/sergio.jpg",
     "categoria": "empleado",
     "borrado": false
@@ -74,7 +74,7 @@
     "nombre": "Elena",
     "apellido": "Hernández",
     "email": "elenahernandez@example.com",
-    "contrasenia": "secure123",
+    "contrasenia": "$2b$10$z4CYNoLvBDEYREvojtSk7.4R/pA3EG2UOF/vyJxOvpzy1mJ/FEZTi",
     "imagen": "https://ejemplo.com/imagenes/elena.jpg",
     "categoria": "cliente",
     "borrado": false
@@ -84,7 +84,7 @@
     "nombre": "Luis",
     "apellido": "Pérez",
     "email": "luisperez@example.com",
-    "contrasenia": "12345678",
+    "contrasenia": "$2b$10$La1uzUmprac.mXZjmB/cFOOj5uMXUJuiOh0DbdxFLLIkb4rvUVjFu",
     "imagen": "https://ejemplo.com/imagenes/luis.jpg",
     "categoria": "empleado",
     "borrado": false
@@ -94,27 +94,9 @@
     "nombre": "Marta",
     "apellido": "Romero",
     "email": "martaromero@example.com",
-    "contrasenia": "test123",
+    "contrasenia": "$2b$10$LKwCJh7b478SVWYJriS.2OD2Np9l/kk7Idpdsq4zO6jS6kcbohQES",
     "imagen": "https://ejemplo.com/imagenes/marta.jpg",
     "categoria": "cliente",
-    "borrado": false
-  },
-  {
-    "id": 11,
-    "nombre": "cecilia",
-    "apellido": "peruzzi",
-    "email": "ceci@lalala",
-    "contrasenia": "1234",
-    "categoria": "usuario",
-    "borrado": false
-  },
-  {
-    "id": 12,
-    "nombre": "cecilia",
-    "apellido": "peruzzii",
-    "email": "cecilia@aaaaaaaa",
-    "contrasenia": "1111",
-    "categoria": "usuario",
     "borrado": false
   }
 ]
