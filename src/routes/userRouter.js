@@ -18,9 +18,14 @@ const multerDiskStorage = multer.diskStorage ({
 
 const fileUpload = multer ({storage:multerDiskStorage});
 
-
+//RUTAS LOGIN
 router.get('/login', controller.login);
+router.post('/login', controller.processLogin);
+//RUTAS REGISTRO DE USUARIO
 router.get('/registro', controller.registro);
+router.post('/registro', controller.processRegister);
+//RUTA PERFIL DE USUARIO
 
+//RUTA ADMINISTRADOR DE PERFILES
 
 module.exports = router;
