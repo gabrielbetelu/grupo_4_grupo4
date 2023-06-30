@@ -13,24 +13,37 @@ module.exports = {
     processLogin : (req, res) => {
       const usuario = datos.find((row)=> row.email == req.body.email)
       console.log(usuario)
+      console.log(req.body)
       if (usuario){
         if (bcrypt.compareSync(req.body.contrasenia, usuario.contrasenia)){
             delete usuario.contrasenia
             req.session.usuarioLogeado = usuario
             console.log('contraseña correcta')
-        }
-        if (req.body.cookie) {
-            res.cookie("recordame", usuario.email, {maxAge: 1000*60*60})
+            console.log(usuario)
+            if (req.body.cookie) {
+                res.cookie("recordame", usuario.email, {maxAge: 1000*60*60})
+                return res.redirect('/')
+            }
+            return res.redirect('/')
             
-        }
-        return res.redirect('/')
-      }else{
-        return res.redirect('login')
-        /* {
-            //codigo de errores de validacion
-        }*/
-      }
-    },
+        }else{
+            console.log('error datos')
+            return res.render('./users/login', {
+                errors: {
+                    datosMal: {
+                        msg: "Datos Incorrectos"
+                    }
+                }
+            })
+        }}else{
+            console.log('sin datos')
+            return res.redirect('login')
+                
+        } 
+
+    },    
+      
+
     registro :(req, res) => {
             return res.render('./users/registro')
             

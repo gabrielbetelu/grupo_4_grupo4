@@ -20,6 +20,9 @@
                 </div> 
                     <div>
                 <h5>Ingresar Contraseña</h5> 
+                <% if(locals.errors && errors.usuario) { %>
+                    <p> <%= errors.usuario.msg %> </p>
+                    <% } %>
             
                 <div> 
                     <input class="form-usu" type="password" name="contrasenia"  value="" placeholder="  Contraseña">
