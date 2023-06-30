@@ -39,6 +39,28 @@
   font-weight: lighter;
   color: #c79430;
 }
+.erroresLogin {
+  
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+.erroresLogin p.errorDatos {
+  font-size: 20px;
+  color: #f4db8c;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+.recordameLogin {
+  display: flex;
+  justify-content: left;
+  margin-bottom: 10px;
+}
+.recordameLogin input {
+  margin: 0 0 0 10px;  
+}
 .botonLog {
   width: 100%;
   height: 40px;
