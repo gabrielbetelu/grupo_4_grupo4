@@ -98,5 +98,14 @@
     "imagen": "https://ejemplo.com/imagenes/marta.jpg",
     "categoria": "cliente",
     "borrado": false
+  },
+  {
+    "id": 11,
+    "nombre": "pepito",
+    "apellido": "honguito",
+    "email": "pepe@hm.com",
+    "contrasenia": "$2b$10$efqYu.kJb6OIdPi21j5hEe4gTIvdAS5APpQKGcBuvIx6VOif/xLU.",
+    "categoria": "usuario",
+    "borrado": false
   }
 ]

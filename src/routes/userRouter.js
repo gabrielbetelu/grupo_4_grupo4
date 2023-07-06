@@ -1,12 +1,13 @@
 const express = require('express');
 const router = express.Router();
+const controller = require("../controllers/userController");
 const multer = require('multer');
 const path = require('path');
-const logMiddleware = require('../middlewares/logMiddleware')
-const {body}= require('express-validator');
+const logMiddleware = require('../middlewares/logMiddleware');
+//const {body}= require('express-validator');
 const regValidation = require('../middlewares/regValidation');
 
-const controller = require("../controllers/userController");
+
 
 const multerDiskStorage = multer.diskStorage ({
     destination: function (req, file, cb) {

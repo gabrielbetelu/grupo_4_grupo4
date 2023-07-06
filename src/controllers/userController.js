@@ -3,7 +3,7 @@ const path = require ('path');
 const rutaJSON = path.resolve('./src/database/users.json');
 const datos = JSON.parse (fs.readFileSync(rutaJSON));
 const bcrypt = require('bcrypt');
-
+const { validationResult } = require("express-validator");
 
 module.exports = {
     login : (req, res) => {
@@ -15,14 +15,17 @@ module.exports = {
       console.log(usuario)
       console.log(req.body)
       if (usuario){
+        console.log(req.body.contrasenia)
+        console.log(usuario.contrasenia)
         if (bcrypt.compareSync(req.body.contrasenia, usuario.contrasenia)){
             delete usuario.contrasenia
             req.session.usuarioLogeado = usuario
             console.log('contraseña correcta')
             console.log(usuario)
             if (req.body.cookie) {
+                console.log("entraste cookie")
                 res.cookie("recordame", usuario.email, {maxAge: 1000*60*60})
-                return res.redirect('/')
+               // return res.redirect('/')
             }
             return res.redirect('/')
             
@@ -35,11 +38,23 @@ module.exports = {
                     }
                 }
             })
-        }}else{
+        }
+    }else{
+        console.log("error mail")
+        return res.render('./users/login', {
+            errors: {
+                datosMal: {
+                    msg: "Datos Incorrectos"
+                }
+            }
+        })
+    }
+
+        /*}else{
             console.log('sin datos')
             return res.redirect('login')
                 
-        } 
+        } */
 
     },    
       
@@ -58,6 +73,12 @@ module.exports = {
             imagen: req.body.imagen,
             categoria: "usuario",
             borrado: false
+        }
+        const rdoValidacion = validationResult(req)
+        console.log(rdoValidacion.errors)
+
+        if(rdoValidacion.errors.length > 0) {
+            return res.render('registro', { errors: rdoValidacion.mapped(), oldData: req.body })
         }
         console.log(user);
         fs.writeFileSync(path.resolve(__dirname, '../database/users.json'), JSON.stringify([...datos, user], null, 2))
