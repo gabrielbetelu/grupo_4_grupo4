@@ -73,6 +73,7 @@
 
 .main-perfil .registroPerfil #divBotonesEdicionPerfil div {
     width: 90%;
+    max-width: 250px;
     margin-top: 12px;
 }
 
@@ -107,6 +108,7 @@
     padding: 0;  
     border: none;  
     width: 90%;
+    max-width: 250px;
     box-shadow: none;
     border: none;
 }
