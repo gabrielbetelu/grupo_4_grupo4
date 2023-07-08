@@ -3,36 +3,52 @@
     <%- include('../partials/head') %>
 <body>
     <%- include('../partials/header') %>
-        <main class="main-registro">
-             <img src="../images/patagonia-argentina.jpg" alt="fondo" class="fondo-image" />
-             <form class="registro" action="" method="">
-          
-                <h5>Registro de Usuario</h5>
-                        
-                <div>
-                    <input class="form-usu" type="text" name="Nombre" value= "" placeholder="  Nombre"> 
-                </div>
-                <div> 
-                    <input class="form-usu" type="text" name="Apellido" value= "" placeholder="  Apellido">
-                </div>
-                <div> 
-                    <input class="form-usu" type="email" name="Email" value= "" placeholder="  email@gmail.com">
-                </div> 
-                    <div>
-                <h5>Ingresar Contraseña</h5> 
+        <main class="main-perfil">
             
-                <div> 
-                    <input class="form-usu" type="password" name="contrasenia"  value="" placeholder="  Contraseña">
-                </div> 
-                <div>
-                    <input class="form-usu" type="password" name="confirm-contrasenia"  value= "" placeholder="  Confirmar contraseña">
+            <img src="../images/patagonia-argentina.jpg" alt="fondo" class="fondo-image" />
+            <div class="formPerfil">
+                <form class="registroPerfil" action="" method="">
+            
+                    <h5>Perfil de Usuario</h5>
+                            
+                    <div>
+                        <input class="form-usu" type="text" name="Nombre" value= "" placeholder="  Nombre"> 
+                    </div>
+                    <div> 
+                        <input class="form-usu" type="text" name="Apellido" value= "" placeholder="  Apellido">
+                    </div>
+                    <div> 
+                        <input class="form-usu" type="email" name="Email" value= "" placeholder="  email@gmail.com">
+                    </div> 
+                    <div>
+                        <h5>Modificar Contraseña</h5> 
+                    
+                        <div> 
+                            <input class="form-usu" type="password" name="contrasenia"  value="" placeholder="  Contraseña">
+                        </div> 
+                        <div>
+                            <input class="form-usu" type="password" name="confirm-contrasenia"  value= "" placeholder="  Confirmar contraseña">
+                        </div>
+            <!--            </div> 
+                            <a href="#"> <button class="botEnter" type="submit">Registrarse</button> </a>
+                        </div>
+            -->  
+                    </div> 
+                    <div class="botonesEdicion" id="divBotonesEdicionPerfil">
+                        <div>
+                            <button class="botones botonGuardar" type="submit" name="guardar" value="Guardar">Guardar</button>
+                        </div>
+                        <div>
+                            <a href="/"><button class="botones botonCerrar" type="button" name="cerrar" value="cerrar">Cerrar</button></a>
+                        </div> 
+                    </div>
+                </form>
+                <div class="botonesEdicion" id="botonDeletePerfil">
+                    <form class="edicion-form deletePerfilForm" action="/product/eliminar/?_method=DELETE" method="post">
+                        <button class="botones botonEliminar">Eliminar</button>
+                    </form>    
                 </div>
-                </div> 
-                    <a href="#"> <button class="botEnter" type="submit">Registrarse</button> </a>
-                </div>
-              
-            </form>
-        
+            </div>
         </main>
         <%- include('../partials/footer') %>
     </body>                       

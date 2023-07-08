@@ -10,6 +10,9 @@
 
 @import 'login.css';
 
+@import 'perfiles.css';
+
+
 
 /*-----------------------------------------------*/
 
@@ -112,19 +115,37 @@ header .opciones .log-cart {
 
 header .opciones .log-cart a {
     color: #000; 
-    padding: 0 4%;   
+    padding: 0 5%;   
 }
 
 header .opciones .log-cart a:hover {
     color: #EBB54B;
 }
 
+#userPerfil {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: -15px;
+    font-size: 12px;
+    font-weight: 500;
+    
+}
+
+#userPerfil a {
+    text-decoration: none;
+    padding: 0 1px;
+    
+}
+
+
+
+
 /* ******************************************* */
 header .opciones .log-cart #productosCargaEdicion {
-    display: flex;
-    
+    display: flex;    
     position: absolute;
-    left: -60px;
+    left: -100px;
     font-size: 20px;
    
 }
@@ -135,8 +156,8 @@ header .opciones .log-cart #productosCargaEdicion i.fa-square-plus {
 
 header .opciones .log-cart #productosCargaEdicion i{
     color: #EBB54B;
-    padding-left: 7px;
-    padding-right: 7px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 /* ******************************************* */
@@ -592,6 +613,12 @@ article div .producto-info button.producto-boton:hover {
         padding: 2% 0  0 0;    
     }
 
+    #userPerfil {
+        left: unset;
+        right: 0px;
+        bottom: -35px;
+    }
+
     /* ******************************************* */
     header .opciones .log-cart #productosCargaEdicion {
         bottom: -70px;
@@ -604,7 +631,7 @@ article div .producto-info button.producto-boton:hover {
 
 
     header .opciones .menu-buscador {
-        width: 68%;  
+        width: 60%;  
         padding: 2% 0  0 0;  
         flex-direction: column-reverse; 
         align-items: center; 

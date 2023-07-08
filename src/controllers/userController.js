@@ -63,6 +63,7 @@ module.exports = {
             return res.render('./users/registro')
             
     },
+
     processRegister :(req, res) => {
         const user = {
             id: datos.length+1, 
@@ -74,8 +75,9 @@ module.exports = {
             categoria: "usuario",
             borrado: false
         }
-        const rdoValidacion = validationResult(req)
-        console.log(rdoValidacion.errors)
+        const rdoValidacion = validationResult(req);
+        console.log("errores de validationResult");
+        console.log(rdoValidacion.errors);
 
         if(rdoValidacion.errors.length > 0) {
             return res.render('registro', { errors: rdoValidacion.mapped(), oldData: req.body })
@@ -83,6 +85,11 @@ module.exports = {
         console.log(user);
         fs.writeFileSync(path.resolve(__dirname, '../database/users.json'), JSON.stringify([...datos, user], null, 2))
         return res.redirect('/')
-    }
+    },
+
+    perfil :(req, res) => {
+        return res.render('./users/perfil')
+        
+},
     
 };
