@@ -127,17 +127,27 @@ header .opciones .log-cart a:hover {
     flex-direction: column;
     position: absolute;
     left: -15px;
-    font-size: 12px;
+    top: -2px;
+    font-size: 11px;
     font-weight: 500;
-    
+    border: 1.5px;
+    border-style: solid;
+    border-color:#808080;
+    border-radius: 5px;
+    background-color: whitesmoke;
 }
+
+
 
 #userPerfil a {
     text-decoration: none;
-    padding: 0 1px;
-    
+    padding: 0 15px 0 5px;
+    color: #808080;
 }
 
+#userPerfil a:hover {
+    color:#EBB54B;
+}
 
 
 
@@ -613,10 +623,11 @@ article div .producto-info button.producto-boton:hover {
         padding: 2% 0  0 0;    
     }
 
-    #userPerfil {
+   #userPerfil {
         left: unset;
         right: 0px;
         bottom: -35px;
+        top: unset;        
     }
 
     /* ******************************************* */
