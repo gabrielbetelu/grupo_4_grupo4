@@ -5,29 +5,42 @@
     <%- include('../partials/header') %>
         <main class="main-registro">
              <img src="../images/patagonia-argentina.jpg" alt="fondo" class="fondo-image" />
+             <div class="divRegistro">
              <form class="registro" action="/user/registro" method="post">
-                <% console.log("locals") %>
-                <% console.log(locals) %>
+                <% if(locals.errors && oldData) { %>
+                <% console.log(oldData) %>
+                <% } %>
           
                 <h5>Registro de Usuario</h5>
                         
                 <div>
-                    <input class="form-usu" type="text" name="nombre" value= "" placeholder="  Nombre"> 
+                    <input class="form-usu" type="text" name="nombre" value="<%= locals.oldData ? oldData.nombre : null %>"  placeholder="  Nombre">
+                    
+                    <% if(locals.errors && errors.nombre) { %>
+                        <p class="error"> <%= errors.nombre.msg %> </p>
+                        <% } %>
                 </div>
                 <div> 
-                    <input class="form-usu" type="text" name="apellido" value= "" placeholder="  Apellido">
+                    <input class="form-usu" type="text" name="apellido" value="<%= locals.oldData ? oldData.apellido : null %>" placeholder="  Apellido">
+                    <% if(locals.errors && errors.apellido) { %>
+                        <p class="error"> <%= errors.apellido.msg %> </p>
+                        <% } %>
                 </div>
                 <div> 
-                    <input class="form-usu" type="text" name="email" value= "" placeholder="  email@gmail.com">
+                    <input class="form-usu" type="text" name="email" value="<%= locals.oldData ? oldData.email : null %>" placeholder="  email@gmail.com">
+                    <% if(locals.errors && errors.email) { %>
+                        <p class="error"> <%= errors.email.msg %> </p>
+                        <% } %>
                 </div> 
                     <div>
-                <h5>Ingresar Contraseña</h5> 
-                <% if(locals.errors && errors.usuario) { %>
-                    <p> <%= errors.usuario.msg %> </p>
-                    <% } %>
+                <h5 id="hContrasenia">Ingresar Contraseña</h5> 
+                
             
                 <div> 
                     <input class="form-usu" type="password" name="contrasenia"  value="" placeholder="  Contraseña">
+                    <% if(locals.errors && errors.contrasenia) { %>
+                    <p class="error"> <%= errors.contrasenia.msg %> </p>
+                    <% } %>
                 </div> 
                 <div>
                     <input class="form-usu" type="password" name="confirm-contrasenia"  value= "" placeholder="  Confirmar contraseña">
@@ -37,7 +50,7 @@
                 </div>
               
             </form>
-        
+            </div>
         </main>
         <%- include('../partials/footer') %>
     </body>                       

@@ -107,5 +107,14 @@
     "contrasenia": "$2b$10$efqYu.kJb6OIdPi21j5hEe4gTIvdAS5APpQKGcBuvIx6VOif/xLU.",
     "categoria": "usuario",
     "borrado": false
+  },
+  {
+    "id": 12,
+    "nombre": "juansito",
+    "apellido": "perez",
+    "email": "juanperez@gmail.com",
+    "contrasenia": "$2b$10$V96JbmROJ0tFQY3aXBUf4uB4qwzKeRe0nbqXxkiMFaEaaq682tREa",
+    "categoria": "usuario",
+    "borrado": false
   }
 ]

@@ -4,20 +4,25 @@
     padding: 0;
     box-sizing: content-box;
     display: flex;
-    justify-content: center;
-  
-    
+    justify-content: center; 
   }
-  .fondo-image {
-   
+  .divRegistro {
+    position: absolute;
+    top: -15px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .fondo-image { 
     opacity: 0.5;
     width: 100%;
-    min-height: 650px;
-       
+    min-height: 650px;    
   } 
     
    .registro{
-    position: absolute;
     display: flex;
     flex-direction: column;
     width: 50%;
@@ -35,7 +40,7 @@
     margin: 0;
     text-align: center;
     height: 40px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     padding-bottom: 10px;
     border-bottom: 1px solid;
     font-size: 20px;
@@ -44,13 +49,22 @@
   .form-usu {
     width: 100%;
     border: 1px solid grey;
-    margin-bottom: 25px;
-    padding: 11px 0px;
+    margin: 15px 0px 2px 0px;
+    padding: 8px 0px;
     background: #232c1c;
     font-size: 14px;
     font-weight: lighter;
     color: #c79430;
-    
+  }
+
+  #hContrasenia {
+    margin-top: 15px;
+  }
+
+  .error {
+    color: #c79430;
+    padding: 0px 0px 5px 0px;
+    margin: 0px;
   }
   
   .botEnter {
@@ -59,8 +73,8 @@
     background-color: rgb(18, 94, 18);
     border: none;
     color: whitesmoke;
-    margin-bottom: 16px;
-  
+    margin-bottom: 10px;
+    margin-top: 15px;
   }
   
   .botEnter:hover {
