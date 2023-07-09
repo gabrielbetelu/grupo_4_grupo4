@@ -6,6 +6,8 @@
         <main class="main-registro">
              <img src="../images/patagonia-argentina.jpg" alt="fondo" class="fondo-image" />
              <form class="registro" action="/user/registro" method="post">
+                <% console.log("locals") %>
+                <% console.log(locals) %>
           
                 <h5>Registro de Usuario</h5>
                         
@@ -16,7 +18,7 @@
                     <input class="form-usu" type="text" name="apellido" value= "" placeholder="  Apellido">
                 </div>
                 <div> 
-                    <input class="form-usu" type="email" name="email" value= "" placeholder="  email@gmail.com">
+                    <input class="form-usu" type="text" name="email" value= "" placeholder="  email@gmail.com">
                 </div> 
                     <div>
                 <h5>Ingresar Contraseña</h5> 

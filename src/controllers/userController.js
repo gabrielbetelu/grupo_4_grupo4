@@ -12,18 +12,19 @@ module.exports = {
     },
     processLogin : (req, res) => {
       const usuario = datos.find((row)=> row.email == req.body.email)
-      console.log(usuario)
-      console.log(req.body)
+      console.log("proceso de Login")
+//      console.log(usuario)
+//      console.log(req.body)
       if (usuario){
-        console.log(req.body.contrasenia)
-        console.log(usuario.contrasenia)
+//        console.log(req.body.contrasenia)
+//        console.log(usuario.contrasenia)
         if (bcrypt.compareSync(req.body.contrasenia, usuario.contrasenia)){
             delete usuario.contrasenia
             req.session.usuarioLogeado = usuario
             console.log('contraseña correcta')
-            console.log(usuario)
+//            console.log(usuario)
             if (req.body.cookie) {
-                console.log("entraste cookie")
+                console.log("se crea cookie recordame")
                 res.cookie("recordame", usuario.email, {maxAge: 1000*60*60})
                // return res.redirect('/')
             }
@@ -80,7 +81,7 @@ module.exports = {
         console.log(rdoValidacion.errors);
 
         if(rdoValidacion.errors.length > 0) {
-            return res.render('registro', { errors: rdoValidacion.mapped(), oldData: req.body })
+            return res.render('./users/registro', { errors: rdoValidacion.mapped(), oldData: req.body })
         }
         console.log(user);
         fs.writeFileSync(path.resolve(__dirname, '../database/users.json'), JSON.stringify([...datos, user], null, 2))
