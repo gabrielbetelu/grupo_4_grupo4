@@ -9,23 +9,31 @@
     <div class="opciones">
         <div class="log-cart">
             <a href = "/product/carrito"><i class="fas fa-shopping-cart"></i></a> 
-            <a href = "/user/registro"><i class="fa-solid fa-id-card"></i></a>                
-            <a href="/user/login"><i class="fas fa-user"></i></a>
+            <% if(!locals.isLogged) { %>
+                <a href = "/user/registro"><i class="fa-solid fa-id-card"></i></a>                
+                <a href="/user/login"><i class="fas fa-user"></i></a>
+            <%}%>
             
             <!--    *******************************************   -->
-            <% if(!locals.isLogged) { %> 
-                <div id="userPerfil">
-                    <a href = "/user/perfil">Perfil</a>
-                    <a href = "/">Logout</a>
+            <% if(locals.isLogged) {%> 
+                <div class="usuarioLogueado">
+                    <div id = "saludo">                    
+                        Hi <%= locals.userLogged.nombre %>
+                    </div>
+                    <div id="userPerfil" >
+                        <a href = "/user/perfil">Perfil</a>
+                        <a href = "/">Logout</a>
+                    </div>
                 </div>
             <%}%>
 
             <!--    *******************************************   -->
-
-            <div id="productosCargaEdicion">
-                <a href = "/product/creacion"><i class="fa-regular fa-square-plus"></i></a>
-                <a href = "/product/edicion"><i class="fa-regular fa-pen-to-square"></i></a>
-            </div>
+            <% if(locals.isLogged && locals.userLogged.categoria == "administrador") {%> 
+                <div id="productosCargaEdicion">
+                    <a href = "/product/creacion"><i class="fa-regular fa-square-plus"></i></a>
+                    <a href = "/product/edicion"><i class="fa-regular fa-pen-to-square"></i></a>
+                </div>
+            <%}%>
 
             <!--    *******************************************   -->       
             

@@ -122,12 +122,21 @@ header .opciones .log-cart a:hover {
     color: #EBB54B;
 }
 
+.usuarioLogueado {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#saludo {
+    font-size: 12px;
+    margin: 0;
+    min-width: 40px;
+    padding: 2px;
+}
+
 #userPerfil {
     display: flex;
     flex-direction: column;
-    position: absolute;
-    left: -15px;
-    top: -2px;
     font-size: 11px;
     font-weight: 500;
     border: 1.5px;
@@ -135,13 +144,14 @@ header .opciones .log-cart a:hover {
     border-color:#808080;
     border-radius: 5px;
     background-color: whitesmoke;
+    margin: 2px;
 }
 
 
 
 #userPerfil a {
     text-decoration: none;
-    padding: 0 15px 0 5px;
+    padding: 0 5px 0 5px;
     color: #808080;
 }
 
@@ -155,7 +165,7 @@ header .opciones .log-cart a:hover {
 header .opciones .log-cart #productosCargaEdicion {
     display: flex;    
     position: absolute;
-    left: -100px;
+    left: -80px;
     font-size: 20px;
    
 }
@@ -623,16 +633,17 @@ article div .producto-info button.producto-boton:hover {
         padding: 2% 0  0 0;    
     }
 
-   #userPerfil {
-        left: unset;
-        right: 0px;
-        bottom: -35px;
+    #userPerfil {
+        position: unset;
+/*        left: unset;
+        right: 50%;
+        bottom: -35px;*/
         top: unset;        
     }
 
     /* ******************************************* */
     header .opciones .log-cart #productosCargaEdicion {
-        bottom: -70px;
+        bottom: -45px;
         left: unset;
         right: 5px;
     }
