@@ -116,5 +116,14 @@
     "contrasenia": "$2b$10$V96JbmROJ0tFQY3aXBUf4uB4qwzKeRe0nbqXxkiMFaEaaq682tREa",
     "categoria": "usuario",
     "borrado": false
+  },
+  {
+    "id": 13,
+    "nombre": "probando",
+    "apellido": "un apellido",
+    "email": "eeemail@gggg",
+    "contrasenia": "$2b$10$3.RBI/JdPZu31oW6DLSOUu1KnL1KR.M8qUTK8ovowRQMydV7f/e.a",
+    "categoria": "usuario",
+    "borrado": false
   }
 ]

@@ -15,7 +15,7 @@ const multerDiskStorage = multer.diskStorage ({
     },
 
     filename: function (req, file, cb) {
-        let imageName = Data.now() + path.extname(file.originalname);
+        let imageName = Date.now() + path.extname(file.originalname);
         cb(null, imageName);
     },
 })
@@ -27,7 +27,9 @@ router.get('/login', controller.login);
 router.post('/login',  controller.processLogin);
 
 //RUTAS REGISTRO DE USUARIO
+
 router.get('/registro', controller.registro);
+router.post('/registro', fileUpload.single ('imagenUsuario'), controller.processRegister);
 router.post('/registro', regValidation ,controller.processRegister);
  
 //RUTA PERFIL DE USUARIO
