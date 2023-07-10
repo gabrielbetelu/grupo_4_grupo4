@@ -116,5 +116,33 @@
     "contrasenia": "$2b$10$V96JbmROJ0tFQY3aXBUf4uB4qwzKeRe0nbqXxkiMFaEaaq682tREa",
     "categoria": "usuario",
     "borrado": false
+  },
+  {
+    "id": 13,
+    "nombre": "probando",
+    "apellido": "un apellido",
+    "email": "eeemail@gggg",
+    "contrasenia": "$2b$10$3.RBI/JdPZu31oW6DLSOUu1KnL1KR.M8qUTK8ovowRQMydV7f/e.a",
+    "categoria": "usuario",
+    "borrado": false
+  },
+  {
+    "id": 14,
+    "nombre": "pepitoooooooo",
+    "apellido": "holaaa",
+    "email": "ffff@ff",
+    "contrasenia": "$2b$10$5DHU/E5pCRLcDG1YggVaJudIj22zlZpcIEGxChRNc3AUrm1A.y0uq",
+    "categoria": "usuario",
+    "borrado": false
+  },
+  {
+    "id": 15,
+    "nombre": "ceciiii",
+    "apellido": "lalalala",
+    "email": "ceee@hola",
+    "contrasenia": "$2b$10$2loYwHzOjQ7DQquDSM6otOno22nDbA3qTFD3H9uWvi2u.0xW1uWfm",
+    "imagen": "1689010160073.jpg",
+    "categoria": "usuario",
+    "borrado": false
   }
 ]

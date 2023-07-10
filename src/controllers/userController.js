@@ -66,14 +66,14 @@ module.exports = {
             
     },
 
-    processRegister :(req, res) => {
+    processRegister :(req, res) => {      
         const user = {
             id: datos.length+1, 
             nombre: req.body.nombre,
             apellido: req.body.apellido,
             email: req.body.email,
             contrasenia: bcrypt.hashSync(req.body.contrasenia, 10),
-            imagen: req.body.imagen,
+            imagen: req.file.filename,
             categoria: "usuario",
             borrado: false
         }

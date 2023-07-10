@@ -6,7 +6,7 @@
         <main class="main-registro">
              <img src="../images/patagonia-argentina.jpg" alt="fondo" class="fondo-image" />
              <div class="divRegistro">
-             <form class="registro" action="/user/registro" method="post">
+             <form class="registro" action="/user/registro" method="post" enctype="multipart/form-data">
                 <% if(locals.errors && oldData) { %>
                 <% console.log(oldData) %>
                 <% } %>
@@ -31,8 +31,12 @@
                     <% if(locals.errors && errors.email) { %>
                         <p class="error"> <%= errors.email.msg %> </p>
                         <% } %>
-                </div> 
-                    <div>
+                </div>
+                <div> 
+                    <label>Imagen de perfil</label>
+                    <input type="file" name="imagenUsuario">
+                </div>
+                <div>
                 <h5 id="hContrasenia">Ingresar Contraseña</h5> 
                 
             
