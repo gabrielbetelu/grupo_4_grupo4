@@ -9,7 +9,7 @@ const log = require('./middlewares/log');
 const session = require('express-session');
 const cookie = require('cookie-parser');
 const cookieExiste = require('./middlewares/cookieLogMiddleware')
-
+const logMiddleware = require('../middlewares/logMiddleware');
 
 
 app.use(express.static("./public"));
