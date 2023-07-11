@@ -194,5 +194,15 @@
     "imagen": "avatar.jpg",
     "categoria": "usuario",
     "borrado": false
+  },
+  {
+    "id": 21,
+    "nombre": "Maria",
+    "apellido": "Perez",
+    "email": "maria@perez",
+    "contrasenia": "$2b$10$igZK1bupEsUv54.l8LQbL.eG9L39ZvBtuCKPwjF159g2sBApT.AYS",
+    "imagen": "avatar.png",
+    "categoria": "usuario",
+    "borrado": false
   }
 ]
