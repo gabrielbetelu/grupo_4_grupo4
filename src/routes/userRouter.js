@@ -15,12 +15,15 @@ const multerDiskStorage = multer.diskStorage ({
     },
 
     filename: function (req, file, cb) {
+        console.log(file);
         let imageName = Date.now() + path.extname(file.originalname);
         cb(null, imageName);
     },
 })
 
 const fileUpload = multer ({storage:multerDiskStorage});
+
+
 
 //RUTAS LOGIN
 router.get('/login', controller.login);

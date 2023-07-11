@@ -127,6 +127,11 @@ header .opciones .log-cart a:hover {
     flex-wrap: wrap;
 }
 
+#imgAvatar {
+    width: 30px;
+    border-radius: 50%;
+}
+
 #saludo {
     font-size: 12px;
     margin: 0;
