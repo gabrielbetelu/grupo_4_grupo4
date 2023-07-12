@@ -23,6 +23,7 @@ module.exports = {
             req.session.usuarioLogeado = usuario
             console.log('contraseña correcta')
 //            console.log(usuario)
+            console.log(req.session)
             if (req.body.cookie) {
                 console.log("se crea cookie recordame")
                 res.cookie("recordame", usuario.email, {maxAge: 1000*60*60})
