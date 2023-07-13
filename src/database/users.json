@@ -5,7 +5,7 @@
     "apellido": "García",
     "email": "juangarcia@example.com",
     "contrasenia": "$2b$10$1IoIKVX2OjS758XypzGaXeHj9Sj7esQmSuHg/LWwou4cxcX3b3MMK",
-    "imagen": "https://ejemplo.com/imagenes/juan.jpg",
+    "imagen": "avatar.png",
     "categoria": "administrador",
     "borrado": false
   },
@@ -15,7 +15,7 @@
     "apellido": "López",
     "email": "marialopez@example.com",
     "contrasenia": "$2b$10$PTwzocjI.GizUKhAkckE8eTWXwDrKYcY14XNKqiUXqsS6HBJNXV2K",
-    "imagen": "https://ejemplo.com/imagenes/maria.jpg",
+    "imagen": "avatar.png",
     "categoria": "cliente",
     "borrado": false
   },
@@ -25,7 +25,7 @@
     "apellido": "Martínez",
     "email": "pedromartinez@example.com",
     "contrasenia": "$2b$10$FP6SLsKjVTmBshO2Va9GmOa/Pm.JSH3zCA77PQiT2JheMCJWaAIxS",
-    "imagen": "https://ejemplo.com/imagenes/pedro.jpg",
+    "imagen": "avatar.jpg",
     "categoria": "empleado",
     "borrado": false
   },
@@ -35,7 +35,7 @@
     "apellido": "Rodríguez",
     "email": "laurarodriguez@example.com",
     "contrasenia": "$2b$10$NNQ31.8ruw5hNZYmYOk4s.CirgmUc8DdVB.CdxX9sbBtzufSajhG2",
-    "imagen": "https://ejemplo.com/imagenes/laura.jpg",
+    "imagen": "avatar.jpg",
     "categoria": "cliente",
     "borrado": false
   },
@@ -45,7 +45,7 @@
     "apellido": "Fernández",
     "email": "carlosfernandez@example.com",
     "contrasenia": "$2b$10$wEdGHiFD8nSvVFcctyALQ.DyjNv5XCs.j8DhwetuyJoq7ytjE.QM.",
-    "imagen": "https://ejemplo.com/imagenes/carlos.jpg",
+    "imagen": "avatar.jpgg",
     "categoria": "empleado",
     "borrado": false
   },
@@ -55,7 +55,7 @@
     "apellido": "Gómez",
     "email": "anagomez@example.com",
     "contrasenia": "$2b$10$xhNZXAMhcYJJPC.5eKSaZu95SACyu.b7CCLAHCiOSAJAM1zGmTqVi",
-    "imagen": "https://ejemplo.com/imagenes/ana.jpg",
+    "imagen": "avatar.jpg",
     "categoria": "cliente",
     "borrado": false
   },
@@ -65,7 +65,7 @@
     "apellido": "Sánchez",
     "email": "sergiosanchez@example.com",
     "contrasenia": "$2b$10$YdOGXtcz8IqspPnN2uHrDO.4ocqsUuXpunk9q/J5RagFtD7lbgmdm",
-    "imagen": "https://ejemplo.com/imagenes/sergio.jpg",
+    "imagen": "avatar.jpg",
     "categoria": "empleado",
     "borrado": false
   },
@@ -75,7 +75,7 @@
     "apellido": "Hernández",
     "email": "elenahernandez@example.com",
     "contrasenia": "$2b$10$z4CYNoLvBDEYREvojtSk7.4R/pA3EG2UOF/vyJxOvpzy1mJ/FEZTi",
-    "imagen": "https://ejemplo.com/imagenes/elena.jpg",
+    "imagen": "avatar.jpg",
     "categoria": "cliente",
     "borrado": false
   },
@@ -85,7 +85,7 @@
     "apellido": "Pérez",
     "email": "luisperez@example.com",
     "contrasenia": "$2b$10$La1uzUmprac.mXZjmB/cFOOj5uMXUJuiOh0DbdxFLLIkb4rvUVjFu",
-    "imagen": "https://ejemplo.com/imagenes/luis.jpg",
+    "imagen": "avatar.jpg",
     "categoria": "empleado",
     "borrado": false
   },
@@ -95,7 +95,7 @@
     "apellido": "Romero",
     "email": "martaromero@example.com",
     "contrasenia": "$2b$10$LKwCJh7b478SVWYJriS.2OD2Np9l/kk7Idpdsq4zO6jS6kcbohQES",
-    "imagen": "https://ejemplo.com/imagenes/marta.jpg",
+    "imagen": "avatar.jpg",
     "categoria": "cliente",
     "borrado": false
   },
@@ -142,6 +142,66 @@
     "email": "ceee@hola",
     "contrasenia": "$2b$10$2loYwHzOjQ7DQquDSM6otOno22nDbA3qTFD3H9uWvi2u.0xW1uWfm",
     "imagen": "1689010160073.jpg",
+    "categoria": "usuario",
+    "borrado": false
+  },
+  {
+    "id": 16,
+    "nombre": "Mario",
+    "apellido": "Perez",
+    "email": "marioperez@gmail.com",
+    "contrasenia": "$2b$10$TTVCDWSnvnAKHnjMcBNsEe7dfzH81YV9ZZuRNhollK7TtX/QaVtQa",
+    "imagen": "1689034435042.png",
+    "categoria": "usuario",
+    "borrado": false
+  },
+  {
+    "id": 17,
+    "nombre": "Jose",
+    "apellido": "Martinez",
+    "email": "josemartinez@gmail.com",
+    "contrasenia": "$2b$10$t4iUafaJq5dhibg56DxJZuipcKdbTQDb4Q3Q4c7h39ouYLaaB5HQq",
+    "imagen": "avatar.jpg",
+    "categoria": "usuario",
+    "borrado": false
+  },
+  {
+    "id": 18,
+    "nombre": "Julia",
+    "apellido": "Perez",
+    "email": "juliaperez@gmail.com",
+    "contrasenia": "$2b$10$qWCM5Spbh87GXwq9754h6OFD/rSdyrygvUc2s/4Rj437YSthok3Rq",
+    "imagen": "avatar.jpg",
+    "categoria": "usuario",
+    "borrado": false
+  },
+  {
+    "id": 19,
+    "nombre": "Ceci",
+    "apellido": "Perez",
+    "email": "ceciperez@gmail.com",
+    "contrasenia": "$2b$10$97vju49J2HM8Vdw7.OjyEeYOMmpyfyC2tTkWGwiIn4j1e/8/hbaVu",
+    "imagen": "1689037089315.png",
+    "categoria": "usuario",
+    "borrado": false
+  },
+  {
+    "id": 20,
+    "nombre": "Lucas",
+    "apellido": "Perez",
+    "email": "lucasperez@gmail.com",
+    "contrasenia": "$2b$10$fRwGBY3dorlIXOAL37YRK.ZCoSegWOYMEsOtUXH4bnn/9lZpB2Mlu",
+    "imagen": "avatar.jpg",
+    "categoria": "usuario",
+    "borrado": false
+  },
+  {
+    "id": 21,
+    "nombre": "Maria",
+    "apellido": "Perez",
+    "email": "maria@perez",
+    "contrasenia": "$2b$10$igZK1bupEsUv54.l8LQbL.eG9L39ZvBtuCKPwjF159g2sBApT.AYS",
+    "imagen": "avatar.png",
     "categoria": "usuario",
     "borrado": false
   }

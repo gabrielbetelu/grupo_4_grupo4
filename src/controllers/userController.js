@@ -66,14 +66,16 @@ module.exports = {
             
     },
 
-    processRegister :(req, res) => {      
+    processRegister :(req, res) => {
+    
+
         const user = {
             id: datos.length+1, 
             nombre: req.body.nombre,
             apellido: req.body.apellido,
             email: req.body.email,
             contrasenia: bcrypt.hashSync(req.body.contrasenia, 10),
-            imagen: req.file.filename,
+            imagen: req.file ? req.file.filename : "avatar.png",
             categoria: "usuario",
             borrado: false
         }
@@ -90,8 +92,17 @@ module.exports = {
     },
 
     perfil :(req, res) => {
-        return res.render('./users/perfil')
-        
-},
+        return res.render('./users/perfil', {
+            usuario: req.session.usuarioLogeado
+        });
+     
+    },
     
+    logout :(req, res) => {
+        req.session.destroy();
+        res.clearCookie('recordame');
+        return res.redirect('/');
+    },
+
+
 };

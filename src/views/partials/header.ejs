@@ -17,12 +17,13 @@
             <!--    *******************************************   -->
             <% if(locals.isLogged) {%> 
                 <div class="usuarioLogueado">
-                    <div id = "saludo">                    
-                        Hi <%= locals.userLogged.nombre %>
+                    <div id = "saludo">  
+                        <img id = "imgAvatar" src="/images/<%= locals.userLogged.imagen%>" >               
+                        <div id="saludoLog"><%= locals.userLogged.nombre %></div>
                     </div>
                     <div id="userPerfil" >
                         <a href = "/user/perfil">Perfil</a>
-                        <a href = "/">Logout</a>
+                        <a href = "/user/logout">Logout</a>
                     </div>
                 </div>
             <%}%>

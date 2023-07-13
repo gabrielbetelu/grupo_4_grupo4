@@ -65,14 +65,14 @@ header .logo-header {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 30%;
+    width: 25%;
     padding: 1% 0 1% 0;
 }
 
 header .logo-header .logotipo {    
     width: 50px;
     height: 50px;   
-    background-color: #fff;
+    background-color: transparent;
     background-image: url("/images/animacion logo 1.jpg");
     background-size: cover;
     position: relative;
@@ -105,7 +105,7 @@ header .logo-header .logotipo {
 header .opciones .log-cart {
     display: flex;
     flex-direction: row-reverse;
-    width: 60%;
+    width: 75%;
     justify-content: end;
     font-size: 20px;
 /* ******************************************* */
@@ -125,13 +125,29 @@ header .opciones .log-cart a:hover {
 .usuarioLogueado {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 #saludo {
+    display: flex;
+    justify-content: space-around;
     font-size: 12px;
     margin: 0;
     min-width: 40px;
-    padding: 2px;
+    padding: 0 2px;
+}
+
+#imgAvatar {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+div#saludoLog {
+    display: flex;
+    min-height: 42px;
+    margin: 0;
+    padding-left: 2px;
 }
 
 #userPerfil {
@@ -141,9 +157,9 @@ header .opciones .log-cart a:hover {
     font-weight: 500;
     border: 1.5px;
     border-style: solid;
-    border-color:#808080;
+    border-color:#000;
     border-radius: 5px;
-    background-color: whitesmoke;
+/*    background-color: whitesmoke; */
     margin: 2px;
 }
 
@@ -152,7 +168,7 @@ header .opciones .log-cart a:hover {
 #userPerfil a {
     text-decoration: none;
     padding: 0 5px 0 5px;
-    color: #808080;
+    color: #000;
 }
 
 #userPerfil a:hover {
@@ -165,8 +181,8 @@ header .opciones .log-cart a:hover {
 header .opciones .log-cart #productosCargaEdicion {
     display: flex;    
     position: absolute;
-    left: -80px;
-    font-size: 20px;
+    left: -50px;
+    font-size: 18px;
    
 }
 
@@ -176,8 +192,8 @@ header .opciones .log-cart #productosCargaEdicion i.fa-square-plus {
 
 header .opciones .log-cart #productosCargaEdicion i{
     color: #EBB54B;
-    padding-left: 5px;
-    padding-right: 5px;
+    padding-left: 3px;
+    padding-right: 3px;
 }
 
 /* ******************************************* */
@@ -203,6 +219,7 @@ header .opciones .menu-buscador .area-buscar {
     padding-left: 4%;
     width: 100%;
     max-width: 250px;
+    position: relative;
 }
 
 header .opciones .menu-buscador #buscar {
@@ -214,17 +231,28 @@ header .opciones .menu-buscador #buscar {
     font-family: Ubuntu;
     font-weight: 400;
     content: "\f002";
+    background-color: transparent;
+    
+}
+
+#buscar::placeholder{
+    color: #000;
 }
 
 header .opciones .menu-buscador .area-buscar .buscador {
+    position: absolute;
     display: inline-block;
+    top: 1.8px;
+    right: -3px;
     font-size: 10px;  
     padding-right: 2.5%;  
+    background-color: transparent;
 }
 
 header .opciones .menu-buscador .area-buscar .buscador .botonLupa {
     border: none;
     padding: 0;
+    background-color: transparent;
 }
 
 
@@ -232,7 +260,7 @@ header .opciones .menu-buscador .area-buscar .buscador .botonLupa {
     font-size: 12px;
     padding: 1px;
     border: solid 1px #000;
-    background-color: #fff;
+    background-color: transparen;
     border-radius: 3px;    
 }
 
@@ -279,7 +307,7 @@ main section .controles {
     margin-top: 10px;
 }
 main section .atras-adelante {
-    font-size: 24px;
+    font-size: 18px;
     cursor: pointer;
 }
 /*
@@ -288,9 +316,9 @@ main section .atras-adelante {
     margin-top: auto;
     margin-bottom: auto;*/
 main section .circulo {
-        width: 12px;
-        height: 12px;
-        border: solid 2px #000;
+        width: 8px;
+        height: 8px;
+        border: solid 1.5px #000;
         border-radius: 50%;
         margin: 0 6px;
         cursor: pointer;
@@ -624,21 +652,19 @@ article div .producto-info button.producto-boton:hover {
         width: 75%;
         flex-direction: row-reverse;
         align-items: flex-start;
+        justify-content: space-around;
     }
 
     header .opciones .log-cart {
         flex-direction: row-reverse;
         justify-content: space-between;
-        width: 22%;
-        padding: 2% 0  0 0;    
+        width: 40%;
+        max-width: 180px;
+        padding: 1.5% 0  0 0;    
     }
 
-    #userPerfil {
-        position: unset;
-/*        left: unset;
-        right: 50%;
-        bottom: -35px;*/
-        top: unset;        
+    .usuarioLogueado {
+        width: 70%;
     }
 
     /* ******************************************* */
@@ -653,7 +679,7 @@ article div .producto-info button.producto-boton:hover {
 
 
     header .opciones .menu-buscador {
-        width: 60%;  
+        width: 50%;  
         padding: 2% 0  0 0;  
         flex-direction: column-reverse; 
         align-items: center; 
@@ -742,22 +768,31 @@ article div .producto-info button.producto-boton:hover {
 
     header .opciones {
         padding-top: 1%;
+        flex-direction: row;
+        justify-content: flex-end;
+        position: relative;
+    }
+
+    header .opciones .log-cart {
+        position: absolute;
+
+        max-width: 180px;
     }
 
     header .opciones .menu-buscador {
-        width: 75%;
+        width: 100%;
     }
 
-    header .opciones .menu-buscador .area-buscar {
-        align-self: flex-end;
-        padding-right: 5%;
+    header .opciones .log-cart #productosCargaEdicion {
+        bottom: 20px;
+        right: 220px;
     }
 
     header .opciones .menu-buscador nav {
         flex-direction: row;
         justify-content: space-between;
         width: 100%;
-        margin-top: 50px;
+        margin-top: 30px;
         padding-bottom: 5px;
     }
 
