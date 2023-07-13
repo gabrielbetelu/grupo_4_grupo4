@@ -42,6 +42,9 @@ router.post('/registro', regValidation ,controller.processRegister);
 //router.get('/perfil', controller.perfil);
 router.get('/perfil', authMiddleware, controller.perfil);
 
+//LOGOUT
+router.get('/logout', controller.logout);
+
 //RUTA ADMINISTRADOR DE PERFILES
 
 module.exports = router;
