@@ -92,8 +92,17 @@ module.exports = {
     },
 
     perfil :(req, res) => {
-        return res.render('./users/perfil')
-        
-},
+        return res.render('./users/perfil', {
+            usuario: req.session.usuarioLogeado
+        });
+     
+    },
     
+    logout :(req, res) => {
+        req.session.destroy();
+        res.clearCookie('recordame');
+        return res.redirect('/');
+    },
+
+
 };
