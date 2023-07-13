@@ -57,6 +57,26 @@
     color: #c79430;
   }
 
+  .registro div.labelRegistro {
+    margin: 0;
+    text-align: center;
+    height: 20px;
+    margin-top: 10px;
+    font-size: 18px;
+    font-style: oblique;
+  }
+
+  .fileRegistro{
+    width: 100%;
+    border: 1px solid grey;
+    margin: 5px 0px 5px 0px;
+    padding: 8px 0px;
+    background: #232c1c;
+    font-size: 14px;
+    font-weight: lighter;
+    color: #808080;
+  }
+
   #hContrasenia {
     margin-top: 15px;
   }
