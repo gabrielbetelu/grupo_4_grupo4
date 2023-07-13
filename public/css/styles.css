@@ -182,7 +182,7 @@ header .opciones .log-cart #productosCargaEdicion {
     display: flex;    
     position: absolute;
     left: -50px;
-    font-size: 15px;
+    font-size: 18px;
    
 }
 
@@ -659,7 +659,8 @@ article div .producto-info button.producto-boton:hover {
         flex-direction: row-reverse;
         justify-content: space-between;
         width: 40%;
-        padding: 2% 0  0 0;    
+        max-width: 180px;
+        padding: 1.5% 0  0 0;    
     }
 
     .usuarioLogueado {
@@ -773,36 +774,18 @@ article div .producto-info button.producto-boton:hover {
     }
 
     header .opciones .log-cart {
-        max-width: 230px;
-    }
+        position: absolute;
 
-/*    header .opciones {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        align-items: flex-end;   
-        padding-right: 2%; 
-        width: 70%;
+        max-width: 180px;
     }
-*/
-    
 
     header .opciones .menu-buscador {
         width: 100%;
     }
 
-
-
-    header .opciones .menu-buscador .area-buscar {
-        position: absolute;
-        top: 20px;
-        left: 0px;
-        padding-right: 5%;
-    }
-
     header .opciones .log-cart #productosCargaEdicion {
-        bottom: -25px;
+        bottom: 20px;
+        right: 220px;
     }
 
     header .opciones .menu-buscador nav {
