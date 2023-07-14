@@ -34,6 +34,7 @@ Inspiración, fragmentos de código, etc.
 * [TRELLO] (https://trello.com/invite/b/Y2Ay6vTS/ATTI0ccdba305f7b38660bded8ce9f2a1f066D5E3565/tablero-de-tareas-sprint4-grupo4)
 
 
+
 #### Equipo detrás del proyecto
 
 - **Gabriel Betelu** autodidacta en lo que a programación se trata. Ingeniero Civil que al principio de la carrera recibió los primeros conocimientos sobre programación.

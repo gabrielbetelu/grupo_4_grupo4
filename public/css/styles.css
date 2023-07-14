@@ -46,7 +46,7 @@ main {
 
 header {
     width: 100%;
-    background: linear-gradient(to bottom, #336633, #C9F4B0);
+    background: linear-gradient(to bottom, #C9F4B0, #073521);
     display: flex; 
     justify-content: space-between; 
 }
@@ -268,8 +268,8 @@ header .opciones .menu-buscador .area-buscar .buscador .botonLupa {
 main {
     width: 100%;
     display: flex;
-    background: linear-gradient(to bottom, #497330, #C9F4B0);
-    
+    /*background: linear-gradient(to bottom,#141F00, );*/
+    background-color: #283F2C;
 }
 
 main section {  
