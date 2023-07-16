@@ -1,9 +1,10 @@
 const fs = require ('fs');
 const path = require ('path');
 const rutaJSON = path.resolve('./src/database/users.json');
-const datos = JSON.parse (fs.readFileSync(rutaJSON));
+let datos = JSON.parse (fs.readFileSync(rutaJSON));
 const bcrypt = require('bcrypt');
 const { validationResult } = require("express-validator");
+
 
 module.exports = {
     login : (req, res) => {
@@ -23,7 +24,7 @@ module.exports = {
             req.session.usuarioLogeado = usuario
             console.log('contraseña correcta')
 //            console.log(usuario)
-            console.log(req.session)
+//            console.log(req.session)
             if (req.body.cookie) {
                 console.log("se crea cookie recordame")
                 res.cookie("recordame", usuario.email, {maxAge: 1000*60*60})
@@ -81,12 +82,12 @@ module.exports = {
         }
         const rdoValidacion = validationResult(req);
         console.log("errores de validationResult");
-        console.log(rdoValidacion.errors);
+//        console.log(rdoValidacion.errors);
 
         if(rdoValidacion.errors.length > 0) {
             return res.render('./users/registro', { errors: rdoValidacion.mapped(), oldData: req.body })
         }
-        console.log(user);
+//        console.log(user);
         fs.writeFileSync(path.resolve(__dirname, '../database/users.json'), JSON.stringify([...datos, user], null, 2))
         return res.redirect('/')
     },
@@ -99,8 +100,11 @@ module.exports = {
     },
     
     logout :(req, res) => {
+        datos = JSON.parse (fs.readFileSync(rutaJSON));
         req.session.destroy();
         res.clearCookie('recordame');
+//        console.log(req.session);
+//        console.log(req.cookie);
         return res.redirect('/');
     },
 
