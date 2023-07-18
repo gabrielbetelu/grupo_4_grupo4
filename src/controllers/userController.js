@@ -93,10 +93,12 @@ module.exports = {
     },
 
     perfil :(req, res) => {
+        console.log("entraste a editar el usuario", req.params.id);
+        const userId = datos.find (elemento => elemento.id == req.params.id);
+        
         return res.render('./users/perfil', {
             usuario: req.session.usuarioLogeado
-        });
-     
+        }); 
     },
     
     logout :(req, res) => {
@@ -108,5 +110,30 @@ module.exports = {
         return res.redirect('/');
     },
 
+    editarPerfil: (req, res)=> {
+        console.log("entraste a modificar el perfil" , req.body.id);
+        const userId = datos.find (elemento => elemento.id == req.body.id);
+        console.log(req.body);
+        let arrayImg = [];
+        let oldImagen = userId.imagen;
+            if (req.files.length > 0) {
+                req.files.forEach((file) => {
+                    arrayImg.push("/images/" + file.filename);
+            })
+            } else {
+                arrayImg = oldImagen;
+            }
+        userId.imagen = arrayImg;
+        for (let propiedad in req.body) {
+            if (propiedad == "id") {
+                userId[propiedad] = Number(req.body[propiedad]);
+            } else if (propiedad == "guardar") {
+            } else {
+            userId[propiedad] = req.body[propiedad];
+            }
+        }
+        fs.writeFileSync(path.resolve(__dirname, '../database/users.json'),JSON.stringify(datos, null , 2));
 
+        return res.render('/')
+    }
 };

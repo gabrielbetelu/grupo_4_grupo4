@@ -41,6 +41,7 @@ router.post('/registro', fileUpload.single ('imagenUsuario'), regValidation, con
 //RUTA PERFIL DE USUARIO
 //router.get('/perfil', controller.perfil);
 router.get('/perfil', authMiddleware, controller.perfil);
+router.put('/perfil/:id', authMiddleware, controller.editarPerfil);
 
 //LOGOUT
 router.get('/logout', controller.logout);
