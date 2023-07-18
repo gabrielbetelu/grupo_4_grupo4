@@ -100,11 +100,11 @@ module.exports = {
     },
     
     logout :(req, res) => {
-        datos = JSON.parse (fs.readFileSync(rutaJSON));
         req.session.destroy();
         res.clearCookie('recordame');
 //        console.log(req.session);
 //        console.log(req.cookie);
+        datos = JSON.parse (fs.readFileSync(rutaJSON));     
         return res.redirect('/');
     },
 
