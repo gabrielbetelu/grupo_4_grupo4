@@ -85,7 +85,8 @@ module.exports = {
 //        console.log(rdoValidacion.errors);
 
         if(rdoValidacion.errors.length > 0) {
-            return res.render('./users/registro', { errors: rdoValidacion.mapped(), oldData: req.body })
+    //        return res.render('./users/registro', { errors: rdoValidacion.mapped(), oldData: req.body })
+            return res.redirect('/user/registro', { errors: rdoValidacion.mapped(), oldData: req.body })   
         }
 //        console.log(user);
         fs.writeFileSync(path.resolve(__dirname, '../database/users.json'), JSON.stringify([...datos, user], null, 2))
@@ -93,20 +94,54 @@ module.exports = {
     },
 
     perfil :(req, res) => {
+        datos = JSON.parse (fs.readFileSync(rutaJSON));
+        console.log("entraste a editar el usuario", req.session.usuarioLogeado.id);
+//        const userId = datos.find (elemento => elemento.id == req.session.usuarioLogeado.id);
+        
         return res.render('./users/perfil', {
             usuario: req.session.usuarioLogeado
-        });
-     
+        }); 
     },
     
     logout :(req, res) => {
         req.session.destroy();
         res.clearCookie('recordame');
-//        console.log(req.session);
-//        console.log(req.cookie);
         datos = JSON.parse (fs.readFileSync(rutaJSON));     
         return res.redirect('/');
     },
 
-
+    editarPerfil: (req, res)=> {
+        console.log("entraste a modificar el perfil" , req.session.usuarioLogeado.id);
+        datos = JSON.parse (fs.readFileSync(rutaJSON));
+        const userId = datos.find (elemento => elemento.id == req.session.usuarioLogeado.id);
+        let arrayImg = [];
+        let oldContrasenia = userId.contrasenia;
+        let oldImagen = userId.imagen;
+            if (req.files) {
+                req.files.forEach((file) => {
+                    arrayImg.push("/images/" + file.filename);
+            })
+            } else {
+                arrayImg = oldImagen;
+            }
+        userId.imagen = arrayImg;
+        for (let propiedad in req.body) {
+            if (propiedad == "id") {
+                userId[propiedad] = Number(req.body[propiedad]);
+            } else if (propiedad == "guardar") {
+            } else if (propiedad == "confirm-contrasenia") {
+            }             
+            else if (propiedad == "contrasenia") {
+                if (req.body[propiedad] != "") {
+                    userId.contrasenia = bcrypt.hashSync(req.body.contrasenia, 10);
+                } else {
+                    userId.contrasenia = oldContrasenia;
+                }                 
+            } else {
+            userId[propiedad] = req.body[propiedad];
+            }
+        }
+        fs.writeFileSync(path.resolve(__dirname, '../database/users.json'),JSON.stringify(datos, null , 2));
+        return res.redirect('/');
+    }
 };

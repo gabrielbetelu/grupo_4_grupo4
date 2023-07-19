@@ -187,10 +187,10 @@
   },
   {
     "id": 20,
-    "nombre": "Lucas",
+    "nombre": "Luqui",
     "apellido": "Perez",
     "email": "lucasperez@gmail.com",
-    "contrasenia": "$2b$10$fRwGBY3dorlIXOAL37YRK.ZCoSegWOYMEsOtUXH4bnn/9lZpB2Mlu",
+    "contrasenia": "$2b$10$MXhyGDW3pbYX60hAaofBm.koVbLMuXIua7ARHQsHcIe4PdRtWCFq.",
     "imagen": "avatar.jpg",
     "categoria": "usuario",
     "borrado": false
@@ -201,6 +201,16 @@
     "apellido": "Perez",
     "email": "maria@perez",
     "contrasenia": "$2b$10$igZK1bupEsUv54.l8LQbL.eG9L39ZvBtuCKPwjF159g2sBApT.AYS",
+    "imagen": "avatar.png",
+    "categoria": "usuario",
+    "borrado": false
+  },
+  {
+    "id": 22,
+    "nombre": "Pedro",
+    "apellido": "Perez",
+    "email": "pedroperez@gmail.com",
+    "contrasenia": "$2b$10$Ua/hMBlcaPGyksjBtLUqAOp/JuS0AQVrwuRq2dVQoo2IhCMAiUqmy",
     "imagen": "avatar.png",
     "categoria": "usuario",
     "borrado": false
