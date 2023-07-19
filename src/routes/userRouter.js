@@ -35,13 +35,13 @@ router.post('/login',  controller.processLogin);
 
 //router.get('/registro', controller.registro);
 router.get('/registro', guestMiddleware, controller.registro);
-router.post('/registro', fileUpload.single ('imagenUsuario'), regValidation, controller.processRegister);
+router.post('/registro', fileUpload.single ('imagen'), regValidation, controller.processRegister);
 //router.post('/registro', regValidation ,controller.processRegister);
  
 //RUTA PERFIL DE USUARIO
 //router.get('/perfil', controller.perfil);
 router.get('/perfil', authMiddleware, controller.perfil);
-router.put('/perfil/:id', authMiddleware, controller.editarPerfil);
+router.put('/perfil/:id', fileUpload.single ('imagen') ,authMiddleware, controller.editarPerfil);
 
 //LOGOUT
 router.get('/logout', controller.logout);
