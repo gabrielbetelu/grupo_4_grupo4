@@ -114,17 +114,10 @@ module.exports = {
         console.log("entraste a modificar el perfil" , req.session.usuarioLogeado.id);
         datos = JSON.parse (fs.readFileSync(rutaJSON));
         const userId = datos.find (elemento => elemento.id == req.session.usuarioLogeado.id);
-        let arrayImg = [];
         let oldContrasenia = userId.contrasenia;
         let oldImagen = userId.imagen;
-            if (req.files) {
-                req.files.forEach((file) => {
-                    arrayImg.push("/images/" + file.filename);
-            })
-            } else {
-                arrayImg = oldImagen;
-            }
-        userId.imagen = arrayImg;
+        let nuevaImg= req.file ? req.file.filename : oldImagen;
+        userId.imagen = nuevaImg;
         for (let propiedad in req.body) {
             if (propiedad == "id") {
                 userId[propiedad] = Number(req.body[propiedad]);

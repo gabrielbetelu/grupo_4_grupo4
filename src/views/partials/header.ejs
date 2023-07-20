@@ -19,11 +19,11 @@
                 <div class="usuarioLogueado">
                     <div id = "saludo">  
                         <img id = "imgAvatar" src="/images/<%= locals.userLogged.imagen%>" >               
-                        <div id="saludoLog"><%= locals.userLogged.nombre %></div>
+                        <a href = "/user/perfil"><div id="saludoLog"><%= locals.userLogged.nombre %></div></a>
                     </div>
                     <div id="userPerfil" >
-                        <a href = "/user/perfil">Perfil</a>
-                        <a href = "/user/logout">Logout</a>
+<!--                       <a href = "/user/perfil">Perfil</a>   --> 
+                        <a href = "/user/logout">X</a>
                     </div>
                 </div>
             <%}%>
