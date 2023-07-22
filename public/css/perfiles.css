@@ -77,6 +77,22 @@
     font-weight: lighter;
     color: #808080;
   }
+  #fotoPerfil {
+    width: 25px;
+    padding: 10px 20px 0 10px;
+ }
+ #imagenExistente {    
+    max-width: 100px;
+}
+#archivoImagenPerfil {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
 
 .main-perfil div.formPerfil .registroPerfil .form-usu {
     width: 100%;

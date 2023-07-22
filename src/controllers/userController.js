@@ -97,7 +97,7 @@ module.exports = {
         datos = JSON.parse (fs.readFileSync(rutaJSON));
         console.log("entraste a editar el usuario", req.session.usuarioLogeado.id);
 //        const userId = datos.find (elemento => elemento.id == req.session.usuarioLogeado.id);
-        
+      console.log(req.session.usuarioLogeado)  
         return res.render('./users/perfil', {
             usuario: req.session.usuarioLogeado
         }); 

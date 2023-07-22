@@ -30,12 +30,12 @@ router.get('/productos', controller.productos);
 //FORM EDICION
 router.get('/edicion', adminMiddleware ,controller.edicion);
 router.post('/producto/:id', controller.editId);
-router.get('/producto/:id/edit', adminMiddleware , controller.processEdit);
+router.get('/producto/:id/edit', adminMiddleware, controller.processEdit);
 router.put('/producto/:id/edit', fileUpload.any('imagen'),controller.processModificar);
 router.delete('/eliminar/:id' , controller.eliminar);
 
 //FORM CREACION
-router.get('/creacion', adminMiddleware , controller.creacion);
+router.get('/creacion', adminMiddleware, controller.creacion);
 router.post('/producto', fileUpload.any('imagen'), controller.processCreate);
 
 module.exports = router;

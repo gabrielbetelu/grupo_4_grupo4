@@ -25,11 +25,14 @@
                         <div class="labelPerfil">
                             <label>Imagen de perfil</label>
                         </div>
-                        <input class="filePerfil" type="file" name="imagen">
+                        
                     </div>
-
-
-
+                    <div id="archivoImagenPerfil">
+                            <div id="imagenExistente">                                
+                                <img id="fotoPerfil" src="/images/<%= usuario.imagen%>">
+                            </div>
+                            <input class="filePerfil" type="file" name="imagen">                           
+                    </div>
 
                     <div>
                         <h5>Modificar Contraseña</h5> 
