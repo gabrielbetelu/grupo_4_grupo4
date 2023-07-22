@@ -40,7 +40,7 @@ router.post('/registro', fileUpload.single('imagen'), regValidation, controller.
 //router.get('/perfil', controller.perfil);
 router.get('/perfil', authMiddleware, controller.perfil);
 router.put('/perfil/:id', fileUpload.single ('imagen'), authMiddleware, controller.editarPerfil);
-
+router.delete('/perfil/eliminar/:id', controller.eliminarPerfil);
 
 //LOGOUT
 router.get('/logout', controller.logout);

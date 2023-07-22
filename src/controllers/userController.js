@@ -136,5 +136,16 @@ module.exports = {
         }
         fs.writeFileSync(path.resolve(__dirname, '../database/users.json'),JSON.stringify(datos, null , 2));
         return res.redirect('/');
+    },
+
+    eliminarPerfil: (req, res) => {
+        console.log("entraste a eliminar el perfil" , req.params.id);
+        const pefilEliminado = datos.find (elemento => elemento.id == req.params.id);
+        pefilEliminado.borrado = true;
+        fs.writeFileSync(path.resolve(__dirname, '../database/users.json'),JSON.stringify(datos, null , 2));
+        req.session.destroy();
+        res.clearCookie('recordame');
+        datos = JSON.parse (fs.readFileSync(rutaJSON));
+        return res.redirect('/');
     }
 };
