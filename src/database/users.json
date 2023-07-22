@@ -98,5 +98,15 @@
     "imagen": "1689733840643.png",
     "categoria": "usuario",
     "borrado": false
+  },
+  {
+    "id": 11,
+    "nombre": "Nuevo",
+    "apellido": "Prueba",
+    "email": "nuevoprueba@gmail.com",
+    "contrasenia": "$2b$10$wl1JUC52yCB6B9LtJcON4.qiNi7YunyXAI6RTy8ZdlMJNWgnDfrc.",
+    "imagen": "1689884660900.jpg",
+    "categoria": "usuario",
+    "borrado": false
   }
 ]
