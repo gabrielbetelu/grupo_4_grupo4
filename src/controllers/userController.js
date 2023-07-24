@@ -86,7 +86,7 @@ module.exports = {
 
         if(rdoValidacion.errors.length > 0) {
             return res.render('./users/registro', { errors: rdoValidacion.mapped(), oldData: req.body })
-    //        return res.redirect('/user/registro', { errors: rdoValidacion.mapped(), oldData: req.body })
+           // return res.redirect('/user/registro', { errors: rdoValidacion.mapped(), oldData: req.body })   
         }
 //        console.log(user);
         fs.writeFileSync(path.resolve(__dirname, '../database/users.json'), JSON.stringify([...datos, user], null, 2))

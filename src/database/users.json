@@ -108,5 +108,15 @@
     "imagen": "1689884660900.jpg",
     "categoria": "usuario",
     "borrado": false
+  },
+  {
+    "id": 12,
+    "nombre": "Esteban",
+    "apellido": "Quito",
+    "email": "estebanquito@hotmail.com",
+    "contrasenia": "$2b$10$MLoFI.m6ETN56ba6FiO4BuocetdLzB/.fMr1DaOzR0CaqqWmxhc1W",
+    "imagen": "1690219935030.jpg",
+    "categoria": "usuario",
+    "borrado": false
   }
 ]

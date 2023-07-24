@@ -149,5 +149,19 @@
     ],
     "precio": "13590",
     "borrado": false
+  },
+  {
+    "id": 12,
+    "nombre": "short modelo trekking",
+    "descripcion": "short de mujer tela impermeable",
+    "imagen": [
+      "/images/1690220093273.jpg"
+    ],
+    "categoria": [
+      "pantalon",
+      "mujer"
+    ],
+    "precio": "12000",
+    "borrado": false
   }
 ]
