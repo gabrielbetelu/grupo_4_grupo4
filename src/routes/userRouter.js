@@ -1,9 +1,13 @@
 const express = require('express');
 const router = express.Router();
+const controller = require("../controllers/userController");
 const multer = require('multer');
 const path = require('path');
-
-const controller = require("../controllers/userController");
+//const logMiddleware = require('../middlewares/logMiddleware');
+// const {body}= require('express-validator');
+const regValidation = require('../middlewares/regValidation');
+const guestMiddleware = require('../middlewares/guestMiddleware');
+const authMiddleware = require('../middlewares/authMiddleware');
 
 const multerDiskStorage = multer.diskStorage ({
     destination: function (req, file, cb) {
@@ -11,7 +15,7 @@ const multerDiskStorage = multer.diskStorage ({
     },
 
     filename: function (req, file, cb) {
-        let imageName = Data.now() + path.extname(file.originalname);
+        let imageName = Date.now() + path.extname(file.originalname);
         cb(null, imageName);
     },
 })
@@ -19,8 +23,28 @@ const multerDiskStorage = multer.diskStorage ({
 const fileUpload = multer ({storage:multerDiskStorage});
 
 
-router.get('/login', controller.login);
-router.get('/registro', controller.registro);
 
+//RUTAS LOGIN
+//router.get('/login', controller.login);
+router.get('/login', guestMiddleware, controller.login);
+router.post('/login',  controller.processLogin);
+
+//RUTAS REGISTRO DE USUARIO
+
+//router.get('/registro', controller.registro);
+router.get('/registro', guestMiddleware, controller.registro);
+router.post('/registro', fileUpload.single('imagen'), regValidation, controller.processRegister);
+//router.post('/registro', regValidation ,controller.processRegister);
+ 
+//RUTA PERFIL DE USUARIO
+//router.get('/perfil', controller.perfil);
+router.get('/perfil', authMiddleware, controller.perfil);
+router.put('/perfil/:id', fileUpload.single ('imagen'), authMiddleware, controller.editarPerfil);
+router.delete('/perfil/eliminar/:id', controller.eliminarPerfil);
+
+//LOGOUT
+router.get('/logout', controller.logout);
+
+//RUTA ADMINISTRADOR DE PERFILES
 
 module.exports = router;

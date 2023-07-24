@@ -5,12 +5,22 @@
     <%- include('../partials/header') %>
         <main class="mainLogin">
             <img src="../images/patagonia-argentina.jpg" alt="fondo" class="fondo-image" />
-            <form class="login-form" action="" method="" >
+            <form class="login-form" action="/user/login" method="post" >
                 <h5>Patagonic</h5>
                 <input class="log-control" type="email" name="email" value="" placeholder=" Email">
-                <input class="log-control" type="password" name="password" value="" placeholder=" Password">
+                <input class="log-control" type="password" name="contrasenia" value="" placeholder=" Password">
+                <div class="recordameLogin">
+                    <label for="cookie">Recordarme</label>
+                    <input type="checkbox" name="cookie" id="cookie"> 
+                </div>
+                <div class="erroresLogin">
+                    <% if(locals.errors && errors.datosMal) { %>
+                        <p class="errorDatos"> <%= errors.datosMal.msg %> </p>
+                        <% } %>
+                </div>
                 <button class="botonLog" type="submit" name="ingresar" value="Ingresar">Ingresar</button>
-                <p class="registrate"><a href="/registro">Registrate aqui</a></p>
+                
+                <p class="registrate"><a href="/user/registro">Registrate aqui</a></p>
                 <p class="olvideSenha"><a href="#">¿Olvidaste tu contraseña?</a></p>
             </form>
         </main>

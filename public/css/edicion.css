@@ -245,6 +245,9 @@ button.botonEliminar {
     border: none;
 }
 
+button.botonEliminar:hover{
+    background-color: #7FAD58;
+}
 
 
 

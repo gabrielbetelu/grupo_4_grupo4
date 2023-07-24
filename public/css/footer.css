@@ -6,7 +6,7 @@ footer {
     align-items: center;
     font-size: 6px;
     color: #000;
-    background: linear-gradient(to bottom, #A4D28F, #C9F4B0 );
+    background: linear-gradient(to bottom, #073521, #C9F4B0);
     padding-bottom: 2px;
 }
 
@@ -24,25 +24,25 @@ footer .legales, footer .redes, footer .contactos, footer .copyright {
     justify-content: space-around;
     align-items: center;
     margin-top: 2px;
-    font-size: 6px;
+    font-size: 8px;
     color: #000;
     border-top: solid 1px #000;
 }
 
 footer h5 {
     margin: 0 0 2px 0;
-    font-size: 6px;
+    font-size: 9px;
     color: #000;
 }
 
 footer .legales a {
     text-decoration: none;
     margin: 2px 0;
-    font-size: 6px;
+    font-size: 7.5px;
     color: #000;
 }
 
-footer .servicios-cliente div.detalle-servicios{
+/*footer .servicios-cliente div.detalle-servicios{
     width: 90%;
     display: flex;    
     justify-content: space-between;
@@ -57,7 +57,7 @@ footer .servicios-cliente a {
     margin: 2px 0;
     font-size: 6px;
     color: #000;
-}
+}*/
 
 footer .redes div {
     width: 45%;
@@ -78,6 +78,7 @@ footer .redes .detalle-redes .fa-facebook-square {
 footer .redes div.detalle-redes a {
     color: #000;
     transition: transform 0.3s;
+    font-size: 20px;
 }
 
 footer .redes div.detalle-redes a:hover {
@@ -108,7 +109,7 @@ footer .contactos div a {
     text-decoration: none;
     text-align: center;
     color: #000;
-    font-size: 6px;
+    font-size: 9px;
     margin: 2px 0;
 }
 
@@ -131,7 +132,7 @@ footer .copyright p {
     }
 
     footer h5 {        
-        font-size: 8px;
+        font-size: 10px;
     }
 
     footer .legales, footer .redes{
@@ -156,7 +157,7 @@ footer .copyright p {
     }
 
     footer .redes div.detalle-redes a {
-        font-size: 16px;    
+        font-size: 22px;    
     }
 
     footer .contactos div {
@@ -175,7 +176,7 @@ footer .copyright p {
 
 
     footer .contactos div.detalle-contactos a { 
-        font-size: 8px;
+/*        font-size: 8px;*/
         width: 30%;
     }
     

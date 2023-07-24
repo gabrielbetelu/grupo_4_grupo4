@@ -95,5 +95,5 @@ module.exports = {
         producto.borrado = true;
         fs.writeFileSync(path.resolve(__dirname, '../database/products.json'),JSON.stringify(products, null , 2));
         return res.render('./products/edicion', {prod: producto})
-    },
+    }
 }
