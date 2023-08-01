@@ -118,5 +118,28 @@
     "imagen": "1690219935030.jpg",
     "categoria": "usuario",
     "borrado": false
+  },
+  {
+    "id": 13,
+    "nombre": "Armando",
+    "apellido": "Soreteblando",
+    "email": "armandito@gmail.com",
+    "contrasenia": "$2b$10$aOCgLXicqMnqno6PBSW.F.tj97Xm.BQRFf/IqWiFsDGbXpCMwzHwK",
+    "imagen": "1690915244485.jpg",
+    "categoria": "usuario",
+    "borrado": false
+  },
+  {
+    "id": 14,
+    "nombre": "monica",
+    "apellido": "galindo",
+    "direccion": "futurama",
+    "cuil": "35678999",
+    "fecha_nacimiento": "1567-02-10",
+    "email": "monilaloca@gmail.com",
+    "contrasenia": "$2b$10$jQKGKWmfLMCoQHGXmvSXbu/IjVlsFEckYi/UyC2fRxtE0d9NCSSvq",
+    "imagen": "1690915760164.jpg",
+    "categoria": "usuario",
+    "borrado": false
   }
 ]

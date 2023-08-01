@@ -26,6 +26,24 @@
                         <p class="error"> <%= errors.apellido.msg %> </p>
                         <% } %>
                 </div>
+                <div>
+                    <input class="form-usu" type="number" name="cuit" value="<%= locals.oldData ? oldData.cuit : null %>" placeholder="  DNI o CUIT">
+                    <% if(locals.cuit && errors.cuit) { %>
+                        <p class="error"> <%= errors.cuit.msg %> </p>
+                        <% } %>
+                </div>
+                <div>
+                    <input class="form-usu" type="date" name="nacimiento" value="<%= locals.oldData ? oldData.nacimiento : null %>" placeholder=" Fecha de nacimiento ">
+                    <% if(locals.nacimiento && errors.nacimiento) { %>
+                        <p class="error"> <%= errors.nacimiento.msg %> </p>
+                        <% } %>
+                </div>
+                <div>
+                    <input class="form-usu" type="text" name="domicilio" value="<%= locals.oldData ? oldData.domicilio : null %>" placeholder="  Domicilio">
+                    <% if(locals.domicilio && errors.domicilio) { %>
+                        <p class="error"> <%= errors.domicilio.msg %> </p>
+                        <% } %>
+                </div>
                 <div> 
                     <input class="form-usu" type="text" name="email" value="<%= locals.oldData ? oldData.email : null %>" placeholder="  email@gmail.com">
                     <% if(locals.errors && errors.email) { %>
