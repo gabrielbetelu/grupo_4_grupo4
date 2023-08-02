@@ -12,7 +12,7 @@ module.exports = {
 
     },
     processLogin : (req, res) => {
-      const usuario = datos.find((row)=> row.email == req.body.email)
+      const usuario = datos.find((row)=> row.correo == req.body.email)
       console.log("proceso de Login")
 //      console.log(usuario)
 //      console.log(req.body)
@@ -72,11 +72,14 @@ module.exports = {
 
         const user = {
             id: datos.length+1, 
-            nombre: req.body.nombre,
-            apellido: req.body.apellido,
-            email: req.body.email,
+            first_name: req.body.nombre,
+            last_name: req.body.apellido,
+            direccion: req.body.domicilio,
+            cuil: req.body.cuit,
+            fecha_nacimiento: req.body.nacimiento,
+            correo: req.body.email,
             contrasenia: bcrypt.hashSync(req.body.contrasenia, 10),
-            imagen: req.file ? req.file.filename : "avatar.png",
+            image: req.file ? req.file.filename : "avatar.png",
             categoria: "usuario",
             borrado: false
         }

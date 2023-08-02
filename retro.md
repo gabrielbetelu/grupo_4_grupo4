@@ -25,7 +25,7 @@
 - Debemos continuar con este ritmo de trabajo, disminuir el tiempo de reuniones y mantenernos diariamente comunicados, respecto de avances, cambios o cualquier tipo de inconveniente.
 
 
-------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
 
 *# RETROSPECTIVA #*
 
@@ -54,7 +54,7 @@
 -En un principio tuvimos un problema porque uno de los integrantes no estuvo presente en las reuniones por problemas personales y tuvo dificultades para cumplir con la tarea que se le había adjudicado. Pese a la ayuda que quisimos darle, lamentablemente, este compañero decidió darse de baja del curso siendo totalmente honesto con su falta de tiempo para dedicarle. Como grupo pudimos sortear esta dificultad y los cuatro integrantes que quedamos logramos una base sólida como equipo de trabajo en el cual fluyó la comunicación de manera súper positiva para llegar a los objetivos deseados. Cada uno de nosotros pudo cumplir con su tarea en tiempo y forma, también nos ajustamos a las consignas dadas ya que en el Sprint 1 esto nos falló en algunos momentos. Esperamos seguir trabajando de esta manera a futuro. 
 
 
-------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
 
 *# RETROSPECTIVA #*
 
@@ -81,7 +81,7 @@
 
 - Pudimos cumplir con el proyecto en tiempo y forma, pero notamos que a medida que pasamos al siguiente sprint se van sumando dificultades que requieren de mucha mas organizacion para resolver de forma mas efectiva las tareas. Pese a esto, logramos solucionar los conflictos que surgieron lo cual nos confirma que como equipo funcionamos muy bien.
 
-------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
 
 *# RETROSPECTIVA #*
 
@@ -112,7 +112,7 @@
 - Como equipo, nos desenvolvemos muy bien. Nos comunicamos de manera efectiva para abordar las diferentes tareas y métodos de trabajo.
 - Tenemos un excelente ambiente laboral y deberíamos seguir trabajando de esta manera, ya que se nos da muy bien.
 
-------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
 
 # RETROSPECTIVA #
 
@@ -144,6 +144,43 @@
 - La comunicación y colaboración entre los miembros del equipo sigue siendo un punto fuerte, lo que nos permite superar obstáculos y trabajar de manera eficiente.
 - Sin embargo, es importante aprender de las dificultades que se presentan y buscar mejorar nuestra capacidad de adaptación y resolución de problemas en futuros sprints.
 - Continuaremos enfocándonos en mantener una comunicación efectiva y una distribución equitativa de tareas para asegurar el éxito del proyecto.
+
+--------------------------------------------------------------------------------------------
+
+# RETROSPECTIVA SPRINT 6
+
+## Análisis sobre Sprint 6
+
+El Sprint 5 fue una etapa positiva y productiva para nuestro equipo, mantuvimos nuestros puntos fuertes tales como nuestra comunicación y colaboración. Durante este sprint, nos enfocamos en el desarrollo del diagrama de base de datos de nuestro proyecto.
+
+### Qué hicimos bien
+
+-Claramente nuestra comunicación fluida es nuestro punto más fuerte, manteniendo canales abiertos para compartir ideas, avances y resolver cualquier situación rápidamente.
+
+- Continuamos demostrando una gran armonía y coordinación entre todos los miembros del equipo, lo que permitió un flujo constante de trabajo.
+
+- Mejoramos significativamente en cómo dividimos las tareas entre nosotros. Garantizamos que cada miembro tuviera una carga de trabajo justa y que sus habilidades se aprovecharan al máximo.
+
+-  Nos aseguramos de que el diagrama de base de datos tuviera una estructura sólida y bien pensada, poniendo especial atención en los detalles de nuestro proyecto.
+
+### Qué deberíamos mejorar
+
+- Aunque mejoramos en la división de tareas, debemos enfocarnos en dividrilas minusiosamente para evitar conflictos y para que todos hagamos un trabajo equitativo; asi aprender todos los temas y poder practicarlos.
+
+
+### Qué deberíamos empezar a hacer
+
+- Implementar revisiones más frecuentes entre nosotros para compartir avances parciales del proyecto, lo que nos permitirá realizar ajustes a tiempo y asi garantizar una entrega a tiempo.
+
+
+### Qué deberíamos hacer menos
+
+- Reuniones innecesarias.
+ Reducir la duración de las reuniones y asegurarnos de que sean específicas y enfocadas para evitar pérdida de tiempo.
+
+## Conclusiones del Sprint 5
+
+El Sprint 5 fue un éxito gracias a nuestra excelente dinámica de equipo y nuestra disposición para mejorar constantemente. Aprendimos a dividir las tareas de manera más equitativa, mantuvimos una comunicación abierta y nos enfocamos en la calidad de Patagonic. Para el próximo sprint, implementaremos cambios para mejorar aún más nuestra planificación  y continuaremos fortaleciendo nuestra colaboración y comunicación para lograr un desarrollo exitoso del proyecto.
 
 
 
