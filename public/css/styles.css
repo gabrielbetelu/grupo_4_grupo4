@@ -149,6 +149,9 @@ div#saludoLog {
     margin: 0;
     padding-left: 2px;
 }
+#saludo a {
+    text-decoration: none;
+}
 
 #userPerfil {
     display: flex;

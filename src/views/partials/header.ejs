@@ -18,8 +18,8 @@
             <% if(locals.isLogged) {%> 
                 <div class="usuarioLogueado">
                     <div id = "saludo">  
-                        <img id = "imgAvatar" src="/images/<%= locals.userLogged.imagen%>" >               
-                        <a href = "/user/perfil"><div id="saludoLog"><%= locals.userLogged.nombre %></div></a>
+                        <img id = "imgAvatar" src="/images/<%= locals.userLogged.image%>" >               
+                        <a href = "/user/perfil"><div id="saludoLog"><%= locals.userLogged.first_name %></div></a>
                     </div>
                     <div id="userPerfil" >
                         <a href = "/user/logout"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>   
