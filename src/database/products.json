@@ -1,9 +1,9 @@
 [
   {
     "id": 1,
-    "nombre": "Camiseta termica",
-    "descripcion": "Una camiseta de algodón",
-    "imagen": [
+    "nombre_producto": "Camiseta termica",
+    "detalle": "Una camiseta de algodón",
+    "imagenes_producto": [
       "/images/1687627065052.jpg"
     ],
     "categoria": [
@@ -11,14 +11,14 @@
       "mujer",
       "hombre"
     ],
-    "precio": "21.99",
+    "precio_producto": "21.99",
     "borrado": false
   },
   {
     "id": 2,
-    "nombre": "Zapatos trekking",
-    "descripcion": "zapatillas de trekking",
-    "imagen": [
+    "nombre_producto": "Zapatos trekking",
+    "detalle": "zapatillas de trekking",
+    "imagenes_producto": [
       "/images/1687610013718.jpg"
     ],
     "categoria": [
@@ -27,68 +27,68 @@
       "hombre",
       "niño"
     ],
-    "precio": "59.99",
+    "precio_producto": "59.99",
     "borrado": false
   },
   {
     "id": 3,
-    "nombre": "Bolso ",
-    "descripcion": "Un bolso de escalada ",
-    "imagen": [
-      "/images/1687627727723.jpg",
-      "/images/1687627727727.jpg",
-      "/images/1687627727729.jpg"
-    ],
+    "nombre_producto": "Bolso",
+    "detalle": "Un bolso de escalada ",
     "categoria": [
       "mochilas",
       "mujer",
       "niño"
     ],
-    "precio": "309.99",
-    "borrado": false
+    "precio_producto": "309.99",
+    "borrado": false,
+    "imagenes_producto": [
+      "/images/1687627727723.jpg",
+      "/images/1687627727727.jpg",
+      "/images/1687627727729.jpg"
+    ]
   },
   {
     "id": 4,
-    "nombre": "pantalon",
-    "descripcion": "pantalon de ski",
-    "imagen": [
+    "nombre_producto": "pantalon",
+    "detalle": "pantalon de ski",
+    "imagenes_producto": [
       "/images/1687610285502.jpg"
     ],
     "categoria": [
       "pantalon",
       "niño"
     ],
-    "precio": "599.99",
+    "precio_producto": "599.99",
     "borrado": false
   },
   {
     "id": 5,
-    "nombre": "carpa iglú",
-    "descripcion": "Iglú 6 personas",
-    "imagen": [
+    "nombre_producto": "carpa iglú",
+    "detalle": "Iglú 6 personas",
+    "imagenes_producto": [
       "/images/1687744758324.jpg"
     ],
     "categoria": "camping",
-    "precio": "60000",
+    "precio_producto": "60000",
     "borrado": false
   },
   {
     "id": 6,
-    "nombre": "Varilla de montañismo",
-    "descripcion": "Bastones de aluminio K2BAS x2 ",
-    "imagen": [
+    "nombre_producto": "Varilla de montañismo",
+    "detalle": "Bastones de aluminio K2BAS x2 ",
+    "imagenes_producto": [
       "/images/1687745171855.jpg",
       "/images/1687745171857.jpg"
     ],
     "categoria": "accesorios",
-    "precio": "20000",
+    "precio_producto": "20000",
     "borrado": false
   },
   {
     "id": 7,
-    "nombre": "Mochila Camping The North Face Original",
-    "descripcion": "60 Litros",
-    "imagen": [
+    "nombre_producto": "Mochila Camping The North Face Original",
+    "detalle": "60 Litros",
+    "imagenes_producto": [
       "/images/1687745339314.jpg"
     ],
     "categoria": [
@@ -96,50 +96,50 @@
       "mujer",
       "hombre"
     ],
-    "precio": "110000",
+    "precio_producto": "110000",
     "borrado": false
   },
   {
     "id": 8,
-    "nombre": "Set Mosqueton Niteize 234 ",
-    "descripcion": "Trekking Acero Inoxidable Premium",
-    "imagen": [
+    "nombre_producto": "Set Mosqueton Niteize 234 ",
+    "detalle": "Trekking Acero Inoxidable Premium",
+    "imagenes_producto": [
       "/images/1687745562638.jpg"
     ],
     "categoria": "accesorios",
-    "precio": "6422",
+    "precio_producto": "6422",
     "borrado": false
   },
   {
     "id": 9,
-    "nombre": "Cuerda De Escalada Deportiva Edelrid Python ",
-    "descripcion": "10mm 60m ",
-    "imagen": [
+    "nombre_producto": "Cuerda De Escalada Deportiva Edelrid Python ",
+    "detalle": "10mm 60m ",
+    "imagenes_producto": [
       "/images/1687745658982.jpg"
     ],
     "categoria": "accesorios",
-    "precio": "151150",
+    "precio_producto": "151150",
     "borrado": false
   },
   {
     "id": 10,
-    "nombre": "Campera Aconcagua  2 Gore-Tex Pro Expedición",
-    "descripcion": "Ideal para expediciones y largas travesías. Seguridad, confiabilidad y bajo peso.",
-    "imagen": [
+    "nombre_producto": "Campera Aconcagua  2 Gore-Tex Pro Expedición",
+    "detalle": "Ideal para expediciones y largas travesías. Seguridad, confiabilidad y bajo peso.",
+    "imagenes_producto": [
       "/images/1687746046716.jpg"
     ],
     "categoria": [
       "abrigo",
       "mujer"
     ],
-    "precio": "241500",
+    "precio_producto": "241500",
     "borrado": false
   },
   {
     "id": 11,
-    "nombre": "Borceguí Bota Alpina Action ",
-    "descripcion": "Modelo Trekking",
-    "imagen": [
+    "nombre_producto": "Borceguí Bota Alpina Action ",
+    "detalle": "Modelo Trekking",
+    "imagenes_producto": [
       "/images/1687746186082.jpg"
     ],
     "categoria": [
@@ -147,21 +147,21 @@
       "mujer",
       "ninio"
     ],
-    "precio": "13590",
+    "precio_producto": "13590",
     "borrado": false
   },
   {
     "id": 12,
-    "nombre": "short modelo trekking",
-    "descripcion": "short de mujer tela impermeable",
-    "imagen": [
+    "nombre_producto": "short modelo trekking",
+    "detalle": "short de mujer tela impermeable",
+    "imagenes_producto": [
       "/images/1690220093273.jpg"
     ],
     "categoria": [
       "pantalon",
       "mujer"
     ],
-    "precio": "12000",
+    "precio_producto": "12000",
     "borrado": false
   }
 ]

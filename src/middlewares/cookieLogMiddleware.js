@@ -5,8 +5,8 @@ const datos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../database/us
 const cookieExiste = (req, res, next) => {
     if (!req.session.usuarioLogeado && req.cookies.recordame){
         const usuario = datos.find((row) => row.correo == req.cookies.recordame);
-        delete usuario.contrasenia
-        req.session.usuarioLogeado = usuario
+        delete usuario.contrasenia;
+        req.session.usuarioLogeado = usuario;
     }
     next()
 }

@@ -36,11 +36,11 @@ module.exports = {
         }
         let productoNuevo = { 
             'id': products.length +1, 
-            'nombre': req.body.nombre,
-            'descripcion': req.body.descripcion,
-            'imagen': arrayImg,
+            'nombre_producto': req.body.nombre,
+            'detalle': req.body.descripcion,
+            'imagenes_producto': arrayImg,
             'categoria': req.body.categoria,
-            'precio': req.body.precio,
+            'precio_producto': req.body.precio,
             'borrado': false
         }
         products.push(productoNuevo);
@@ -69,7 +69,7 @@ module.exports = {
         console.log("entraste a modificar el item" , req.body.id);
         const productoId = products.find (elemento => elemento.id == req.body.id);    
         let arrayImg = [];
-        let oldImagen = productoId.imagen;
+        let oldImagen = productoId.imagenes_producto;
             if (req.files.length > 0) {
                 req.files.forEach((file) => {
                     arrayImg.push("/images/" + file.filename);                        
@@ -77,13 +77,33 @@ module.exports = {
             } else {
                 arrayImg = oldImagen;
             }
-        productoId.imagen = arrayImg;
+        productoId.imagenes_producto = arrayImg;
         for (let propiedad in req.body) {
             if (propiedad == "id") {
                 productoId[propiedad] = Number(req.body[propiedad]) ;    
             } else if (propiedad == "guardar") {
             } else {
-            productoId[propiedad] = req.body[propiedad];    
+                let propiedadProducto = ""
+                switch (propiedad) {
+                    case "nombre":
+                        propiedadProducto = "nombre_producto";
+                        break;
+                    case "descripcion":
+                        propiedadProducto = "detalle";
+                        break;
+                    case "precio":
+                        propiedadProducto = "precio_producto";
+                        break;
+                    case "categoria":
+                        propiedadProducto = "categoria";
+                        break;
+                    default:
+                        break;
+                }
+                
+
+
+            productoId[propiedadProducto] = req.body[propiedad];    
             }
         }
         fs.writeFileSync(path.resolve(__dirname, '../database/products.json'),JSON.stringify(products, null , 2));

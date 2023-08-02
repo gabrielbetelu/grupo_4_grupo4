@@ -27,7 +27,7 @@ module.exports = {
 //            console.log(req.session)
             if (req.body.cookie) {
                 console.log("se crea cookie recordame")
-                res.cookie("recordame", usuario.email, {maxAge: 1000*60*60})
+                res.cookie("recordame", usuario.correo, {maxAge: 1000*60*60})
                // return res.redirect('/')
             }
             return res.redirect('/')
