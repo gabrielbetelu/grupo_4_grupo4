@@ -1,8 +1,5 @@
-const Producto = require("./Producto");
-
-
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'Color'; 
+    let alias = 'CategoriaProduct'; 
     let cols = {
         id: {
             type: dataTypes.INTEGER.UNSIGNED,
@@ -11,16 +8,11 @@ module.exports = (sequelize, dataTypes) => {
             autoIncrement: true
         },
         
-        nombre: {
+        categoria: {
             type: dataTypes.VARCHAR(100),
             allowNull: false
         },
-        descripcion: {
-            type: dataTypes.VARCHAR(255),
-            allowNull: false
-        },
         
-    
     };
 
     let config = {
@@ -29,18 +21,23 @@ module.exports = (sequelize, dataTypes) => {
         updatedAt: 'updated_at',
         deletedAt: 'deleted_at'
     }
-    const Color = sequelize.define(alias,cols,config);
+    const Producto = sequelize.define(alias,cols,config);
 
-    Color.associate= (models)=>{
-        Color.belongsToMany(models.Producto,
+    Producto.associate= (models)=>{
+        Producto.belongsToMany(models.Categoria-Producto,
             
             {
-                through:'product-talle-color',
-                foreignKey:'id_color',
-                otherKey:'id_product'
+                as:"productos",
+                foreignKey:"id_product",
             }) 
 
+            // Movie.belongsToMany(models.Actor,{
+
+            //     through:'Actor_Movie',
+            //     foreignKey:'movie_id',
+            //     otherKey:'actor_id'
+            // })
         }
 
-    return Color
+    return Producto
 };
