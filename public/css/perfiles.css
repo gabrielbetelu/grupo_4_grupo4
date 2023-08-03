@@ -7,7 +7,7 @@
 }
 .main-perfil div.formPerfil {
     position: absolute;
-    top: 75px;
+    top: 95px;
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -31,8 +31,7 @@
     border-top: 4px solid #7FAD58;
     color: whitesmoke;
     max-width: 650px;
-    top: 30px;
-  
+    top: 30px;  
 }
 
 .registroPerfil h5 {

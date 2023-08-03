@@ -13,7 +13,6 @@
 @import 'perfiles.css';
 
 
-
 /*-----------------------------------------------*/
 
 /* ---------------------------------------------------------
@@ -66,12 +65,12 @@ header .logo-header {
     justify-content: center;
     align-items: center;
     width: 25%;
-    padding: 1% 0 1% 0;
+    padding: 10px 0 10px 0;
 }
 
 header .logo-header .logotipo {    
-    width: 50px;
-    height: 50px;   
+    width: 70px;
+    height: 70px;   
     background-color: transparent;
     background-image: url("/images/animacion logo 1.jpg");
     background-size: cover;
@@ -694,7 +693,7 @@ article div .producto-info button.producto-boton:hover {
 
     header .opciones .menu-buscador {
         width: 50%;  
-        padding: 2% 0  0 0;  
+        padding: 10px 0 0 0;  
         flex-direction: column-reverse; 
         align-items: center; 
         justify-content: space-between;  
@@ -809,7 +808,7 @@ article div .producto-info button.producto-boton:hover {
         flex-direction: row;
         justify-content: space-between;
         width: 100%;
-        margin-top: 30px;
+        margin-top: 20px;
         padding-bottom: 5px;
     }
 
