@@ -13,6 +13,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         
+        
     };
 
     let config = {
@@ -21,23 +22,21 @@ module.exports = (sequelize, dataTypes) => {
         updatedAt: 'updated_at',
         deletedAt: 'deleted_at'
     }
-    const Producto = sequelize.define(alias,cols,config);
+    const CategoriaProduct = sequelize.define(alias,cols,config);
 
-    Producto.associate= (models)=>{
-        Producto.belongsToMany(models.Categoria-Producto,
+    CategoriaProduct.associate= (models)=>{
+        CategoriaProduct.belongsToMany(models.Producto,
             
             {
                 as:"productos",
-                foreignKey:"id_product",
-            }) 
-
-            // Movie.belongsToMany(models.Actor,{
-
-            //     through:'Actor_Movie',
-            //     foreignKey:'movie_id',
-            //     otherKey:'actor_id'
-            // })
+                through: "categorias-products",
+                foreignKey:"id_categoriaproduct",
+                otherKey:"id_product"
+                //timestamps:true
+            })
+            
+            
         }
 
-    return Producto
+    return CategoriaProduct
 };

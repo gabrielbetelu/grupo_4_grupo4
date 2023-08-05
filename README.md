@@ -35,7 +35,7 @@ Inspiración, fragmentos de código, etc.
 
 * [TRELLO] (https://trello.com/invite/b/PdH9bcjy/ATTI405a68947fb9b3a0081435fab534a4b2D48F9050/tablero-de-tareas-sprint5-grupo4)
 
-* [TRELLO] (https://trello.com/invite/b/CxS74bBo/ATTI159776d6a3dfaf2d85bdd21690fd41d6CB9D1B74/tablero-de-tareas-sprint6-grupo4)
+* [TRELLO] (https://trello.com/invite/b/vHpJ8wUq/ATTIaedaac201df84eaf91de02cd4fda512dCA5E9044/tablero-de-tareas-sprint6-grupo4)
 
 
 
