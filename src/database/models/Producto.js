@@ -63,6 +63,13 @@ module.exports = (sequelize, dataTypes) => {
                 otherKey:"id_ticket"
                 //timestamps:true
             }) 
+            
+        Producto.hasMany(models.Marca,
+        
+            {
+                as:"productoMarca",
+                foreignKey:"id_marca",
+            }) 
 
         }
 

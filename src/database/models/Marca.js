@@ -21,23 +21,17 @@ module.exports = (sequelize, dataTypes) => {
         updatedAt: 'updated_at',
         deletedAt: 'deleted_at'
     }
-    const Producto = sequelize.define(alias,cols,config);
+    const Marca = sequelize.define(alias,cols,config);
 
-    Producto.associate= (models)=>{
-        Producto.belongsToMany(models.Categoria-Producto,
+    Marca.associate= (models)=>{
+        Marca.hasMany(models.Producto,
             
             {
-                as:"productos",
-                foreignKey:"id_product",
+                as:"marcaProducto",
+                foreignKey:"id_marca",
             }) 
 
-            // Movie.belongsToMany(models.Actor,{
-
-            //     through:'Actor_Movie',
-            //     foreignKey:'movie_id',
-            //     otherKey:'actor_id'
-            // })
         }
 
-    return Producto
+    return Marca
 };
