@@ -27,22 +27,7 @@ module.exports = (sequelize, dataTypes) => {
         deletedAt: 'deleted_at' */
     }
     const CategoriaProducto = sequelize.define(alias,cols,config);
-
-    CategoriaProducto.associate= (models)=>{
-        CategoriaProducto.hasMany(models.Producto,
-
-            {
-                as:"categorias",
-                foreignKey:"id_product",
-            })
-
-            // Movie.belongsToMany(models.Actor,{
-
-            //     through:'Actor_Movie',
-            //     foreignKey:'movie_id',
-            //     otherKey:'actor_id'
-            // })
-        }
+  
 
     return CategoriaProducto
 };

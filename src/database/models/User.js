@@ -59,7 +59,7 @@ module.exports = (sequelize, dataTypes) => {
     const User = sequelize.define(alias,cols,config);
 
     User.associate= (models)=>{
-        User.belongsToMany(models.Ticket,
+        User.belongsTo(models.CategoriaUser,
             
             {
                 as:"usuarios",
