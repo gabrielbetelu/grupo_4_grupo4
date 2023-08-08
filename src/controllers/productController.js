@@ -1,7 +1,18 @@
 const fs = require ('fs');
 const path = require ('path');
+const db = require('../database/models');
+const sequelize = db.sequelize;
 const rutaJSON = path.resolve('./src/database/products.json');
 const products = JSON.parse (fs.readFileSync(rutaJSON));
+
+const Products = db.Producto;
+const Users = db.User;
+const Marcas = db.Marca;
+const Talles = db.Talle;
+const Colores = db.Color;
+const CategoriasProducts = db.CategoriaProduct;
+
+
 
 // Leo el JSON de categoriasProduct
 const rutaCategoriasJSON = path.resolve('./src/database/categoriasProduct.json');

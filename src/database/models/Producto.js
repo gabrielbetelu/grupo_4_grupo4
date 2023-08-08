@@ -71,6 +71,27 @@ module.exports = (sequelize, dataTypes) => {
                 foreignKey:"id_marca",
             }) 
 
+        Producto.belongsToMany(models.Color,
+        
+            {
+                as:"coloresProductos",
+                through: "product-talle-color",
+                foreignKey:"id_product",
+                otherKey:"id_color"
+                //timestamps:true
+            }) 
+
+        Producto.belongsToMany(models.Talle,
+        
+            {
+                as:"tallesProductos",
+                through: "product-talle-color",
+                foreignKey:"id_product",
+                otherKey:"id_talle"
+                 //timestamps:true
+            }) 
+    
+
         }
 
     return Producto

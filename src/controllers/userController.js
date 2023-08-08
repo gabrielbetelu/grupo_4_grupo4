@@ -1,5 +1,7 @@
 const fs = require ('fs');
 const path = require ('path');
+const db = require('../database/models');
+const sequelize = db.sequelize;
 const rutaJSON = path.resolve('./src/database/users.json');
 let datos = JSON.parse (fs.readFileSync(rutaJSON));
 
