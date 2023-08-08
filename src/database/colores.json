@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "nombre": "blanco",
+    "descripcion": ".",
+    "borrado": false
+  },
+  {
+    "id": 2,
+    "nombre": "negro",
+    "descripcion": ".",
+    "borrado": false
+  }
+]

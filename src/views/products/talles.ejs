@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head') %>
+<body>
+    <%- include('../partials/header') %>
+        <main class="main-registro">
+             <img src="../images/patagonia-argentina.jpg" alt="fondo" class="fondo-image" />
+             <div class="divRegistro">
+                <form class="registro" action="/product/talles" method="post" >
+                    <% if(locals.errors && oldData) { %>
+                    <% console.log(oldData) %>
+                    <% } %>
+            
+                    <h5>Talles de Productos</h5>
+                            
+                    <div>
+                        <input class="form-usu" type="text" name="talle" value="<%= locals.oldData ? oldData.talle : null %>"  placeholder="  Talle">
+                        
+                        <% if(locals.errors && errors.nombre) { %>
+                            <p class="error"> <%= errors.nombre.msg %> </p>
+                            <% } %>
+                    </div>
+                    <div>
+                        <textarea id="textarea" name="detalle" placeholder=" Descripción del talle"></textarea>
+                    </div>
+                    
+                    <div> 
+                        <a href="#"> <button class="botEnter" type="submit">Añadir Talle</button> </a>
+                    </div>
+                
+                </form>
+            </div>
+        </main>
+        <%- include('../partials/footer') %>
+    </body>                       
+</html>    
+      

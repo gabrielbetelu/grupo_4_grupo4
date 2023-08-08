@@ -47,4 +47,11 @@ router.get('/logout', controller.logout);
 
 //RUTA ADMINISTRADOR DE PERFILES
 
+
+//RUTAS DE CATEGORIAS DE USUARIO
+
+router.get('/categorias', guestMiddleware, controller.categorias);
+router.post('/categorias', controller.processCategoria);
+
+
 module.exports = router;

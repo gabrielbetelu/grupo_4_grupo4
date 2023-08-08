@@ -38,4 +38,25 @@ router.delete('/eliminar/:id' , controller.eliminar);
 router.get('/creacion', adminMiddleware, controller.creacion);
 router.post('/producto', fileUpload.any('imagen'), controller.processCreate);
 
+
+//RUTA DE ADMINISTRADOR DE TABLAS DE PRODUCTOS
+// router.get('/tablasadmin', adminMiddleware, controller.tablas);
+
+//RUTAS DE CATEGORIAS DE PRODUCTOS
+router.get('/categorias', adminMiddleware, controller.categorias);
+router.post('/categorias', controller.processCategorias);
+
+//RUTAS DE MARCAS DE PRODUCTOS
+router.get('/marcas', adminMiddleware, controller.marcas);
+router.post('/marcas', controller.processMarcas);
+
+//RUTAS DE TALLES DE PRODUCTOS
+router.get('/talles', adminMiddleware, controller.talles);
+router.post('/talles', controller.processTalles);
+
+//RUTAS DE COLORES DE PRODUCTOS
+router.get('/colores', adminMiddleware, controller.colores);
+router.post('/colores', controller.processColores);
+
+
 module.exports = router;

@@ -77,6 +77,18 @@
     color: #c79430;
 }
 
+#textarea {
+    width: 100%;
+    border: 1px solid grey;
+    margin-bottom: 15px;
+    padding: 11px 0;
+    background: #232c1c;
+    font-size: 14px;
+    font-weight: lighter;
+    color: #c79430;
+}
+
+
 .mainEdicion .edicion-form .imagenesEdicion {
     border-bottom: 1px solid;
 }

@@ -1,5 +1,5 @@
 function adminMiddleware (req, res, next) {
-    if (!req.session.usuarioLogeado || req.session.usuarioLogeado.categoria != "administrador") {
+    if (!req.session.usuarioLogeado || req.session.usuarioLogeado.categoria_user != "administrador") {
         return res.redirect('/');
     } 
     next();

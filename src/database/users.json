@@ -6,7 +6,7 @@
     "correo": "juangarcia@example.com",
     "contrasenia": "$2b$10$X7Ohjqz2Fpw34y8BwYmbROxbdk.FVS.wUPl3YiiFmkn5.MP2MDNOC",
     "image": "avatar.png",
-    "categoria": "administrador",
+    "categoria_user": "administrador",
     "borrado": false
   },
   {
@@ -16,7 +16,7 @@
     "correo": "lucasperez@gmail.com",
     "contrasenia": "$2b$10$q/IUct5403h29mk.Jjb50.1ffFoeNGQiyNioj/mErXdCfnr8X56oW",
     "image": "1689993143344.png",
-    "categoria": "usuario",
+    "categoria_user": "usuario",
     "borrado": false
   },
   {
@@ -26,7 +26,7 @@
     "correo": "josegomez@gmail.com",
     "contrasenia": "$2b$10$Y774g1/rfAlmJhL9x3l9COhujioDt8TQ4feGjYkERW8mcqj3EXive",
     "image": "1689733334866.jpg",
-    "categoria": "usuario",
+    "categoria_user": "usuario",
     "borrado": false
   },
   {
@@ -36,7 +36,7 @@
     "correo": "carlaeructo@gmail.com",
     "contrasenia": "$2b$10$7D9U0gEhhtkjwKxvrBj2s.L4mqZcxFrvqqJu5/NQjEhku6BO8A3c6",
     "image": "1689733404830.png",
-    "categoria": "usuario",
+    "categoria_user": "usuario",
     "borrado": false
   },
   {
@@ -46,7 +46,7 @@
     "correo": "ceciperuzzi@gmail.com",
     "contrasenia": "$2b$10$oRFGBlpS/r8iAKYusRVuduXyApkKBGkpqSv82Misy8HAsdWvBNo0C",
     "image": "1689733521380.png",
-    "categoria": "usuario",
+    "categoria_user": "usuario",
     "borrado": false
   },
   {
@@ -56,7 +56,7 @@
     "correo": "mateocarballo@gmail.com",
     "contrasenia": "$2b$10$/cQIbDjabDDP8ByldMTPNeBnFvPBRA8v6CNh8LxWZtXbftqMNAGlW",
     "image": "1689733594765.jpg",
-    "categoria": "usuario",
+    "categoria_user": "usuario",
     "borrado": false
   },
   {
@@ -66,7 +66,7 @@
     "correo": "alejovoley@gmail.com",
     "contrasenia": "$2b$10$D2hdHG8CVaK4n8fGI.YOSu9fk/O3TmiTHjYHd2KDWsT2ynA1Q6XDa",
     "image": "1689733645039.png",
-    "categoria": "usuario",
+    "categoria_user": "usuario",
     "borrado": false
   },
   {
@@ -76,7 +76,7 @@
     "correo": "karinapichis@gmail.com",
     "contrasenia": "$2b$10$iozh1fFoFiAvg2WY0SXGNe9vX7G3nwqqJbw2NteCuL9g3BUPhQzIq",
     "image": "1689733698954.jpg",
-    "categoria": "usuario",
+    "categoria_user": "usuario",
     "borrado": false
   },
   {
@@ -86,7 +86,7 @@
     "correo": "karinaprincesita@gmail.com",
     "contrasenia": "$2b$10$BQsU0lGwg0Glru4aAOrOHuB0GzyQJORQyvVu5MFIDYlHbospm/dSG",
     "image": "1689733758566.jpg",
-    "categoria": "usuario",
+    "categoria_user": "usuario",
     "borrado": false
   },
   {
@@ -96,7 +96,7 @@
     "correo": "rodrigo@gmail.com",
     "contrasenia": "$2b$10$puAmgGv1HwL.mIBA03zLjOK3nVmM4NERm5Q5JmLxOTZCpAG3iyDUG",
     "image": "1689733840643.png",
-    "categoria": "usuario",
+    "categoria_user": "usuario",
     "borrado": false
   },
   {
@@ -106,40 +106,37 @@
     "correo": "nuevoprueba@gmail.com",
     "contrasenia": "$2b$10$wl1JUC52yCB6B9LtJcON4.qiNi7YunyXAI6RTy8ZdlMJNWgnDfrc.",
     "image": "1689884660900.jpg",
-    "categoria": "usuario",
+    "categoria_user": "usuario",
     "borrado": false
   },
   {
     "id": 12,
-    "first_name": "Esteban",
-    "last_name": "Quito",
-    "correo": "estebanquito@hotmail.com",
-    "contrasenia": "$2b$10$MLoFI.m6ETN56ba6FiO4BuocetdLzB/.fMr1DaOzR0CaqqWmxhc1W",
-    "image": "1690219935030.jpg",
-    "categoria": "usuario",
+    "first_name": "Prueba",
+    "last_name": "Error",
+    "correo": "pruebaerror@gmail.com",
+    "contrasenia": "$2b$10$HxH6T663PVuCzXWiv2uWBeoMG/0Iw8.ymzqu/2Dla8FSKS4JocBFG",
+    "image": "avatar.png",
+    "categoria_user": "usuario",
     "borrado": false
   },
   {
     "id": 13,
-    "first_name": "Armando",
-    "last_name": "Soreteblando",
-    "correo": "armandito@gmail.com",
-    "contrasenia": "$2b$10$aOCgLXicqMnqno6PBSW.F.tj97Xm.BQRFf/IqWiFsDGbXpCMwzHwK",
-    "image": "1690915244485.jpg",
-    "categoria": "usuario",
+    "first_name": "pepa",
+    "last_name": "pig",
+    "correo": "pp@gmail.com",
+    "contrasenia": "$2b$10$rZDy.Dk8qrOOTNRLtDrvL.TnxIjp3vM0yShhJpYNH2FVBAgwbMIAO",
+    "image": "7b948b291690326597281.jpg",
+    "categoria_user": "usuario",
     "borrado": false
   },
   {
     "id": 14,
-    "first_name": "monica",
-    "last_name": "galindo",
-    "direccion": "futurama",
-    "cuil": "35678999",
-    "fecha_nacimiento": "1567-02-10",
-    "correo": "monilaloca@gmail.com",
-    "contrasenia": "$2b$10$jQKGKWmfLMCoQHGXmvSXbu/IjVlsFEckYi/UyC2fRxtE0d9NCSSvq",
-    "image": "1690915760164.jpg",
-    "categoria": "usuario",
+    "first_name": "Rocio",
+    "last_name": "Perez",
+    "correo": "rocioperez@gmail.com",
+    "contrasenia": "$2b$10$H5Una43CZE3977.q5R1YruxrDbNdDIxFSbshIFEUZoIOqZm4/Cw6q",
+    "image": "da760f801690855239476.png",
+    "categoria_user": "usuario",
     "borrado": false
   }
 ]

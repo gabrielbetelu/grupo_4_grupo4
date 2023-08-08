@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "nombre": "patagonic",
+    "borrado": false
+  },
+  {
+    "id": 2,
+    "nombre": "montagne",
+    "borrado": false
+  },
+  {
+    "id": 3,
+    "nombre": "ansilta",
+    "borrado": false
+  },
+  {
+    "id": 4,
+    "nombre": "scandinavian",
+    "borrado": false
+  }
+]

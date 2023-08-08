@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head') %>
+<body>
+    <%- include('../partials/header') %>
+        <main class="main-registro">
+             <img src="../images/patagonia-argentina.jpg" alt="fondo" class="fondo-image" />
+             <div class="divRegistro">
+                <form class="registro" action="/product/colores" method="post" >
+                    <% if(locals.errors && oldData) { %>
+                    <% console.log(oldData) %>
+                    <% } %>
+            
+                    <h5>Colores de Productos</h5>
+                            
+                    <div>
+                        <input class="form-usu" type="text" name="color" value="<%= locals.oldData ? oldData.talle : null %>"  placeholder="  Color">
+                        
+                        <% if(locals.errors && errors.color) { %>
+                            <p class="error"> <%= errors.color.msg %> </p>
+                            <% } %>
+                    </div>
+                    <div>
+                        <textarea id="textarea" name="detalle" placeholder=" Descripción del color"></textarea>
+                    </div>
+                    
+                    <div> 
+                        <a href="#"> <button class="botEnter" type="submit">Añadir Color</button> </a>
+                    </div>
+                
+                </form>
+            </div>
+        </main>
+        <%- include('../partials/footer') %>
+    </body>                       
+</html>    
+      

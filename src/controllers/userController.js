@@ -2,6 +2,12 @@ const fs = require ('fs');
 const path = require ('path');
 const rutaJSON = path.resolve('./src/database/users.json');
 let datos = JSON.parse (fs.readFileSync(rutaJSON));
+
+// Leo el JSON de categoriasUser
+const rutaCategoriaJSON = path.resolve('./src/database/categoriasUser.json');
+let categorias = JSON.parse (fs.readFileSync(rutaCategoriaJSON));
+
+
 const bcrypt = require('bcrypt');
 const { validationResult } = require("express-validator");
 
@@ -14,11 +20,11 @@ module.exports = {
     processLogin : (req, res) => {
       const usuario = datos.find((row)=> row.correo == req.body.email)
       console.log("proceso de Login")
-//      console.log(usuario)
-//      console.log(req.body)
+      console.log(usuario)
+      console.log(req.body)
       if (usuario){
-//        console.log(req.body.contrasenia)
-//        console.log(usuario.contrasenia)
+        console.log(req.body.contrasenia)
+        console.log(usuario.contrasenia)
         if (bcrypt.compareSync(req.body.contrasenia, usuario.contrasenia)){
             delete usuario.contrasenia
             req.session.usuarioLogeado = usuario
@@ -150,5 +156,32 @@ module.exports = {
         res.clearCookie('recordame');
         datos = JSON.parse (fs.readFileSync(rutaJSON));
         return res.redirect('/');
+    },    
+      
+
+    categorias :(req, res) => {
+            return res.render('./users/categorias')
+            
+    },
+
+    processCategoria :(req, res) => {
+    
+
+        const categoria = {
+            id: categorias.length+1, 
+            categoria: req.body.nombre,
+            borrado: false
+        }
+        const rdoValidacion = validationResult(req);
+        console.log("errores de validationResult");
+//        console.log(rdoValidacion.errors);
+
+        if(rdoValidacion.errors.length > 0) {
+            return res.render('./users/categorias', { errors: rdoValidacion.mapped(), oldData: req.body })
+           // return res.redirect('/user/registro', { errors: rdoValidacion.mapped(), oldData: req.body })   
+        }
+        console.log(categoria);
+        fs.writeFileSync(path.resolve(__dirname, '../database/categoriasUser.json'), JSON.stringify([...categorias, categoria], null, 2))
+        return res.redirect('/')
     }
 };

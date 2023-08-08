@@ -3,6 +3,23 @@ const path = require ('path');
 const rutaJSON = path.resolve('./src/database/products.json');
 const products = JSON.parse (fs.readFileSync(rutaJSON));
 
+// Leo el JSON de categoriasProduct
+const rutaCategoriasJSON = path.resolve('./src/database/categoriasProduct.json');
+const categoriasProducts = JSON.parse (fs.readFileSync(rutaCategoriasJSON));
+
+// Leo el JSON de marca
+const rutaMarcaJSON = path.resolve('./src/database/marca.json');
+const marcas = JSON.parse (fs.readFileSync(rutaMarcaJSON));
+
+// Leo el JSON de talles
+const rutaTallesJSON = path.resolve('./src/database/talles.json');
+const talle = JSON.parse (fs.readFileSync(rutaTallesJSON));
+
+// Leo el JSON de colores
+const rutaColoresJSON = path.resolve('./src/database/colores.json');
+const color = JSON.parse (fs.readFileSync(rutaColoresJSON));
+
+
 module.exports = {
     carrito:(req, res) => {
             return res.render('./products/carrito')        
@@ -115,5 +132,80 @@ module.exports = {
         producto.borrado = true;
         fs.writeFileSync(path.resolve(__dirname, '../database/products.json'),JSON.stringify(products, null , 2));
         return res.render('./products/edicion', {prod: producto})
+    },
+
+    // tablas: (req, res) => {
+    //     console.log("Entró por creacion de tablas")
+    //     return res.render('./products/tablasAdmin')
+    // },
+
+    categorias: (req, res) => {
+        console.log("Entró por creacion de categorias")
+        return res.render('./products/categorias')
+         
+    },
+    processCategorias: (req, res) => {
+        console.log("entraste por creacion de categoria");
+        let categoriaNueva = { 
+            'id': categoriasProducts.length +1, 
+            'categoria': req.body.categoria,
+            'borrado': false
+        }
+        categoriasProducts.push(categoriaNueva);
+        fs.writeFileSync(path.resolve(__dirname, '../database/categoriasProduct.json'),JSON.stringify(categoriasProducts, null , 2));
+        return res.render('products/categorias')
+    },
+
+    marcas: (req, res) => {
+        console.log("Entró por creacion de marcas")
+        return res.render('./products/marcas')
+         
+    },
+    processMarcas: (req, res) => {
+        console.log("entraste por creacion de marca");
+        let marcaNueva = { 
+            'id': marcas.length +1, 
+            'nombre': req.body.marca,
+            'borrado': false
+        }
+        marcas.push(marcaNueva);
+        fs.writeFileSync(path.resolve(__dirname, '../database/marca.json'),JSON.stringify(marcas, null , 2));
+        return res.render('products/marcas')
+    },
+
+    talles: (req, res) => {
+        console.log("Entró por creacion de talles")
+        return res.render('./products/talles')
+         
+    },
+    processTalles: (req, res) => {
+        console.log("entraste por creacion de marca");
+        let talleNuevo = { 
+            'id': talle.length +1, 
+            'nombre': req.body.talle,
+            'descripcion': req.body.detalle,
+            'borrado': false
+        }
+        talle.push(talleNuevo);
+        fs.writeFileSync(path.resolve(__dirname, '../database/talles.json'),JSON.stringify(talle, null , 2));
+        return res.render('products/talles')
+    },
+
+    colores: (req, res) => {
+        console.log("Entró por creacion de colores")
+        return res.render('./products/colores')
+         
+    },
+    processColores: (req, res) => {
+        console.log("entraste por creacion de color");
+        let colorNuevo = { 
+            'id': color.length +1, 
+            'nombre': req.body.color,
+            'descripcion': req.body.detalle,
+            'borrado': false
+        }
+        color.push(colorNuevo);
+        fs.writeFileSync(path.resolve(__dirname, '../database/colores.json'),JSON.stringify(color, null , 2));
+        return res.render('products/colores')
     }
 }
