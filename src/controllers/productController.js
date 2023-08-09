@@ -1,13 +1,14 @@
 const fs = require ('fs');
 const path = require ('path');
 const db = require('../database/models');
+const { log } = require('console');
 const sequelize = db.sequelize;
 const rutaJSON = path.resolve('./src/database/products.json');
 const products = JSON.parse (fs.readFileSync(rutaJSON));
 
 const Products = db.Producto;
 const Users = db.User;
-const Marcas = db.Marca;
+const Marca = db.Marca;
 const Talles = db.Talle;
 const Colores = db.Color;
 const CategoriasProducts = db.CategoriaProduct;
@@ -172,8 +173,20 @@ module.exports = {
         return res.render('./products/marcas')
          
     },
-    processMarcas: (req, res) => {
+    processMarcas: async (req, res) => {
         console.log("entraste por creacion de marca");
+        console.log(req.body.marca);
+        try {
+            await Marca.create({
+                'nombre': req.body.marca,
+                'borrado': 0
+            });
+        } catch (error) {
+            console.log(error)
+        }
+        return res.redirect('/product/tablasadmin');
+
+/*        console.log("entraste por creacion de marca");
         let marcaNueva = { 
             'id': marcas.length +1, 
             'nombre': req.body.marca,
@@ -182,6 +195,7 @@ module.exports = {
         marcas.push(marcaNueva);
         fs.writeFileSync(path.resolve(__dirname, '../database/marca.json'),JSON.stringify(marcas, null , 2));
         return res.render('products/marcas')
+*/
     },
 
     talles: (req, res) => {
