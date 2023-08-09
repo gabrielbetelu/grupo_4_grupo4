@@ -13,6 +13,10 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         
+        borrado:{
+            type: dataTypes.TINYINT(1)
+        }
+        
     };
 
     let config = {

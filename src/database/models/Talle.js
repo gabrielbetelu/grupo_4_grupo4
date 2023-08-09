@@ -18,6 +18,10 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         
+         borrado:{
+            type: dataTypes.TINYINT(1)
+        }
+        
     };
 
     let config = {
@@ -36,6 +40,15 @@ module.exports = (sequelize, dataTypes) => {
                 foreignKey:'id_talle',
                 otherKey:'id_product'
             }) 
+        Talle.belongsToMany(models.Color,
+            
+            {
+                through:'product-talle-color',
+                foreignKey:'id_talle',
+                otherKey:'id_color'
+            }) 
+
+            
 
         }
 

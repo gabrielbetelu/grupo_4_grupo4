@@ -1,3 +1,5 @@
+const { TINYINT } = require("sequelize");
+
 module.exports = (sequelize, dataTypes) => {
     let alias = 'CategoriaProduct'; 
     let cols = {
@@ -12,7 +14,10 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(100),
             allowNull: false
         },
-        
+
+        borrado:{
+            type: dataTypes.TINYINT(1)
+        }
         
     };
 

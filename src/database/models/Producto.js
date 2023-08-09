@@ -64,7 +64,7 @@ module.exports = (sequelize, dataTypes) => {
                 //timestamps:true
             }) 
             
-        Producto.hasMany(models.Marca,
+        Producto.belongsTo(models.Marca,
         
             {
                 as:"productoMarca",
@@ -90,6 +90,7 @@ module.exports = (sequelize, dataTypes) => {
                 otherKey:"id_talle"
                  //timestamps:true
             }) 
+            
     
 
         }
