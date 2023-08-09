@@ -13,7 +13,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         fecha: {
-            type: dataTypes.DATETIME,
+            type: dataTypes.DATE,
             allowNull: false
         },
         total: {
@@ -36,8 +36,7 @@ module.exports = (sequelize, dataTypes) => {
     const Ticket = sequelize.define(alias,cols,config);
 
     Ticket.associate= (models)=>{
-        Ticket.belongsToMany(models.User,
-            
+        Ticket.belongsTo(models.User,            
             {
                 as:"ticketUsuario",
                 foreignKey:"id_user",

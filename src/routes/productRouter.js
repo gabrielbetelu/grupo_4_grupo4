@@ -40,7 +40,7 @@ router.post('/producto', fileUpload.any('imagen'), controller.processCreate);
 
 
 //RUTA DE ADMINISTRADOR DE TABLAS DE PRODUCTOS
-// router.get('/tablasadmin', adminMiddleware, controller.tablas);
+ router.get('/tablasadmin', adminMiddleware, controller.tablas);
 
 //RUTAS DE CATEGORIAS DE PRODUCTOS
 router.get('/categorias', adminMiddleware, controller.categorias);

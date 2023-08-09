@@ -9,15 +9,15 @@ module.exports = (sequelize, dataTypes) => {
         },
         
         nombre_producto: {
-            type: dataTypes.VARCHAR(100),
+            type: dataTypes.STRING(100),
             allowNull: false
         },
         detalle: {
-            type: dataTypes.VARCHAR(255),
+            type: dataTypes.STRING(255),
             allowNull: false
         },
         imagenes_producto: {
-            type: dataTypes.VARCHAR(100),
+            type: dataTypes.STRING(100),
             allowNull: false
         },
         precio_producto: {

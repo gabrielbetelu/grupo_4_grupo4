@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head') %>
+<body>
+    <%- include('../partials/header') %>
+        <main class="main-tablas">
+             <img src="../images/patagonia-argentina.jpg" alt="fondo" class="fondo-image" />
+             <div class="divTablas">
+
+                <div>
+<!-- *********************      TABLA DE CATEGORIAS DE PRODUCTOS      ********************* -->                
+                    <form class="tablas" action="/product/categorias" method="post" >
+                        <% if(locals.errors && oldData) { %>
+                        <% console.log(oldData) %>
+                        <% } %>
+                
+                        <h5>Categorias de Productos</h5>
+                                
+                        <div>
+                            <input class="form-tablas" type="text" name="categoria" value="<%= locals.oldData ? oldData.nombre : null %>"  placeholder="  Categoría">
+                            
+                            <% if(locals.errors && errors.nombre) { %>
+                                <p class="error"> <%= errors.nombre.msg %> </p>
+                                <% } %>
+                        </div>
+                        
+                        <div> 
+                            <a href="#"> <button class="botEnterTablas" type="submit">Añadir Categoría</button> </a>
+                        </div>
+                    
+                    </form>
+<!-- ************************************************************************************** -->
+
+<!-- ***********************      TABLA DE MARCAS DE PRODUCTOS      *********************** --> 
+                    <form class="tablas" action="/product/marcas" method="post" >
+                        <% if(locals.errors && oldData) { %>
+                        <% console.log(oldData) %>
+                        <% } %>
+
+                        <h5>Marcas de Productos</h5>
+                                
+                        <div>
+                            <input class="form-tablas" type="text" name="marca" value="<%= locals.oldData ? oldData.marca : null %>"  placeholder="  Marca">
+                            
+                            <% if(locals.errors && errors.nombre) { %>
+                                <p class="error"> <%= errors.nombre.msg %> </p>
+                                <% } %>
+                        </div>
+                        
+                        <div> 
+                            <a href="#"> <button class="botEnterTablas" type="submit">Añadir Marca</button> </a>
+                        </div>
+
+                    </form>
+<!-- ************************************************************************************** -->
+                </div>
+                <div>
+
+<!-- ***********************      TABLA DE TALLES DE PRODUCTOS      *********************** --> 
+                    <form class="tablas" action="/product/talles" method="post" >
+                        <% if(locals.errors && oldData) { %>
+                        <% console.log(oldData) %>
+                        <% } %>
+
+                        <h5>Talles de Productos</h5>
+                                
+                        <div>
+                            <input class="form-tablas" type="text" name="talle" value="<%= locals.oldData ? oldData.talle : null %>"  placeholder="  Talle">
+                            
+                            <% if(locals.errors && errors.nombre) { %>
+                                <p class="error"> <%= errors.nombre.msg %> </p>
+                                <% } %>
+                        </div>
+                        <div>
+                            <textarea class="textareaTablas" name="detalle" placeholder=" Descripción del talle"></textarea>
+                        </div>
+                        
+                        <div> 
+                            <a href="#"> <button class="botEnterTablas" type="submit">Añadir Talle</button> </a>
+                        </div>
+
+                    </form>
+
+<!-- ************************************************************************************** -->
+
+<!-- ***********************      TABLA DE COLORES DE PRODUCTOS      *********************** --> 
+                    <form class="tablas" action="/product/colores" method="post" >
+                        <% if(locals.errors && oldData) { %>
+                        <% console.log(oldData) %>
+                        <% } %>
+
+                        <h5>Colores de Productos</h5>
+                                
+                        <div>
+                            <input class="form-tablas" type="text" name="color" value="<%= locals.oldData ? oldData.talle : null %>"  placeholder="  Color">
+                            
+                            <% if(locals.errors && errors.color) { %>
+                                <p class="error"> <%= errors.color.msg %> </p>
+                                <% } %>
+                        </div>
+                        <div>
+                            <textarea class="textareaTablas" name="detalle" placeholder=" Descripción del color"></textarea>
+                        </div>
+                        
+                        <div> 
+                            <a href="#"> <button class="botEnterTablas" type="submit">Añadir Color</button> </a>
+                        </div>
+
+                    </form>
+
+<!-- ************************************************************************************** -->
+                </div>
+
+            </div>
+        </main>
+        <%- include('../partials/footer') %>
+    </body>                       
+</html>    
+      

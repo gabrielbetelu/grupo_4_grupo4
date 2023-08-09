@@ -145,10 +145,10 @@ module.exports = {
         return res.render('./products/edicion', {prod: producto})
     },
 
-    // tablas: (req, res) => {
-    //     console.log("Entró por creacion de tablas")
-    //     return res.render('./products/tablasAdmin')
-    // },
+    tablas: (req, res) => {
+        console.log("Entró por creacion de tablas")
+        return res.render('./products/tablaAdmin')
+    },
 
     categorias: (req, res) => {
         console.log("Entró por creacion de categorias")

@@ -9,12 +9,12 @@ module.exports = (sequelize, dataTypes) => {
         },
         
         nombre: {
-            type: dataTypes.VARCHAR(100),
+            type: dataTypes.STRING(100),
             allowNull: false
         },
 
         descripcion: {
-            type: dataTypes.VARCHAR(255),
+            type: dataTypes.STRING(255),
             allowNull: false
         },
         
