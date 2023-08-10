@@ -187,9 +187,11 @@ module.exports = {
         }, 
 
 
-    marcas: (req, res) => {
-        console.log("Entró por creacion de marcas")
-        return res.render('./products/marcas')
+    marcas: async (req, res) => {
+        console.log("Entró por edición de marcas")
+        const nameMarcas = await db.Marca.findAll();
+    //    console.log(nameMarcas);
+        return res.render('./products/marcas' , {nameMarcas : nameMarcas});
          
     },
     processMarcas: async (req, res) => {
@@ -216,6 +218,26 @@ module.exports = {
         return res.render('products/marcas')
 */
     },
+
+    editMarcas: async (req, res) => {
+        console.log("entraste por edicion de marca");
+        console.log(req.body.marca);
+        let marcaId = req.params.id;
+        let marcaEditar = Marca.findByPk(req.params.id);
+        console.log(marcaEditar)
+
+    //    try {
+    //        await Marca.create({
+    //            'nombre': req.body.marca,
+    //            'borrado': 0
+    //        });
+    //    } catch (error) {
+    //        console.log(error)
+    //    }
+        return res.redirect('/product/tablasadmin');
+    },
+
+
 
     talles: (req, res) => {
         console.log("Entró por creacion de talles")
