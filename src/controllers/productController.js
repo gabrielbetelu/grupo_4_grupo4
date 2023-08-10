@@ -189,7 +189,23 @@ module.exports = {
         return res.render('./products/talles')
          
     },
-    processTalles: (req, res) => {
+    processTalles: async (req, res) => {
+
+        console.log("entraste por creacion de talles");
+
+        try {
+            await Talles.create({
+                'nombre': req.body.talle,
+                'descripcion': req.body.detalle,
+                'borrado': 0
+            })
+        } catch (error) {
+            console.log(error)
+        }
+        console.log(req.body.talle)
+        return res.redirect('/product/tablasadmin');
+
+        /*
         console.log("entraste por creacion de marca");
         let talleNuevo = { 
             'id': talle.length +1, 
@@ -199,7 +215,7 @@ module.exports = {
         }
         talle.push(talleNuevo);
         fs.writeFileSync(path.resolve(__dirname, '../database/talles.json'),JSON.stringify(talle, null , 2));
-        return res.render('products/talles')
+        return res.render('products/talles') */
     },
 
     colores: (req, res) => {
