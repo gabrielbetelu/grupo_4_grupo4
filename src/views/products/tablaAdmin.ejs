@@ -90,9 +90,7 @@
                         <% if(locals.errors && oldData) { %>
                         <% console.log(oldData) %>
                         <% } %>
-
-                        <h5>Colores de Productos</h5>
-                                
+                        <h5>Colores de Productos</h5>                                
                         <div>
                             <input class="form-tablas" type="text" name="color" value="<%= locals.oldData ? oldData.talle : null %>"  placeholder="  Color">
                             
@@ -109,9 +107,34 @@
                         </div>
 
                     </form>
-
 <!-- ************************************************************************************** -->
                 </div>
+                <DIV>
+<!-- *********************      TABLA DE CATEGORIAS DE USUARIOS      *********************  -->  
+                    <form class="registro" action="/user/categoriausers" method="POST" >
+                        <% if(locals.errors && oldData) { %>
+                        <% console.log(oldData) %>
+                        <% } %>
+                        <h5>Categorias de Usuarios</h5>                       
+                        
+                        <div>
+                            <input class="form-usu" type="text" name="tipo" value="<%= locals.oldData ? oldData.marca : null %>"  placeholder="  Categoria de Usuario">
+                            
+                            <% if(locals.errors && errors.nombre) { %>
+                                <p class="error"> <%=errors.nombre.msg %> </p>
+                                <% } %>
+                        </div>
+                        
+                        <div> 
+                            <a href="#"> <button class="botEnter" type="submit">Añadir Tipo de Usuario</button> </a>
+                        </div>
+
+                    </form>                  
+
+<!-- ************************************************************************************** -->                    
+
+                </DIV>
+
 
             </div>
         </main>

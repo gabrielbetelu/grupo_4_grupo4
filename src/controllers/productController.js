@@ -219,6 +219,26 @@ module.exports = {
 */
     },
 
+    editMarcas: async (req, res) => {
+        console.log("entraste por edicion de marca");
+        console.log(req.body.marca);
+        let marcaId = req.params.id;
+        let marcaEditar = Marca.findByPk(req.params.id);
+        console.log(marcaEditar)
+
+    //    try {
+    //        await Marca.create({
+    //            'nombre': req.body.marca,
+    //            'borrado': 0
+    //        });
+    //    } catch (error) {
+    //        console.log(error)
+    //    }
+        return res.redirect('/product/tablasadmin');
+    },
+
+
+
     talles: (req, res) => {
         console.log("Entró por creacion de talles")
         return res.render('./products/talles')
