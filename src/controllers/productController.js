@@ -168,9 +168,11 @@ module.exports = {
         return res.render('products/categorias')
     },
 
-    marcas: (req, res) => {
-        console.log("Entró por creacion de marcas")
-        return res.render('./products/marcas')
+    marcas: async (req, res) => {
+        console.log("Entró por edición de marcas")
+        const nameMarcas = await db.Marca.findAll();
+    //    console.log(nameMarcas);
+        return res.render('./products/marcas' , {nameMarcas : nameMarcas});
          
     },
     processMarcas: async (req, res) => {

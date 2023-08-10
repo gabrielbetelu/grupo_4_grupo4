@@ -12,7 +12,19 @@
                     <% } %>
             
                     <h5>Marcas de Productos</h5>
-                            
+
+                    <div>
+                        <select name="marca" id="selectorId">
+                            <option value="" disabled selected>- Seleccione la marca - </option>
+                            <% nameMarcas.forEach(marca => { %>
+                            <option value="<%= marca.id %>"><%= marca.nombre %></option>
+                            <% }); %>
+                        </select>
+
+
+                    </div>
+
+                                               
                     <div>
                         <input class="form-usu" type="text" name="marca" value="<%= locals.oldData ? oldData.marca : null %>"  placeholder="  Marca">
                         
