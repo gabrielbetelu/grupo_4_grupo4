@@ -223,7 +223,9 @@ module.exports = {
         return res.render('./products/colores')
          
     },
-    processColores: (req, res) => {
+    
+    
+    /*processColores: (req, res) => {
         console.log("entraste por creacion de color");
         let colorNuevo = { 
             'id': color.length +1, 
@@ -234,5 +236,22 @@ module.exports = {
         color.push(colorNuevo);
         fs.writeFileSync(path.resolve(__dirname, '../database/colores.json'),JSON.stringify(color, null , 2));
         return res.render('products/colores')
+    }*/
+    processColores: async (req, res) => {
+        console.log("entraste por creacion de color");
+        console.log(req.body.color)
+        console.log(req.body.detalle)
+        try {
+            await Colores.create({
+                'nombre': req.body.color,
+                'descripcion': req.body.detalle,
+                'borrado': 0
+            })
+        }
+        catch (error) {
+            console.log(error)
+        }
+        console.log(req.body.color)
+        return res.redirect('/product/tablasadmin');
     }
 }
