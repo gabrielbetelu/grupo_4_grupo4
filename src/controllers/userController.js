@@ -197,14 +197,15 @@ module.exports = {
        try {
            await CategoriaUser.create({
                
-               categoria: req.body.categoria,
-               borrado: 0
+               'categoria': req.body.categoria,
+               'borrado': 0
                
            })
         }                     
         catch (error) {
             console.log(error)
         }
+        console.log(req.body.categoria)
         return res.redirect('/product/tablasadmin');
 
    }
