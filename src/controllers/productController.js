@@ -1,7 +1,7 @@
 const fs = require ('fs');
 const path = require ('path');
 const db = require('../database/models');
-const { log } = require('console');
+const { log, Console } = require('console');
 const { isNumberObject } = require('util/types');
 const sequelize = db.sequelize;
 const rutaJSON = path.resolve('./src/database/products.json');
@@ -258,6 +258,32 @@ module.exports = {
         }
         return res.redirect('/product/tablasadmin');
 
+    },
+
+    deleteMarca:  async (req , res) => {
+        console.log("entraste por vista delete de marca");
+    //    console.log(req.params.id)
+        try {
+            const marcaEdit = await Marca.findByPk(req.params.id)
+    //        console.log(marcaEdit.dataValues);
+            return res.render('./products/marcasDelete' , {marcaEdit : marcaEdit.dataValues })
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+    destroyMarca: async (req , res) => {
+        console.log("entraste por borrado lógico de marca");
+        console.log(req.params.id);
+        try {
+            const marcaEliminada = await Marca.destroy ({
+                where: {id: req.params.id}
+            })
+            console.log(marcaEliminada);
+            return res.redirect('/product/tablasadmin');
+        } catch (error) {
+            console.log(error)
+        }
     },
 
 

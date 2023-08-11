@@ -32,11 +32,7 @@
                         <a class="linkEditar" href="/product/tablasadmin"> <button class="botEnterTablas" type="button">Ir a Edición Tablas</button>  </a>
                     </div>
                 </form>
-                <% } %>
-                
-                    
-
-                <%  if(marcaEdit != "vacio") { %> 
+                <% } else { %> 
 
                 <form class="registro" action="/product/marcas/update/<%= marcaEdit.id %>?_method=PUT" method="post" >
                         <% if(locals.errors && oldData) { %>
@@ -58,10 +54,14 @@
 
                         <div> 
                             <a href="#"> <button class="botEnter" type="submit">Modificar Marca</button> </a>
-                            <a class="linkEditar" href="#"> <button class="botEnterTablas" type="button">Eliminar Marca</button>  </a>
+                            <a class="linkEditar" href="/product/marcas/delete/<%= marcaEdit.id %>"> <button class="botEnterTablas" type="button">Eliminar Marca</button>  </a>
                             <a class="linkEditar" href="/product/tablasadmin"> <button class="botEnterTablas" type="button">Ir a Edición Tablas</button>  </a>
                         </div>
                 </form>
+
+
+
+
                 <% } %>
                 
     <!--                <div> 

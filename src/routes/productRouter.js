@@ -49,10 +49,10 @@ router.post('/categorias', controller.processCategorias);
 //RUTAS DE MARCAS DE PRODUCTOS
 router.get('/marcas', adminMiddleware, controller.marcas);
 router.post('/marcas', controller.processMarcas);
-
-//router.get('/marcas/:id', adminMiddleware, controller.editMarca);
 router.post('/marcas/:id', adminMiddleware, controller.editMarcas);
 router.put('/marcas/update/:id', adminMiddleware, controller.updateMarcas);
+router.get('/marcas/delete/:id', adminMiddleware, controller.deleteMarca);
+router.delete('/marcas/delete/:id', adminMiddleware, controller.destroyMarca);
 
 
 //RUTAS DE TALLES DE PRODUCTOS
