@@ -2,6 +2,7 @@ const fs = require ('fs');
 const path = require ('path');
 const db = require('../database/models');
 const { log } = require('console');
+const { isNumberObject } = require('util/types');
 const sequelize = db.sequelize;
 const rutaJSON = path.resolve('./src/database/products.json');
 const products = JSON.parse (fs.readFileSync(rutaJSON));
@@ -191,7 +192,7 @@ module.exports = {
         console.log("Entró por edición de marcas")
         const nameMarcas = await db.Marca.findAll();
     //    console.log(nameMarcas);
-        return res.render('./products/marcas' , {nameMarcas : nameMarcas});
+        return res.render('./products/marcas' , {nameMarcas : nameMarcas , marcaEdit : "vacio"});
          
     },
     processMarcas: async (req, res) => {
@@ -221,10 +222,12 @@ module.exports = {
 
     editMarcas: async (req, res) => {
         console.log("entraste por edicion de marca");
-        console.log(req.body.marca);
-        let marcaId = req.params.id;
-        let marcaEditar = Marca.findByPk(req.params.id);
-        console.log(marcaEditar)
+    //    console.log(req.body.marca);
+        let marcaId = parseInt(req.body.marca);
+    
+        let marcaEditar = await Marca.findByPk(marcaId);
+        let marcaEdit = marcaEditar.dataValues
+        console.log(marcaEdit)
 
     //    try {
     //        await Marca.create({
@@ -234,8 +237,29 @@ module.exports = {
     //    } catch (error) {
     //        console.log(error)
     //    }
-        return res.redirect('/product/tablasadmin');
+        return res.render('./products/marcas' , {marcaEdit})
+    //    return res.redirect('/product/tablasadmin');
     },
+
+    updateMarcas: async (req, res) => {
+        console.log("entraste por modificacion de marca");
+        console.log(req.body.marca);
+        try {
+            await Marca.update({
+                'nombre': req.body.marca,
+                'borrado': 0
+            },
+            {
+                where: {id: req.params.id}
+            }
+            );
+        } catch (error) {
+            console.log(error)
+        }
+        return res.redirect('/product/tablasadmin');
+
+    },
+
 
 
 
