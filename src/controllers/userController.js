@@ -192,12 +192,12 @@ module.exports = {
 
     processCategoriasUser: async (req,res) => {
         console.log("entraste por creacion de categoria usuario");
-        console.log(req.body.categoria)
+        console.log(req.body.tipo)
        
        try {
            await CategoriaUser.create({
                
-               'categoria': req.body.categoria,
+               'categoria': req.body.tipo,
                'borrado': 0
                
            })
@@ -205,7 +205,7 @@ module.exports = {
         catch (error) {
             console.log(error)
         }
-        console.log(req.body.categoria)
+        console.log(req.body.tipo)
         return res.redirect('/product/tablasadmin');
 
    }
