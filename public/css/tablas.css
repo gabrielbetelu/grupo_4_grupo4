@@ -114,6 +114,9 @@
     background-color: #7FAD58;
   }
 
+  /*.linkEditar {
+    padding-top: 10px;
+  }*/
 
 @media(min-width: 1024px){
   .main-tablas .fondo-image{

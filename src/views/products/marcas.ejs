@@ -6,23 +6,37 @@
         <main class="main-registro">
              <img src="../images/patagonia-argentina.jpg" alt="fondo" class="fondo-image" />
              <div class="divRegistro">
-                <form class="registro" action="/product/marcas" method="post" >
+                <form class="registro" action="/product/marcas" method="get" >
                     <% if(locals.errors && oldData) { %>
                     <% console.log(oldData) %>
                     <% } %>
             
                     <h5>Marcas de Productos</h5>
-                            
+
                     <div>
-                        <input class="form-usu" type="text" name="marca" value="<%= locals.oldData ? oldData.marca : null %>"  placeholder="  Marca">
-                        
-                        <% if(locals.errors && errors.nombre) { %>
-                            <p class="error"> <%= errors.nombre.msg %> </p>
-                            <% } %>
+                        <select class="form-usu" name="marca" id="selectorId">
+                            <option value="" disabled selected>- Seleccione la marca - </option>
+                            <% nameMarcas.forEach(marca => { %>
+                            <option value="<%= marca.id %>"><%= marca.nombre %></option>
+                            <% }); %>
+
+
+                        </select>
+
+
                     </div>
-                    
+
+                                               
+        <!--            <div>
+                        <input class="form-usu" type="text" name="marca" value="<%= //locals.oldData ? oldData.marca : null %>"  placeholder="  Marca">
+                        
+                        <% //if(locals.errors && errors.nombre) { %>
+                            <p class="error"> <%= //errors.nombre.msg %> </p>
+                            <% //} %>
+                    </div>
+        -->            
                     <div> 
-                        <a href="#"> <button class="botEnter" type="submit">Añadir Marca</button> </a>
+                        <a href="/product/marcas"> <button class="botEnter" type="submit">Editar Marca</button> </a>
                     </div>
                 
                 </form>

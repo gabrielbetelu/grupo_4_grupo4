@@ -7,11 +7,11 @@ const rutaJSON = path.resolve('./src/database/products.json');
 const products = JSON.parse (fs.readFileSync(rutaJSON));
 
 const Products = db.Producto;
-const Users = db.User;
+
 const Marca = db.Marca;
 const Talles = db.Talle;
 const Colores = db.Color;
-const CategoriasProducts = db.CategoriaProduct;
+const CategoriasProduct = db.CategoriaProduct;
 
 
 
@@ -156,7 +156,7 @@ module.exports = {
         return res.render('./products/categorias')
          
     },
-    processCategorias: (req, res) => {
+   /* processCategorias: (req, res) => {
         console.log("entraste por creacion de categoria");
         let categoriaNueva = { 
             'id': categoriasProducts.length +1, 
@@ -165,12 +165,33 @@ module.exports = {
         }
         categoriasProducts.push(categoriaNueva);
         fs.writeFileSync(path.resolve(__dirname, '../database/categoriasProduct.json'),JSON.stringify(categoriasProducts, null , 2));
-        return res.render('products/categorias')
-    },
+        return res.render('products/categorias')*/
+        
+     processCategorias:async(req,res)=>{
+             console.log("entraste por creacion de categoria");
+             console.log(req.body.categoria)
+            
+            try {
+                await CategoriasProduct.create({
+                    
+                    categoria: req.body.categoria,
+                    borrado: 0
+                    
+                })
+                                   
+            } catch (error) {
+               console.log(error)
+            }
+             return res.redirect('/product/tablasadmin');
+    
+        }, 
 
-    marcas: (req, res) => {
-        console.log("Entró por creacion de marcas")
-        return res.render('./products/marcas')
+
+    marcas: async (req, res) => {
+        console.log("Entró por edición de marcas")
+        const nameMarcas = await db.Marca.findAll();
+    //    console.log(nameMarcas);
+        return res.render('./products/marcas' , {nameMarcas : nameMarcas});
          
     },
     processMarcas: async (req, res) => {
@@ -197,6 +218,26 @@ module.exports = {
         return res.render('products/marcas')
 */
     },
+
+    editMarcas: async (req, res) => {
+        console.log("entraste por edicion de marca");
+        console.log(req.body.marca);
+        let marcaId = req.params.id;
+        let marcaEditar = Marca.findByPk(req.params.id);
+        console.log(marcaEditar)
+
+    //    try {
+    //        await Marca.create({
+    //            'nombre': req.body.marca,
+    //            'borrado': 0
+    //        });
+    //    } catch (error) {
+    //        console.log(error)
+    //    }
+        return res.redirect('/product/tablasadmin');
+    },
+
+
 
     talles: (req, res) => {
         console.log("Entró por creacion de talles")
@@ -237,7 +278,9 @@ module.exports = {
         return res.render('./products/colores')
          
     },
-    processColores: (req, res) => {
+    
+    
+    /*processColores: (req, res) => {
         console.log("entraste por creacion de color");
         let colorNuevo = { 
             'id': color.length +1, 
@@ -248,5 +291,22 @@ module.exports = {
         color.push(colorNuevo);
         fs.writeFileSync(path.resolve(__dirname, '../database/colores.json'),JSON.stringify(color, null , 2));
         return res.render('products/colores')
+    }*/
+    processColores: async (req, res) => {
+        console.log("entraste por creacion de color");
+        console.log(req.body.color)
+        console.log(req.body.detalle)
+        try {
+            await Colores.create({
+                'nombre': req.body.color,
+                'descripcion': req.body.detalle,
+                'borrado': 0
+            })
+        }
+        catch (error) {
+            console.log(error)
+        }
+        console.log(req.body.color)
+        return res.redirect('/product/tablasadmin');
     }
 }
