@@ -173,7 +173,7 @@ module.exports = {
 
         const categoria = {
             id: categorias.length+1, 
-            categoria: req.body.nombre,
+            categoria: req.body.tipo,
             borrado: false
         }
         const rdoValidacion = validationResult(req);
