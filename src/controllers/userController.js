@@ -169,37 +169,33 @@ module.exports = {
             
     },
 
-    processCategoria :(req, res) => {
-    
-
-        const categoria = {
-            id: categorias.length+1, 
-            categoria: req.body.tipo,
-            borrado: false
-        }
-        const rdoValidacion = validationResult(req);
-        console.log("errores de validationResult");
+//    processCategoria :(req, res) => {
+//        const categoria = {
+//            id: categorias.length+1, 
+//            categoria: req.body.tipo,
+//            borrado: false
+//        }
+//        const rdoValidacion = validationResult(req);
+//        console.log("errores de validationResult");
 //        console.log(rdoValidacion.errors);
-
-        if(rdoValidacion.errors.length > 0) {
-            return res.render('./users/categorias', { errors: rdoValidacion.mapped(), oldData: req.body })
+//
+//        if(rdoValidacion.errors.length > 0) {
+//            return res.render('./users/categorias', { errors: rdoValidacion.mapped(), oldData: req.body })
            // return res.redirect('/user/registro', { errors: rdoValidacion.mapped(), oldData: req.body })   
-        }
-        console.log(categoria);
-        fs.writeFileSync(path.resolve(__dirname, '../database/categoriasUser.json'), JSON.stringify([...categorias, categoria], null, 2))
-        return res.redirect('/')
-    },
+//        }
+//        console.log(categoria);
+//        fs.writeFileSync(path.resolve(__dirname, '../database/categoriasUser.json'), JSON.stringify([...categorias, //categoria], null, 2))
+//        return res.redirect('/')
+//    },
 
     processCategoriasUser: async (req,res) => {
         console.log("entraste por creacion de categoria usuario");
         console.log(req.body.tipo)
        
        try {
-           await CategoriaUser.create({
-               
+            await CategoriaUser.create({
                'categoria': req.body.tipo,
                'borrado': 0
-               
            })
         }                     
         catch (error) {
