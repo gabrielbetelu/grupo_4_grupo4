@@ -209,4 +209,4 @@ module.exports = {
         return res.redirect('/product/tablasadmin');
 
    }
-};
+}
