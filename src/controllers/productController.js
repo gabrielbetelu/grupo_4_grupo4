@@ -56,7 +56,7 @@ module.exports = {
         return res.render('./products/creacion')
          
     },
-    processCreate: (req, res) => {
+    /*processCreate: (req, res) => {
         console.log("entraste por creacion de item");
         let arrayImg = [];
         if (req.files.length > 0) {
@@ -75,8 +75,38 @@ module.exports = {
         }
         products.push(productoNuevo);
         fs.writeFileSync(path.resolve(__dirname, '../database/products.json'),JSON.stringify(products, null , 2));
-        return res.render('products/creacion')
-    },
+        return res.render('products/creacion')*/
+        processCreate: async (req, res) => {
+            console.log("entraste por creacion de item");
+            let arrayImg = [];
+            if (req.files.length > 0) {
+                req.files.forEach((file) => {
+                    arrayImg.push("/images/" + file.filename);                        
+            })
+            
+            stringImg = JSON.stringify(arrayImg);
+            console.log(stringImg)
+            try {
+                await Products.create({
+                nombre_producto: req.body.nombre,
+                detalle: req.body.descripcion,
+                imagenes_producto: stringImg,
+                precio_producto: req.body.precio,
+                id_marca: parseInt(1),
+                borrado: false
+                })
+                
+            } catch (error) {
+                console.log(error)
+                
+            }       
+            
+            
+            return res.render('products/creacion')
+            }
+        },   
+                              
+    
 
     editId: (req , res)=> {
         console.log("entraste a buscar el item" , req.body.codigo);

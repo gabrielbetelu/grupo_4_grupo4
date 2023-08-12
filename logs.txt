@@ -6642,6 +6642,7 @@ Ingresó en la página /product/talles
 Ingresó en la página /product/tablasadmin
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /product/tablasadmin
+<<<<<<< HEAD
 Ingresó en la página /
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /
@@ -7192,10 +7193,52 @@ Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /product/tablasadmin
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /user/perfil
+=======
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /product/talles
+Ingresó en la página /product/tablasadmin
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /product/marcas
+Ingresó en la página /product/tablasadmin
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /product/tablasadmin
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /product/marcas
+Ingresó en la página /product/tablasadmin
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /product/talles
+Ingresó en la página /product/tablasadmin
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /user/registro
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /user/registro
+>>>>>>> origin/anto
 Ingresó en la página /user/login
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /user/registro
 Ingresó en la página /images/animacion%20logo%201.jpg
+<<<<<<< HEAD
+=======
+Ingresó en la página /user/registro
+Ingresó en la página /user/login
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /user/registro
+Ingresó en la página /user/registro
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /user/registro
+Ingresó en la página /user/login
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /user/registro
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /user/registro
+Ingresó en la página /user/login
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /user/registro
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /user/registro
+>>>>>>> origin/anto
 Ingresó en la página /user/login
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /user/login
@@ -7203,6 +7246,7 @@ Ingresó en la página /
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /product/tablasadmin
 Ingresó en la página /images/animacion%20logo%201.jpg
+<<<<<<< HEAD
 Ingresó en la página /product/marcas
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /product/marcas/:id
@@ -7235,11 +7279,29 @@ Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /product/marcas
 Ingresó en la página /
 Ingresó en la página /images/animacion%20logo%201.jpg
+=======
+Ingresó en la página /product/tablasadmin
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /user/logout
+Ingresó en la página /
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /user/registro
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /user/registro
+Ingresó en la página /user/login
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /user/registro
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /user/registro
+Ingresó en la página /user/login
+Ingresó en la página /images/animacion%20logo%201.jpg
+>>>>>>> origin/anto
 Ingresó en la página /user/login
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /user/login
 Ingresó en la página /
 Ingresó en la página /images/animacion%20logo%201.jpg
+<<<<<<< HEAD
 Ingresó en la página /product/tablasadmin
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /product/marcas
@@ -7252,12 +7314,20 @@ Ingresó en la página /product/marcasDelete
 Ingresó en la página /product/marcasDelete
 Ingresó en la página /product/marcas/:id
 Ingresó en la página /
+=======
+Ingresó en la página /product/creacion
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /product/producto
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /product/producto
+>>>>>>> origin/anto
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /user/login
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /user/login
 Ingresó en la página /
 Ingresó en la página /images/animacion%20logo%201.jpg
+<<<<<<< HEAD
 Ingresó en la página /product/tablasadmin
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /product/marcas
@@ -7756,4 +7826,21 @@ Ingresó en la página /product/tablasadmin
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /user/categorias
 Ingresó en la página /product/tablasadmin
+=======
+Ingresó en la página /product/creacion
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /product/producto
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /product/producto
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /product/producto
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /product/producto
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /product/producto
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /product/producto
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /product/producto
+>>>>>>> origin/anto
 Ingresó en la página /images/animacion%20logo%201.jpg
