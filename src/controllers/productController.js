@@ -185,8 +185,7 @@ module.exports = {
     categorias: async (req, res) => {
         console.log("Entró por creacion de categorias");
         const nameCategorias = await CategoriasProduct.findAll();
-        return res.render('./products/categorias', {nameCategorias : nameCategorias , categoriaEdit : "vacio"});
-         
+        return res.render('./products/categorias', {nameCategorias : nameCategorias , categoriaEdit : "vacio"});         
     },
    /* processCategorias: (req, res) => {
         console.log("entraste por creacion de categoria");
@@ -200,8 +199,8 @@ module.exports = {
         return res.render('products/categorias')*/
         
      processCategorias:async(req,res)=>{
-             console.log("entraste por creacion de categoria");
-             console.log(req.body.categoria)
+             console.log("entraste por proceso de creacion de categoria");
+    //         console.log(req.body.categoria)
             
             try {
                 await CategoriasProduct.create({
@@ -217,6 +216,68 @@ module.exports = {
              return res.redirect('/product/tablasadmin');
     
         }, 
+
+    editCategorias: async (req, res) => {
+        console.log("entraste por edicion de Categoria");
+    //    console.log(req.body.categoria);
+        if(req.body.categoria){
+        let categoriaId = parseInt(req.body.categoria);
+        let categoriaEditar = await CategoriasProduct.findByPk(categoriaId);
+        let categoriaEdit = categoriaEditar.dataValues
+    //    console.log(categoriaEdit)
+        return res.render('./products/categorias' , {categoriaEdit})
+        } else {
+            const nameCategorias = await CategoriasProduct.findAll();
+            return res.render('./products/categorias' , {nameCategorias : nameCategorias , categoriaEdit : "vacio"});
+        }
+
+    },
+
+    updateCategorias: async (req, res) =>{
+        console.log("entraste por modificacion de categoria");
+    //    console.log(req.body.categoria);
+        try {
+            await CategoriasProduct.update({
+                'categoria': req.body.categoria,
+                'borrado': 0
+            },
+            {
+                where: {id: req.params.id}
+            }
+            );
+        } catch (error) {
+            console.log(error)
+        }
+        return res.redirect('/product/tablasadmin');
+    },
+
+    deleteCategoria:  async (req , res) => {
+        console.log("entraste por vista delete de marca");
+    //    console.log(req.params.id)
+        try {
+            const categoriaEdit = await CategoriasProduct.findByPk(req.params.id)
+    //        console.log(categoriaEdit.dataValues);
+            return res.render('./products/categoriasDelete' , {categoriaEdit : categoriaEdit.dataValues })
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+    destroyCategoria: async (req , res) => {
+        console.log("entraste por borrado lógico de marca");
+    //    console.log(req.params.id);
+        try {
+            const categoriaEliminada = await CategoriasProduct.destroy ({
+                where: {id: req.params.id}
+            })
+    //        console.log(categoriaEliminada);
+            return res.redirect('/product/tablasadmin');
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+
 
 
     marcas: async (req, res) => {

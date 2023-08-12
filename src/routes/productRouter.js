@@ -45,6 +45,10 @@ router.post('/producto', fileUpload.any('imagen'), controller.processCreate);
 //RUTAS DE CATEGORIAS DE PRODUCTOS
 router.get('/categorias', adminMiddleware, controller.categorias);
 router.post('/categorias', controller.processCategorias);
+router.post('/categorias/:id', adminMiddleware, controller.editCategorias);
+router.put('/categorias/update/:id', adminMiddleware, controller.updateCategorias);
+router.get('/categorias/delete/:id', adminMiddleware, controller.deleteCategoria);
+router.delete('/categorias/delete/:id', adminMiddleware, controller.destroyCategoria);
 
 //RUTAS DE MARCAS DE PRODUCTOS
 router.get('/marcas', adminMiddleware, controller.marcas);
