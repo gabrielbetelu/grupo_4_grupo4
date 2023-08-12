@@ -354,4 +354,7 @@ module.exports = {
         console.log(req.body.color)
         return res.redirect('/product/tablasadmin');
     }
+
+    
+
 }

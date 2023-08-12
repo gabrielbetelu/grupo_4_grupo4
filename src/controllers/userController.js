@@ -5,7 +5,7 @@ const sequelize = db.sequelize;
 const rutaJSON = path.resolve('./src/database/users.json');
 let datos = JSON.parse (fs.readFileSync(rutaJSON));
 
-
+const CategoriaUser = db.CategoriaUser;
 
 // Leo el JSON de categoriasUser
 const rutaCategoriaJSON = path.resolve('./src/database/categoriasUser.json');
@@ -14,6 +14,7 @@ let categorias = JSON.parse (fs.readFileSync(rutaCategoriaJSON));
 
 const bcrypt = require('bcrypt');
 const { validationResult } = require("express-validator");
+
 
 
 module.exports = {
@@ -187,5 +188,25 @@ module.exports = {
         console.log(categoria);
         fs.writeFileSync(path.resolve(__dirname, '../database/categoriasUser.json'), JSON.stringify([...categorias, categoria], null, 2))
         return res.redirect('/')
-    }
+    },
+
+    processCategoriasUser: async (req,res) => {
+        console.log("entraste por creacion de categoria usuario");
+        console.log(req.body.tipo)
+       
+       try {
+           await CategoriaUser.create({
+               
+               'categoria': req.body.tipo,
+               'borrado': 0
+               
+           })
+        }                     
+        catch (error) {
+            console.log(error)
+        }
+        console.log(req.body.tipo)
+        return res.redirect('/product/tablasadmin');
+
+   }
 };

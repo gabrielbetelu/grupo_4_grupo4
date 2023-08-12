@@ -6,7 +6,7 @@
         <main class="main-registro">
              <img src="../images/patagonia-argentina.jpg" alt="fondo" class="fondo-image" />
              <div class="divRegistro">
-                <form class="registro" action="/user/categoriausers" method="get" >
+                <form class="registro" action="/user/categorias" method="POST" >
                     <% if(locals.errors && oldData) { %>
                     <% console.log(oldData) %>
                     <% } %>

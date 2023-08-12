@@ -51,7 +51,7 @@ router.get('/logout', controller.logout);
 //RUTAS DE CATEGORIAS DE USUARIO
 
 router.get('/categorias', guestMiddleware, controller.categorias);
-router.post('/categorias', controller.processCategoria);
+router.post('/categorias', controller.processCategoriasUser);
 
 
 module.exports = router;
