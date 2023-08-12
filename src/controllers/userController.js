@@ -5,7 +5,7 @@ const sequelize = db.sequelize;
 const rutaJSON = path.resolve('./src/database/users.json');
 let datos = JSON.parse (fs.readFileSync(rutaJSON));
 
-const CategoriaUser = db.CategoriaUser;
+const Users = db.User
 
 // Leo el JSON de categoriasUser
 const rutaCategoriaJSON = path.resolve('./src/database/categoriasUser.json');
@@ -78,7 +78,7 @@ module.exports = {
             
     },
 
-    processRegister :(req, res) => {
+    /*processRegister :(req, res) => {
     
 
         const user = {
@@ -104,8 +104,40 @@ module.exports = {
         }
 //        console.log(user);
         fs.writeFileSync(path.resolve(__dirname, '../database/users.json'), JSON.stringify([...datos, user], null, 2))
-        return res.redirect('/')
+        return res.redirect('/')*/
+
+        processRegister: async (req,res) => {
+        const rdoValidacion = validationResult(req);
+        console.log("errores de validationResult");
+//        
+
+        if(rdoValidacion.errors.length > 0) {
+            return res.render('./users/registro', { errors: rdoValidacion.mapped(), oldData: req.body })
+             
+        }
+            console.log('entraste por creacion de usuario')
+            console.log(req.body.nombre)
+            try {
+            await Users.create(
+                {
+                    first_name: req.body.nombre,
+                    last_name: req.body.apellido,
+                    correo: req.body.email,
+                    contrasenia: bcrypt.hashSync(req.body.contrasenia, 10),
+                    image: req.file ? req.file.filename : "avatar.png",
+                    cuil: req.body.cuit,
+                    direccion: req.body.nacimiento,
+                    fecha_nacimiento: req.body.nacimiento,
+                    id_categoria_user: parseInt(2),
+                    borrado: 0
+                })
+             
+        } catch (error) {
+            console.log(error);
+        }
+        res.redirect('/user/login') 
     },
+                          
 
     perfil :(req, res) => {
         datos = JSON.parse (fs.readFileSync(rutaJSON));
