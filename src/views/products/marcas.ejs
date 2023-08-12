@@ -20,7 +20,7 @@
 
                     <div>
                         <select class="form-usu" name="marca" id="selectorId">
-                            <option value="" disabled selected>- Seleccione la marca - </option>
+                            <option value="" disabled selected required>- Seleccione la marca - </option>
                             <% nameMarcas.forEach(marca => { %>
                             <option value="<%= marca.id %>"><%= marca.nombre %></option>
                             <% }); %>

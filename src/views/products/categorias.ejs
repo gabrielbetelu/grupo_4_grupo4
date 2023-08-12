@@ -6,6 +6,36 @@
         <main class="main-registro">
              <img src="../images/patagonia-argentina.jpg" alt="fondo" class="fondo-image" />
              <div class="divRegistro">
+
+                <%  if(categoriaEdit == "vacio") { %>
+
+                <form class="registro" action="/product/categorias" method="post" >
+                    <% if(locals.errors && oldData) { %>
+                    <% console.log(oldData) %>
+                    <% } %>
+            
+                    <h5>Categorias de Productos</h5>
+
+
+
+                    <div>
+                        <select class="form-usu" name="marca" id="selectorId">
+                            <option value="" disabled selected required>- Seleccione la marca - </option>
+                            <% nameCategorias.forEach(categoria => { %>
+                            <option value="<%= categoria.id %>"><%= categoria.categoria %></option>
+                            <% }); %>
+                        </select>
+
+                    </div>
+                    <div> 
+                        <a href="#"> <button class="botEnter" type="submit">Añadir Categoría</button> </a>
+                        <a class="linkEditar" href="/product/tablasadmin"> <button class="botEnterTablas" type="button">Ir a Edición Tablas</button>  </a>
+                    </div>
+                </form>
+                <% } else { %>
+
+
+
                 <form class="registro" action="/product/categorias" method="post" >
                     <% if(locals.errors && oldData) { %>
                     <% console.log(oldData) %>
@@ -26,6 +56,10 @@
                     </div>
                 
                 </form>
+
+
+                <% } %>
+
             </div>
         </main>
         <%- include('../partials/footer') %>

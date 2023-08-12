@@ -152,9 +152,10 @@ module.exports = {
         return res.render('./products/tablaAdmin')
     },
 
-    categorias: (req, res) => {
-        console.log("Entró por creacion de categorias")
-        return res.render('./products/categorias')
+    categorias: async (req, res) => {
+        console.log("Entró por creacion de categorias");
+        const nameCategorias = await CategoriasProduct.findAll();
+        return res.render('./products/categorias', {nameCategorias : nameCategorias , categoriaEdit : "vacio"});
          
     },
    /* processCategorias: (req, res) => {
@@ -190,7 +191,7 @@ module.exports = {
 
     marcas: async (req, res) => {
         console.log("Entró por edición de marcas")
-        const nameMarcas = await db.Marca.findAll();
+        const nameMarcas = await Marca.findAll();
     //    console.log(nameMarcas);
         return res.render('./products/marcas' , {nameMarcas : nameMarcas , marcaEdit : "vacio"});
          
@@ -223,22 +224,16 @@ module.exports = {
     editMarcas: async (req, res) => {
         console.log("entraste por edicion de marca");
     //    console.log(req.body.marca);
+        if(req.body.marca){
         let marcaId = parseInt(req.body.marca);
-    
         let marcaEditar = await Marca.findByPk(marcaId);
         let marcaEdit = marcaEditar.dataValues
-        console.log(marcaEdit)
-
-    //    try {
-    //        await Marca.create({
-    //            'nombre': req.body.marca,
-    //            'borrado': 0
-    //        });
-    //    } catch (error) {
-    //        console.log(error)
-    //    }
+    //    console.log(marcaEdit)
         return res.render('./products/marcas' , {marcaEdit})
-    //    return res.redirect('/product/tablasadmin');
+        } else {
+            const nameMarcas = await db.Marca.findAll();
+            return res.render('./products/marcas' , {nameMarcas : nameMarcas , marcaEdit : "vacio"});
+        }
     },
 
     updateMarcas: async (req, res) => {
