@@ -1,7 +1,8 @@
 const fs = require ('fs');
 const path = require ('path');
 const db = require('../database/models');
-const { log } = require('console');
+const { log, Console } = require('console');
+const { isNumberObject } = require('util/types');
 const sequelize = db.sequelize;
 const rutaJSON = path.resolve('./src/database/products.json');
 const products = JSON.parse (fs.readFileSync(rutaJSON));
@@ -181,9 +182,10 @@ module.exports = {
         return res.render('./products/tablaAdmin')
     },
 
-    categorias: (req, res) => {
-        console.log("Entró por creacion de categorias")
-        return res.render('./products/categorias')
+    categorias: async (req, res) => {
+        console.log("Entró por creacion de categorias");
+        const nameCategorias = await CategoriasProduct.findAll();
+        return res.render('./products/categorias', {nameCategorias : nameCategorias , categoriaEdit : "vacio"});
          
     },
    /* processCategorias: (req, res) => {
@@ -219,9 +221,9 @@ module.exports = {
 
     marcas: async (req, res) => {
         console.log("Entró por edición de marcas")
-        const nameMarcas = await db.Marca.findAll();
+        const nameMarcas = await Marca.findAll();
     //    console.log(nameMarcas);
-        return res.render('./products/marcas' , {nameMarcas : nameMarcas});
+        return res.render('./products/marcas' , {nameMarcas : nameMarcas , marcaEdit : "vacio"});
          
     },
     processMarcas: async (req, res) => {
@@ -251,21 +253,64 @@ module.exports = {
 
     editMarcas: async (req, res) => {
         console.log("entraste por edicion de marca");
-        console.log(req.body.marca);
-        let marcaId = req.params.id;
-        let marcaEditar = Marca.findByPk(req.params.id);
-        console.log(marcaEditar)
-
-    //    try {
-    //        await Marca.create({
-    //            'nombre': req.body.marca,
-    //            'borrado': 0
-    //        });
-    //    } catch (error) {
-    //        console.log(error)
-    //    }
-        return res.redirect('/product/tablasadmin');
+    //    console.log(req.body.marca);
+        if(req.body.marca){
+        let marcaId = parseInt(req.body.marca);
+        let marcaEditar = await Marca.findByPk(marcaId);
+        let marcaEdit = marcaEditar.dataValues
+    //    console.log(marcaEdit)
+        return res.render('./products/marcas' , {marcaEdit})
+        } else {
+            const nameMarcas = await db.Marca.findAll();
+            return res.render('./products/marcas' , {nameMarcas : nameMarcas , marcaEdit : "vacio"});
+        }
     },
+
+    updateMarcas: async (req, res) => {
+        console.log("entraste por modificacion de marca");
+        console.log(req.body.marca);
+        try {
+            await Marca.update({
+                'nombre': req.body.marca,
+                'borrado': 0
+            },
+            {
+                where: {id: req.params.id}
+            }
+            );
+        } catch (error) {
+            console.log(error)
+        }
+        return res.redirect('/product/tablasadmin');
+
+    },
+
+    deleteMarca:  async (req , res) => {
+        console.log("entraste por vista delete de marca");
+    //    console.log(req.params.id)
+        try {
+            const marcaEdit = await Marca.findByPk(req.params.id)
+    //        console.log(marcaEdit.dataValues);
+            return res.render('./products/marcasDelete' , {marcaEdit : marcaEdit.dataValues })
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+    destroyMarca: async (req , res) => {
+        console.log("entraste por borrado lógico de marca");
+        console.log(req.params.id);
+        try {
+            const marcaEliminada = await Marca.destroy ({
+                where: {id: req.params.id}
+            })
+            console.log(marcaEliminada);
+            return res.redirect('/product/tablasadmin');
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
 
 
 
@@ -338,7 +383,7 @@ module.exports = {
         }
         console.log(req.body.color)
         return res.redirect('/product/tablasadmin');
-    },
+    }
 
     
 
