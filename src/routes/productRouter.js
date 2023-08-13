@@ -70,6 +70,9 @@ router.delete('/talles/delete/:id', adminMiddleware, controller.destroyTalle);
 //RUTAS DE COLORES DE PRODUCTOS
 router.get('/colores', adminMiddleware, controller.colores);
 router.post('/colores', controller.processColores);
-
+router.post('/colores/:id', adminMiddleware, controller.editColores);
+router.put('/colores/update/:id', adminMiddleware, controller.updateColores);
+router.get('/colores/delete/:id', adminMiddleware, controller.deleteColor);
+router.delete('/colores/delete/:id', adminMiddleware, controller.destroyColor);
 
 module.exports = router;

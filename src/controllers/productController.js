@@ -477,12 +477,12 @@ module.exports = {
     },
 
 
-    colores: (req, res) => {
-        console.log("Entró por creacion de colores")
-        return res.render('./products/colores')
-         
-    },
-    
+    colores: async (req, res) => {
+        console.log("Entró por creacion de colores");
+        const nameColores = await Colores.findAll();
+        return res.render('./products/colores', {nameColores : nameColores , categoriaEdit : "vacio"});  
+    //    return res.render('./products/colores')         
+    },    
     
     /*processColores: (req, res) => {
         console.log("entraste por creacion de color");
@@ -512,6 +512,70 @@ module.exports = {
         }
         console.log(req.body.color)
         return res.redirect('/product/tablasadmin');
+    },
+
+    editColores: async (req, res) => {
+        console.log("entraste por edicion de Color");
+            console.log(req.body.color);
+            if(req.body.color){
+            let colorId = parseInt(req.body.color);
+            let colorEditar = await Colores.findByPk(colorId);
+            let colorEdit = colorEditar.dataValues
+            console.log(colorEdit)
+            return res.render('./products/colores' , {categoriaEdit : colorEdit})
+            } else {
+                const nameColores = await Colores.findAll();
+            return res.render('./products/colores', {nameColores : nameColores , categoriaEdit : "vacio"});  
+               
+            }
+
+    },
+
+    updateColores: async (req, res) => {
+        console.log("entraste por modificacion de colores");
+        console.log(req.body.color);
+        try {
+            await Colores.update({
+                'nombre': req.body.color,
+                'descripcion': req.body.detalle,
+                'borrado': 0
+            },
+            {
+                where: {id: req.params.id}
+            }
+            );
+        } catch (error) {
+            console.log(error)
+        }
+        return res.redirect('/product/tablasadmin');
+
+    },
+
+    deleteColor: async (req, res) => {
+        console.log("entraste por vista delete de color");
+        //    console.log(req.params.id)
+            try {
+                const colorEdit = await Colores.findByPk(req.params.id)
+        //        console.log(colorEdit.dataValues);
+                return res.render('./products/coloresDelete' , {categoriaEdit : colorEdit.dataValues })
+            } catch (error) {
+                console.log(error)
+            }
+    },
+
+
+    destroyColor: async (req, res) => {
+        console.log("entraste por borrado lógico de color");
+    //    console.log(req.params.id);
+        try {
+            const colorEliminado = await Colores.destroy ({
+                where: {id: req.params.id}
+            })
+    //        console.log(talleEliminado);
+            return res.redirect('/product/tablasadmin');
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     

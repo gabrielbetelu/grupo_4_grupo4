@@ -7,16 +7,16 @@
              <img src="../images/patagonia-argentina.jpg" alt="fondo" class="fondo-image" />
              <div class="divRegistro">
 
-                <form class="registro" action="/product/talles/delete/<%= categoriaEdit.id %>?_method=DELETE" method="post" >
+                <form class="registro" action="/product/colores/delete/<%= categoriaEdit.id %>?_method=DELETE" method="post" >
                         <% if(locals.errors && oldData) { %>
                         <% console.log(oldData) %>
                         <% } %>
                 
-                        <h5>Talles de Productos</h5>
+                        <h5>Colores de Productos</h5>
 
 
                         <div>
-                            <p>Seguro que desea borrar el talle <strong> <em>--  <%=categoriaEdit.nombre%>  --</em> </strong>?</p>
+                            <p>Seguro que desea borrar el color <strong> <em>--  <%=categoriaEdit.nombre%>  --</em> </strong>?</p>
                             <% console.log(categoriaEdit.id) %>
                             <% if(locals.errors && errors.nombre) { %>
                                 <p class="error"> <%= errors.nombre.msg %> </p>
@@ -24,7 +24,7 @@
                         </div>
 
                         <div> 
-                            <a href="#"> <button class="botEnter" type="submit">Eliminar Talle</button> </a>
+                            <a href="#"> <button class="botEnter" type="submit">Eliminar Color</button> </a>
                             <a class="linkEditar" href="/product/tablasadmin"> <button class="botEnterTablas" type="button">NO, ir a Edición Tablas</button>  </a>
                         </div>
                 </form>
