@@ -62,6 +62,10 @@ router.delete('/marcas/delete/:id', adminMiddleware, controller.destroyMarca);
 //RUTAS DE TALLES DE PRODUCTOS
 router.get('/talles', adminMiddleware, controller.talles);
 router.post('/talles', controller.processTalles);
+router.post('/talles/:id', adminMiddleware, controller.editTalles);
+router.put('/talles/update/:id', adminMiddleware, controller.updateTalles);
+router.get('/talles/delete/:id', adminMiddleware, controller.deleteTalle);
+router.delete('/talles/delete/:id', adminMiddleware, controller.destroyTalle);
 
 //RUTAS DE COLORES DE PRODUCTOS
 router.get('/colores', adminMiddleware, controller.colores);
