@@ -33,7 +33,7 @@ module.exports = (sequelize, dataTypes) => {
     const CategoriaProduct = sequelize.define(alias,cols,config);
 
     CategoriaProduct.associate= (models)=>{
-        CategoriaProduct.belongsToMany(models.Producto,
+        CategoriaProduct.belongsToMany(models.Product,
             
             {
                 as:"productos",

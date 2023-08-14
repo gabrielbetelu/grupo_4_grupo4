@@ -5,10 +5,10 @@ const { log, Console } = require('console');
 const { isNumberObject } = require('util/types');
 const sequelize = db.sequelize;
 const rutaJSON = path.resolve('./src/database/products.json');
-const products = JSON.parse (fs.readFileSync(rutaJSON));
+const productos = JSON.parse (fs.readFileSync(rutaJSON));
 
-const Products = db.Producto;
-
+const Products = db.Product;
+const ProductTalleColor = db.Product-talle-color;
 const Marca = db.Marca;
 const Talles = db.Talle;
 const Colores = db.Color;
@@ -43,7 +43,7 @@ module.exports = {
     },
     productos : (req, res) => {
         console.log("entraste a productos" );
-        return res.render('./products/productos' , {prod : products})
+        return res.render('./products/productos' , {prod : productos})
         
     },
     edicion: (req, res) => {
@@ -576,7 +576,33 @@ module.exports = {
         } catch (error) {
             console.log(error)
         }
+    },
+    stock: async(req,res) => {
+        console.log("Entró por ingreso por vista de stock de producto");
+        const nameTalles = await Talles.findAll();
+        const nameColores = await Colores.findAll();
+        const nameProducts = await Products.findAll();
+        return res.render('./products/stock', {nameTalles : nameTalles , nameColores: nameColores, nameProducts: nameProducts  }); 
+    },
+    processStock : async(req,res) => {
+        console.log("entraste a proceso de carga de stock");
+        //console.log(req.body.color)
+        //console.log(req.body.detalle)
+        try {
+            await ProductTalleColor.create({
+                'id_product': req.body.productoId,
+                'id_talle': req.body.talleId,
+                'id_color': req.body.colorId,
+                'stock': req.body.cantidad
+            })
+        }
+        catch (error) {
+            console.log(error)
+        }
+       // console.log(req.body.color)
+        return res.redirect('/product/tablasadmin');
     }
+
 
     
 

@@ -36,7 +36,7 @@ module.exports = (sequelize, dataTypes) => {
     const Talle = sequelize.define(alias,cols,config);
 
     Talle.associate= (models)=>{
-        Talle.belongsToMany(models.Producto,
+        Talle.belongsToMany(models.Product,
             
             {
                 through:'product-talle-color',

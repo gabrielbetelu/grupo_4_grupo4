@@ -75,4 +75,9 @@ router.put('/colores/update/:id', adminMiddleware, controller.updateColores);
 router.get('/colores/delete/:id', adminMiddleware, controller.deleteColor);
 router.delete('/colores/delete/:id', adminMiddleware, controller.destroyColor);
 
+//RUTAS DE STOCK DE PRODUCTOS
+router.get('/stock', adminMiddleware, controller.stock);
+router.post('/stock', adminMiddleware, controller.processStock);
+
+
 module.exports = router;

@@ -41,7 +41,7 @@ module.exports = (sequelize, dataTypes) => {
                 as:"ticketUsuario",
                 foreignKey:"id_user",
             }) 
-        Ticket.belongsToMany(models.Producto,
+        Ticket.belongsToMany(models.Product,
     
             {
                 as:"productosTickets",

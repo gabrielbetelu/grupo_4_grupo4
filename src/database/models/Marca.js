@@ -30,7 +30,7 @@ module.exports = (sequelize, dataTypes) => {
     const Marca = sequelize.define(alias,cols,config);
 
     Marca.associate= (models)=>{
-        Marca.hasMany(models.Producto,
+        Marca.hasMany(models.Product,
             
             {
                 as:"marcaProducto",
