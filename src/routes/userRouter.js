@@ -7,6 +7,7 @@ const path = require('path');
 // const {body}= require('express-validator');
 const regValidation = require('../middlewares/regValidation');
 const guestMiddleware = require('../middlewares/guestMiddleware');
+const adminMiddleware = require('../middlewares/adminMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
 
 const multerDiskStorage = multer.diskStorage ({
@@ -50,8 +51,11 @@ router.get('/logout', controller.logout);
 
 //RUTAS DE CATEGORIAS DE USUARIO
 
-router.get('/categorias', guestMiddleware, controller.categorias);
+router.get('/categorias', adminMiddleware, controller.categorias);
 router.post('/categorias', controller.processCategoriasUser);
-
+router.post('/categorias/:id', adminMiddleware, controller.editCategoriasUser);
+router.put('/categorias/update/:id', adminMiddleware, controller.updateCategoriasUser);
+router.get('/categorias/delete/:id', adminMiddleware, controller.deleteCategoriaUser);
+router.delete('/categorias/delete/:id', adminMiddleware, controller.destroyCategoriaUser);
 
 module.exports = router;

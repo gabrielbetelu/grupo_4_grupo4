@@ -6,29 +6,62 @@
         <main class="main-registro">
              <img src="../images/patagonia-argentina.jpg" alt="fondo" class="fondo-image" />
              <div class="divRegistro">
-                <form class="registro" action="/product/talles" method="post" >
+
+            <%  if(categoriaEdit == "vacio") { %>
+
+                <form class="registro" action="/product/talles/:id" method="post" >
                     <% if(locals.errors && oldData) { %>
                     <% console.log(oldData) %>
                     <% } %>
             
                     <h5>Talles de Productos</h5>
+
+
                             
                     <div>
-                        <input class="form-usu" type="text" name="talle" value="<%= locals.oldData ? oldData.talle : null %>"  placeholder="  Talle">
-                        
-                        <% if(locals.errors && errors.nombre) { %>
-                            <p class="error"> <%= errors.nombre.msg %> </p>
-                            <% } %>
+                        <select class="form-usu" name="talle" id="selectorId">
+                            <option value="" disabled selected required>- Seleccione la categoria - </option>
+                            <% nameTalles.forEach(talle => { %>
+                            <option value="<%= talle.id %>"><%= talle.nombre %></option>
+                            <% }); %>
+                        </select>
+
                     </div>
-                    <div>
-                        <textarea id="textarea" name="detalle" placeholder=" Descripción del talle"></textarea>
-                    </div>
-                    
                     <div> 
-                        <a href="#"> <button class="botEnter" type="submit">Añadir Talle</button> </a>
+                        <a href="#"> <button class="botEnter" type="submit">Editar Talle</button> </a>
+                        <a class="linkEditar" href="/product/tablasadmin"> <button class="botEnterTablas" type="button">Ir a Edición Tablas</button>  </a>
                     </div>
                 
                 </form>
+                <% } else { %>
+                    <form class="registro" action="/product/talles/update/<%= categoriaEdit.id %>?_method=PUT" method="post" >
+                        <% if(locals.errors && oldData) { %>
+                        <% console.log(oldData) %>
+                        <% } %>
+                
+                        <h5>Talles de Productos</h5>
+                                
+                        <div>
+                            <input class="form-usu" type="text" name="talle" value="<%= categoriaEdit.nombre %>"  placeholder="  Talle">
+                            
+                            <% if(locals.errors && errors.nombre) { %>
+                                <p class="error"> <%= errors.nombre.msg %> </p>
+                                <% } %>
+                        </div>
+                        <div>
+                            <textarea id="textarea" name="detalle" placeholder=" Descripción del talle"><%= categoriaEdit.descripcion %></textarea>
+
+                        </div>
+                        
+                        <div> 
+                            <a href="#"> <button class="botEnter" type="submit">Modificar Talle</button> </a>
+                            <a class="linkEditar" href="/product/talles/delete/<%= categoriaEdit.id %>"> <button class="botEnterTablas" type="button">Eliminar Talle</button>  </a>
+                            <a class="linkEditar" href="/product/tablasadmin"> <button class="botEnterTablas" type="button">Ir a Edición Tablas</button>  </a>
+                        </div>
+                    
+                    </form>
+
+                <% } %>   
             </div>
         </main>
         <%- include('../partials/footer') %>

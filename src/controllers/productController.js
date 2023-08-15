@@ -5,10 +5,10 @@ const { log, Console } = require('console');
 const { isNumberObject } = require('util/types');
 const sequelize = db.sequelize;
 const rutaJSON = path.resolve('./src/database/products.json');
-const products = JSON.parse (fs.readFileSync(rutaJSON));
+const productos = JSON.parse (fs.readFileSync(rutaJSON));
 
-const Products = db.Producto;
-
+const Products = db.Product;
+const ProductTalleColor = db.ProductTalleColor;
 const Marca = db.Marca;
 const Talles = db.Talle;
 const Colores = db.Color;
@@ -43,7 +43,7 @@ module.exports = {
     },
     productos : (req, res) => {
         console.log("entraste a productos" );
-        return res.render('./products/productos' , {prod : products})
+        return res.render('./products/productos' , {prod : productos})
         
     },
     edicion: (req, res) => {
@@ -185,8 +185,7 @@ module.exports = {
     categorias: async (req, res) => {
         console.log("Entró por creacion de categorias");
         const nameCategorias = await CategoriasProduct.findAll();
-        return res.render('./products/categorias', {nameCategorias : nameCategorias , categoriaEdit : "vacio"});
-         
+        return res.render('./products/categorias', {nameCategorias : nameCategorias , categoriaEdit : "vacio"});         
     },
    /* processCategorias: (req, res) => {
         console.log("entraste por creacion de categoria");
@@ -200,8 +199,8 @@ module.exports = {
         return res.render('products/categorias')*/
         
      processCategorias:async(req,res)=>{
-             console.log("entraste por creacion de categoria");
-             console.log(req.body.categoria)
+             console.log("entraste por proceso de creacion de categoria");
+    //         console.log(req.body.categoria)
             
             try {
                 await CategoriasProduct.create({
@@ -217,6 +216,68 @@ module.exports = {
              return res.redirect('/product/tablasadmin');
     
         }, 
+
+    editCategorias: async (req, res) => {
+        console.log("entraste por edicion de Categoria");
+    //    console.log(req.body.categoria);
+        if(req.body.categoria){
+        let categoriaId = parseInt(req.body.categoria);
+        let categoriaEditar = await CategoriasProduct.findByPk(categoriaId);
+        let categoriaEdit = categoriaEditar.dataValues
+    //    console.log(categoriaEdit)
+        return res.render('./products/categorias' , {categoriaEdit})
+        } else {
+            const nameCategorias = await CategoriasProduct.findAll();
+            return res.render('./products/categorias' , {nameCategorias : nameCategorias , categoriaEdit : "vacio"});
+        }
+
+    },
+
+    updateCategorias: async (req, res) =>{
+        console.log("entraste por modificacion de categoria");
+    //    console.log(req.body.categoria);
+        try {
+            await CategoriasProduct.update({
+                'categoria': req.body.categoria,
+                'borrado': 0
+            },
+            {
+                where: {id: req.params.id}
+            }
+            );
+        } catch (error) {
+            console.log(error)
+        }
+        return res.redirect('/product/tablasadmin');
+    },
+
+    deleteCategoria:  async (req , res) => {
+        console.log("entraste por vista delete de categoría");
+    //    console.log(req.params.id)
+        try {
+            const categoriaEdit = await CategoriasProduct.findByPk(req.params.id)
+    //        console.log(categoriaEdit.dataValues);
+            return res.render('./products/categoriasDelete' , {categoriaEdit : categoriaEdit.dataValues })
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+    destroyCategoria: async (req , res) => {
+        console.log("entraste por borrado lógico de categoría");
+    //    console.log(req.params.id);
+        try {
+            const categoriaEliminada = await CategoriasProduct.destroy ({
+                where: {id: req.params.id}
+            })
+    //        console.log(categoriaEliminada);
+            return res.redirect('/product/tablasadmin');
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+
 
 
     marcas: async (req, res) => {
@@ -314,9 +375,12 @@ module.exports = {
 
 
 
-    talles: (req, res) => {
-        console.log("Entró por creacion de talles")
-        return res.render('./products/talles')
+    talles: async (req, res) => {
+        console.log("Entró por creacion de talles");
+        const nameTalles = await Talles.findAll();
+        return res.render('./products/talles', {nameTalles : nameTalles , categoriaEdit : "vacio"});   
+    //    return res.render('./products/talles')
+
          
     },
     processTalles: async (req, res) => {
@@ -348,12 +412,77 @@ module.exports = {
         return res.render('products/talles') */
     },
 
-    colores: (req, res) => {
-        console.log("Entró por creacion de colores")
-        return res.render('./products/colores')
-         
+    editTalles: async (req, res) => {
+        console.log("entraste por edicion de Talle");
+            console.log(req.body.talle);
+            if(req.body.talle){
+            let talleId = parseInt(req.body.talle);
+            let talleEditar = await Talles.findByPk(talleId);
+            let talleEdit = talleEditar.dataValues
+            console.log(talleEdit)
+            return res.render('./products/talles' , {categoriaEdit : talleEdit})
+            } else {
+                const nameTalles = await Talles.findAll();
+                return res.render('./products/talles', {nameTalles : nameTalles , categoriaEdit : "vacio"}); 
+               
+            }
+
     },
-    
+
+    updateTalles: async (req, res) => {
+        console.log("entraste por modificacion de talles");
+    //    console.log(req.body.categoria);
+        try {
+            await Talles.update({
+                'nombre': req.body.talle,
+                'descripcion': req.body.detalle,
+                'borrado': 0
+            },
+            {
+                where: {id: req.params.id}
+            }
+            );
+        } catch (error) {
+            console.log(error)
+        }
+        return res.redirect('/product/tablasadmin');
+
+    },
+
+    deleteTalle: async (req, res) => {
+        console.log("entraste por vista delete de talle");
+        //    console.log(req.params.id)
+            try {
+                const talleEdit = await Talles.findByPk(req.params.id)
+        //        console.log(categoriaEdit.dataValues);
+                return res.render('./products/tallesDelete' , {categoriaEdit : talleEdit.dataValues })
+            } catch (error) {
+                console.log(error)
+            }
+    },
+
+
+    destroyTalle: async (req, res) => {
+        console.log("entraste por borrado lógico de talle");
+    //    console.log(req.params.id);
+        try {
+            const talleEliminado = await Talles.destroy ({
+                where: {id: req.params.id}
+            })
+    //        console.log(talleEliminado);
+            return res.redirect('/product/tablasadmin');
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+
+    colores: async (req, res) => {
+        console.log("Entró por creacion de colores");
+        const nameColores = await Colores.findAll();
+        return res.render('./products/colores', {nameColores : nameColores , categoriaEdit : "vacio"});  
+    //    return res.render('./products/colores')         
+    },    
     
     /*processColores: (req, res) => {
         console.log("entraste por creacion de color");
@@ -383,7 +512,98 @@ module.exports = {
         }
         console.log(req.body.color)
         return res.redirect('/product/tablasadmin');
+    },
+
+    editColores: async (req, res) => {
+        console.log("entraste por edicion de Color");
+            console.log(req.body.color);
+            if(req.body.color){
+            let colorId = parseInt(req.body.color);
+            let colorEditar = await Colores.findByPk(colorId);
+            let colorEdit = colorEditar.dataValues
+            console.log(colorEdit)
+            return res.render('./products/colores' , {categoriaEdit : colorEdit})
+            } else {
+                const nameColores = await Colores.findAll();
+            return res.render('./products/colores', {nameColores : nameColores , categoriaEdit : "vacio"});  
+               
+            }
+
+    },
+
+    updateColores: async (req, res) => {
+        console.log("entraste por modificacion de colores");
+        console.log(req.body.color);
+        try {
+            await Colores.update({
+                'nombre': req.body.color,
+                'descripcion': req.body.detalle,
+                'borrado': 0
+            },
+            {
+                where: {id: req.params.id}
+            }
+            );
+        } catch (error) {
+            console.log(error)
+        }
+        return res.redirect('/product/tablasadmin');
+
+    },
+
+    deleteColor: async (req, res) => {
+        console.log("entraste por vista delete de color");
+        //    console.log(req.params.id)
+            try {
+                const colorEdit = await Colores.findByPk(req.params.id)
+        //        console.log(colorEdit.dataValues);
+                return res.render('./products/coloresDelete' , {categoriaEdit : colorEdit.dataValues })
+            } catch (error) {
+                console.log(error)
+            }
+    },
+
+
+    destroyColor: async (req, res) => {
+        console.log("entraste por borrado lógico de color");
+    //    console.log(req.params.id);
+        try {
+            const colorEliminado = await Colores.destroy ({
+                where: {id: req.params.id}
+            })
+    //        console.log(talleEliminado);
+            return res.redirect('/product/tablasadmin');
+        } catch (error) {
+            console.log(error)
+        }
+    },
+    stock: async(req,res) => {
+        console.log("Entró por ingreso por vista de stock de producto");
+        const nameTalles = await Talles.findAll();
+        const nameColores = await Colores.findAll();
+        const nameProducts = await Products.findAll();
+        return res.render('./products/stock', {nameTalles : nameTalles , nameColores: nameColores, nameProducts: nameProducts  }); 
+    },
+    processStock : async(req,res) => {
+        console.log("entraste a proceso de carga de stock");
+        //console.log(req.body)
+        //console.log(req.body.detalle)
+        try {
+        
+        await ProductTalleColor.create({
+                'id_product': req.body.productoId,
+                'id_talle': req.body.talleId,
+                'id_color': req.body.colorId,
+                'stock': req.body.cantidad
+            })
+        }
+        catch (error) {
+            console.log(error)
+        }
+       // console.log(req.body.color)
+        return res.redirect('/product/tablasadmin');
     }
+
 
     
 

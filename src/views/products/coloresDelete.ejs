@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head') %>
+<body>
+    <%- include('../partials/header') %>
+        <main class="main-registro">
+             <img src="../images/patagonia-argentina.jpg" alt="fondo" class="fondo-image" />
+             <div class="divRegistro">
+
+                <form class="registro" action="/product/colores/delete/<%= categoriaEdit.id %>?_method=DELETE" method="post" >
+                        <% if(locals.errors && oldData) { %>
+                        <% console.log(oldData) %>
+                        <% } %>
+                
+                        <h5>Colores de Productos</h5>
+
+
+                        <div>
+                            <p>Seguro que desea borrar el color <strong> <em>--  <%=categoriaEdit.nombre%>  --</em> </strong>?</p>
+                            <% console.log(categoriaEdit.id) %>
+                            <% if(locals.errors && errors.nombre) { %>
+                                <p class="error"> <%= errors.nombre.msg %> </p>
+                                <% } %>
+                        </div>
+
+                        <div> 
+                            <a href="#"> <button class="botEnter" type="submit">Eliminar Color</button> </a>
+                            <a class="linkEditar" href="/product/tablasadmin"> <button class="botEnterTablas" type="button">NO, ir a Edición Tablas</button>  </a>
+                        </div>
+                </form>
+               
+                
+    <!--                <div> 
+                        <a href="#"> <button class="botEnter" type="submit">Editar Marca</button> </a>
+                    </div>
+               
+                </form> 
+    --> 
+            </div>
+        </main>
+        <%- include('../partials/footer') %>
+    </body>                       
+</html>    
+      

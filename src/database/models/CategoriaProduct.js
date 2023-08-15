@@ -22,6 +22,9 @@ module.exports = (sequelize, dataTypes) => {
     };
 
     let config = {
+        tablename: 'categoriaproducts',
+        timestamps: true,
+        paranoid: true,
         timestamps: true,
         createdAt: 'created_at',
         updatedAt: 'updated_at',
@@ -30,7 +33,7 @@ module.exports = (sequelize, dataTypes) => {
     const CategoriaProduct = sequelize.define(alias,cols,config);
 
     CategoriaProduct.associate= (models)=>{
-        CategoriaProduct.belongsToMany(models.Producto,
+        CategoriaProduct.belongsToMany(models.Product,
             
             {
                 as:"productos",

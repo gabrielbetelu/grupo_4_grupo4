@@ -197,8 +197,15 @@ module.exports = {
     },    
       
 
-    categorias :(req, res) => {
-            return res.render('./users/categorias')
+    categorias : async (req, res) => {
+        console.log("Entró por creacion de categorias de usuarios");
+        const nameCategorias = await CategoriaUser.findAll();
+        console.log(nameCategorias);
+        return res.render('./users/categoriausers', {nameCategorias : nameCategorias , categoriaEdit : "vacio"});     
+
+
+
+    //        return res.render('./users/categorias')
             
     },
 
@@ -237,5 +244,68 @@ module.exports = {
         console.log(req.body.tipo)
         return res.redirect('/product/tablasadmin');
 
+   }, 
+
+   editCategoriasUser: async (req, res) => {
+       console.log("entraste por edicion de Categoria");
+       console.log(req.body.categoria);
+       if(req.body.categoria){
+       let categoriaId = parseInt(req.body.categoria);
+       let categoriaEditar = await CategoriaUser.findByPk(categoriaId);
+       let categoriaEdit = categoriaEditar.dataValues
+   //    console.log(categoriaEdit)
+       return res.render('./users/categoriausers' , {categoriaEdit})
+       } else {
+           const nameCategorias = await CategoriaUser.findAll();
+           return res.render('./users/categoriausers' , {nameCategorias : nameCategorias , categoriaEdit : "vacio"});
+       }
+   },
+
+   updateCategoriasUser:async (req , res) => {
+    console.log("entraste por modificacion de categoria de usuarios");
+    //    console.log(req.body);
+        try {
+            await CategoriaUser.update({
+                'categoria': req.body.tipo,
+                'borrado': 0
+            },
+            {
+                where: {id: req.params.id}
+            }
+            );
+        } catch (error) {
+            console.log(error)
+        }
+        return res.redirect('/product/tablasadmin');
+
+   },
+
+   deleteCategoriaUser:  async (req , res) => {
+       console.log("entraste por vista delete de categoría de usuario");
+   //    console.log(req.params.id)
+       try {
+           const categoriaEdit = await CategoriaUser.findByPk(req.params.id)
+   //        console.log(categoriaEdit.dataValues);
+           return res.render('./users/categoriasDelete' , {categoriaEdit : categoriaEdit.dataValues })
+       } catch (error) {
+           console.log(error)
+       }
+   },
+
+   destroyCategoriaUser: async (req , res) => {
+       console.log("entraste por borrado lógico de categoría de usuario");
+   //    console.log(req.params.id);
+       try {
+           const categoriaEliminada = await CategoriaUser.destroy ({
+               where: {id: req.params.id}
+           })
+   //        console.log(categoriaEliminada);
+           return res.redirect('/product/tablasadmin');
+       } catch (error) {
+           console.log(error)
+       }
    }
+
+
+
 }

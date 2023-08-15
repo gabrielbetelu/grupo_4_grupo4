@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'Product-talle-color'; 
+    let alias = 'ProductTalleColor'; 
     let cols = {
         id: {
             type: dataTypes.INTEGER.UNSIGNED,
@@ -30,6 +30,8 @@ module.exports = (sequelize, dataTypes) => {
 
     let config = {
         timestamps: true,
+        freezeTableName: true,
+        tableName: 'products-talles-colores',
         createdAt: 'created_at',
         updatedAt: 'updated_at',
         deletedAt: 'deleted_at'
