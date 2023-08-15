@@ -6,33 +6,67 @@
         <main class="main-registro">
              <img src="../images/patagonia-argentina.jpg" alt="fondo" class="fondo-image" />
              <div class="divRegistro">
-                <form class="registro" action="/user/categoriausers" method="get" >
+
+                <%  if(categoriaEdit == "vacio") { %>
+
+                <form class="registro" action="/user/categorias/:id" method="POST" >
                     <% if(locals.errors && oldData) { %>
                     <% console.log(oldData) %>
                     <% } %>
             
-                    <h5>Categorias de Usuarios</h5>
-
-                    
-                    </div>
-
+                    <h5>Categorias de Usuarios</h5>                    
+    <!--                </div>      
+    -->
                                                
                     <div>
-                        <input class="form-usu" type="text" name="tipo" value="<%= locals.oldData ? oldData.marca : null %>"  placeholder="  Categoria de Usuario">
-                        
-                        <% if(locals.errors && errors.nombre) { %>
-                            <p class="error"> <%=errors.nombre.msg %> </p>
-                            <% } %>
+                        <select class="form-usu" name="categoria" id="selectorId">
+                            <option value="" disabled selected required>- Seleccione la categoria - </option>
+                            <% nameCategorias.forEach(categoria => { %>
+                            <option value="<%= categoria.id %>"><%= categoria.categoria %></option>
+                            <% }); %>
+                        </select>
                     </div>
                     
                     <div> 
-                        <a href="/product/marcas/<%= marca.id %>"> <button class="botEnter" type="submit">Editar Marca</button> </a>
+                        <a href="#"> <button class="botEnter" type="submit">Editar Categoría</button> </a>
+                        <a class="linkEditar" href="/product/tablasadmin"> <button class="botEnterTablas" type="button">Ir a Edición Tablas</button>  </a>
                     </div>
                 
                 </form>
-            </div>
+                <% } else { %>
+
+
+
+                    <form class="registro" action="/user/categorias/update/<%= categoriaEdit.id %>?_method=PUT" method="POST" >
+                        <% if(locals.errors && oldData) { %>
+                        <% console.log(oldData) %>
+                        <% } %>
+                
+                        <h5>Categorias de Usuarios</h5>
+         
+                                                   
+                        <div>
+                            <input class="form-usu" type="text" name="tipo" value="<%= categoriaEdit.categoria %>"  placeholder="  Categoria de Usuario">
+
+                            <% console.log(categoriaEdit.id) %>
+                            
+                            <% if(locals.errors && errors.nombre) { %>
+                                <p class="error"> <%=errors.nombre.msg %> </p>
+                                <% } %>
+                        </div>
+                        
+                        <div> 
+                            <a href="#"> <button class="botEnter" type="submit">Modificar Categoría</button> </a><a class="linkEditar" href="/user/categorias/delete/<%= categoriaEdit.id %>"> <button class="botEnterTablas" type="button">Eliminar Categoria</button>  </a>
+                            <a class="linkEditar" href="/product/tablasadmin"> <button class="botEnterTablas" type="button">Ir a Edición Tablas</button>  </a>
+                        </div>
+                    
+                    </form>
+
+                <% } %>
+
+    <!--            </div>
+    --> 
         </main>
         <%- include('../partials/footer') %>
     </body>                       
 </html>    
-      

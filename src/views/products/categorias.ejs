@@ -6,15 +6,48 @@
         <main class="main-registro">
              <img src="../images/patagonia-argentina.jpg" alt="fondo" class="fondo-image" />
              <div class="divRegistro">
-                <form class="registro" action="/product/categorias" method="post" >
+
+                <%  if(categoriaEdit == "vacio") { %>
+
+                <form class="registro" action="/product/categorias/:id" method="post" >
                     <% if(locals.errors && oldData) { %>
                     <% console.log(oldData) %>
                     <% } %>
             
                     <h5>Categorias de Productos</h5>
+
+
+
+                    <div>
+                        <select class="form-usu" name="categoria" id="selectorId">
+                            <option value="" disabled selected required>- Seleccione la categoria - </option>
+                            <% nameCategorias.forEach(categoria => { %>
+                            <option value="<%= categoria.id %>"><%= categoria.categoria %></option>
+                            <% }); %>
+                        </select>
+
+                    </div>
+                    <div> 
+                        <a href="#"> <button class="botEnter" type="submit">Editar Categoría</button> </a>
+                        <a class="linkEditar" href="/product/tablasadmin"> <button class="botEnterTablas" type="button">Ir a Edición Tablas</button>  </a>
+                    </div>
+                </form>
+                <% } else { %>
+
+
+
+                <form class="registro" action="/product/categorias/update/<%= categoriaEdit.id %>?_method=PUT" method="post" >
+                    <% if(locals.errors && oldData) { %>
+                    <% console.log(oldData) %>
+                    <% } %>
+            
+                    <h5>Categorias de Productos</h5>
+
                             
                     <div>
-                        <input class="form-usu" type="text" name="categoria" value="<%= locals.oldData ? oldData.nombre : null %>"  placeholder="  Categoría">
+                        <input class="form-usu" type="text" name="categoria" value="<%= categoriaEdit.categoria %>"  placeholder="  Categoría">
+
+
                         
                         <% if(locals.errors && errors.nombre) { %>
                             <p class="error"> <%= errors.nombre.msg %> </p>
@@ -22,10 +55,16 @@
                     </div>
                     
                     <div> 
-                        <a href="#"> <button class="botEnter" type="submit">Añadir Categoría</button> </a>
+                        <a href="#"> <button class="botEnter" type="submit">Modificar Categoría</button> </a>
+                        <a class="linkEditar" href="/product/categorias/delete/<%= categoriaEdit.id %>"> <button class="botEnterTablas" type="button">Eliminar Categoria</button>  </a>
+                        <a class="linkEditar" href="/product/tablasadmin"> <button class="botEnterTablas" type="button">Ir a Edición Tablas</button>  </a>
                     </div>
                 
                 </form>
+
+
+                <% } %>
+
             </div>
         </main>
         <%- include('../partials/footer') %>

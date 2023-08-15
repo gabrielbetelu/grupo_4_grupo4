@@ -1,4 +1,4 @@
-const Producto = require("./Producto");
+//const Producto = require("./Product");
 
 
 module.exports = (sequelize, dataTypes) => {
@@ -28,7 +28,10 @@ module.exports = (sequelize, dataTypes) => {
     };
 
     let config = {
+        tablename: 'colors',
         timestamps: true,
+        //    freezeTableName: true,
+        paranoid: true,
         createdAt: 'created_at',
         updatedAt: 'updated_at',
         deletedAt: 'deleted_at'
@@ -36,7 +39,7 @@ module.exports = (sequelize, dataTypes) => {
     const Color = sequelize.define(alias,cols,config);
 
     Color.associate= (models)=>{
-        Color.belongsToMany(models.Producto,
+        Color.belongsToMany(models.Product,
             
             {
                 through:'product-talle-color',

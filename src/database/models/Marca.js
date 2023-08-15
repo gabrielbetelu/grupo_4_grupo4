@@ -20,7 +20,9 @@ module.exports = (sequelize, dataTypes) => {
     };
 
     let config = {
+        tablename: 'marcas',
         timestamps: true,
+        paranoid: true,
         createdAt: 'created_at',
         updatedAt: 'updated_at',
         deletedAt: 'deleted_at'
@@ -28,7 +30,7 @@ module.exports = (sequelize, dataTypes) => {
     const Marca = sequelize.define(alias,cols,config);
 
     Marca.associate= (models)=>{
-        Marca.hasMany(models.Producto,
+        Marca.hasMany(models.Product,
             
             {
                 as:"marcaProducto",

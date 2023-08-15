@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'Producto'; 
+    let alias = 'Product'; 
     let cols = {
         id: {
             type: dataTypes.INTEGER.UNSIGNED,
@@ -37,14 +37,16 @@ module.exports = (sequelize, dataTypes) => {
 
     let config = {
         timestamps: true,
+        tableName: 'products',
+        freezzeTableName: true,
         createdAt: 'created_at',
         updatedAt: 'updated_at',
         deletedAt: 'deleted_at'
     }
-    const Producto = sequelize.define(alias,cols,config);
+    const Product = sequelize.define(alias,cols,config);
 
-    Producto.associate= (models)=>{
-        Producto.belongsToMany(models.CategoriaProduct,
+    Product.associate= (models)=>{
+        Product.belongsToMany(models.CategoriaProduct,
             
             {
                 as:"categoriasproductos",
@@ -54,7 +56,7 @@ module.exports = (sequelize, dataTypes) => {
                 //timestamps:true
             }) 
 
-        Producto.belongsToMany(models.Ticket,
+        Product.belongsToMany(models.Ticket,
         
             {
                 as:"ticketsProductos",
@@ -64,14 +66,14 @@ module.exports = (sequelize, dataTypes) => {
                 //timestamps:true
             }) 
             
-        Producto.belongsTo(models.Marca,
+        Product.belongsTo(models.Marca,
         
             {
                 as:"productoMarca",
                 foreignKey:"id_marca",
             }) 
 
-        Producto.belongsToMany(models.Color,
+        Product.belongsToMany(models.Color,
         
             {
                 as:"coloresProductos",
@@ -81,7 +83,7 @@ module.exports = (sequelize, dataTypes) => {
                 //timestamps:true
             }) 
 
-        Producto.belongsToMany(models.Talle,
+        Product.belongsToMany(models.Talle,
         
             {
                 as:"tallesProductos",
@@ -95,5 +97,5 @@ module.exports = (sequelize, dataTypes) => {
 
         }
 
-    return Producto
+    return Product
 };

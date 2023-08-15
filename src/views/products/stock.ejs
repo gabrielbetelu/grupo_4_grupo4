@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head') %>
+<body>
+    <%- include('../partials/header') %>
+        <main class="main-registro">
+             <img src="../images/patagonia-argentina.jpg" alt="fondo" class="fondo-image" />
+             <div class="divRegistro">
+
+
+                <form class="registro" action="/product/stock" method="post" >
+                    <% if(locals.errors && oldData) { %>
+                    <% console.log(oldData) %>
+                    <% } %>
+            
+                    <h5>Stock de Productos</h5>
+                    
+                    <div>
+                        <select class="form-usu" name="productoId" id="selectorId">
+                            <option value="" disabled selected required>- Seleccione un producto - </option>
+                            <% nameProducts.forEach(producto => { %>
+                            <option value="<%= producto.id %>"><%= producto.nombre_producto %></option>
+                            <% }); %>
+                        </select>
+                        <select class="form-usu" name="talleId" id="selectorId">
+                            <option value="" disabled selected required>- Seleccione un talle - </option>
+                            <% nameTalles.forEach(talle => { %>
+                            <option value="<%= talle.id %>"><%= talle.nombre %></option>
+                            <% }); %>
+                        </select>
+                        <select class="form-usu" name="colorId" id="selectorId">
+                            <option value="" disabled selected required>- Seleccione un color - </option>
+                            <% nameColores.forEach(color => { %>
+                            <option value="<%= color.id %>"><%= color.nombre %></option>
+                            <% }); %>
+                        </select>
+                        <input class="form-usu" type="number" name="cantidad"  placeholder="  Stock">
+
+                    </div>
+                    <div> 
+                        <a href="#"> <button class="botEnter" type="submit">Ingresar stock</button> </a>
+                        <a class="linkEditar" href="/product/tablasadmin"> <button class="botEnterTablas" type="button">Ir a Edición Tablas</button>  </a>
+                    </div>
+                </form>              
+           
+            </div>
+        </main>
+        <%- include('../partials/footer') %>
+    </body>                       
+</html>    
+      

@@ -20,7 +20,11 @@ module.exports = (sequelize, dataTypes) => {
     };
 
     let config = {
+        tablename: 'categoriauser',
         timestamps: true,
+        freezeTableName: true,
+        paranoid: true,
+        tablename: 'categoriauser',
         createdAt: 'created_at',
         updatedAt: 'updated_at',
         deletedAt: 'deleted_at'

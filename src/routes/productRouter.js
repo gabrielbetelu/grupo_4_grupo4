@@ -45,20 +45,39 @@ router.post('/producto', fileUpload.any('imagen'), controller.processCreate);
 //RUTAS DE CATEGORIAS DE PRODUCTOS
 router.get('/categorias', adminMiddleware, controller.categorias);
 router.post('/categorias', controller.processCategorias);
+router.post('/categorias/:id', adminMiddleware, controller.editCategorias);
+router.put('/categorias/update/:id', adminMiddleware, controller.updateCategorias);
+router.get('/categorias/delete/:id', adminMiddleware, controller.deleteCategoria);
+router.delete('/categorias/delete/:id', adminMiddleware, controller.destroyCategoria);
 
 //RUTAS DE MARCAS DE PRODUCTOS
 router.get('/marcas', adminMiddleware, controller.marcas);
 router.post('/marcas', controller.processMarcas);
-router.get('/marcas/:id', adminMiddleware, controller.editMarcas);
+router.post('/marcas/:id', adminMiddleware, controller.editMarcas);
+router.put('/marcas/update/:id', adminMiddleware, controller.updateMarcas);
+router.get('/marcas/delete/:id', adminMiddleware, controller.deleteMarca);
+router.delete('/marcas/delete/:id', adminMiddleware, controller.destroyMarca);
 
 
 //RUTAS DE TALLES DE PRODUCTOS
 router.get('/talles', adminMiddleware, controller.talles);
 router.post('/talles', controller.processTalles);
+router.post('/talles/:id', adminMiddleware, controller.editTalles);
+router.put('/talles/update/:id', adminMiddleware, controller.updateTalles);
+router.get('/talles/delete/:id', adminMiddleware, controller.deleteTalle);
+router.delete('/talles/delete/:id', adminMiddleware, controller.destroyTalle);
 
 //RUTAS DE COLORES DE PRODUCTOS
 router.get('/colores', adminMiddleware, controller.colores);
 router.post('/colores', controller.processColores);
+router.post('/colores/:id', adminMiddleware, controller.editColores);
+router.put('/colores/update/:id', adminMiddleware, controller.updateColores);
+router.get('/colores/delete/:id', adminMiddleware, controller.deleteColor);
+router.delete('/colores/delete/:id', adminMiddleware, controller.destroyColor);
+
+//RUTAS DE STOCK DE PRODUCTOS
+router.get('/stock', adminMiddleware, controller.stock);
+router.post('/stock', adminMiddleware, controller.processStock);
 
 
 module.exports = router;

@@ -26,6 +26,7 @@
                         
                         <div> 
                             <a href="#"> <button class="botEnterTablas" type="submit">Añadir Categoría</button> </a>
+                            <a class="linkEditar" href="/product/categorias"> <button class="botEnterTablas" type="button">Edición Tabla de Categorías</button>  </a>
                         </div>
                     
                     </form>
@@ -79,6 +80,7 @@
                         
                         <div> 
                             <a href="#"> <button class="botEnterTablas" type="submit">Añadir Talle</button> </a>
+                            <a class="linkEditar" href="/product/talles"> <button class="botEnterTablas" type="button">Edición Tabla de Talles</button>  </a>
                         </div>
 
                     </form>
@@ -104,6 +106,7 @@
                         
                         <div> 
                             <a href="#"> <button class="botEnterTablas" type="submit">Añadir Color</button> </a>
+                            <a class="linkEditar" href="/product/colores"> <button class="botEnterTablas" type="button">Edición Tabla de Colores</button>  </a>
                         </div>
 
                     </form>
@@ -111,7 +114,7 @@
                 </div>
                 <DIV>
 <!-- *********************      TABLA DE CATEGORIAS DE USUARIOS      *********************  -->  
-                    <form class="registro" action="/user/categoriausers" method="POST" >
+                    <form class="registro" action="/user/categorias" method="POST" >
                         <% if(locals.errors && oldData) { %>
                         <% console.log(oldData) %>
                         <% } %>
@@ -126,7 +129,8 @@
                         </div>
                         
                         <div> 
-                            <a href="#"> <button class="botEnter" type="submit">Añadir Tipo de Usuario</button> </a>
+                            <a href="#"> <button class="botEnter" type="submit">Añadir Categoría de Usuario</button> </a>
+                            <a class="linkEditar" href="/user/categorias"> <button class="botEnterTablas" type="button">Edición Tabla de Categoría Usuarios</button>  </a>
                         </div>
 
                     </form>                  

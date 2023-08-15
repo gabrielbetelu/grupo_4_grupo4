@@ -5,7 +5,8 @@ const sequelize = db.sequelize;
 const rutaJSON = path.resolve('./src/database/users.json');
 let datos = JSON.parse (fs.readFileSync(rutaJSON));
 
-
+const Users = db.Userconst; 
+const CategoriaUser = db.CategoriaUser;
 
 // Leo el JSON de categoriasUser
 const rutaCategoriaJSON = path.resolve('./src/database/categoriasUser.json');
@@ -14,6 +15,7 @@ let categorias = JSON.parse (fs.readFileSync(rutaCategoriaJSON));
 
 const bcrypt = require('bcrypt');
 const { validationResult } = require("express-validator");
+
 
 
 module.exports = {
@@ -77,7 +79,7 @@ module.exports = {
             
     },
 
-    processRegister :(req, res) => {
+    /*processRegister :(req, res) => {
     
 
         const user = {
@@ -103,8 +105,40 @@ module.exports = {
         }
 //        console.log(user);
         fs.writeFileSync(path.resolve(__dirname, '../database/users.json'), JSON.stringify([...datos, user], null, 2))
-        return res.redirect('/')
+        return res.redirect('/')*/
+
+        processRegister: async (req,res) => {
+        const rdoValidacion = validationResult(req);
+        console.log("errores de validationResult");
+//        
+
+        if(rdoValidacion.errors.length > 0) {
+            return res.render('./users/registro', { errors: rdoValidacion.mapped(), oldData: req.body })
+             
+        }
+            console.log('entraste por creacion de usuario')
+            console.log(req.body.nombre)
+            try {
+            await Users.create(
+                {
+                    first_name: req.body.nombre,
+                    last_name: req.body.apellido,
+                    correo: req.body.email,
+                    contrasenia: bcrypt.hashSync(req.body.contrasenia, 10),
+                    image: req.file ? req.file.filename : "avatar.png",
+                    cuil: req.body.cuit,
+                    direccion: req.body.nacimiento,
+                    fecha_nacimiento: req.body.nacimiento,
+                    id_categoria_user: parseInt(2),
+                    borrado: 0
+                })
+             
+        } catch (error) {
+            console.log(error);
+        }
+        res.redirect('/user/login') 
     },
+                          
 
     perfil :(req, res) => {
         datos = JSON.parse (fs.readFileSync(rutaJSON));
@@ -163,29 +197,115 @@ module.exports = {
     },    
       
 
-    categorias :(req, res) => {
-            return res.render('./users/categorias')
+    categorias : async (req, res) => {
+        console.log("Entró por creacion de categorias de usuarios");
+        const nameCategorias = await CategoriaUser.findAll();
+        console.log(nameCategorias);
+        return res.render('./users/categoriausers', {nameCategorias : nameCategorias , categoriaEdit : "vacio"});     
+
+
+
+    //        return res.render('./users/categorias')
             
     },
 
-    processCategoria :(req, res) => {
-    
-
-        const categoria = {
-            id: categorias.length+1, 
-            categoria: req.body.nombre,
-            borrado: false
-        }
-        const rdoValidacion = validationResult(req);
-        console.log("errores de validationResult");
+//    processCategoria :(req, res) => {
+//        const categoria = {
+//            id: categorias.length+1, 
+//            categoria: req.body.tipo,
+//            borrado: false
+//        }
+//        const rdoValidacion = validationResult(req);
+//        console.log("errores de validationResult");
 //        console.log(rdoValidacion.errors);
-
-        if(rdoValidacion.errors.length > 0) {
-            return res.render('./users/categorias', { errors: rdoValidacion.mapped(), oldData: req.body })
+//
+//        if(rdoValidacion.errors.length > 0) {
+//            return res.render('./users/categorias', { errors: rdoValidacion.mapped(), oldData: req.body })
            // return res.redirect('/user/registro', { errors: rdoValidacion.mapped(), oldData: req.body })   
+//        }
+//        console.log(categoria);
+//        fs.writeFileSync(path.resolve(__dirname, '../database/categoriasUser.json'), JSON.stringify([...categorias, //categoria], null, 2))
+//        return res.redirect('/')
+//    },
+
+    processCategoriasUser: async (req,res) => {
+        console.log("entraste por creacion de categoria usuario");
+        console.log(req.body.tipo)
+       
+       try {
+            await CategoriaUser.create({
+               'categoria': req.body.tipo,
+               'borrado': 0
+           })
+        }                     
+        catch (error) {
+            console.log(error)
         }
-        console.log(categoria);
-        fs.writeFileSync(path.resolve(__dirname, '../database/categoriasUser.json'), JSON.stringify([...categorias, categoria], null, 2))
-        return res.redirect('/')
-    }
-};
+        console.log(req.body.tipo)
+        return res.redirect('/product/tablasadmin');
+
+   }, 
+
+   editCategoriasUser: async (req, res) => {
+       console.log("entraste por edicion de Categoria");
+       console.log(req.body.categoria);
+       if(req.body.categoria){
+       let categoriaId = parseInt(req.body.categoria);
+       let categoriaEditar = await CategoriaUser.findByPk(categoriaId);
+       let categoriaEdit = categoriaEditar.dataValues
+   //    console.log(categoriaEdit)
+       return res.render('./users/categoriausers' , {categoriaEdit})
+       } else {
+           const nameCategorias = await CategoriaUser.findAll();
+           return res.render('./users/categoriausers' , {nameCategorias : nameCategorias , categoriaEdit : "vacio"});
+       }
+   },
+
+   updateCategoriasUser:async (req , res) => {
+    console.log("entraste por modificacion de categoria de usuarios");
+    //    console.log(req.body);
+        try {
+            await CategoriaUser.update({
+                'categoria': req.body.tipo,
+                'borrado': 0
+            },
+            {
+                where: {id: req.params.id}
+            }
+            );
+        } catch (error) {
+            console.log(error)
+        }
+        return res.redirect('/product/tablasadmin');
+
+   },
+
+   deleteCategoriaUser:  async (req , res) => {
+       console.log("entraste por vista delete de categoría de usuario");
+   //    console.log(req.params.id)
+       try {
+           const categoriaEdit = await CategoriaUser.findByPk(req.params.id)
+   //        console.log(categoriaEdit.dataValues);
+           return res.render('./users/categoriasDelete' , {categoriaEdit : categoriaEdit.dataValues })
+       } catch (error) {
+           console.log(error)
+       }
+   },
+
+   destroyCategoriaUser: async (req , res) => {
+       console.log("entraste por borrado lógico de categoría de usuario");
+   //    console.log(req.params.id);
+       try {
+           const categoriaEliminada = await CategoriaUser.destroy ({
+               where: {id: req.params.id}
+           })
+   //        console.log(categoriaEliminada);
+           return res.redirect('/product/tablasadmin');
+       } catch (error) {
+           console.log(error)
+       }
+   }
+
+
+
+}
