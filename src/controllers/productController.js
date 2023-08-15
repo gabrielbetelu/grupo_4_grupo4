@@ -8,7 +8,7 @@ const rutaJSON = path.resolve('./src/database/products.json');
 const productos = JSON.parse (fs.readFileSync(rutaJSON));
 
 const Products = db.Product;
-const ProductTalleColor = db.Product-talle-color;
+const ProductTalleColor = db.ProductTalleColor;
 const Marca = db.Marca;
 const Talles = db.Talle;
 const Colores = db.Color;
@@ -586,10 +586,11 @@ module.exports = {
     },
     processStock : async(req,res) => {
         console.log("entraste a proceso de carga de stock");
-        //console.log(req.body.color)
+        //console.log(req.body)
         //console.log(req.body.detalle)
         try {
-            await ProductTalleColor.create({
+        
+        await ProductTalleColor.create({
                 'id_product': req.body.productoId,
                 'id_talle': req.body.talleId,
                 'id_color': req.body.colorId,
