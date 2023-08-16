@@ -140,7 +140,7 @@ module.exports = {
                     contrasenia: bcrypt.hashSync(req.body.contrasenia, 10),
                     image: req.file ? req.file.filename : "avatar.png",
                     cuil: req.body.cuit,
-                    direccion: req.body.nacimiento,
+                    direccion: req.body.domicilio,
                     fecha_nacimiento: req.body.nacimiento,
                     id_categoria_user: parseInt(2),
                     borrado: 0
@@ -155,6 +155,7 @@ module.exports = {
 
     perfil :async (req, res) => {
         try {
+        
             
        // datos = JSON.parse (fs.readFileSync(rutaJSON));
         console.log("entraste a editar el usuario", req.session.usuarioLogeado.id);
@@ -173,21 +174,41 @@ module.exports = {
     logout :(req, res) => {
         req.session.destroy();
         res.clearCookie('recordame');
-        datos = JSON.parse (fs.readFileSync(rutaJSON));     
+       // datos = JSON.parse (fs.readFileSync(rutaJSON));     
         return res.redirect('/');
     },
 
     editarPerfil: async(req, res)=> {
         const userId = await Users.findByPk(req.session.usuarioLogeado.id)
-
         console.log("entraste a modificar el perfil" , req.session.usuarioLogeado.id);
-       // datos = JSON.parse (fs.readFileSync(rutaJSON));
-        //const userId = datos.find (elemento => elemento.id == req.session.usuarioLogeado.id);
         let oldContrasenia = userId.contrasenia;
         let oldImagen = userId.imagen;
         let nuevaImg= req.file ? req.file.filename : oldImagen;
-        userId.imagen = nuevaImg;
-        for (let propiedad in req.body) {
+        let nuevaContrasenia = ""
+        if (req.body.contrasenia != "") {
+            nuevaContrasenia = bcrypt.hashSync(req.body.contrasenia, 10);
+        } else {
+            nuevaContrasenia = oldContrasenia;
+        }                 
+        try {
+            await Users.update({
+                'image': nuevaImg,
+                'first_name':req.body.nombre,
+                'last_name': req.body.apellido,
+                'correo': req.body.email,
+                'cuil': req.body.cuit,
+                'direccion': req.body.domicilio,
+                'fecha_nacimiento': req.body.nacimiento,
+                'contrasenia': nuevaContrasenia
+            },{
+            where: {
+                id: userId.id
+            }
+            })
+       // datos = JSON.parse (fs.readFileSync(rutaJSON));
+        //const userId = datos.find (elemento => elemento.id == req.session.usuarioLogeado.id);
+        
+      /*  for (let propiedad in req.body) {
             if (propiedad == "id") {
                 userId[propiedad] = Number(req.body[propiedad]);
             } else if (propiedad == "guardar") {
@@ -203,8 +224,12 @@ module.exports = {
             userId[propiedad] = req.body[propiedad];
             }
         }
-        fs.writeFileSync(path.resolve(__dirname, '../database/users.json'),JSON.stringify(datos, null , 2));
-        return res.redirect('/');
+        fs.writeFileSync(path.resolve(__dirname, '../database/users.json'),JSON.stringify(datos, null , 2));*/
+            return res.redirect('/');
+                
+            } catch (error) {
+            console.log(error)   
+            }
     },
 
     eliminarPerfil: (req, res) => {
