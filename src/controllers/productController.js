@@ -47,9 +47,11 @@ module.exports = {
         return res.render('./products/productos' , {prod : productos})
         
     },
-    edicion: (req, res) => {
+    edicion: async (req, res) => {
         console.log("Entró por edicion")
-        return res.render('./products/edicion' , {prod : "vacio"})
+        const nameCategorias = await CategoriasProduct.findAll();
+        return res.render('./products/edicion', {nameCategorias : nameCategorias, prod : "vacio"});  
+        
         
     },
     creacion: async (req, res) => {

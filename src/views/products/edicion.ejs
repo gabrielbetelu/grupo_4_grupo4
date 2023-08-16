@@ -58,7 +58,56 @@
                 
             </div>           
             <div class="categoriaEdicion">
-                <p>Categorías%></p>
+                <p>Categorías</p>
+                <label for="tablaCategorias">Para seleccionar más de una categoría mantener presionada la tecla control</label>
+                <select multiple class="form-cat" name="categoria" id="tablaCategorias">
+                    <option value="" disabled selected required>- Seleccione categorías - </option>
+                        <% nameCategorias.forEach(categoria => { %>
+                        <option value="<%= categoria.id %>"><%= categoria.categoria %></option>
+                        <% }); %>
+                </select>
+                
+            <div class="precioEdicion">
+                <% if (prod == "vacio") {%>
+                    <input type="number" name="precio" placeholder="  Precio del producto">
+                    <%} else {%>
+                        <input type="number" name="precio" value="<%=prod.precio_producto%>" placeholder="  Precio del producto">
+                <% }%>
+                
+            </div>
+                   
+            <div class="botonesEdicion" id="divBotonesEdicion">
+                <div>
+                    <button class="botones botonGuardar" type="submit" name="guardar" value="Guardar">Guardar</button>
+                </div>
+    <!--            <div>
+                    <form class="edicion-form" action="/product/eliminar/<%= prod.id%>?_method=DELETE" method="post">
+                        <button class="botones botonEliminar">Eliminar</button>
+                    </form>    
+                </div>
+    -->            
+                <div>
+                    <a href="/product/creacion"><button class="botones botonBuscar" type="button" >Crear</button></a>
+                </div>
+                <div>
+                    <a href="/"><button class="botones botonCerrar" type="button" name="cerrar" value="cerrar">Cerrar</button></a>
+                </div> 
+            </div> 
+                          
+        </form>
+        <div class="botonesEdicion botonDeleteProd">
+            <form class="edicion-form deleteProdForm" action="/product/eliminar/<%= prod.id%>?_method=DELETE" method="post">
+                <button class="botones botonEliminar">Eliminar</button>
+            </form>    
+        </div>
+    </main>
+    <%- include('../partials/footer') %>
+</body>
+</html>
+
+
+
+<!-- 
                 <div class="checkboxEdicion">
                     <input <%= (prod != "vacio" ? ((prod.categoria.includes('abrigo') == true) ? "checked" : "") :"")%> type="checkbox" name="categoria" value="abrigo" id="abrigos">
                     <label for="Abrigos">Abrigos</label>
@@ -95,40 +144,4 @@
                     <input <%= (prod != "vacio" ? ((prod.categoria.includes('niño') == true) ? "checked" : "") :"")%> type="checkbox" name="categoria" value="niño" id="niño">
                     <label for="Niño">Niño</label>
                 </div>
-            </div> 
-            <div class="precioEdicion">
-                <% if (prod == "vacio") {%>
-                    <input type="number" name="precio" placeholder="  Precio del producto">
-                    <%} else {%>
-                        <input type="number" name="precio" value="<%=prod.precio_producto%>" placeholder="  Precio del producto">
-                <% }%>
-                
-            </div>           
-            <div class="botonesEdicion" id="divBotonesEdicion">
-                <div>
-                    <button class="botones botonGuardar" type="submit" name="guardar" value="Guardar">Guardar</button>
-                </div>
-    <!--            <div>
-                    <form class="edicion-form" action="/product/eliminar/<%= prod.id%>?_method=DELETE" method="post">
-                        <button class="botones botonEliminar">Eliminar</button>
-                    </form>    
-                </div>
-    -->            
-                <div>
-                    <a href="/product/creacion"><button class="botones botonBuscar" type="button" >Crear</button></a>
-                </div>
-                <div>
-                    <a href="/"><button class="botones botonCerrar" type="button" name="cerrar" value="cerrar">Cerrar</button></a>
-                </div> 
-            </div> 
-                          
-        </form>
-        <div class="botonesEdicion botonDeleteProd">
-            <form class="edicion-form deleteProdForm" action="/product/eliminar/<%= prod.id%>?_method=DELETE" method="post">
-                <button class="botones botonEliminar">Eliminar</button>
-            </form>    
-        </div>
-    </main>
-    <%- include('../partials/footer') %>
-</body>
-</html>
+            </div>-->

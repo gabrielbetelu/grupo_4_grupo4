@@ -5,7 +5,7 @@ const sequelize = db.sequelize;
 const rutaJSON = path.resolve('./src/database/users.json');
 let datos = JSON.parse (fs.readFileSync(rutaJSON));
 
-const Users = db.Userconst; 
+const Users = db.User; 
 const CategoriaUser = db.CategoriaUser;
 
 // Leo el JSON de categoriasUser
@@ -23,29 +23,46 @@ module.exports = {
         return res.render('./users/login')
 
     },
-    processLogin : (req, res) => {
-      const usuario = datos.find((row)=> row.correo == req.body.email)
-      console.log("proceso de Login")
-      console.log(usuario)
-      console.log(req.body)
-      if (usuario){
-        console.log(req.body.contrasenia)
-        console.log(usuario.contrasenia)
-        if (bcrypt.compareSync(req.body.contrasenia, usuario.contrasenia)){
-            delete usuario.contrasenia
-            req.session.usuarioLogeado = usuario
-            console.log('contraseña correcta')
-//            console.log(usuario)
-//            console.log(req.session)
-            if (req.body.cookie) {
-                console.log("se crea cookie recordame")
-                res.cookie("recordame", usuario.correo, {maxAge: 1000*60*60})
-               // return res.redirect('/')
+    processLogin : async (req, res) => {
+        try {
+            const usuario = await Users.findOne({
+                where: {
+                    correo: req.body.email
+                }
+            })        
+    
+          //const usuario = datos.find((row)=> row.correo == req.body.email)
+          console.log("proceso de Login")
+          console.log(usuario)
+          console.log(req.body)
+          if (usuario){
+            console.log(req.body.contrasenia)
+            console.log(usuario.contrasenia)
+            if (bcrypt.compareSync(req.body.contrasenia, usuario.contrasenia)){
+                delete usuario.contrasenia
+                req.session.usuarioLogeado = usuario
+                console.log('contraseña correcta')
+    //            console.log(usuario)
+    //            console.log(req.session)
+                if (req.body.cookie) {
+                    console.log("se crea cookie recordame")
+                    res.cookie("recordame", usuario.correo, {maxAge: 1000*60*60})
+                   // return res.redirect('/')
+                }
+                return res.redirect('/')
+                
+            }else{
+                console.log('error datos')
+                return res.render('./users/login', {
+                    errors: {
+                        datosMal: {
+                            msg: "Datos Incorrectos"
+                        }
+                    }
+                })
             }
-            return res.redirect('/')
-            
         }else{
-            console.log('error datos')
+            console.log("error mail")
             return res.render('./users/login', {
                 errors: {
                     datosMal: {
@@ -54,22 +71,18 @@ module.exports = {
                 }
             })
         }
-    }else{
-        console.log("error mail")
-        return res.render('./users/login', {
-            errors: {
-                datosMal: {
-                    msg: "Datos Incorrectos"
-                }
-            }
-        })
-    }
-
-        /*}else{
-            console.log('sin datos')
-            return res.redirect('login')
-                
-        } */
+    
+            /*}else{
+                console.log('sin datos')
+                return res.redirect('login')
+                    
+            } */
+            
+        } catch (error) {
+            console.log(error)
+            
+        }
+       
 
     },    
       
@@ -140,14 +153,21 @@ module.exports = {
     },
                           
 
-    perfil :(req, res) => {
-        datos = JSON.parse (fs.readFileSync(rutaJSON));
+    perfil :async (req, res) => {
+        try {
+            
+       // datos = JSON.parse (fs.readFileSync(rutaJSON));
         console.log("entraste a editar el usuario", req.session.usuarioLogeado.id);
-//        const userId = datos.find (elemento => elemento.id == req.session.usuarioLogeado.id);
-      console.log(req.session.usuarioLogeado)  
-        return res.render('./users/perfil', {
-            usuario: req.session.usuarioLogeado
-        }); 
+        //        const userId = datos.find (elemento => elemento.id == req.session.usuarioLogeado.id);
+              console.log(req.session.usuarioLogeado)  
+                return res.render('./users/perfil', {
+                    usuario: req.session.usuarioLogeado
+                });
+            
+        } catch (error) {
+            console.log(error)
+            
+        } 
     },
     
     logout :(req, res) => {
@@ -157,10 +177,12 @@ module.exports = {
         return res.redirect('/');
     },
 
-    editarPerfil: (req, res)=> {
+    editarPerfil: async(req, res)=> {
+        const userId = await Users.findByPk(req.session.usuarioLogeado.id)
+
         console.log("entraste a modificar el perfil" , req.session.usuarioLogeado.id);
-        datos = JSON.parse (fs.readFileSync(rutaJSON));
-        const userId = datos.find (elemento => elemento.id == req.session.usuarioLogeado.id);
+       // datos = JSON.parse (fs.readFileSync(rutaJSON));
+        //const userId = datos.find (elemento => elemento.id == req.session.usuarioLogeado.id);
         let oldContrasenia = userId.contrasenia;
         let oldImagen = userId.imagen;
         let nuevaImg= req.file ? req.file.filename : oldImagen;
