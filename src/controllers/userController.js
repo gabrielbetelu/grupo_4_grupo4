@@ -5,7 +5,7 @@ const sequelize = db.sequelize;
 const rutaJSON = path.resolve('./src/database/users.json');
 let datos = JSON.parse (fs.readFileSync(rutaJSON));
 
-const Users = db.Userconst; 
+const Users = db.User; 
 const CategoriaUser = db.CategoriaUser;
 
 // Leo el JSON de categoriasUser
