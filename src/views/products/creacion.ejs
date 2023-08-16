@@ -23,6 +23,16 @@
             </div>           
             <div class="categoriaEdicion">
                 <p>Categorías</p>
+
+                <label for="tablaCategorias">Para seleccionar más de una categoría mantener presionada la tecla control</label>
+                <select multiple class="form-cat" name="categoria" id="tablaCategorias">
+                    <option value="" disabled selected required>- Seleccione categorías - </option>
+                        <% nameCategorias.forEach(categoria => { %>
+                        <option value="<%= categoria.id %>"><%= categoria.categoria %></option>
+                        <% }); %>
+                </select>
+                  
+                <!--
                 <div class="checkboxEdicion">
                     <input type="checkbox" name="categoria" value="abrigo" id="abrigos">
                     <label for="abrigos">Abrigos</label>
@@ -58,7 +68,7 @@
                 <div class="checkboxEdicion">
                     <input type="checkbox" name="categoria" value="ninio" id="ninio">
                     <label for="Ninio">Niño</label>
-                </div>
+                </div> -->
             <div class="precioEdicion">
                 <input type="number" name="precio" value="precio" placeholder="  Precio del producto">
             </div>           

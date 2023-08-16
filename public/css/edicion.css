@@ -103,10 +103,16 @@
     padding-top: 16px;
 }
 
+.mainEdicion .edicion-form .categoriaEdicion label {
+    font-size: 14px;
+    font-style: oblique;
+    text-align: center;
+}
+
 .mainEdicion .edicion-form .categoriaEdicion {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     padding-bottom: 20px;
     border-bottom: 1px solid;
 }
@@ -116,6 +122,7 @@
     font-size: 17px;
     font-style: oblique;
     text-align: center;
+    margin-bottom: 7px;
 }
 
 .mainEdicion .edicion-form .categoriaEdicion .checkboxEdicion {
@@ -261,7 +268,21 @@ button.botonEliminar:hover{
     background-color: #7FAD58;
 }
 
+.labelCategorias{
+    justify-content: center;
+}
 
+.form-cat {
+    width: 100%;
+    height: 175px;
+    border: 1px solid grey;
+    margin: 8px 0px 2px 0px;
+    padding: 8px 0px;
+    background: #232c1c;
+    font-size: 13px;
+    font-weight: lighter;
+    color: #c79430;
+  }
 
 @media (min-width : 481px) {
     .edicion-form h5 {
@@ -292,6 +313,7 @@ button.botonEliminar:hover{
     .mainEdicion .edicion-form .categoriaEdicion p {
         font-size: 20px;
     }
+    
     form.deleteProdForm {
         width: 16.2%;
     }

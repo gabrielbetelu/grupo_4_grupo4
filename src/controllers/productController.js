@@ -13,6 +13,7 @@ const Marca = db.Marca;
 const Talles = db.Talle;
 const Colores = db.Color;
 const CategoriasProduct = db.CategoriaProduct;
+const CategoriaProducto = db.CategoriaProducto;
 
 
 
@@ -46,14 +47,17 @@ module.exports = {
         return res.render('./products/productos' , {prod : productos})
         
     },
-    edicion: (req, res) => {
+    edicion: async (req, res) => {
         console.log("Entró por edicion")
-        return res.render('./products/edicion' , {prod : "vacio"})
+        const nameCategorias = await CategoriasProduct.findAll();
+        return res.render('./products/edicion', {nameCategorias : nameCategorias, prod : "vacio"});  
+        
         
     },
-    creacion: (req, res) => {
+    creacion: async (req, res) => {
         console.log("Entró por creacion")
-        return res.render('./products/creacion')
+        const nameCategorias = await CategoriasProduct.findAll();
+        return res.render('./products/creacion', {nameCategorias : nameCategorias});         
          
     },
     /*processCreate: (req, res) => {
@@ -78,16 +82,18 @@ module.exports = {
         return res.render('products/creacion')*/
         processCreate: async (req, res) => {
             console.log("entraste por creacion de item");
+            console.log(req.body)
             let arrayImg = [];
             if (req.files.length > 0) {
                 req.files.forEach((file) => {
                     arrayImg.push("/images/" + file.filename);                        
             })
+        
             
             stringImg = JSON.stringify(arrayImg);
             console.log(stringImg)
             try {
-                await Products.create({
+                const newProducts = await Products.create({
                 nombre_producto: req.body.nombre,
                 detalle: req.body.descripcion,
                 imagenes_producto: stringImg,
@@ -95,14 +101,28 @@ module.exports = {
                 id_marca: parseInt(1),
                 borrado: false
                 })
+                console.log(req.body.categoria[0])
+                console.log(newProducts.id)
+
+                for (let i = 0; i < req.body.categoria.length; i++) {
+                    console.log(req.body.categoria[i])
+
+                        await CategoriaProducto.create({
+                        id_product: newProducts.id, 
+                        id_categoriaproduct: req.body.categoria[i]
+                    })
+                }
                 
+                /*await CategoriaProducto.create({
+                    id_product: newProducts.id, 
+                    id_categoriaproduct: req.body.categoria[0]
+                })*/
             } catch (error) {
                 console.log(error)
                 
             }       
-            
-            
-            return res.render('products/creacion')
+            const nameCategorias = await CategoriasProduct.findAll();
+            return res.render('./products/creacion', {nameCategorias : nameCategorias});   
             }
         },   
                               
