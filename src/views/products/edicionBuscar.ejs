@@ -8,10 +8,19 @@
             <h5>Edición de producto</h5>
             <div class="buscaEdit">
                 <label class= "codProd" for="codigo"> Buscar producto por código</label>
-                <input type="text" name="codigo" id ="codigo" placeholder="  Codigo de producto" >
+                <input type="text" name="texto" id ="codigo" placeholder=" Ingresá el nombre del producto a buscar" >
                 <button class="buscadorEdicion" type="submit">
                     <i id="lupa-edicion" class="fa-solid fa-magnifying-glass"></i>
                 </button>                
+            </div>
+            <div>
+                <select class="form-usu" name="categoria" id="selectorId">
+                    <option value="" disabled selected required>- Seleccione la categoria - </option>
+                    <% nameProducts.forEach(product => { %>
+                    <option value="<%= product.id %>"><%= product.nombre_producto %></option>
+                    <% }); %>
+                </select>
+
             </div>
         </form>
         

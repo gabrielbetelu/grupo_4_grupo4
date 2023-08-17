@@ -2,8 +2,10 @@ const fs = require ('fs');
 const path = require ('path');
 const db = require('../database/models');
 const sequelize = db.sequelize;
+const Op = db.Sequelize.Op
 const rutaJSON = path.resolve('./src/database/products.json');
 const productos = JSON.parse (fs.readFileSync(rutaJSON));
+
 
 const Products = db.Product;
 const ProductTalleColor = db.ProductTalleColor;
@@ -47,16 +49,31 @@ module.exports = {
     },
     edicion: async (req, res) => {
         console.log("Entró por edicion")
-        const nameCategorias = await CategoriasProduct.findAll();
-        return res.render('./products/edicion', {nameCategorias : nameCategorias, prod : "vacio"});  
-        
-        
+        //try {
+        //    const nameProducts = await Products.findAll();
+            //return res.render('./products/edicion', {nameProducts : nameProducts, prod : "vacio"});  
+            return res.render('./products/edicionbuscar');  
+    //    } catch (error) {
+    //        console.log(error)
+    //    }       
+    },
+    buscar: async (req, res) => {
+        console.log("Entró por buscador")
+        try {
+            const nameProducts = await Products.findAll();
+            return res.render('./products/edicion', {nameProducts : nameProducts, prod : "vacio"});  
+        } catch (error) {
+            console.log(error)
+        }       
     },
     creacion: async (req, res) => {
         console.log("Entró por creacion")
-        const nameCategorias = await CategoriasProduct.findAll();
-        return res.render('./products/creacion', {nameCategorias : nameCategorias});         
-         
+        try {
+            const nameCategorias = await CategoriasProduct.findAll();
+            return res.render('./products/creacion', {nameCategorias : nameCategorias}); 
+        } catch (error) {
+            console.log(error)
+        }    
     },
     /*processCreate: (req, res) => {
         console.log("entraste por creacion de item");
@@ -126,15 +143,27 @@ module.exports = {
                               
     
 
-    editId: (req , res)=> {
-        console.log("entraste a buscar el item" , req.body.codigo);
-        let productoNoEncontrado = true;
-        for (i = 0 ; i < products.length ; i++) {
+    editId: async(req , res)=> {
+        console.log("entraste a buscar el item" , req.body.texto);
+        try {
+            const texto = req.body.texto
+            const productosBuscados = await Products.findAll({
+                where: {
+                    nombre_producto: {
+                        [Op.like]: '%' + req.body.texto + '%'}}
+            })
+            console.log(productosBuscados.dataValues)
+            return res.render('./products/edicionproducto', {prod: productosBuscados})
+        } catch (error) {
+            console.log(error)
+        }
+        //let productoNoEncontrado = true;
+        /*for (i = 0 ; i < products.length ; i++) {
             products[i].id == req.body.codigo ? productoNoEncontrado = false : "";
         }
         if (req.body.codigo == '' || productoNoEncontrado) {return res.render('./products/edicion' , {prod : "vacio"})};
-        const producto = products.find (elemento => elemento.id == req.body.codigo);
-        return res.render('./products/edicion', {prod: producto})
+        const producto = products.find (elemento => elemento.id == req.body.codigo);*/
+        
     },
 
     processEdit: (req , res)=> {

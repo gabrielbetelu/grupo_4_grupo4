@@ -6,7 +6,8 @@
     <main class="mainEdicion">
         <form class="edicion-form" action="/product/producto/:id/edit?_method=PUT" method="POST" enctype="multipart/form-data" >
             <div id="edicionInvisible">
-                <% if (prod == "vacio") {%>
+                <% console.log(prod)
+                if (prod == "vacio") {%>
                     <input type="text" name="id">
                     <%} else {%>
                     <input type="text" name="id" value="<%=prod.id%>" placeholder="  Nombre del producto" >
