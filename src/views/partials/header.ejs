@@ -30,7 +30,7 @@
             <%}%>
 
             <!--    *******************************************   -->
-            <% if(locals.isLogged && locals.userLogged.categoria_user == "administrador") {%> 
+            <% if(locals.isLogged && locals.userLogged.id_categoria_user == 1) {%> 
                 <div id="productosCargaEdicion">
                     <a href = "/product/creacion"><i class="fa-regular fa-square-plus"></i></a>
                     <a href = "/product/edicion"><i class="fa-regular fa-pen-to-square"></i></a>
