@@ -232,17 +232,43 @@ module.exports = {
             }
     },
 
-    eliminarPerfil: (req, res) => {
+    eliminarPerfil: async (req, res) => {
         console.log("entraste a eliminar el perfil" , req.params.id);
-        const pefilEliminado = datos.find (elemento => elemento.id == req.params.id);
+        try {
+            const perfilEliminado = await Users.findByPk(req.params.id);
+            return res.render('./users/userDelete', {perfilEdit: perfilEliminado.dataValues}) 
+                
+            
+            
+        } catch (error) {
+            console.log(error)    
+        }
+       
+        /*const pefilEliminado = datos.find (elemento => elemento.id == req.params.id);
         pefilEliminado.borrado = true;
-        fs.writeFileSync(path.resolve(__dirname, '../database/users.json'),JSON.stringify(datos, null , 2));
-        req.session.destroy();
+        fs.writeFileSync(path.resolve(__dirname, '../database/users.json'),JSON.stringify(datos, null , 2));*/
+        
+        /*req.session.destroy();
         res.clearCookie('recordame');
+        const usuarioEliminado = await Users.destroy()
         datos = JSON.parse (fs.readFileSync(rutaJSON));
-        return res.redirect('/');
+        return res.redirect('/');*/
     },    
       
+    destroyPerfil: async (req, res) => {
+        console.log("entraste a eliminar el perfil" , req.params.id);
+        try {
+            req.session.destroy();
+            res.clearCookie('recordame');
+            await Users.destroy({
+                where: {id: req.params.id}  
+            })  
+            return res.redirect('/');
+        } catch (error) {
+            console.log(error)
+        }
+        
+    },
 
     categorias : async (req, res) => {
         console.log("Entró por creacion de categorias de usuarios");
