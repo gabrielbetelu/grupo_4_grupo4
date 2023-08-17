@@ -1,8 +1,6 @@
 const fs = require ('fs');
 const path = require ('path');
 const db = require('../database/models');
-const { log, Console } = require('console');
-const { isNumberObject } = require('util/types');
 const sequelize = db.sequelize;
 const rutaJSON = path.resolve('./src/database/products.json');
 const productos = JSON.parse (fs.readFileSync(rutaJSON));
