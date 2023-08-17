@@ -81,8 +81,7 @@ module.exports = {
         } catch (error) {
             console.log(error)
             
-        }
-       
+        }      
 
     },    
       
@@ -92,8 +91,7 @@ module.exports = {
             
     },
 
-    /*processRegister :(req, res) => {
-    
+    /*processRegister :(req, res) => {   
 
         const user = {
             id: datos.length+1, 
@@ -150,8 +148,7 @@ module.exports = {
             console.log(error);
         }
         res.redirect('/user/login') 
-    },
-                          
+    },                          
 
     perfil :async (req, res) => {
         try {
