@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head') %>
+<body>
+    <%- include('../partials/header') %>
+        <main class="main-registro">
+             <img src="../images/patagonia-argentina.jpg" alt="fondo" class="fondo-image" />
+             <div class="divRegistro">
+
+                <form class="registro" action="/user/perfil/delete/<%= perfilEdit.id %>?_method=DELETE" method="post" >
+                        <% if(locals.errors && oldData) { %>
+                        <% console.log(oldData) %>
+                        <% } %>
+                
+                        <h5>Registro de Usuario</h5>
+
+
+                        <div>
+                            <p>Seguro que desea borrar el usuario <strong> <em>--  <%=perfilEdit.first_name + " " + perfilEdit.last_name %>  --</em> </strong>?</p>
+                            <% console.log(perfilEdit.id) %>
+                            <% if(locals.errors && errors.nombre) { %>
+                                <p class="error"> <%= errors.nombre.msg %> </p>
+                                <% } %>
+                        </div>
+
+                        <div> 
+                            <a href="#"> <button class="botEnter" type="submit">Eliminar Usuario</button> </a>
+        <!--                    <a class="linkEditar" href="#"> <button class="botEnterTablas" type="button">Eliminar Marca</button>  </a>  -->
+                            <a class="linkEditar" href="/"> <button class="botEnterTablas" type="button">NO, volver al inicio</button>  </a>
+                        </div>
+                </form>
+               
+                
+    <!--                <div> 
+                        <a href="#"> <button class="botEnter" type="submit">Editar Marca</button> </a>
+                    </div>
+               
+                </form> 
+    --> 
+            </div>
+        </main>
+        <%- include('../partials/footer') %>
+    </body>                       
+</html>    
+      
