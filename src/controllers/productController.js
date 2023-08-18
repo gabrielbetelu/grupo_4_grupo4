@@ -154,12 +154,16 @@ module.exports = {
         try {            
             const productoBuscado = await Products.findByPk(req.body.idProducto)
             const nameCategorias = await CategoriasProduct.findAll();
-            const categoriasProducto = await Products.findByPk(req.body.idProducto , {
+            const categoriasProducto = await Products.findByPk ( req.body.idProducto ,{ 
+//                include: ['categoriasproductos']})
                 include: [{
-                    model: productos,
+                    model: CategoriasProduct,
+                    as: 'categoriasproductos',
                     attributes: ['id' , 'id_categoriaproduct']
+                    
                 }]
             })
+            console.log('categoriasProducto')
             console.log(categoriasProducto)
             return res.render('./products/edicionproducto', {prod: productoBuscado , nameCategorias : nameCategorias})
         } catch (error) {
