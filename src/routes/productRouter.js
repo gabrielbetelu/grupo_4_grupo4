@@ -30,7 +30,7 @@ router.get('/productos', controller.productos);
 //FORM EDICION
 router.get('/edicion', adminMiddleware ,controller.edicion);
 router.post('/buscar', controller.buscar);
-router.post('/producto/:id', controller.editId);
+router.post('/productoedit', controller.editId);
 router.get('/producto/:id/edit', adminMiddleware, controller.processEdit);
 router.put('/producto/:id/edit', fileUpload.any('imagen'),controller.processModificar);
 router.delete('/eliminar/:id' , controller.eliminar);

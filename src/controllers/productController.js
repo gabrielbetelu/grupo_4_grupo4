@@ -38,34 +38,39 @@ module.exports = {
     carrito:(req, res) => {
             return res.render('./products/carrito')        
     },
+
     producto : (req, res) => {
         return res.render('./products/producto')
         
     },
+
     productos : (req, res) => {
         console.log("entraste a productos" );
         return res.render('./products/productos' , {prod : productos})
         
     },
+
     edicion: async (req, res) => {
-        console.log("Entró por edicion")
-        //try {
-        //    const nameProducts = await Products.findAll();
-            //return res.render('./products/edicion', {nameProducts : nameProducts, prod : "vacio"});  
-            return res.render('./products/edicionbuscar');  
-    //    } catch (error) {
-    //        console.log(error)
-    //    }       
+        console.log("Entró por edicion")    
+        return res.render('./products/edicion');           
     },
+
     buscar: async (req, res) => {
         console.log("Entró por buscador")
         try {
-            const nameProducts = await Products.findAll();
-            return res.render('./products/edicion', {nameProducts : nameProducts, prod : "vacio"});  
+            const productosBuscados = await Products.findAll({
+                where: {
+                    nombre_producto: {
+                        [Op.like]: '%' + req.body.texto + '%'}}
+            });
+            return res.render('./products/edicionbuscar', {nameProducts: productosBuscados , prod : "vacio"});  
         } catch (error) {
             console.log(error)
         }       
-    },
+    },            
+
+
+
     creacion: async (req, res) => {
         console.log("Entró por creacion")
         try {
@@ -98,12 +103,12 @@ module.exports = {
         processCreate: async (req, res) => {
             console.log("entraste por creacion de item");
             console.log(req.body)
+            console.log(req.files)
             let arrayImg = [];
             if (req.files.length > 0) {
                 req.files.forEach((file) => {
                     arrayImg.push("/images/" + file.filename);                        
-            })
-        
+            })      
             
             stringImg = JSON.stringify(arrayImg);
             console.log(stringImg)
@@ -116,7 +121,7 @@ module.exports = {
                 id_marca: parseInt(1),
                 borrado: false
                 })
-                console.log(req.body.categoria[0])
+                console.log(req.body.categoria)
                 console.log(newProducts.id)
 
                 for (let i = 0; i < req.body.categoria.length; i++) {
@@ -137,6 +142,7 @@ module.exports = {
                 
             }       
             const nameCategorias = await CategoriasProduct.findAll();
+            console.log("Pasa a la vista de creación")
             return res.render('./products/creacion', {nameCategorias : nameCategorias});   
             }
         },   
@@ -144,16 +150,18 @@ module.exports = {
     
 
     editId: async(req , res)=> {
-        console.log("entraste a buscar el item" , req.body.texto);
-        try {
-            const texto = req.body.texto
-            const productosBuscados = await Products.findAll({
-                where: {
-                    nombre_producto: {
-                        [Op.like]: '%' + req.body.texto + '%'}}
+        console.log("entraste a buscar el item" , req.body.idProducto);
+        try {            
+            const productoBuscado = await Products.findByPk(req.body.idProducto)
+            const nameCategorias = await CategoriasProduct.findAll();
+            const categoriasProducto = await Products.findByPk(req.body.idProducto , {
+                include: [{
+                    model: productos,
+                    attributes: ['id' , 'id_categoriaproduct']
+                }]
             })
-            console.log(productosBuscados.dataValues)
-            return res.render('./products/edicionproducto', {prod: productosBuscados})
+            console.log(categoriasProducto)
+            return res.render('./products/edicionproducto', {prod: productoBuscado , nameCategorias : nameCategorias})
         } catch (error) {
             console.log(error)
         }
