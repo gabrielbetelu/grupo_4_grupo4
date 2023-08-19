@@ -156,9 +156,12 @@ module.exports = {
         try {            
             const productoBuscado = await Products.findByPk(req.body.idProducto)
             const nameCategorias = await CategoriasProduct.findAll();
+            const nameMarcas = await Marca.findAll();
             const categoriasProducto = await CategoriaProducto.findAll({
                 where: {id_product: req.body.idProducto}
             }) 
+            
+
            
 //    const categoriasProducto = await Products.findByPk ( req.body.idProducto ,{ 
 //                include: ['categoriasproductos']})
@@ -187,7 +190,7 @@ module.exports = {
     //        console.log('categoriasProducto')
     //        console.log(categoriasProducto)
 
-            return res.render('./products/edicionproducto', {prod: productoBuscado , nameCategorias : nameCategorias , categoriasProducto : categoriasProducto})
+            return res.render('./products/edicionproducto', {prod: productoBuscado , nameCategorias : nameCategorias , categoriasProducto : categoriasProducto , nameMarcas : nameMarcas})
         } catch (error) {
             console.log(error)
         }

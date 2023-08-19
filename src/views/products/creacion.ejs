@@ -35,7 +35,7 @@
                     <p>Marcas</p>
                     <%console.log(nameMarcas)%>
                     <select class="form-mar" name="marca" id="tablaMarcas">
-                        <option value="" disabled selected required>- Seleccione categorías - </option>
+                        <option value="" disabled selected required>- Seleccione marca - </option>
                             <% nameMarcas.forEach(marca => { %>
                             <option value="<%= marca.id %>"><%= marca.nombre %></option>
                             <% }); %>

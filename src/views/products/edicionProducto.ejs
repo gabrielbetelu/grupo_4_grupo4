@@ -60,6 +60,23 @@
                             ><%= categoria.categoria %></option>
                         <% }); %>
                 </select>
+            <div class="categoriaEdicion">
+                <p>Marcas</p>
+                <select class="form-mar" name="marca" id="tablaMarcas">
+                    <option value="" disabled required>- Seleccione marca - </option>
+                        <% nameMarcas.forEach(marca => { %>
+                        <option value="<%= marca.id %>"
+                            <%  for (i = 0 ; i < nameMarcas.length ; i++) {
+                            if ( marca.id == prod.id_marca) {%> selected <%}
+                        }
+                        %>
+                            
+                            
+                            ><%= marca.nombre %></option>
+                        <% }); %>
+                </select>
+
+
                 
             <div class="precioEdicion">
                 <% if (prod == "vacio") {%>
