@@ -52,7 +52,12 @@
                 <select multiple class="form-cat" name="categoria" id="tablaCategorias">
                     <option value="" disabled selected required>- Seleccione categorías - </option>
                         <% nameCategorias.forEach(categoria => { %>
-                        <option value="<%= categoria.id %>"><%= categoria.categoria %></option>
+                        <option value="<%= categoria.id %>" 
+                            <%  for (i = 0 ; i < categoriasProducto.length ; i++) {
+                                if ( categoriasProducto[i].id_categoriaproduct == categoria.id) {%> selected <%}
+                            }
+                            %>
+                            ><%= categoria.categoria %></option>
                         <% }); %>
                 </select>
                 

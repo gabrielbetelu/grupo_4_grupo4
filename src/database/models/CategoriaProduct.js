@@ -22,6 +22,7 @@ module.exports = (sequelize, dataTypes) => {
     };
 
     let config = {
+//        freezeTableName: true,
         tablename: 'categoriaproducts',
         timestamps: true,
         paranoid: true,

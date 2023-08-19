@@ -154,18 +154,38 @@ module.exports = {
         try {            
             const productoBuscado = await Products.findByPk(req.body.idProducto)
             const nameCategorias = await CategoriasProduct.findAll();
-            const categoriasProducto = await Products.findByPk ( req.body.idProducto ,{ 
+            const categoriasProducto = await CategoriaProducto.findAll({
+                where: {id_product: req.body.idProducto}
+            }) 
+           
+//    const categoriasProducto = await Products.findByPk ( req.body.idProducto ,{ 
 //                include: ['categoriasproductos']})
-                include: [{
-                    model: CategoriasProduct,
-                    as: 'categoriasproductos',
-                    attributes: ['id' , 'id_categoriaproduct']
-                    
-                }]
-            })
-            console.log('categoriasProducto')
-            console.log(categoriasProducto)
-            return res.render('./products/edicionproducto', {prod: productoBuscado , nameCategorias : nameCategorias})
+        //        include: [{
+        //            model: CategoriasProduct,
+        //            as: 'categoriasproductos',
+        //            attributes: ['id' , 'categoria']
+        //            
+        //        }]
+        //    })
+
+        //    const categoriasProducto = await Products.findByPk ( req.body.idProducto ,{ 
+//                include: ['categoriasproductos']})
+        //        include: [{
+        //            model: CategoriasProduct,
+        //            as: 'categoriasproductos',
+        //            attributes: ['id' , 'categoria']
+        //            
+        //        }]
+        //    })
+    //        console.log('productoBuscado')
+    //        console.log(productoBuscado)
+    //        console.log(productoBuscado.categoriasproductos)
+    //        console.log('nameCategorias')
+    //        console.log(nameCategorias)
+    //        console.log('categoriasProducto')
+    //        console.log(categoriasProducto)
+
+            return res.render('./products/edicionproducto', {prod: productoBuscado , nameCategorias : nameCategorias , categoriasProducto : categoriasProducto})
         } catch (error) {
             console.log(error)
         }
