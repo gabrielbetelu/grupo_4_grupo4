@@ -153,6 +153,9 @@ module.exports = {
 
     editId: async(req , res)=> {
         console.log("entraste a buscar el item" , req.body.idProducto);
+        if (!req.body.idProducto) {
+            return res.render('./products/edicion');
+        } 
         try {            
             const productoBuscado = await Products.findByPk(req.body.idProducto)
             const nameCategorias = await CategoriasProduct.findAll();
