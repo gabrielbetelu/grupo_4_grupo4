@@ -31,6 +31,15 @@
                         <option value="<%= categoria.id %>"><%= categoria.categoria %></option>
                         <% }); %>
                 </select>
+                <div class="categoriaEdicion">
+                    <p>Marcas</p>
+                    <%console.log(nameMarcas)%>
+                    <select class="form-mar" name="marca" id="tablaMarcas">
+                        <option value="" disabled selected required>- Seleccione categorías - </option>
+                            <% nameMarcas.forEach(marca => { %>
+                            <option value="<%= marca.id %>"><%= marca.nombre %></option>
+                            <% }); %>
+                    </select>
                   
                 <!--
                 <div class="checkboxEdicion">

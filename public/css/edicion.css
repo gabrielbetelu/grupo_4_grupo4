@@ -284,6 +284,17 @@ button.botonEliminar:hover{
     color: #c79430;
   }
 
+  .form-mar {
+    width: 100%;
+    border: 1px solid grey;
+    margin: 8px 0px 2px 0px;
+    padding: 8px 0px;
+    background: #232c1c;
+    font-size: 13px;
+    font-weight: lighter;
+    color: #c79430;
+  } 
+
 @media (min-width : 481px) {
     .edicion-form h5 {
         font-size: 20px;

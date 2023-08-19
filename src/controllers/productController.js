@@ -75,7 +75,8 @@ module.exports = {
         console.log("Entró por creacion")
         try {
             const nameCategorias = await CategoriasProduct.findAll();
-            return res.render('./products/creacion', {nameCategorias : nameCategorias}); 
+            const nameMarcas = await Marca.findAll();
+            return res.render('./products/creacion', {nameCategorias : nameCategorias , nameMarcas : nameMarcas}); 
         } catch (error) {
             console.log(error)
         }    
@@ -118,7 +119,7 @@ module.exports = {
                 detalle: req.body.descripcion,
                 imagenes_producto: stringImg,
                 precio_producto: req.body.precio,
-                id_marca: parseInt(1),
+                id_marca: parseInt(req.body.marca),
                 borrado: false
                 })
                 console.log(req.body.categoria)
@@ -142,8 +143,9 @@ module.exports = {
                 
             }       
             const nameCategorias = await CategoriasProduct.findAll();
+            const nameMarcas = await Marca.findAll();
             console.log("Pasa a la vista de creación")
-            return res.render('./products/creacion', {nameCategorias : nameCategorias});   
+            return res.render('./products/creacion', {nameCategorias : nameCategorias , nameMarcas : nameMarcas});   
             }
         },   
                               
