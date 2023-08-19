@@ -103,8 +103,6 @@ module.exports = {
         return res.render('products/creacion')*/
         processCreate: async (req, res) => {
             console.log("entraste por creacion de item");
-            console.log(req.body)
-            console.log(req.files)
             let arrayImg = [];
             if (req.files.length > 0) {
                 req.files.forEach((file) => {
@@ -122,11 +120,11 @@ module.exports = {
                 id_marca: parseInt(req.body.marca),
                 borrado: false
                 })
-                console.log(req.body.categoria)
-                console.log(newProducts.id)
+        //        console.log(req.body.categoria)
+        //        console.log(newProducts.id)
 
                 for (let i = 0; i < req.body.categoria.length; i++) {
-                    console.log(req.body.categoria[i])
+        //            console.log(req.body.categoria[i])
 
                         await CategoriaProducto.create({
                         id_product: newProducts.id, 
@@ -157,12 +155,22 @@ module.exports = {
             return res.render('./products/edicion');
         } 
         try {            
-            const productoBuscado = await Products.findByPk(req.body.idProducto)
+    //        const productoBuscado = await Products.findByPk(req.body.idProducto)
+            const productoBuscado = await Products.findByPk ( req.body.idProducto ,{ 
+        //                include: ['categoriasproductos']})
+                        include: [{
+                            model: CategoriasProduct,
+                            as: 'categoriasproductos',
+                            attributes: ['id']
+                            
+                        }]
+                    })
+
             const nameCategorias = await CategoriasProduct.findAll();
             const nameMarcas = await Marca.findAll();
-            const categoriasProducto = await CategoriaProducto.findAll({
-                where: {id_product: req.body.idProducto}
-            }) 
+//            const categoriasProducto = await CategoriaProducto.findAll({
+//                where: {id_product: req.body.idProducto}
+ //           }) 
             
 
            
@@ -176,15 +184,44 @@ module.exports = {
         //        }]
         //    })
 
-        //    const categoriasProducto = await Products.findByPk ( req.body.idProducto ,{ 
+    //        const categoriasProducto = await Products.findByPk ( req.body.idProducto ,{ 
 //                include: ['categoriasproductos']})
-        //        include: [{
-        //            model: CategoriasProduct,
-        //            as: 'categoriasproductos',
-        //            attributes: ['id' , 'categoria']
-        //            
-        //        }]
+    //            include: [{
+    //                model: CategoriasProduct,
+    //                as: 'categoriasproductos',
+    //                attributes: ['id']
+    //                
+    //            }]
+    //        })
+        //    console.log(productoBuscado.dataValues)
+        //    const categoriasAsociadas = productoBuscado.dataValues.categoriasproductos;
+        //    categoriasAsociadas.forEach(categoriasArray => {
+        //        console.log(categoriasArray.dataValues.id)
+        //    console.log("categoriasAsociadas")
+        //    console.log(categoriasAsociadas) 
+        //    console.log(categoriasAsociadas.length)   
+        //    console.log(categoriasAsociadas[0].id)
+        //    console.log(categoriasAsociadas[1].categoria)
+
+            // Iterar sobre los arrays internos y acceder a los datos
+        //    categoriasAsociadas.forEach(categoriasArray => {
+        //        console.log(categoriasArray.dataValues.id)
+            //    console.log(categoriasArray.dataValues.categoria)
+        //    console.log("categoriasArray")    
+        //    console.log(categoriasArray)
+
+        //    for( i = 0 ; i < categoriasAsociadas.length ; i++) {
+        //        console.log(categoriasAsociadas[i].dataValues.id)
+        //        console.log(categoriasAsociadas[i].dataValues.categoria)
+        //    }
+
+
+        //    categoriasArray.forEach(categoria => {
+        //        console.log('Categoría:', categoria.categoria);
+        //    });
         //    })
+
+
     //        console.log('productoBuscado')
     //        console.log(productoBuscado)
     //        console.log(productoBuscado.categoriasproductos)
@@ -193,7 +230,9 @@ module.exports = {
     //        console.log('categoriasProducto')
     //        console.log(categoriasProducto)
 
-            return res.render('./products/edicionproducto', {prod: productoBuscado , nameCategorias : nameCategorias , categoriasProducto : categoriasProducto , nameMarcas : nameMarcas})
+            return res.render('./products/edicionproducto', {prod: productoBuscado , nameCategorias : nameCategorias , nameMarcas : nameMarcas})
+    //        return res.render('./products/edicionproducto', {prod: productoBuscado , nameCategorias : nameCategorias , categoriasProducto : categoriasProducto , nameMarcas : nameMarcas})
+
         } catch (error) {
             console.log(error)
         }

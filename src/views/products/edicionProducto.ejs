@@ -53,8 +53,8 @@
                     <option value="" disabled selected required>- Seleccione categorías - </option>
                         <% nameCategorias.forEach(categoria => { %>
                         <option value="<%= categoria.id %>" 
-                            <%  for (i = 0 ; i < categoriasProducto.length ; i++) {
-                                if ( categoriasProducto[i].id_categoriaproduct == categoria.id) {%> selected <%}
+                            <%  for (i = 0 ; i < prod.categoriasproductos.length ; i++) {
+                                if ( prod.categoriasproductos[i].id == categoria.id) {%> selected <%}
                             }
                             %>
                             ><%= categoria.categoria %></option>
