@@ -251,11 +251,17 @@ module.exports = {
         return res.render('products/edicion',{prod: productoId})
     },
 
-    processModificar: (req , res)=> {
+    processModificar: async (req , res)=> {
         console.log("entraste a modificar el item" , req.body.id);
-        const productoId = products.find (elemento => elemento.id == req.body.id);    
+        console.log(req.body)
+        console.log(req.files)
         let arrayImg = [];
-        let oldImagen = productoId.imagenes_producto;
+        
+    //    const productoId = products.find (elemento => elemento.id == req.body.id); 
+        try {
+            const productoModificado = await Products.findByPk (req.body.id);
+            console.log(productoModificado)
+            let oldImagen = productoModificado.imagenes_producto;
             if (req.files.length > 0) {
                 req.files.forEach((file) => {
                     arrayImg.push("/images/" + file.filename);                        
@@ -263,8 +269,33 @@ module.exports = {
             } else {
                 arrayImg = oldImagen;
             }
-        productoId.imagenes_producto = arrayImg;
-        for (let propiedad in req.body) {
+            await Products.update({
+                'nombre_producto': req.body.nombre,
+                'detalle': req.body.descripcion,
+                'imagenes_producto': JSON.stringify(arrayImg),
+                'precio_producto': req.body.precio,
+                'id_marca': req.body.marca
+            },{
+             where: {
+                    id: req.body.id
+                }
+            })
+            
+        } catch (error) {
+            console.log(error)
+        }
+        
+
+
+
+
+
+
+        
+        
+           
+    //    productoId.imagenes_producto = arrayImg;
+    /*    for (let propiedad in req.body) {
             if (propiedad == "id") {
                 productoId[propiedad] = Number(req.body[propiedad]) ;    
             } else if (propiedad == "guardar") {
@@ -293,6 +324,7 @@ module.exports = {
             }
         }
         fs.writeFileSync(path.resolve(__dirname, '../database/products.json'),JSON.stringify(products, null , 2));
+        */
         return res.render('products/edicion' , {prod : "vacio"})
     },
     eliminar: (req , res)=> {
