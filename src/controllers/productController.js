@@ -110,7 +110,7 @@ module.exports = {
             })      
             
             stringImg = JSON.stringify(arrayImg);
-            console.log(stringImg)
+    //        console.log(stringImg)
             try {
                 const newProducts = await Products.create({
                 nombre_producto: req.body.nombre,
@@ -155,10 +155,8 @@ module.exports = {
             return res.render('./products/edicion');
         } 
         try {            
-    //        const productoBuscado = await Products.findByPk(req.body.idProducto)
-            const productoBuscado = await Products.findByPk ( req.body.idProducto ,{ 
-        //                include: ['categoriasproductos']})
-                        include: [{
+               const productoBuscado = await Products.findByPk ( req.body.idProducto ,{ 
+                            include: [{
                             model: CategoriasProduct,
                             as: 'categoriasproductos',
                             attributes: ['id']
@@ -168,59 +166,10 @@ module.exports = {
 
             const nameCategorias = await CategoriasProduct.findAll();
             const nameMarcas = await Marca.findAll();
-//            const categoriasProducto = await CategoriaProducto.findAll({
-//                where: {id_product: req.body.idProducto}
- //           }) 
-            
-
-           
-//    const categoriasProducto = await Products.findByPk ( req.body.idProducto ,{ 
-//                include: ['categoriasproductos']})
-        //        include: [{
-        //            model: CategoriasProduct,
-        //            as: 'categoriasproductos',
-        //            attributes: ['id' , 'categoria']
-        //            
-        //        }]
-        //    })
-
-    //        const categoriasProducto = await Products.findByPk ( req.body.idProducto ,{ 
-//                include: ['categoriasproductos']})
-    //            include: [{
-    //                model: CategoriasProduct,
-    //                as: 'categoriasproductos',
-    //                attributes: ['id']
-    //                
-    //            }]
-    //        })
-        //    console.log(productoBuscado.dataValues)
-        //    const categoriasAsociadas = productoBuscado.dataValues.categoriasproductos;
-        //    categoriasAsociadas.forEach(categoriasArray => {
-        //        console.log(categoriasArray.dataValues.id)
-        //    console.log("categoriasAsociadas")
-        //    console.log(categoriasAsociadas) 
-        //    console.log(categoriasAsociadas.length)   
-        //    console.log(categoriasAsociadas[0].id)
-        //    console.log(categoriasAsociadas[1].categoria)
-
-            // Iterar sobre los arrays internos y acceder a los datos
-        //    categoriasAsociadas.forEach(categoriasArray => {
-        //        console.log(categoriasArray.dataValues.id)
-            //    console.log(categoriasArray.dataValues.categoria)
-        //    console.log("categoriasArray")    
-        //    console.log(categoriasArray)
-
-        //    for( i = 0 ; i < categoriasAsociadas.length ; i++) {
-        //        console.log(categoriasAsociadas[i].dataValues.id)
-        //        console.log(categoriasAsociadas[i].dataValues.categoria)
-        //    }
-
-
-        //    categoriasArray.forEach(categoria => {
-        //        console.log('Categoría:', categoria.categoria);
-        //    });
-        //    })
-
+            let arrayImages = [];
+            for (i = 0 ; i < JSON.parse (productoBuscado.imagenes_producto).length ; i++) {
+                arrayImages.push(JSON.parse (productoBuscado.imagenes_producto)[i])
+            } 
 
     //        console.log('productoBuscado')
     //        console.log(productoBuscado)
@@ -229,8 +178,9 @@ module.exports = {
     //        console.log(nameCategorias)
     //        console.log('categoriasProducto')
     //        console.log(categoriasProducto)
+    //        console.log(arrayImages)
 
-            return res.render('./products/edicionproducto', {prod: productoBuscado , nameCategorias : nameCategorias , nameMarcas : nameMarcas})
+            return res.render('./products/edicionproducto', {prod: productoBuscado , nameCategorias : nameCategorias , nameMarcas : nameMarcas , arrayImages : arrayImages})
     //        return res.render('./products/edicionproducto', {prod: productoBuscado , nameCategorias : nameCategorias , categoriasProducto : categoriasProducto , nameMarcas : nameMarcas})
 
         } catch (error) {
@@ -260,8 +210,12 @@ module.exports = {
     //    const productoId = products.find (elemento => elemento.id == req.body.id); 
         try {
             const productoModificado = await Products.findByPk (req.body.id);
-            console.log(productoModificado)
+
+    //        console.log("***********************************************************");
+    //        console.log(productoModificado);
             let oldImagen = productoModificado.imagenes_producto;
+    //        console.log(oldImagen);
+    //        console.log(req.files);
             if (req.files.length > 0) {
                 req.files.forEach((file) => {
                     arrayImg.push("/images/" + file.filename);                        
@@ -269,6 +223,7 @@ module.exports = {
             } else {
                 arrayImg = oldImagen;
             }
+    //        console.log(arrayImg);
             await Products.update({
                 'nombre_producto': req.body.nombre,
                 'detalle': req.body.descripcion,
@@ -283,16 +238,7 @@ module.exports = {
             
         } catch (error) {
             console.log(error)
-        }
-        
-
-
-
-
-
-
-        
-        
+        }   
            
     //    productoId.imagenes_producto = arrayImg;
     /*    for (let propiedad in req.body) {
@@ -317,8 +263,6 @@ module.exports = {
                     default:
                         break;
                 }
-                
-
 
             productoId[propiedadProducto] = req.body[propiedad];    
             }
@@ -327,6 +271,7 @@ module.exports = {
         */
         return res.render('products/edicion' , {prod : "vacio"})
     },
+
     eliminar: (req , res)=> {
         console.log("entraste a eliminar el item" , req.params.id);
         const producto = products.find (elemento => elemento.id == req.params.id);
