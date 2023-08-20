@@ -118,6 +118,17 @@
     padding-top: 10px;
   }*/
 
+  #divBotonStock {
+    margin-left:80%;
+    margin-top: 15px;
+  }
+
+  .botonStock {
+    width: 20%;
+  }
+
+
+
 @media(min-width: 1024px){
   .main-tablas .fondo-image{
     min-height: 550px;

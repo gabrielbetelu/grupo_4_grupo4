@@ -1,5 +1,3 @@
-const { TINYINT } = require("sequelize");
-
 module.exports = (sequelize, dataTypes) => {
     let alias = 'CategoriaProduct'; 
     let cols = {
@@ -22,8 +20,8 @@ module.exports = (sequelize, dataTypes) => {
     };
 
     let config = {
-//        freezeTableName: true,
-        tablename: 'categoriaproducts',
+    //    freezeTableName: true,
+        tablename: 'categoriaProducts',
         timestamps: true,
         paranoid: true,
         createdAt: 'created_at',

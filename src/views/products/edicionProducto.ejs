@@ -37,8 +37,8 @@
                         <input type="file" name="imagen" accept=".png, .jpg, .jpeg" multiple>
                         <%} else {%>
                             <div id="imagenesExistentes">                                
-                                <%  for (i = 0 ; i < JSON.parse (prod.imagenes_producto).length ; i++) {%>                                    
-                                <img id="fotosProd" src="<%= JSON.parse (prod.imagenes_producto)[i]%>" >
+                                <%  for (i = 0 ; i < arrayImages.length ; i++) {%>                                    
+                                <img id="fotosProd" src="<%= arrayImages[i]%>" >
                             <% } %>
                             </div>
                             <input id="conFotos" type="file" name="imagen" accept=".png, .jpg, .jpeg" multiple >
