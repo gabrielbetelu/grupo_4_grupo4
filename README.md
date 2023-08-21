@@ -23,19 +23,19 @@ Inspiración, fragmentos de código, etc.
 #### Archivos Wireframe(pdf) y TRELLO
 * [WIREFRAME](https://github.com/gabrielbetelu/dh_grupo4_archivos/blob/203e61af96d0ee37e8fcf580f64457701a350e80/Wireframe.pdf)
 
-* [TRELLO](https://trello.com/b/fTQanW8j/tablero-de-tareas-sprint1-grupo-4)
+* [TRELLO1](https://trello.com/b/fTQanW8j/tablero-de-tareas-sprint1-grupo-4)
 
 * [WIREFRAME (correciones del sprint 1)](https://github.com/gabrielbetelu/dh_grupo4_archivos.git)
 
-* [TRELLO] (https://trello.com/invite/b/9azon182/ATTI41d6af55005eebc1711a4a4866568d907B97F1BF/tablero-de-tareas-sprint2-grupo-4) 
+* [TRELLO2] (https://trello.com/invite/b/9azon182/ATTI41d6af55005eebc1711a4a4866568d907B97F1BF/tablero-de-tareas-sprint2-grupo-4) 
 
-* [TRELLO] (https://trello.com/b/T0Ln87A5/tablero-de-tareas-sprint3-grupo4) 
+* [TRELLO3] (https://trello.com/b/T0Ln87A5/tablero-de-tareas-sprint3-grupo4) 
 
-* [TRELLO] (https://trello.com/invite/b/Y2Ay6vTS/ATTI0ccdba305f7b38660bded8ce9f2a1f066D5E3565/tablero-de-tareas-sprint4-grupo4)
+* [TRELLO4] (https://trello.com/invite/b/Y2Ay6vTS/ATTI0ccdba305f7b38660bded8ce9f2a1f066D5E3565/tablero-de-tareas-sprint4-grupo4)
 
-* [TRELLO] (https://trello.com/invite/b/PdH9bcjy/ATTI405a68947fb9b3a0081435fab534a4b2D48F9050/tablero-de-tareas-sprint5-grupo4)
+* [TRELLO5] (https://trello.com/invite/b/PdH9bcjy/ATTI405a68947fb9b3a0081435fab534a4b2D48F9050/tablero-de-tareas-sprint5-grupo4)
 
-* [TRELLO] (https://trello.com/invite/b/vHpJ8wUq/ATTIaedaac201df84eaf91de02cd4fda512dCA5E9044/tablero-de-tareas-sprint6-grupo4)
+* [TRELLO6] (https://trello.com/invite/b/vHpJ8wUq/ATTIaedaac201df84eaf91de02cd4fda512dCA5E9044/tablero-de-tareas-sprint6-grupo4)
 
 
 
