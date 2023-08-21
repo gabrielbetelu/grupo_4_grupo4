@@ -203,7 +203,7 @@ module.exports = {
 
     processModificar: async (req , res)=> {
         console.log("entraste a modificar el item" , req.body.id);
-        console.log(req.body)
+    //    console.log(req.body)
         console.log(req.files)
         let arrayImg = [];
         
@@ -214,8 +214,8 @@ module.exports = {
     //        console.log("***********************************************************");
     //        console.log(productoModificado);
             let oldImagen = productoModificado.imagenes_producto;
-    //        console.log(oldImagen);
-    //        console.log(req.files);
+            console.log(oldImagen);
+            console.log(req.files);
             if (req.files.length > 0) {
                 req.files.forEach((file) => {
                     arrayImg.push("/images/" + file.filename);                        
@@ -223,11 +223,11 @@ module.exports = {
             } else {
                 arrayImg = oldImagen;
             }
-    //        console.log(arrayImg);
+            console.log(arrayImg);
             await Products.update({
                 'nombre_producto': req.body.nombre,
                 'detalle': req.body.descripcion,
-                'imagenes_producto': JSON.stringify(arrayImg),
+                'imagenes_producto': arrayImg,
                 'precio_producto': req.body.precio,
                 'id_marca': req.body.marca
             },{
@@ -272,12 +272,20 @@ module.exports = {
         return res.render('products/edicion' , {prod : "vacio"})
     },
 
-    eliminar: (req , res)=> {
+    eliminar: async (req , res)=> {
         console.log("entraste a eliminar el item" , req.params.id);
-        const producto = products.find (elemento => elemento.id == req.params.id);
-        producto.borrado = true;
-        fs.writeFileSync(path.resolve(__dirname, '../database/products.json'),JSON.stringify(products, null , 2));
-        return res.render('./products/edicion', {prod: producto})
+        try {
+            const productoEliminado = await Products.destroy ({
+                where: {id: req.params.id}
+            })
+            return res.render('./products/edicion', {prod: producto})
+        } catch (error) {
+            console.log(error)
+        }
+//        const producto = products.find (elemento => elemento.id == req.params.id);
+//        producto.borrado = true;
+//        fs.writeFileSync(path.resolve(__dirname, '../database/products.json'),JSON.stringify(products, null , 2));
+//        return res.render('./products/edicion', {prod: producto})
     },
 
     tablas: (req, res) => {
