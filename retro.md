@@ -178,9 +178,9 @@ El Sprint 5 fue una etapa positiva y productiva para nuestro equipo, mantuvimos 
 - Reuniones innecesarias.
  Reducir la duración de las reuniones y asegurarnos de que sean específicas y enfocadas para evitar pérdida de tiempo.
 
-## Conclusiones del Sprint 5
+## Conclusiones del Sprint 6
 
-El Sprint 5 fue un éxito gracias a nuestra excelente dinámica de equipo y nuestra disposición para mejorar constantemente. Aprendimos a dividir las tareas de manera más equitativa, mantuvimos una comunicación abierta y nos enfocamos en la calidad de Patagonic. Para el próximo sprint, implementaremos cambios para mejorar aún más nuestra planificación  y continuaremos fortaleciendo nuestra colaboración y comunicación para lograr un desarrollo exitoso del proyecto.
+El Sprint 6 fue un éxito gracias a nuestra excelente dinámica de equipo y nuestra disposición para mejorar constantemente. Aprendimos a dividir las tareas de manera más equitativa, mantuvimos una comunicación abierta y nos enfocamos en la calidad de Patagonic. Para el próximo sprint, implementaremos cambios para mejorar aún más nuestra planificación  y continuaremos fortaleciendo nuestra colaboración y comunicación para lograr un desarrollo exitoso del proyecto.
 
 
 

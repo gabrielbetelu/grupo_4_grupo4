@@ -11113,6 +11113,44 @@ Ingresó en la página /product/edicion
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /product/buscar
 Ingresó en la página /images/animacion%20logo%201.jpg
+<<<<<<< HEAD
+Ingresó en la página /user/login
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /user/login
+Ingresó en la página /
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /user/login
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /user/login
+Ingresó en la página /
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /user/login
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /user/login
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /user/login
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /user/login
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /user/login
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /user/login
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /user/registro
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /user/registro
+Ingresó en la página /user/login
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /user/login
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /user/login
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /user/registro
+Ingresó en la página /images/animacion%20logo%201.jpg
+=======
+>>>>>>> origin/gabriel
 Ingresó en la página /
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /user/registro
@@ -11123,6 +11161,13 @@ Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /user/login
 Ingresó en la página /
 Ingresó en la página /images/animacion%20logo%201.jpg
+<<<<<<< HEAD
+Ingresó en la página /tablasadmin
+Ingresó en la página /product/tablasadmin
+Ingresó en la página /
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /product/tablasadmin
+=======
 Ingresó en la página /product/edicion
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /product/buscar
@@ -11136,6 +11181,7 @@ Ingresó en la página /product/creacion
 Ingresó en la página /product/tablasadmin
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /user/logout
+>>>>>>> origin/gabriel
 Ingresó en la página /
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /user/login
@@ -11145,8 +11191,12 @@ Ingresó en la página /
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /product/tablasadmin
 Ingresó en la página /images/animacion%20logo%201.jpg
+<<<<<<< HEAD
+Ingresó en la página /
+=======
 Ingresó en la página /product/categorias
 Ingresó en la página /product/tablasadmin
+>>>>>>> origin/gabriel
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /product/categorias
 Ingresó en la página /product/tablasadmin
@@ -11154,6 +11204,11 @@ Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /product/categorias
 Ingresó en la página /product/tablasadmin
 Ingresó en la página /images/animacion%20logo%201.jpg
+<<<<<<< HEAD
+Ingresó en la página /product/colores
+Ingresó en la página /product/tablasadmin
+Ingresó en la página /images/animacion%20logo%201.jpg
+=======
 Ingresó en la página /product/categorias
 Ingresó en la página /product/tablasadmin
 Ingresó en la página /images/animacion%20logo%201.jpg
@@ -11708,6 +11763,10 @@ Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /user/logout
 Ingresó en la página /
 Ingresó en la página /images/animacion%20logo%201.jpg
+<<<<<<< HEAD
+>>>>>>> origin/gabriel
+=======
+>>>>>>> origin/anto
 Ingresó en la página /
 Ingresó en la página /images/animacion%20logo%201.jpg
 <<<<<<< HEAD
@@ -11722,20 +11781,11 @@ Ingresó en la página /user/login
 Ingresó en la página /
 Ingresó en la página /images/animacion%20logo%201.jpg
 <<<<<<< HEAD
-Ingresó en la página /product/edicion
-Ingresó en la página /images/animacion%20logo%201.jpg
-Ingresó en la página /product/buscar
-Ingresó en la página /images/animacion%20logo%201.jpg
-Ingresó en la página /product/productoedit
-Ingresó en la página /images/animacion%20logo%201.jpg
-Ingresó en la página /product/eliminar/2?_method=DELETE
-Ingresó en la página /product/creacion
-Ingresó en la página /images/animacion%20logo%201.jpg
-Ingresó en la página /product/producto
 =======
 Ingresó en la página /product/productos
 >>>>>>> origin/main
 Ingresó en la página /images/animacion%20logo%201.jpg
+>>>>>>> origin/anto
 Ingresó en la página /product/edicion
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /product/buscar
@@ -11743,33 +11793,33 @@ Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /product/productoedit
 Ingresó en la página /images/animacion%20logo%201.jpg
 <<<<<<< HEAD
-Ingresó en la página /product/eliminar/11?_method=DELETE
-Ingresó en la página /product/tablasadmin
+Ingresó en la página /user/logout
+Ingresó en la página /
 Ingresó en la página /images/animacion%20logo%201.jpg
-Ingresó en la página /product/edicion
+Ingresó en la página /user/registro
 Ingresó en la página /images/animacion%20logo%201.jpg
-Ingresó en la página /product/buscar
+Ingresó en la página /user/registro
+Ingresó en la página /user/login
 Ingresó en la página /images/animacion%20logo%201.jpg
-Ingresó en la página /product/tablasadmin
+Ingresó en la página /user/registro
 Ingresó en la página /images/animacion%20logo%201.jpg
-Ingresó en la página /product/marcas
+Ingresó en la página /user/registro
+Ingresó en la página /user/login
 Ingresó en la página /images/animacion%20logo%201.jpg
-Ingresó en la página /product/edicion
+Ingresó en la página /user/registro
 Ingresó en la página /images/animacion%20logo%201.jpg
-Ingresó en la página /product/edicion
-Ingresó en la página /product/buscar
+Ingresó en la página /user/registro
+Ingresó en la página /user/login
 Ingresó en la página /images/animacion%20logo%201.jpg
-Ingresó en la página /product/productoedit
+Ingresó en la página /user/registro
 Ingresó en la página /images/animacion%20logo%201.jpg
-Ingresó en la página /product/buscar
+Ingresó en la página /user/registro
+Ingresó en la página /user/login
 Ingresó en la página /images/animacion%20logo%201.jpg
-Ingresó en la página /product/productoedit
+Ingresó en la página /user/registro
 Ingresó en la página /images/animacion%20logo%201.jpg
-Ingresó en la página /product/producto/:id/edit?_method=PUT
-Ingresó en la página /images/animacion%20logo%201.jpg
-Ingresó en la página /product/buscar
-Ingresó en la página /images/animacion%20logo%201.jpg
-Ingresó en la página /product/productoedit
+Ingresó en la página /user/registro
+Ingresó en la página /user/login
 =======
 Ingresó en la página /product/producto/:id/edit?_method=PUT
 Ingresó en la página /images/animacion%20logo%201.jpg
@@ -12214,5 +12264,6 @@ Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /product/producto
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /product/producto
+>>>>>>> origin/anto
 Ingresó en la página /images/animacion%20logo%201.jpg
 >>>>>>> origin/main
