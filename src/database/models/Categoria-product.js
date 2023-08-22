@@ -24,7 +24,7 @@ module.exports = (sequelize, dataTypes) => {
         timestamps: true,
         freezeTableName: true,
         tableName: 'categorias-products',
-        paranoid: true,
+        paranoid: false,
         createdAt: 'created_at',
         updatedAt: 'updated_at',
         deletedAt: 'deleted_at' 

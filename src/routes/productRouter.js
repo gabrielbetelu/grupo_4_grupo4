@@ -33,7 +33,8 @@ router.post('/buscar', controller.buscar);
 router.post('/productoedit', controller.editId);
 router.get('/producto/:id/edit', adminMiddleware, controller.processEdit);
 router.put('/producto/:id/edit', fileUpload.any('imagen'),controller.processModificar);
-router.delete('/eliminar/:id' , controller.eliminar);
+router.get('/delete/:id' , controller.eliminar)
+router.delete('/eliminar/:id' , controller.destroy);
 
 //FORM CREACION
 router.get('/creacion', adminMiddleware, controller.creacion);

@@ -9,6 +9,19 @@
     align-items: center;
 }
 
+.mainEdicionDelete {
+    padding: 60px 0;
+    background-image: url(../images/patagonia-argentina.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    aspect-ratio: 3/1;
+}
+
+
 .buscaEdit {
     position: relative;
     
@@ -34,6 +47,17 @@
 #edicionInvisible {
     display: none;
 }
+
+.divDeleteProducto {
+    position: absolute;
+    top: 150px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
 
 .edicion-form {
     display: flex;
@@ -88,10 +112,6 @@
     color: #c79430;
 }
 
-
-.mainEdicion .edicion-form .imagenesEdicion {
-/*    border-bottom: 1px solid; */
-}
 
 .mainEdicion .edicion-form .imagenesEdicion p {
     height: 40px;
@@ -265,7 +285,7 @@ form.deleteProdForm {
 }
 
 #deleteProdForm {
-    width: 30%;
+    width: 70%;
 }
 
 button.botonEliminar {
