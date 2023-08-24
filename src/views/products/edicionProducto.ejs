@@ -46,7 +46,7 @@
                 </div>
                 
             </div>           
-            <div class="categoriaEdicion">
+            <div class="categoriaEdicion categoria_Edicion">
                 <p>Categorías</p>
                 <label for="tablaCategorias">Para seleccionar más de una categoría mantener presionada la tecla control</label>
                 <select multiple class="form-cat" name="categoria" id="tablaCategorias">
@@ -60,6 +60,7 @@
                             ><%= categoria.categoria %></option>
                         <% }); %>
                 </select>
+            </div>    
             <div class="categoriaEdicion">
                 <p>Marcas</p>
                 <select class="form-mar" name="marca" id="tablaMarcas">
@@ -91,25 +92,22 @@
                 <div>
                     <button class="botones botonGuardar" type="submit">Guardar</button>
                 </div>
-    <!--            <div>
-                    <form class="edicion-form" action="/product/eliminar/<%= prod.id%>?_method=DELETE" method="post">
-                        <button class="botones botonEliminar">Eliminar</button>
-                    </form>    
-                </div>
-    -->            
                 <div>
-                    <a href="/product/creacion"><button class="botones botonBuscar" type="button" >Crear</button></a>
+                    <a href="/product/creacion"><button class="botones botonBuscar" type="button" >Ir a Creación</button></a>
                 </div>
                 <div>
-                    <a href="/"><button class="botones botonCerrar" type="button" name="cerrar" value="cerrar">Cerrar</button></a>
+                    <a href="/"><button class="botones botonCerrar" type="button" name="cerrar" value="cerrar">Cerrar Ventana</button></a>
                 </div> 
             </div> 
                           
-        </form>
-        <div class="botonesEdicion botonDeleteProd">
-            <form class="edicion-form deleteProdForm" action="/product/eliminar/<%= prod.id%>?_method=DELETE" method="post">
+        </form>   
+        <div class="botonesEdicion botonDeleteProd" id="botonDeleteProd">
+            <a class="botones botonEliminar" href="/product/delete/<%= prod.id %>"> <button class="botones botonEliminar"type="button">Eliminar</button>  </a>
+
+
+        <!--        <form class="edicion-form deleteProdForm" id="deleteProdForm" action="/product/eliminar/<%= prod.id%>?_method=DELETE" method="post">
                 <button class="botones botonEliminar">Eliminar</button>
-            </form>    
+           </form>   -->  
         </div>
     </main>
     <%- include('../partials/footer') %>
