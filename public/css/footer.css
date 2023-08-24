@@ -42,23 +42,6 @@ footer .legales a {
     color: #000;
 }
 
-/*footer .servicios-cliente div.detalle-servicios{
-    width: 90%;
-    display: flex;    
-    justify-content: space-between;
-    align-items: center;
-    margin: 2px 0;
-    font-size: 6px;
-    color: #000;
-}
-
-footer .servicios-cliente a {
-    text-decoration: none;
-    margin: 2px 0;
-    font-size: 6px;
-    color: #000;
-}*/
-
 footer .redes div {
     width: 45%;
     display: flex;    
