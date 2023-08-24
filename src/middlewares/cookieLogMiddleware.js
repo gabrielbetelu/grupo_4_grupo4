@@ -1,10 +1,7 @@
-const fs = require('fs');
-const path = require('path');
 const db = require('../database/models');
-const sequelize = db.sequelize;
-//const datos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../database/users.json')));
+//const sequelize = db.sequelize;
+
 const Users = db.User; 
-//const CategoriaUser = db.CategoriaUser;
 
 const cookieExiste = async (req, res, next) => {
     try {
@@ -14,7 +11,6 @@ const cookieExiste = async (req, res, next) => {
                 correo: req.cookies.recordame
             }})
           
-            //const usuario = datos.find((row) => row.correo == req.cookies.recordame);
             delete usuario.contrasenia;
             req.session.usuarioLogeado = usuario;
         }
