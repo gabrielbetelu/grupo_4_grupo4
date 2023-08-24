@@ -1,39 +1,25 @@
 @import'register.css';
-
 @import 'carrito.css';
-
 @import 'edicion.css';
-
 @import 'footer.css';
-
 @import 'productos.css';
-
 @import 'login.css';
-
 @import 'perfiles.css';
-
 @import 'tablas.css';
-
-
 /*-----------------------------------------------*/
-
-/* ---------------------------------------------------------
+/* -----------------------------------------------------
 Paleta de colores:  verde claro   #C9F4B0
                     verde medio claro  #7AB35B
                     verde medio oscuro   #7FAD58
                     verde oscuro   #497330
                     ocre    #EBB54B
-
-
------------------------------------------------------------*/
+-------------------------------------------------------*/
 
 body {
     width: 100%;
     margin: 0;
     font-family: 'Ubuntu' , sans-serif;
 }
-
-
 
 main {
     width: 100%;
@@ -163,8 +149,6 @@ div#saludoLog {
     margin: 2px;
 }
 
-
-
 #userPerfil a {
     text-decoration: none;
     padding: 0 5px 0 5px;
@@ -174,7 +158,6 @@ div#saludoLog {
 #userPerfil a:hover {
     color:#EBB54B;
 }
-
 
 
 /* ******************************************* */
@@ -197,7 +180,6 @@ header .opciones .log-cart #productosCargaEdicion i{
 }
 
 /* ******************************************* */
-
 
 header .opciones .menu-buscador {
     width: 100%;
@@ -255,7 +237,6 @@ header .opciones .menu-buscador .area-buscar .buscador .botonLupa {
     background-color: transparent;
 }
 
-
 #logo-lupa {
     font-size: 12px;
     padding: 1px;
@@ -263,7 +244,6 @@ header .opciones .menu-buscador .area-buscar .buscador .botonLupa {
     background-color: transparen;
     border-radius: 3px;    
 }
-
 
 main {
     width: 100%;
@@ -279,7 +259,6 @@ main section {
 }
 
 /*-----------------------------------------------------*/
-
 /* ---------------seccion carrousel -----------------*/
 
 main section .carrousel {
@@ -458,10 +437,6 @@ main section .posicion {
     opacity: 0.8; 
 }
 
-
-
-/*-----------------------------------------------*/
-
 /* -------------- productos.html --------------------*/
 
 .productos {
@@ -489,12 +464,6 @@ main section .posicion {
 .productos .productos-rubros div a img{
     width: 95%;
 }
-
-
-
-/* ------------------------------------------------*/
-
-
 
 /* -------------- producto.html --------------------*/
 
@@ -666,9 +635,6 @@ article div .producto-info button.producto-boton:hover {
     }
 
     /* ******************************************* */
-
-
-
     header .opciones .menu-buscador {
         width: 50%;  
         padding: 10px 0 0 0;  
@@ -720,17 +686,11 @@ article div .producto-info button.producto-boton:hover {
     .camperasYBuzos, .pantalonesYShorts, .zapatillasYBotas, .carpasYBolsas, .mochilasYBolsos, .accesorios  {
         width: 28%;  
     }
-
-/*    .camperasYBuzos img, .pantalonesYShorts img, .zapatillasYBotas img, .carpasYBolsas img, .mochilasYBolsos img, .accesorios img {    
-        height: 20vw;           
-    }
-*/
     .camperasYBuzos h4,.camperasYBuzos h4, .pantalonesYShorts h4, .zapatillasYBotas h4, .carpasYBolsas h4, .mochilasYBolsos h4, .accesorios h4  {
         top: 40%;
     }
 
     .hombre img, .mujer img, .ninios img {        
-/*        height: 70%;    */
         width: 100%;
         aspect-ratio: 1.2/1;
     }
@@ -740,7 +700,6 @@ article div .producto-info button.producto-boton:hover {
     }
     
     .hombre, .mujer, .ninios {
-/*        width: 25%;  */
         justify-content: space-evenly;
     } 
 
