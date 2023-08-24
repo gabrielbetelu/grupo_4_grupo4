@@ -9,6 +9,8 @@ const regValidation = require('../middlewares/regValidation');
 const guestMiddleware = require('../middlewares/guestMiddleware');
 const adminMiddleware = require('../middlewares/adminMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
+const multerMiddleware = require ('../middlewares/multerMiddleware');
+const imageSizeMiddleware = require ('../middlewares/imageSizeMiddleware');
 
 const multerDiskStorage = multer.diskStorage ({
     destination: function (req, file, cb) {
@@ -34,7 +36,7 @@ router.post('/login',  controller.processLogin);
 
 //router.get('/registro', controller.registro);
 router.get('/registro', guestMiddleware, controller.registro);
-router.post('/registro', fileUpload.single('imagen'), regValidation, controller.processRegister);
+router.post('/registro', multerMiddleware.single('imagen'), imageSizeMiddleware, regValidation, controller.processRegister);
 //router.post('/registro', regValidation ,controller.processRegister);
  
 //RUTA PERFIL DE USUARIO
