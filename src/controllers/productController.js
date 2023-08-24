@@ -81,26 +81,6 @@ module.exports = {
             console.log(error)
         }    
     },
-    /*processCreate: (req, res) => {
-        console.log("entraste por creacion de item");
-        let arrayImg = [];
-        if (req.files.length > 0) {
-            req.files.forEach((file) => {
-                arrayImg.push("/images/" + file.filename);                        
-        })
-        }
-        let productoNuevo = { 
-            'id': products.length +1, 
-            'nombre_producto': req.body.nombre,
-            'detalle': req.body.descripcion,
-            'imagenes_producto': arrayImg,
-            'categoria': req.body.categoria,
-            'precio_producto': req.body.precio,
-            'borrado': false
-        }
-        products.push(productoNuevo);
-        fs.writeFileSync(path.resolve(__dirname, '../database/products.json'),JSON.stringify(products, null , 2));
-        return res.render('products/creacion')*/
         processCreate: async (req, res) => {
             console.log("entraste por creacion de item");
             let arrayImg = [];
@@ -171,35 +151,17 @@ module.exports = {
                 arrayImages.push(JSON.parse (productoBuscado.imagenes_producto)[i])
             } 
 
-    //        console.log('productoBuscado')
-    //        console.log(productoBuscado)
-    //        console.log(productoBuscado.categoriasproductos)
-    //        console.log('nameCategorias')
-    //        console.log(nameCategorias)
-    //        console.log('categoriasProducto')
-    //        console.log(categoriasProducto)
-    //        console.log(arrayImages)
-
+    
             return res.render('./products/edicionproducto', {prod: productoBuscado , nameCategorias : nameCategorias , nameMarcas : nameMarcas , arrayImages : arrayImages})
     //        return res.render('./products/edicionproducto', {prod: productoBuscado , nameCategorias : nameCategorias , categoriasProducto : categoriasProducto , nameMarcas : nameMarcas})
 
         } catch (error) {
             console.log(error)
         }
-        //let productoNoEncontrado = true;
-        /*for (i = 0 ; i < products.length ; i++) {
-            products[i].id == req.body.codigo ? productoNoEncontrado = false : "";
-        }
-        if (req.body.codigo == '' || productoNoEncontrado) {return res.render('./products/edicion' , {prod : "vacio"})};
-        const producto = products.find (elemento => elemento.id == req.body.codigo);*/
         
     },
 
-    processEdit: (req , res)=> {
-        console.log("entraste a editar el item", req.params.id);
-        const productoId = products.find (elemento => elemento.id == req.params.id);
-        return res.render('products/edicion',{prod: productoId})
-    },
+    
 
     processModificar: async (req , res)=> {
         console.log("entraste a modificar el item" , req.body.id);
@@ -213,7 +175,7 @@ module.exports = {
             
 
     //        console.log("***********************************************************");
-    //        console.log(productoModificado);
+    //        console.log(productoModificado)
             let oldImagen = productoModificado.imagenes_producto;
     //        console.log(oldImagen);
     //        console.log(req.files);
@@ -243,28 +205,20 @@ module.exports = {
         //        where: {id_product: req.body.id}
         //    }
             )
-            console.log("******************  categoriasGuardadas  ****************")
-        //    console.log(req.body.id);
-        //    console.log(relacionesGuardadas)
+        
             for (let i = 0; i < relacionesGuardadas.length; i++) {
                 let relacionEncontrada = 0;
-                let indice = 0;
+                
                 for (let j = 0 ; j < req.body.categoria.length; j++) {
                     if (req.body.id == relacionesGuardadas[i].id_product && req.body.categoria[j] == relacionesGuardadas[i].id_categoriaproduct){
-        //                console.log("******************  Categoria Encontrada  ****************")
-        //                console.log(req.body.categoria[j]);
-        //                console.log(relacionesGuardadas[i]);
+        //               
                         indice = j;
                         relacionEncontrada = 1;
                     }
                 }
                 console.log(relacionEncontrada)
                 if (relacionEncontrada == 0 && req.body.id == relacionesGuardadas[i].id_product){
-        //            console.log("**************************   Elimino   ******************************");
-        //            console.log(req.body.id);
-        //            console.log(req.body.categoria[indice]);
-        //            console.log(relacionesGuardadas[i].id);
-        //            console.log(relacionesGuardadas[i].id_product);
+        
                     await CategoriaProducto.destroy({
                         where: {id: relacionesGuardadas[i].id}
                     })
@@ -272,21 +226,19 @@ module.exports = {
             }   
 
             for (let i = 0; i < req.body.categoria.length; i++) {
-        //            console.log(req.body.categoria[i])
+        
             let relacionEncontrada = 0;
                 for (let j = 0 ; j < relacionesGuardadas.length; j++) {  
-        //            let categoriaEncontrada = 0;
+              
                     if (req.body.id == relacionesGuardadas[j].id_product && req.body.categoria[i] == relacionesGuardadas[j].id_categoriaproduct){
-        //                console.log("**************************   Relacion Encontrada   ******************************");
-        //                console.log(req.body.categoria[i]);
-        //                console.log(relacionesGuardadas[j]);
+    
                         relacionEncontrada = 1;                        
                     }
                 }
-        //        console.log(relacionEncontrada)
+       
                 if (relacionEncontrada == 0){
-        //            console.log("**************************   Agrego   ******************************");
-        //            console.log(req.body.categoria[i])
+        
+        
                         await CategoriaProducto.create({
                         id_product: req.body.id, 
                         id_categoriaproduct: req.body.categoria[i]
@@ -300,35 +252,6 @@ module.exports = {
             console.log(error)
         }   
            
-    //    productoId.imagenes_producto = arrayImg;
-    /*    for (let propiedad in req.body) {
-            if (propiedad == "id") {
-                productoId[propiedad] = Number(req.body[propiedad]) ;    
-            } else if (propiedad == "guardar") {
-            } else {
-                let propiedadProducto = ""
-                switch (propiedad) {
-                    case "nombre":
-                        propiedadProducto = "nombre_producto";
-                        break;
-                    case "descripcion":
-                        propiedadProducto = "detalle";
-                        break;
-                    case "precio":
-                        propiedadProducto = "precio_producto";
-                        break;
-                    case "categoria":
-                        propiedadProducto = "categoria";
-                        break;
-                    default:
-                        break;
-                }
-
-            productoId[propiedadProducto] = req.body[propiedad];    
-            }
-        }
-        fs.writeFileSync(path.resolve(__dirname, '../database/products.json'),JSON.stringify(products, null , 2));
-        */
         return res.render('products/edicion' , {prod : "vacio"})
     },
 
@@ -354,10 +277,7 @@ module.exports = {
         } catch (error) {
             console.log(error)
         }
-//        const producto = products.find (elemento => elemento.id == req.params.id);
-//        producto.borrado = true;
-//        fs.writeFileSync(path.resolve(__dirname, '../database/products.json'),JSON.stringify(products, null , 2));
-//        return res.render('./products/edicion', {prod: producto})
+   
     },
 
     tablas: (req, res) => {
@@ -370,21 +290,10 @@ module.exports = {
         const nameCategorias = await CategoriasProduct.findAll();
         return res.render('./products/categorias', {nameCategorias : nameCategorias , categoriaEdit : "vacio"});         
     },
-   /* processCategorias: (req, res) => {
-        console.log("entraste por creacion de categoria");
-        let categoriaNueva = { 
-            'id': categoriasProducts.length +1, 
-            'categoria': req.body.categoria,
-            'borrado': false
-        }
-        categoriasProducts.push(categoriaNueva);
-        fs.writeFileSync(path.resolve(__dirname, '../database/categoriasProduct.json'),JSON.stringify(categoriasProducts, null , 2));
-        return res.render('products/categorias')*/
-        
+           
      processCategorias:async(req,res)=>{
              console.log("entraste por proceso de creacion de categoria");
-    //         console.log(req.body.categoria)
-            
+              
             try {
                 await CategoriasProduct.create({
                     
@@ -401,13 +310,13 @@ module.exports = {
         }, 
 
     editCategorias: async (req, res) => {
-        console.log("entraste por edicion de Categoria");
-    //    console.log(req.body.categoria);
+        console.log("entraste por edicion de Categoria");  
+
         if(req.body.categoria){
         let categoriaId = parseInt(req.body.categoria);
         let categoriaEditar = await CategoriasProduct.findByPk(categoriaId);
         let categoriaEdit = categoriaEditar.dataValues
-    //    console.log(categoriaEdit)
+    
         return res.render('./products/categorias' , {categoriaEdit})
         } else {
             const nameCategorias = await CategoriasProduct.findAll();
@@ -418,7 +327,7 @@ module.exports = {
 
     updateCategorias: async (req, res) =>{
         console.log("entraste por modificacion de categoria");
-    //    console.log(req.body.categoria);
+   
         try {
             await CategoriasProduct.update({
                 'categoria': req.body.categoria,
@@ -482,17 +391,6 @@ module.exports = {
             console.log(error)
         }
         return res.redirect('/product/tablasadmin');
-
-/*        console.log("entraste por creacion de marca");
-        let marcaNueva = { 
-            'id': marcas.length +1, 
-            'nombre': req.body.marca,
-            'borrado': false
-        }
-        marcas.push(marcaNueva);
-        fs.writeFileSync(path.resolve(__dirname, '../database/marca.json'),JSON.stringify(marcas, null , 2));
-        return res.render('products/marcas')
-*/
     },
 
     editMarcas: async (req, res) => {
@@ -582,18 +480,7 @@ module.exports = {
         console.log(req.body.talle)
         return res.redirect('/product/tablasadmin');
 
-        /*
-        console.log("entraste por creacion de marca");
-        let talleNuevo = { 
-            'id': talle.length +1, 
-            'nombre': req.body.talle,
-            'descripcion': req.body.detalle,
-            'borrado': false
-        }
-        talle.push(talleNuevo);
-        fs.writeFileSync(path.resolve(__dirname, '../database/talles.json'),JSON.stringify(talle, null , 2));
-        return res.render('products/talles') */
-    },
+           },
 
     editTalles: async (req, res) => {
         console.log("entraste por edicion de Talle");
@@ -667,18 +554,7 @@ module.exports = {
     //    return res.render('./products/colores')         
     },    
     
-    /*processColores: (req, res) => {
-        console.log("entraste por creacion de color");
-        let colorNuevo = { 
-            'id': color.length +1, 
-            'nombre': req.body.color,
-            'descripcion': req.body.detalle,
-            'borrado': false
-        }
-        color.push(colorNuevo);
-        fs.writeFileSync(path.resolve(__dirname, '../database/colores.json'),JSON.stringify(color, null , 2));
-        return res.render('products/colores')
-    }*/
+    
     processColores: async (req, res) => {
         console.log("entraste por creacion de color");
         console.log(req.body.color)

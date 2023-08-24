@@ -11,7 +11,7 @@
 
                 <form class="registro" action="/user/categorias/:id" method="POST" >
                     <% if(locals.errors && oldData) { %>
-                    <% console.log(oldData) %>
+                    
                     <% } %>
             
                     <h5>Categorias de Usuarios</h5>                    
@@ -36,10 +36,9 @@
                 <% } else { %>
 
 
-
                     <form class="registro" action="/user/categorias/update/<%= categoriaEdit.id %>?_method=PUT" method="POST" >
                         <% if(locals.errors && oldData) { %>
-                        <% console.log(oldData) %>
+                     
                         <% } %>
                 
                         <h5>Categorias de Usuarios</h5>
@@ -48,7 +47,7 @@
                         <div>
                             <input class="form-usu" type="text" name="tipo" value="<%= categoriaEdit.categoria %>"  placeholder="  Categoria de Usuario">
 
-                            <% console.log(categoriaEdit.id) %>
+                            
                             
                             <% if(locals.errors && errors.nombre) { %>
                                 <p class="error"> <%=errors.nombre.msg %> </p>
