@@ -160,11 +160,6 @@ div#saludoLog {
     height: 20px;
     font-size: 17px;
     font-weight: 700;
-/*    border: 1px;
-    border-style: solid;
-    border-color:#000;
-    border-radius: 10px;*/
-/*    background-color: whitesmoke; */
     margin: 2px;
 }
 
@@ -273,7 +268,6 @@ header .opciones .menu-buscador .area-buscar .buscador .botonLupa {
 main {
     width: 100%;
     display: flex;
-    /*background: linear-gradient(to bottom,#141F00, );*/
     background-color: #283F2C;
 }
 
@@ -293,7 +287,6 @@ main section .carrousel {
     height: 35vw;
     border: solid 1px #000;
     display: flex;
-    /*justify-content: space-evenly;*/
     overflow: hidden;
 }
 
@@ -307,7 +300,6 @@ main section .controles {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /*border: solid 1px #000;*/
     width: 100%;
     margin-top: 10px;
 }
@@ -315,11 +307,7 @@ main section .atras-adelante {
     font-size: 18px;
     cursor: pointer;
 }
-/*
-main section .atras-adelante {
-    font-size: 24px;
-    margin-top: auto;
-    margin-bottom: auto;*/
+
 main section .circulo {
         width: 8px;
         height: 8px;
@@ -329,14 +317,6 @@ main section .circulo {
         cursor: pointer;
         background-color: transparent;
 }
-/*
-main section .circulo {
-    width: 1.2vw;
-    height: 1.2vw;
-    border: solid 2px #000;
-    border-radius: 10vw;
-    margin: auto 10px;
-}*/
 
 main section .enfocado {
     background-color: #000;
@@ -354,7 +334,6 @@ main section .posicion {
 
 .rubros, .generoEdad {
     width: 98%;
-/*    background-image: url("/images/trekking.jpg"); */
     display:flex;
     flex-wrap: wrap;
     justify-content: space-evenly;      
@@ -391,7 +370,6 @@ main section .posicion {
 
 .camperasYBuzos img, .pantalonesYShorts img, .zapatillasYBotas img, .carpasYBolsas img, .mochilasYBolsos img, .accesorios img {    
     width: 100%;
-/*    height: 40vw;  */
     aspect-ratio: 1.1/1;
     object-fit: cover;
     padding: 0;
@@ -408,8 +386,6 @@ main section .posicion {
 
 .hombre img, .mujer img, .ninios img {
     width: 100%;
-/*    height: 25vw;   */
-/*    aspect-ratio: 1.1/1;*/
     padding: 0;
     box-shadow: 1vw 1vw 1vw #000;
 }
@@ -424,15 +400,15 @@ main section .posicion {
     font-size: 12px;
     font-weight: 500;
 }
-.camperasYBuzos img,
-.pantalonesYShorts img,
-.zapatillasYBotas img,
-.carpasYBolsas img,
-.mochilasYBolsos img,
-.accesorios img,
-.hombre img,
-.mujer img,
-.ninios img {
+    .camperasYBuzos img,
+    .pantalonesYShorts img,
+    .zapatillasYBotas img,
+    .carpasYBolsas img,
+    .mochilasYBolsos img,
+    .accesorios img,
+    .hombre img,
+    .mujer img,
+    .ninios img {
     width: 100%;
     height: 40vw;
     padding: 0;
@@ -440,27 +416,27 @@ main section .posicion {
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.camperasYBuzos img:hover,
-.pantalonesYShorts img:hover,
-.zapatillasYBotas img:hover,
-.carpasYBolsas img:hover,
-.mochilasYBolsos img:hover,
-.accesorios img:hover,
-.hombre img:hover,
-.mujer img:hover,
-.ninios img:hover {
+    .camperasYBuzos img:hover,
+    .pantalonesYShorts img:hover,
+    .zapatillasYBotas img:hover,
+    .carpasYBolsas img:hover,
+    .mochilasYBolsos img:hover,
+    .accesorios img:hover,
+    .hombre img:hover,
+    .mujer img:hover,
+    .ninios img:hover {
     transform: scale(1.1); 
     box-shadow: 1vw 1vw 2vw #000; 
 }
-.camperasYBuzos img,
-.pantalonesYShorts img,
-.zapatillasYBotas img,
-.carpasYBolsas img,
-.mochilasYBolsos img,
-.accesorios img,
-.hombre img,
-.mujer img,
-.ninios img {
+    .camperasYBuzos img,
+    .pantalonesYShorts img,
+    .zapatillasYBotas img,
+    .carpasYBolsas img,
+    .mochilasYBolsos img,
+    .accesorios img,
+    .hombre img,
+    .mujer img,
+    .ninios img {
     width: 100%;
     height: 40vw;
     padding: 0;
@@ -468,15 +444,15 @@ main section .posicion {
     transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s;
 }
 
-.camperasYBuzos img:hover,
-.pantalonesYShorts img:hover,
-.zapatillasYBotas img:hover,
-.carpasYBolsas img:hover,
-.mochilasYBolsos img:hover,
-.accesorios img:hover,
-.hombre img:hover,
-.mujer img:hover,
-.ninios img:hover {
+    .camperasYBuzos img:hover,
+    .pantalonesYShorts img:hover,
+    .zapatillasYBotas img:hover,
+    .carpasYBolsas img:hover,
+    .mochilasYBolsos img:hover,
+    .accesorios img:hover,
+    .hombre img:hover,
+    .mujer img:hover,
+    .ninios img:hover {
     transform: scale(1.1); 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
     opacity: 0.8; 

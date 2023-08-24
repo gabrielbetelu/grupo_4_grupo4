@@ -1,11 +1,7 @@
-const fs = require ('fs');
 const path = require ('path');
 const db = require('../database/models');
 const sequelize = db.sequelize;
-const Op = db.Sequelize.Op
-const rutaJSON = path.resolve('./src/database/products.json');
-const productos = JSON.parse (fs.readFileSync(rutaJSON));
-
+const Op = sequelize.Op
 
 const Products = db.Product;
 const ProductTalleColor = db.ProductTalleColor;
@@ -14,24 +10,6 @@ const Talles = db.Talle;
 const Colores = db.Color;
 const CategoriasProduct = db.CategoriaProduct;
 const CategoriaProducto = db.CategoriaProducto;
-
-
-
-// Leo el JSON de categoriasProduct
-const rutaCategoriasJSON = path.resolve('./src/database/categoriasProduct.json');
-const categoriasProducts = JSON.parse (fs.readFileSync(rutaCategoriasJSON));
-
-// Leo el JSON de marca
-const rutaMarcaJSON = path.resolve('./src/database/marca.json');
-const marcas = JSON.parse (fs.readFileSync(rutaMarcaJSON));
-
-// Leo el JSON de talles
-const rutaTallesJSON = path.resolve('./src/database/talles.json');
-const talle = JSON.parse (fs.readFileSync(rutaTallesJSON));
-
-// Leo el JSON de colores
-const rutaColoresJSON = path.resolve('./src/database/colores.json');
-const color = JSON.parse (fs.readFileSync(rutaColoresJSON));
 
 
 module.exports = {
@@ -69,8 +47,6 @@ module.exports = {
         }       
     },            
 
-
-
     creacion: async (req, res) => {
         console.log("Entró por creacion")
         try {
@@ -90,7 +66,6 @@ module.exports = {
             })      
             
             stringImg = JSON.stringify(arrayImg);
-    //        console.log(stringImg)
             try {
                 const newProducts = await Products.create({
                 nombre_producto: req.body.nombre,
@@ -100,11 +75,10 @@ module.exports = {
                 id_marca: parseInt(req.body.marca),
                 borrado: false
                 })
-        //        console.log(req.body.categoria)
-        //        console.log(newProducts.id)
+        
 
                 for (let i = 0; i < req.body.categoria.length; i++) {
-        //            console.log(req.body.categoria[i])
+        
 
                         await CategoriaProducto.create({
                         id_product: newProducts.id, 
@@ -112,10 +86,7 @@ module.exports = {
                     })
                 }
                 
-                /*await CategoriaProducto.create({
-                    id_product: newProducts.id, 
-                    id_categoriaproduct: req.body.categoria[0]
-                })*/
+                
             } catch (error) {
                 console.log(error)
                 
@@ -126,8 +97,6 @@ module.exports = {
             return res.render('./products/creacion', {nameCategorias : nameCategorias , nameMarcas : nameMarcas});   
             }
         },   
-                              
-    
 
     editId: async(req , res)=> {
         console.log("entraste a buscar el item" , req.body.idProducto);
@@ -153,7 +122,7 @@ module.exports = {
 
     
             return res.render('./products/edicionproducto', {prod: productoBuscado , nameCategorias : nameCategorias , nameMarcas : nameMarcas , arrayImages : arrayImages})
-    //        return res.render('./products/edicionproducto', {prod: productoBuscado , nameCategorias : nameCategorias , categoriasProducto : categoriasProducto , nameMarcas : nameMarcas})
+    
 
         } catch (error) {
             console.log(error)
@@ -165,20 +134,14 @@ module.exports = {
 
     processModificar: async (req , res)=> {
         console.log("entraste a modificar el item" , req.body.id);
-    //    console.log(req.body)
-    //    console.log(req.files)
+    
         let arrayImg = [];
         
-    //    const productoId = products.find (elemento => elemento.id == req.body.id); 
+     
         try {
             const productoModificado = await Products.findByPk (req.body.id);
-            
 
-    //        console.log("***********************************************************");
-    //        console.log(productoModificado)
             let oldImagen = productoModificado.imagenes_producto;
-    //        console.log(oldImagen);
-    //        console.log(req.files);
             if (req.files.length > 0) {
                 req.files.forEach((file) => {
                     arrayImg.push("/images/" + file.filename);                        
@@ -186,7 +149,7 @@ module.exports = {
             } else {
                 arrayImg = oldImagen;
             }
-    //        console.log(arrayImg);
+    
             await Products.update({
                 'nombre_producto': req.body.nombre,
                 'detalle': req.body.descripcion,
@@ -211,7 +174,7 @@ module.exports = {
                 
                 for (let j = 0 ; j < req.body.categoria.length; j++) {
                     if (req.body.id == relacionesGuardadas[i].id_product && req.body.categoria[j] == relacionesGuardadas[i].id_categoriaproduct){
-        //               
+                 
                         indice = j;
                         relacionEncontrada = 1;
                     }
@@ -244,9 +207,7 @@ module.exports = {
                         id_categoriaproduct: req.body.categoria[i]
                     })
                 }
-            }
-
-                     
+            } 
             
         } catch (error) {
             console.log(error)
@@ -257,7 +218,7 @@ module.exports = {
 
     eliminar:  async (req , res) => {
         console.log("entraste por vista delete de producto");
-    //    console.log(req.params.id)
+   
         try {
             const productoEliminar = await Products.findByPk(req.params.id)
             console.log(productoEliminar.dataValues);
@@ -345,10 +306,10 @@ module.exports = {
 
     deleteCategoria:  async (req , res) => {
         console.log("entraste por vista delete de categoría");
-    //    console.log(req.params.id)
+    
         try {
             const categoriaEdit = await CategoriasProduct.findByPk(req.params.id)
-    //        console.log(categoriaEdit.dataValues);
+    
             return res.render('./products/categoriasDelete' , {categoriaEdit : categoriaEdit.dataValues })
         } catch (error) {
             console.log(error)
@@ -357,12 +318,12 @@ module.exports = {
 
     destroyCategoria: async (req , res) => {
         console.log("entraste por borrado lógico de categoría");
-    //    console.log(req.params.id);
+   
         try {
-            const categoriaEliminada = await CategoriasProduct.destroy ({
+             await CategoriasProduct.destroy ({
                 where: {id: req.params.id}
             })
-    //        console.log(categoriaEliminada);
+
             return res.redirect('/product/tablasadmin');
         } catch (error) {
             console.log(error)
@@ -375,7 +336,7 @@ module.exports = {
     marcas: async (req, res) => {
         console.log("Entró por edición de marcas")
         const nameMarcas = await Marca.findAll();
-    //    console.log(nameMarcas);
+   
         return res.render('./products/marcas' , {nameMarcas : nameMarcas , marcaEdit : "vacio"});
          
     },
@@ -395,12 +356,12 @@ module.exports = {
 
     editMarcas: async (req, res) => {
         console.log("entraste por edicion de marca");
-    //    console.log(req.body.marca);
+    
         if(req.body.marca){
         let marcaId = parseInt(req.body.marca);
         let marcaEditar = await Marca.findByPk(marcaId);
         let marcaEdit = marcaEditar.dataValues
-    //    console.log(marcaEdit)
+    
         return res.render('./products/marcas' , {marcaEdit})
         } else {
             const nameMarcas = await db.Marca.findAll();
@@ -429,10 +390,9 @@ module.exports = {
 
     deleteMarca:  async (req , res) => {
         console.log("entraste por vista delete de marca");
-    //    console.log(req.params.id)
         try {
             const marcaEdit = await Marca.findByPk(req.params.id)
-    //        console.log(marcaEdit.dataValues);
+   
             return res.render('./products/marcasDelete' , {marcaEdit : marcaEdit.dataValues })
         } catch (error) {
             console.log(error)
@@ -454,13 +414,11 @@ module.exports = {
     },
 
 
-
-
     talles: async (req, res) => {
         console.log("Entró por creacion de talles");
         const nameTalles = await Talles.findAll();
         return res.render('./products/talles', {nameTalles : nameTalles , categoriaEdit : "vacio"});   
-    //    return res.render('./products/talles')
+   
 
          
     },
@@ -501,7 +459,6 @@ module.exports = {
 
     updateTalles: async (req, res) => {
         console.log("entraste por modificacion de talles");
-    //    console.log(req.body.categoria);
         try {
             await Talles.update({
                 'nombre': req.body.talle,
@@ -521,10 +478,9 @@ module.exports = {
 
     deleteTalle: async (req, res) => {
         console.log("entraste por vista delete de talle");
-        //    console.log(req.params.id)
             try {
                 const talleEdit = await Talles.findByPk(req.params.id)
-        //        console.log(categoriaEdit.dataValues);
+       
                 return res.render('./products/tallesDelete' , {categoriaEdit : talleEdit.dataValues })
             } catch (error) {
                 console.log(error)
@@ -534,12 +490,12 @@ module.exports = {
 
     destroyTalle: async (req, res) => {
         console.log("entraste por borrado lógico de talle");
-    //    console.log(req.params.id);
+    
         try {
-            const talleEliminado = await Talles.destroy ({
+             await Talles.destroy ({
                 where: {id: req.params.id}
             })
-    //        console.log(talleEliminado);
+    
             return res.redirect('/product/tablasadmin');
         } catch (error) {
             console.log(error)
@@ -551,7 +507,7 @@ module.exports = {
         console.log("Entró por creacion de colores");
         const nameColores = await Colores.findAll();
         return res.render('./products/colores', {nameColores : nameColores , categoriaEdit : "vacio"});  
-    //    return res.render('./products/colores')         
+             
     },    
     
     
@@ -612,10 +568,10 @@ module.exports = {
 
     deleteColor: async (req, res) => {
         console.log("entraste por vista delete de color");
-        //    console.log(req.params.id)
+        
             try {
                 const colorEdit = await Colores.findByPk(req.params.id)
-        //        console.log(colorEdit.dataValues);
+        
                 return res.render('./products/coloresDelete' , {categoriaEdit : colorEdit.dataValues })
             } catch (error) {
                 console.log(error)
@@ -625,12 +581,12 @@ module.exports = {
 
     destroyColor: async (req, res) => {
         console.log("entraste por borrado lógico de color");
-    //    console.log(req.params.id);
+    
         try {
             const colorEliminado = await Colores.destroy ({
                 where: {id: req.params.id}
             })
-    //        console.log(talleEliminado);
+    
             return res.redirect('/product/tablasadmin');
         } catch (error) {
             console.log(error)
@@ -645,8 +601,7 @@ module.exports = {
     },
     processStock : async(req,res) => {
         console.log("entraste a proceso de carga de stock");
-        //console.log(req.body)
-        //console.log(req.body.detalle)
+        
         try {
         
         await ProductTalleColor.create({
@@ -659,7 +614,7 @@ module.exports = {
         catch (error) {
             console.log(error)
         }
-       // console.log(req.body.color)
+       
         return res.redirect('/product/tablasadmin');
     }
 

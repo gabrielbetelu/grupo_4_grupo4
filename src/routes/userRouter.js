@@ -3,8 +3,6 @@ const router = express.Router();
 const controller = require("../controllers/userController");
 const multer = require('multer');
 const path = require('path');
-//const logMiddleware = require('../middlewares/logMiddleware');
-// const {body}= require('express-validator');
 const regValidation = require('../middlewares/regValidation');
 const guestMiddleware = require('../middlewares/guestMiddleware');
 const adminMiddleware = require('../middlewares/adminMiddleware');
@@ -26,21 +24,16 @@ const multerDiskStorage = multer.diskStorage ({
 const fileUpload = multer ({storage:multerDiskStorage});
 
 
-
 //RUTAS LOGIN
-//router.get('/login', controller.login);
 router.get('/login', guestMiddleware, controller.login);
 router.post('/login',  controller.processLogin);
 
 //RUTAS REGISTRO DE USUARIO
 
-//router.get('/registro', controller.registro);
 router.get('/registro', guestMiddleware, controller.registro);
 router.post('/registro', multerMiddleware.single('imagen'), imageSizeMiddleware, regValidation, controller.processRegister);
-//router.post('/registro', regValidation ,controller.processRegister);
  
 //RUTA PERFIL DE USUARIO
-//router.get('/perfil', controller.perfil);
 router.get('/perfil', authMiddleware, controller.perfil);
 router.put('/perfil/:id', fileUpload.single ('imagen'), authMiddleware, controller.editarPerfil);
 router.delete('/perfil/eliminar/:id', controller.eliminarPerfil);

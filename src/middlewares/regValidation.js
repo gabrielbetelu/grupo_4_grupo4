@@ -2,8 +2,7 @@ const {check} = require('express-validator');
 const db = require('../database/models');
 const Users = db.User;
 const sequelize = db.sequelize;
-//console.log(body);
-//console.log(body('contrasenia'));
+
 module.exports = [
     check('nombre').notEmpty().isLength({ min:2 }).withMessage('Campo obligatorio, minimo 2 caracteres'),
     check('apellido').notEmpty().isLength({ min:2 }).withMessage('Campo obligatorio, minimo 2 caracteres'),

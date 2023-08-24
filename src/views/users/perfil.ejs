@@ -3,14 +3,11 @@
     <%- include('../partials/head') %>
 <body>
     <%- include('../partials/header') %>
-        <main class="main-perfil">
-            
+        <main class="main-perfil">            
             <img src="../images/patagonia-argentina.jpg" alt="fondo" class="fondo-image" />
             <div class="formPerfil">
-                <form class="registroPerfil" action="/user/perfil/<%=usuario.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
-            
-                    <h5>Perfil de Usuario</h5>
-                            
+                <form class="registroPerfil" action="/user/perfil/<%=usuario.id%>?_method=PUT" method="POST" enctype="multipart/form-data">            
+                    <h5>Perfil de Usuario</h5>                            
                     <div>
                         <input class="form-usu-perfil" type="text" name="nombre" value= "<%=usuario.first_name%>" placeholder="  Nombre"> 
                     </div>
@@ -29,12 +26,10 @@
                     <div> 
                         <input class="form-usu-perfil" type="email" name="email" value= "<%=usuario.correo%>" placeholder="  email@gmail.com">
                     </div> 
-
                     <div> 
                         <div class="labelPerfil">
                             <label>Imagen de perfil</label>
-                        </div>
-                        
+                        </div>                        
                     </div>
                     <div id="archivoImagenPerfil">
                             <div id="imagenExistente">                                
@@ -42,20 +37,14 @@
                             </div>
                             <input class="filePerfil" type="file" name="imagen">                           
                     </div>
-
                     <div>
-                        <h5 id="modContrasenia">Modificar Contraseña</h5> 
-                    
+                        <h5 id="modContrasenia">Modificar Contraseña</h5>                     
                         <div> 
                             <input class="form-usu-perfil" type="password" name="contrasenia"  value="" placeholder="  Contraseña">
                         </div> 
                         <div>
                             <input class="form-usu-perfil" type="password" name="confirm-contrasenia"  value= "" placeholder="  Confirmar contraseña">
                         </div>
-            <!--            </div> 
-                            <a href="#"> <button class="botEnter" type="submit">Registrarse</button> </a>
-                        </div>
-            -->  
                     </div> 
                     <div class="botonesEdicion" id="divBotonesEdicionPerfil">
                         <div>

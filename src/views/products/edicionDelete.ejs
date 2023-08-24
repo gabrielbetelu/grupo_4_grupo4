@@ -5,29 +5,19 @@
     <%- include('../partials/header') %>
         <main class="mainEdicionDelete">    
              <div class="divDeleteProducto">
-                <% console.log(prod.id) %>
                 <form class="edicion-form deleteProdForm" id="deleteProdForm" action="/product/eliminar/<%= prod.id%>?_method=DELETE" method="post">
-                        <% if(locals.errors && oldData) { %>
-                        <% console.log(oldData) %>
-                        <% } %>
-                
                         <h5>Edición de producto</h5>
-
-
                         <div>
                             <p>Seguro que desea borrar el producto <strong> <em>--  <%=prod.nombre_producto%>  --</em> </strong>?</p>
-                            <% console.log(prod.nombre_producto) %>
                             <% if(locals.errors && errors.nombre) { %>
-                                <p class="error"> <%= errors.nombre.msg %> </p>
+                            <p class="error"> <%= errors.nombre.msg %> </p>
                                 <% } %>
                         </div>
-
                         <div> 
                             <a href="#"> <button class="botEnter" type="submit">Eliminar Producto</button> </a>
                             <a class="botones botonEliminar" href="/product/edicion"> <button class="botEnterTablas" type="button">NO, ir a Edición de Productos</button>  </a>
                         </div>
                 </form>
-    
             </div>
         </main>
         <%- include('../partials/footer') %>
