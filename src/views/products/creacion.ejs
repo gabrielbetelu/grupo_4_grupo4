@@ -5,6 +5,10 @@
     <%- include('../partials/header') %>
     <main class="mainEdicion">
         <form class="edicion-form" action="/product/producto" method="POST" enctype="multipart/form-data" >
+            <% if(locals.errors && errors.nombre) {
+                console.log("***   errors  ****************************************");
+                console.log(errors);
+            }%>
             <h5> Creación de producto</h5>
             <div>
                 <input type="text" name="nombre" placeholder="  Nombre del producto">

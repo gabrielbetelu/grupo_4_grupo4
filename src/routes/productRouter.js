@@ -28,7 +28,7 @@ const multerDiskStorage = multer.diskStorage ({
     },
 })
 const limits = {fileSize: (1024 * 1024 * 3) }
-
+console.log("*****  multer  ***************************************")
 const fileUpload = multer ({storage: multerDiskStorage , limits: limits});
 
 
@@ -46,7 +46,7 @@ router.delete('/eliminar/:id' , controller.destroy);
 
 //FORM CREACION
 router.get('/creacion', adminMiddleware, controller.creacion);
-router.post('/producto', fileUpload.any('imagen'), imageSizeMiddleware , imageMiddleware , prodValidator , controller.processCreate);
+router.post('/producto', fileUpload.any('imagen'), imageMiddleware , imageSizeMiddleware, prodValidator , controller.processCreate);
 
 
 //RUTA DE ADMINISTRADOR DE TABLAS DE PRODUCTOS

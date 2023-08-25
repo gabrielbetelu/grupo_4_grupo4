@@ -4,9 +4,10 @@
 const fileFilter = (req, file , cb) => {
 
     console.log("Entró a imageMiddleware");
-    console.log(req.files);
+    
     
     if(req.files) {
+        console.log(req.files);
         for (file of req.files){
             if (file.mimetype.includes('image')) {
                 //    if (file.mimetype.includes('image') && file.fileSize < (1024 * 1024 * 3)) {            

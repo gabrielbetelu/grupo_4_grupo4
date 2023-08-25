@@ -42,7 +42,7 @@ module.exports = {
                     nombre_producto: {
                         [Op.like]: '%' + req.body.texto + '%'}}
             });
-            return res.render('./products/edicionbuscar', {nameProducts: productosBuscados , prod : "vacio"});  
+            return res.render('../products/edicionbuscar', {nameProducts: productosBuscados , prod : "vacio"});  
         } catch (error) {
             console.log(error)
         }       
@@ -63,7 +63,7 @@ module.exports = {
             console.log("errores de validationResult");
             console.log(rdoValidacion);
             if(rdoValidacion.errors.length > 0) {
-                return res.render('./product/creacion', { errors: rdoValidacion.mapped(), oldData: req.body })
+                return res.render('./products/creacion', { errors: rdoValidacion.mapped(), oldData: req.body })
                  
             }
 
