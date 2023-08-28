@@ -61,7 +61,7 @@ module.exports = {
         processCreate: async (req, res) => {
             const rdoValidacion = validationResult(req);
             console.log("errores de validationResult");
-            console.log(rdoValidacion);
+    //        console.log(rdoValidacion);
             if(rdoValidacion.errors.length > 0) {
                 return res.render('./products/creacion', { errors: rdoValidacion.mapped(), oldData: req.body })
                  
