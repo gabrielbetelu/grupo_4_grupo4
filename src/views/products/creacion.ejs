@@ -34,20 +34,28 @@
                 <label for="tablaCategorias">Para seleccionar más de una categoría mantener presionada la tecla control</label>
                 <select multiple class="form-cat" name="categoria" id="tablaCategorias">
                     <option value="" disabled selected required>- Seleccione categorías - </option>
-                        <% //nameCategorias.forEach(categoria => { %>
-                        <option value="<%//= categoria.id %>"><%=// categoria.categoria %></option>
-                        <% //}); %>
+                        <% nameCategorias.forEach(categoria => { %>
+                        <option value="<%= categoria.id %>"><%= categoria.categoria %></option>
+                        <% }); %>
                 </select>
-                <div class="categoriaEdicion">
-                    <p>Marcas</p>
-                    <select class="form-mar" name="marca" id="tablaMarcas">
-                        <option value="" disabled selected required>- Seleccione marca - </option>
-                            <% //nameMarcas.forEach(marca => { %>
-                            <option value="<%//= marca.id %>"><%//= marca.nombre %></option>
-                            <% //}); %>
-                    </select>
+                <% if(locals.errors && errors.categoria) {%>
+                    <p class="error"> <%= errors.categoria.msg %> </p>
+                <%}%>
+            </div>
 
+            <div class="categoriaEdicion">
+                <p>Marcas</p>
+                <select class="form-mar" name="marca" id="tablaMarcas">
+                    <option value="" disabled selected required>- Seleccione marca - </option>
+                        <% nameMarcas.forEach(marca => { %>
+                        <option value="<%= marca.id %>"><%= marca.nombre %></option>
+                        <% }); %>
+                </select>
+                <% if(locals.errors && errors.marca) {%>
+                    <p class="error"> <%= errors.marca.msg %> </p>
+                <%}%>
 
+            </div>
                 <div class="precioEdicion">
                 <input type="number" name="precio" value="precio" placeholder="  Precio del producto">
                 <% if(locals.errors && errors.precio) {%>

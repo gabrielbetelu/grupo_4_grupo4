@@ -1,8 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const multer = require('multer');
-const path = require('path');
-const crypto = require ('crypto');
+
 
 const controller = require("../controllers/productController");
 const adminMiddleware = require('../middlewares/adminMiddleware');
@@ -10,26 +8,8 @@ const authMiddleware = require('../middlewares/authMiddleware');
 const imageMiddleware = require('../middlewares/imageMiddleware');
 const prodValidator = require('../middlewares/prodValidator');
 const imageSizeMiddleware = require('../middlewares/imageSizeMiddleware');
+const uploadFile = require ('../middlewares/multerMiddleware')
 
-function generateRandomString(length) {
-    return crypto.randomBytes(Math.ceil(length / 2)).toString('hex').slice(0,length);
-}
-
-const multerDiskStorage = multer.diskStorage ({
-    destination: function (req, file, cb) {
-        cb(null, path.join(__dirname, '../../public/images'));
-    },
-
-    filename: function (req, file, cb) {
-
-        const uniqueName = generateRandomString(8) + Date.now() + path.extname(file.originalname); 
-        let imageName = uniqueName;
-        cb(null, imageName);
-    },
-})
-const limits = {fileSize: (1024 * 1024 * 3) }
-console.log("*****  multer  ***************************************")
-const fileUpload = multer ({storage: multerDiskStorage , limits: limits});
 
 
 router.get('/carrito', authMiddleware , controller.carrito);
@@ -40,13 +20,13 @@ router.get('/productos', controller.productos);
 router.get('/edicion', adminMiddleware ,controller.edicion);
 router.post('/buscar', controller.buscar);
 router.post('/productoedit', controller.editId);
-router.put('/producto/:id/edit', fileUpload.any('imagen'),controller.processModificar);
+router.put('/producto/:id/edit', uploadFile.any('imagen'),controller.processModificar);
 router.get('/delete/:id' , controller.eliminar)
 router.delete('/eliminar/:id' , controller.destroy);
 
 //FORM CREACION
 router.get('/creacion', adminMiddleware, controller.creacion);
-router.post('/producto', fileUpload.any('imagen'), imageMiddleware , imageSizeMiddleware, prodValidator , controller.processCreate);
+router.post('/producto', uploadFile.any('imagen'), prodValidator , controller.processCreate);
 
 
 //RUTA DE ADMINISTRADOR DE TABLAS DE PRODUCTOS

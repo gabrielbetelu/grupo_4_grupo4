@@ -63,7 +63,9 @@ module.exports = {
             console.log("errores de validationResult");
     //        console.log(rdoValidacion);
             if(rdoValidacion.errors.length > 0) {
-                return res.render('./products/creacion', { errors: rdoValidacion.mapped(), oldData: req.body })
+                const nameCategorias = await CategoriasProduct.findAll();
+                const nameMarcas = await Marca.findAll();
+                return res.render('./products/creacion', { errors: rdoValidacion.mapped(), oldData: req.body, nameCategorias : nameCategorias , nameMarcas : nameMarcas })
                  
             }
 
