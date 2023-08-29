@@ -7,14 +7,9 @@
              <img src="../images/patagonia-argentina.jpg" alt="fondo" class="fondo-image" />
              <div class="divRegistro">
              <form class="registro" action="/user/registro" method="post" enctype="multipart/form-data">
-                <% if(locals.errors && oldData) { %>
-                <% } %>
-          
-                <h5>Registro de Usuario</h5>
-                        
+                <h5>Registro de Usuario</h5>                        
                 <div>
-                    <input class="form-usu" type="text" name="nombre" value="<%= locals.oldData ? oldData.nombre : null %>"  placeholder="  Nombre">
-                    
+                    <input class="form-usu" type="text" name="nombre" value="<%= locals.oldData ? oldData.nombre : null %>"  placeholder="  Nombre">                    
                     <% if(locals.errors && errors.nombre) { %>
                         <p class="error"> <%= errors.nombre.msg %> </p>
                         <% } %>
@@ -52,14 +47,21 @@
                 <div> 
                     <div class="labelRegistro">
                         <label>Imagen de perfil</label>
-                    </div>
+                    </div>                    
                     <input class="fileRegistro" type="file" name="imagen">
                     <% if(locals.errors && errors.image) { %>
                         <p class="error"> <%= errors.image.msg %> </p>
+<<<<<<< HEAD
                         <% } %>
                 </div>
                 <div>
                 <h5 id="hContrasenia">Ingresar Contraseña</h5> 
+=======
+                    <% } %>
+                </div>
+                <div>
+                <h5 id="hContrasenia">Ingresar Contraseña</h5>               
+>>>>>>> origin/gabriel
                 <div> 
                     <input class="form-usu" type="password" name="contrasenia"  value="" placeholder="  Contraseña">
                     <% if(locals.errors && errors.contrasenia) { %>
@@ -71,8 +73,7 @@
                 </div>
                 </div> 
                     <a href="#"> <button class="botEnter" type="submit">Registrarse</button> </a>
-                </div>
-              
+                </div>              
             </form>
             </div>
         </main>

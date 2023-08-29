@@ -1,26 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const multer = require('multer');
-const path = require('path');
+
 
 const controller = require("../controllers/productController");
-//const productController = require('../controllers/productController');
 const adminMiddleware = require('../middlewares/adminMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
+const imageMiddleware = require('../middlewares/imageMiddleware');
+const prodValidator = require('../middlewares/prodValidator');
+const imageSizeMiddleware = require('../middlewares/imageSizeMiddleware');
+const uploadFile = require ('../middlewares/multerMiddleware')
 
-
-const multerDiskStorage = multer.diskStorage ({
-    destination: function (req, file, cb) {
-        cb(null, path.join(__dirname, '../../public/images'))
-    },
-
-    filename: function (req, file, cb) {
-        let imageName = Date.now() + path.extname(file.originalname);
-        cb(null, imageName);
-    },
-})
-
-const fileUpload = multer ({storage:multerDiskStorage});
 
 
 router.get('/carrito', authMiddleware , controller.carrito);
@@ -31,14 +20,13 @@ router.get('/productos', controller.productos);
 router.get('/edicion', adminMiddleware ,controller.edicion);
 router.post('/buscar', controller.buscar);
 router.post('/productoedit', controller.editId);
-router.get('/producto/:id/edit', adminMiddleware, controller.processEdit);
-router.put('/producto/:id/edit', fileUpload.any('imagen'),controller.processModificar);
+router.put('/producto/:id/edit', uploadFile.any('imagen'),controller.processModificar);
 router.get('/delete/:id' , controller.eliminar)
 router.delete('/eliminar/:id' , controller.destroy);
 
 //FORM CREACION
 router.get('/creacion', adminMiddleware, controller.creacion);
-router.post('/producto', fileUpload.any('imagen'), controller.processCreate);
+router.post('/producto', uploadFile.any('imagen'), prodValidator , controller.processCreate);
 
 
 //RUTA DE ADMINISTRADOR DE TABLAS DE PRODUCTOS

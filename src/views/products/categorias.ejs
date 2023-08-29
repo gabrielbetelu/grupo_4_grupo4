@@ -11,12 +11,9 @@
 
                 <form class="registro" action="/product/categorias/:id" method="post" >
                     <% if(locals.errors && oldData) { %>
-                    <% console.log(oldData) %>
                     <% } %>
             
                     <h5>Categorias de Productos</h5>
-
-
 
                     <div>
                         <select class="form-usu" name="categoria" id="selectorId">
@@ -34,21 +31,13 @@
                 </form>
                 <% } else { %>
 
-
-
                 <form class="registro" action="/product/categorias/update/<%= categoriaEdit.id %>?_method=PUT" method="post" >
-                    <% if(locals.errors && oldData) { %>
-                    <% console.log(oldData) %>
-                    <% } %>
-            
+                            
                     <h5>Categorias de Productos</h5>
-
                             
                     <div>
                         <input class="form-usu" type="text" name="categoria" value="<%= categoriaEdit.categoria %>"  placeholder="  Categoría">
 
-
-                        
                         <% if(locals.errors && errors.nombre) { %>
                             <p class="error"> <%= errors.nombre.msg %> </p>
                             <% } %>
@@ -61,7 +50,6 @@
                     </div>
                 
                 </form>
-
 
                 <% } %>
 

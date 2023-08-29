@@ -1,6 +1,5 @@
 const multer = require('multer');
 const path = require('path');
-
 const crypto = require ('crypto');
 
 
@@ -8,7 +7,6 @@ function generateRandomString(length) {
     return crypto.randomBytes(Math.ceil(length / 2)).toString('hex').slice(0,length);
 }
 
-// ------------------------------------------
 
 const multerDiskStorage = multer.diskStorage ({
     destination: function (req, file, cb) {
@@ -16,15 +14,12 @@ const multerDiskStorage = multer.diskStorage ({
     },
 
     filename: function (req, file, cb) {
-//   REEMPLAZADO POR uniqueName
-//        let imageName = Date.now() + path.extname(file.originalname);
+
         const uniqueName = generateRandomString(8) + Date.now() + path.extname(file.originalname); 
         let imageName = uniqueName;
         cb(null, imageName);
     },
 })
-
-
 
 // AHORA VAMOS A HACER LAS VALIDACIONES
 // O SEA QUE EL ARCHIVO SEA DEL TIPO IMAGEN 
@@ -45,13 +40,12 @@ const fileFilter = (req, file , cb) => {
     }
 }
 
-const limits = {fileSize: (1024 * 1024 * 3) }
+//const limits = {fileSize: (1024 * 1024 * 3) }
 
 
 // DE ACA PASAMOS AL MIDDLEWARE DE VALIDACIONES
 
-
-//const fileUpload = multer ({storage:multerDiskStorage , fileFilter : fileFilter});
-const fileUpload = multer ({storage:multerDiskStorage , fileFilter : fileFilter , limits : limits});
+//const fileUpload = multer ({storage:multerDiskStorage , fileFilter : fileFilter , limits : limits});
+const fileUpload = multer ({storage:multerDiskStorage , fileFilter : fileFilter});
 
 module.exports = fileUpload;
