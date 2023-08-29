@@ -65,6 +65,7 @@ module.exports = {
             if(rdoValidacion.errors.length > 0) {
                 const nameCategorias = await CategoriasProduct.findAll();
                 const nameMarcas = await Marca.findAll();
+                console.log(req.body)
                 return res.render('./products/creacion', { errors: rdoValidacion.mapped(), oldData: req.body, nameCategorias : nameCategorias , nameMarcas : nameMarcas })
                  
             }
