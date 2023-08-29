@@ -9,13 +9,13 @@
              <form class="registro" action="/user/registro" method="post" enctype="multipart/form-data">
                 <h5>Registro de Usuario</h5>                        
                 <div>
-                    <input class="form-usu" type="text" name="nombre" value="<%= locals.oldData ? oldData.nombre : null %>"  placeholder="  Nombre">                    
+                    <input class="form-usu" type="text" name="nombre"  value="<%= locals.oldData ? oldData.nombre : null %>"  placeholder="  Nombre" required>                    
                     <% if(locals.errors && errors.nombre) { %>
                         <p class="error"> <%= errors.nombre.msg %> </p>
                         <% } %>
                 </div>
                 <div> 
-                    <input class="form-usu" type="text" name="apellido" value="<%= locals.oldData ? oldData.apellido : null %>" placeholder="  Apellido">
+                    <input class="form-usu" type="text" name="apellido" value="<%= locals.oldData ? oldData.apellido : null %>" placeholder="  Apellido" required>
                     <% if(locals.errors && errors.apellido) { %>
                         <p class="error"> <%= errors.apellido.msg %> </p>
                         <% } %>
@@ -39,7 +39,7 @@
                         <% } %>
                 </div>
                 <div> 
-                    <input class="form-usu" type="text" name="email" value="<%= locals.oldData ? oldData.email : null %>" placeholder="  email@gmail.com">
+                    <input class="form-usu" type="text" name="email" value="<%= locals.oldData ? oldData.email : null %>" placeholder="  email@gmail.com" required>
                     <% if(locals.errors && errors.email) { %>
                         <p class="error"> <%= errors.email.msg %> </p>
                         <% } %>
@@ -48,7 +48,7 @@
                     <div class="labelRegistro">
                         <label>Imagen de perfil</label>
                     </div>                    
-                    <input class="fileRegistro" type="file" name="imagen">
+                    <input class="fileRegistro" type="file" name="imagen" >
                     <% if(locals.errors && errors.image) { %>
                         <p class="error"> <%= errors.image.msg %> </p>
 <<<<<<< HEAD
@@ -61,23 +61,25 @@
                 </div>
                 <div>
                 <h5 id="hContrasenia">Ingresar Contraseña</h5>               
->>>>>>> origin/gabriel
-                <div> 
-                    <input class="form-usu" type="password" name="contrasenia"  value="" placeholder="  Contraseña">
+                <div id="idContrasenia"> 
+                    <input class="form-usu" type="password" name="contrasenia"  value="" placeholder="  Contraseña" required>
                     <% if(locals.errors && errors.contrasenia) { %>
                     <p class="error"> <%= errors.contrasenia.msg %> </p>
                     <% } %>
                 </div> 
                 <div>
-                    <input class="form-usu" type="password" name="confirm-contrasenia"  value= "" placeholder="  Confirmar contraseña">
+                    <input class="form-usu" type="password" name="confirm-contrasenia"  value= "" placeholder="  Confirmar contraseña" required>
+                    <p id="confirmContrasenia" class = "error"></p>
                 </div>
                 </div> 
                     <a href="#"> <button class="botEnter" type="submit">Registrarse</button> </a>
+                    <p class = "error"></p>
                 </div>              
             </form>
             </div>
         </main>
         <%- include('../partials/footer') %>
+        <script src="/js/registro.js"></script>
     </body>                       
 </html>    
       
