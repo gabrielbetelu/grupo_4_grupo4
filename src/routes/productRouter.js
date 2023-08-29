@@ -2,24 +2,34 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const path = require('path');
+const crypto = require ('crypto');
 
 const controller = require("../controllers/productController");
 const adminMiddleware = require('../middlewares/adminMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
+const imageMiddleware = require('../middlewares/imageMiddleware');
+const prodValidator = require('../middlewares/prodValidator');
+const imageSizeMiddleware = require('../middlewares/imageSizeMiddleware');
 
+function generateRandomString(length) {
+    return crypto.randomBytes(Math.ceil(length / 2)).toString('hex').slice(0,length);
+}
 
 const multerDiskStorage = multer.diskStorage ({
     destination: function (req, file, cb) {
-        cb(null, path.join(__dirname, '../../public/images'))
+        cb(null, path.join(__dirname, '../../public/images'));
     },
 
     filename: function (req, file, cb) {
-        let imageName = Date.now() + path.extname(file.originalname);
+
+        const uniqueName = generateRandomString(8) + Date.now() + path.extname(file.originalname); 
+        let imageName = uniqueName;
         cb(null, imageName);
     },
 })
+const limits = {fileSize: (1024 * 1024 * 3) }
 
-const fileUpload = multer ({storage:multerDiskStorage});
+const fileUpload = multer ({storage: multerDiskStorage , limits: limits});
 
 
 router.get('/carrito', authMiddleware , controller.carrito);
@@ -36,7 +46,7 @@ router.delete('/eliminar/:id' , controller.destroy);
 
 //FORM CREACION
 router.get('/creacion', adminMiddleware, controller.creacion);
-router.post('/producto', fileUpload.any('imagen'), controller.processCreate);
+router.post('/producto', fileUpload.any('imagen'), imageSizeMiddleware , imageMiddleware , prodValidator , controller.processCreate);
 
 
 //RUTA DE ADMINISTRADOR DE TABLAS DE PRODUCTOS

@@ -2,6 +2,7 @@ const path = require ('path');
 const db = require('../database/models');
 const sequelize = db.sequelize;
 const Op = sequelize.Op
+const { validationResult } = require("express-validator");
 
 const Products = db.Product;
 const ProductTalleColor = db.ProductTalleColor;
@@ -58,6 +59,14 @@ module.exports = {
         }    
     },
         processCreate: async (req, res) => {
+            const rdoValidacion = validationResult(req);
+            console.log("errores de validationResult");
+            console.log(rdoValidacion);
+            if(rdoValidacion.errors.length > 0) {
+                return res.render('./product/creacion', { errors: rdoValidacion.mapped(), oldData: req.body })
+                 
+            }
+
             console.log("entraste por creacion de item");
             let arrayImg = [];
             if (req.files.length > 0) {
