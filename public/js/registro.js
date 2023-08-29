@@ -1,31 +1,101 @@
 
-console.log('estacorriendo el registro js')
-    document.addEventListener("DOMContentLoaded", () => {
+window.onload = function(){
     const form = document.querySelector(".registro");
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        const nombreInput = form.querySelector("input[name='nombre']");
-        const apellidoInput = form.querySelector("input[name='apellido']");
-        const emailInput = form.querySelector("input[name='email']");
-        const imagenInput = form.querySelector("input[name='imagen']");
-        const contraseniaInput = form.querySelector("input[name='contrasenia']");
-        const confirmContraseniaInput = form.querySelector("input[name='confirm-contrasenia']");
-        const pContrasenia = form.querySelector('#idContrasenia');
-        const pConfirmContrasenia= form.querySelector('#confirmContrasenia');
+        const nombre = document.querySelector("input[name='nombre']");
+        const apellido = document.querySelector("input[name='apellido']");
+        //const emailInput = form.querySelector("input[name='email']");
+        //const imagenInput = form.querySelector("input[name='imagen']");
+        const contraseniaInput = document.querySelector("input[name='contrasenia']");
+        const confirmContraseniaInput = document.querySelector("input[name='confirm-contrasenia']");
+        //let boton = document.querySelector('#botonSubmit');
+        let pError = document.querySelector('#errores');
+        let errorNombre = document.querySelector('#errorNombre');
+        let errorApellido = document.querySelector('#errorApellido');
+        let errorEmail = document.querySelector('#errorEmail');
+        let errorImagen = document.querySelector('#errorImagen');
+                
+        let errores = {};
 
-        let errores = [];
-
-        if (nombreInput.value.trim().length < 2) {
-            errores.push("precisa completar este campo");
+        if (nombre.value.length < 2 && nombre.value == '') {
+            errorNombre.nombre = "precisa completar este campo";
+            nombre.classList.add('is-invalid')
+            nombre.classList.remove('is-valid')
+        } else {
+            nombre.classList.remove('is-invalid')
+            nombre.classList.add('is-valid')
         }
 
-        if (apellidoInput.value.trim().length < 2) {
-            errores.push("precisa completar este campo");
+
+        if (apellido.value.length < 2) {
+            errores.apellido = "precisa completar este campo";
+            apellido.classList.add('is-invalid')
+            apellido.classList.remove('is-valid')
+        } else {
+            apellido.classList.remove('is-invalid')
+            apellido.classList.add('is-valid')
         }
         
-        //---------------
+        function esValidPassword(contrasenia) {
+            // Verificar que la contraseña tenga al menos 8 caracteres,
+            // una mayúscula, una minúscula y un símbolo
+            const tieneUpperCase = /[A-Z]/.test(contrasenia);//esto me devuelve booleanos
+            const tieneLowerCase = /[a-z]/.test(contrasenia);
+            const tieneSymbol = /[\W_]/.test(contrasenia);
+            let esValida = false;
+            if(tieneUpperCase && tieneLowerCase && tieneSymbol && contrasenia.length >=8)
+            esValida = true
+            return esValida
+        }
+
+        const ContraseniaValid = esValidPassword(contraseniaInput.value);
+        
+        if (!ContraseniaValid) {
+            console.log('contraseniano valida')
+            errores.contraseniaInput ="La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un símbolo";
+            pError.innerText = "La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un símbolo"
+        } else if (contraseniaInput.value !== confirmContraseniaInput.value) {
+            errores.confirmContraseniaInput ="Las contraseñas no coinciden";
+        }
+
+        if (Object.keys(errores).length > 0){
+            pError.innerHTML = ``
+            Object.values(errores).forEach(error => {
+                pError.innerHTML += `<p>${error}</p>`;
+            
+            
+        });
+     } else {
+            form.submit();
+        }
+    })
+}
+    
+
+
+
+
+
+//----------------
+
+        /*// Validación de la imagen 
+        const imagen = imagenInput.files[0];
+        if (!imagen) {
+            errores.push("Debe seleccionar una imagen de perfil");
+        }
+
+        if (errores.length > 0) {
+            const errores= form.querySelector(".error");
+     
+        } else {
+            form.submit();
+        }
+    });
+});*/
+//---------------
 /*
         const email = emailInput.value.trim();
         const isEmailValid = isValidEmail(email);
@@ -54,53 +124,5 @@ console.log('estacorriendo el registro js')
         //--------------
         
 
-        function isValidPassword(contrasenia) {
-            // Verificar que la contraseña tenga al menos 8 caracteres,
-            // una mayúscula, una minúscula y un símbolo
-            console.log(contrasenia)
-            const tieneUpperCase = /[A-Z]/.test(contrasenia);
-            const tieneLowerCase = /[a-z]/.test(contrasenia);
-            const tieneSymbol = /[\W_]/.test(contrasenia);
-            let esValida = false;
-            if(tieneUpperCase && tieneLowerCase && tieneSymbol && contrasenia.length >=8)
-            esValida = true
-            return esValida
-        }
-        console.log(contraseniaInput.value)
-        const isContraseniaValid = isValidPassword(contraseniaInput.value);
-        console.log(isContraseniaValid)
-        if (!isContraseniaValid) {
-            console.log('contraseniano valida')
-            errores.push("La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un símbolo");
-            pContrasenia.innerText = "La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un símbolo"
-        } else if (contraseniaInput.value != confirmContraseniaInput.value) {
-            console.log('difierencontraseñas')
-            errores.push("Las contraseñas no coinciden");
-        }
 
-
-    })})
-        
-        /*else {
-           errores.innerTexttext = "La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un símbolo";
-        }  */      
-        
-//----------------
-
-        /*// Validación de la imagen 
-        const imagen = imagenInput.files[0];
-        if (!imagen) {
-            errores.push("Debe seleccionar una imagen de perfil");
-        }
-
-        if (errores.length > 0) {
-            const errores= form.querySelector(".error");
-            errores.innerText = errores.join(", ");
-        } else {
-            form.submit();
-        }
-    });
-});*/
-
-
-
+    
