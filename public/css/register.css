@@ -109,6 +109,7 @@
     color: #c79430;
     padding: 0px 0px 5px 0px;
     margin: 0px;
+    font-size: 9px;
   }
   .is-invalid {
     border: 1px solid red    ;

@@ -7,11 +7,10 @@ window.onload = function(){
 
         const nombre = document.querySelector("input[name='nombre']");
         const apellido = document.querySelector("input[name='apellido']");
-        //const emailInput = form.querySelector("input[name='email']");
-        //const imagenInput = form.querySelector("input[name='imagen']");
+        const emailInput = form.querySelector("input[name='email']");
+        const imagenInput = form.querySelector("input[name='imagen']");
         const contraseniaInput = document.querySelector("input[name='contrasenia']");
         const confirmContraseniaInput = document.querySelector("input[name='confirm-contrasenia']");
-        //let boton = document.querySelector('#botonSubmit');
         let pError = document.querySelector('#errores');
         let errorNombre = document.querySelector('#errorNombre');
         let errorApellido = document.querySelector('#errorApellido');
@@ -20,18 +19,18 @@ window.onload = function(){
                 
         let errores = {};
 
-        if (nombre.value.length < 2 && nombre.value == '') {
-            errorNombre.nombre = "precisa completar este campo";
+        if (nombre.value.length < 2 || nombre.value == '') {
+            errorNombre.nombre = "precisa completar los campos en rojo";
             nombre.classList.add('is-invalid')
             nombre.classList.remove('is-valid')
+            
         } else {
             nombre.classList.remove('is-invalid')
             nombre.classList.add('is-valid')
         }
 
-
-        if (apellido.value.length < 2) {
-            errores.apellido = "precisa completar este campo";
+        if (apellido.value.length < 2) {          
+            errorApellido.apellido = "precisa completar los campos en rojo";
             apellido.classList.add('is-invalid')
             apellido.classList.remove('is-valid')
         } else {
@@ -61,33 +60,104 @@ window.onload = function(){
             errores.confirmContraseniaInput ="Las contraseñas no coinciden";
         }
 
+       
+     // Validar email
+        const email = emailInput.value;
+        const esEmailValid = esValidEmail(email);
+        if (!esEmailValid) {
+                errorEmail.emailInput = "Ingrese un email válido";
+        } else {
+            try {
+                const siEmailExiste = checkEmailExiste(email);
+                if (siEmailExiste) {
+                        errorEmail.emailInput = "El email ya está registrado";
+                }
+            } catch (error) {
+                    console.error('Error al verificar el email: ', error);
+                }
+            }
+    
+        // tengo que verificar si un email ya está registrado pero comooo?? a ver:
+        //checkEmailExiste boolea
+        async function checkEmailExiste(email) {
+            const User = require('./models/User'); 
+            const user = await User.findOne({ where: { correo: email } });
+        
+        return user !== null;
+        }
+
+                
+    // Validación de la imagen 
+        const imagen = imagenInput.files[0];
+        if (!imagen) {
+        errorImagen.errorImagen ="Debe seleccionar una imagen de perfil";
+        } else {
+    // Validar tipo de archivo(necesito poner mas? verifica, no recuerdo)
+        const tiposPermitidos = ['image/jpeg', 'image/png', 'image/gif']; 
+
+        if (!tiposPermitidos.includes(imagen.type)) {
+        errorImagen.imagenInput ="El tipo de archivo de imagen no es válido";
+        }
+
+        //despues validar tamaño de archivo(preguntar a gabi)
+        const maxTamano = 2 * 1024 * 1024; 
+        if (imagen.size > maxTamano) {
+        errorImagen.imagenInput ="La imagen es demasiado grande. El tamaño máximo permitido es de 2 MB";
+        }
+    }
+
         if (Object.keys(errores).length > 0){
             pError.innerHTML = ``
             Object.values(errores).forEach(error => {
-                pError.innerHTML += `<p>${error}</p>`;
-            
-            
+            pError.innerHTML += `<p>${error}</p>`;          
         });
-     } else {
+        } else {
+            pError.innerHTML = ``
             form.submit();
         }
     })
 }
+
+
+
+
+
+
+    /*const email = emailInput.value;
+    const esEmailValid = esValidEmail(email);
+    if (!esEmailValid) {
+        errores.emailInput ="Ingrese un email válido";
+    } else {
+        // Realizo una solicitud a la base de datos para verificar si el email ya está registrado--como verifico si el email ya está registrado?????????????????
+        const siEmailExiste = await checkEmailExiste(email);
+        if (siEmailExiste) {
+            errores.emailInput ="El email ya está registrado";
+        }
+    }
+    function esValidEmail(email) {
+        const arroba = email.indexOf("@");
+        const punto = email.lastIndexOf(".");
+
+    return arroba !== -1 && punto > arroba;
+    }
+
+    /*async function checkEmailExiste(email) {
+
+        return false;
+    }*/
+    
+    
+    //--------------
+    
+
+
     
 
 
 
 
 
-//----------------
-
-        /*// Validación de la imagen 
-        const imagen = imagenInput.files[0];
-        if (!imagen) {
-            errores.push("Debe seleccionar una imagen de perfil");
-        }
-
-        if (errores.length > 0) {
+      /*if (errores.length > 0) {
             const errores= form.querySelector(".error");
      
         } else {
@@ -97,32 +167,6 @@ window.onload = function(){
 });*/
 //---------------
 /*
-        const email = emailInput.value.trim();
-        const isEmailValid = isValidEmail(email);
-        if (!isEmailValid) {
-            errores.push("Ingrese un email válido");
-        } else {
-            // Realizo una solicitud a la base de datos para verificar si el email ya está registrado¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡?????????????
-            const siEmailExiste = await checkEmailExiste(email);
-            if (siEmailExiste) {
-                errores.push("El email ya está registrado");
-            }
-        }
-        function isValidEmail(email) {
-            const arroba = email.indexOf("@");
-        const punto = email.lastIndexOf(".");
-    
-        return arroba !== -1 && punto > arroba;
-        }
-
-        /*async function checkEmailExiste(email) {
-    
-            return false;
-        }*/
-        
-        
-        //--------------
-        
 
 
-    
+   */ 
