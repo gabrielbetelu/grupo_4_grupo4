@@ -1,4 +1,3 @@
-
 window.onload = function(){
     const form = document.querySelector(".registro");
 
@@ -20,7 +19,7 @@ window.onload = function(){
         let errores = {};
 
         if (nombre.value.length < 2 || nombre.value == '') {
-            errorNombre.nombre = "precisa completar los campos en rojo";
+            errorNombre.nombre= "precisa completar los campos en rojo";
             nombre.classList.add('is-invalid')
             nombre.classList.remove('is-valid')
             
@@ -62,35 +61,44 @@ window.onload = function(){
 
        
      // Validar email
-        const email = emailInput.value;
-        const esEmailValid = esValidEmail(email);
-        if (!esEmailValid) {
-                errorEmail.emailInput = "Ingrese un email válido";
-        } else {
-            try {
-                const siEmailExiste = checkEmailExiste(email);
-                if (siEmailExiste) {
-                        errorEmail.emailInput = "El email ya está registrado";
-                }
-            } catch (error) {
-                    console.error('Error al verificar el email: ', error);
-                }
-            }
-    
-        // tengo que verificar si un email ya está registrado pero comooo?? a ver:
+     // tengo que verificar si un email ya está registrado pero comooo?? a ver:
         //checkEmailExiste boolea
         async function checkEmailExiste(email) {
-            const User = require('./models/User'); 
-            const user = await User.findOne({ where: { correo: email } });
+            const User = await User.findOne({ where: { correo: email } });
         
-        return user !== null;
+        return User !== null;
+
         }
 
-                
+        const email = emailInput.value;
+        const esEmailValid = esValidEmail(email);
+
+        if (!esEmailValid) {
+            errorEmail.emailInput = "Ingrese un email válido";
+        } else {
+        try {
+        const siEmailExiste = await checkEmailExiste(email);
+        if (siEmailExiste) {
+            errorEmail.emailInput = "El email ya está registrado";
+        }
+        } catch (error) {
+             console.error('Error al verificar el email:', error);
+        }
+    }
+
+        function esValidEmail(email) {
+            const arroba = email.indexOf("@");
+            const punto = email.lastIndexOf(".");
+        
+            const esValido = arroba !== -1 && punto > arroba;
+            return esValido;
+    }
+    
+               
     // Validación de la imagen 
         const imagen = imagenInput.files[0];
         if (!imagen) {
-        errorImagen.errorImagen ="Debe seleccionar una imagen de perfil";
+        errorImagen.imagenInput ="Debe seleccionar una imagen de perfil";
         } else {
     // Validar tipo de archivo(necesito poner mas? verifica, no recuerdo)
         const tiposPermitidos = ['image/jpeg', 'image/png', 'image/gif']; 
@@ -113,60 +121,17 @@ window.onload = function(){
         });
         } else {
             pError.innerHTML = ``
-            form.submit();
+            Swal.fire(
+                'Bienvenido',
+                'Usuario regitrado!',
+                'Success'
+            ).then(()=> {
+                form.submit();
+            })
+           
         }
     })
 }
 
 
 
-
-
-
-    /*const email = emailInput.value;
-    const esEmailValid = esValidEmail(email);
-    if (!esEmailValid) {
-        errores.emailInput ="Ingrese un email válido";
-    } else {
-        // Realizo una solicitud a la base de datos para verificar si el email ya está registrado--como verifico si el email ya está registrado?????????????????
-        const siEmailExiste = await checkEmailExiste(email);
-        if (siEmailExiste) {
-            errores.emailInput ="El email ya está registrado";
-        }
-    }
-    function esValidEmail(email) {
-        const arroba = email.indexOf("@");
-        const punto = email.lastIndexOf(".");
-
-    return arroba !== -1 && punto > arroba;
-    }
-
-    /*async function checkEmailExiste(email) {
-
-        return false;
-    }*/
-    
-    
-    //--------------
-    
-
-
-    
-
-
-
-
-
-      /*if (errores.length > 0) {
-            const errores= form.querySelector(".error");
-     
-        } else {
-            form.submit();
-        }
-    });
-});*/
-//---------------
-/*
-
-
-   */ 
