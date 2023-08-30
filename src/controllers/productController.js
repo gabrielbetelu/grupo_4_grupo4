@@ -1,7 +1,8 @@
 const path = require ('path');
 const db = require('../database/models');
 const sequelize = db.sequelize;
-const Op = sequelize.Op
+const { Op } = require('sequelize');
+//const Op = sequelize.Op
 const { validationResult } = require("express-validator");
 
 const Products = db.Product;
@@ -35,14 +36,17 @@ module.exports = {
     },
 
     buscar: async (req, res) => {
-        console.log("Entró por buscador")
+        console.log("Entró por buscador");
+        console.log(req.body);
+        console.log(req.body.texto);
+        
         try {
             const productosBuscados = await Products.findAll({
                 where: {
                     nombre_producto: {
                         [Op.like]: '%' + req.body.texto + '%'}}
             });
-            return res.render('../products/edicionbuscar', {nameProducts: productosBuscados , prod : "vacio"});  
+            return res.render('./products/edicionbuscar', {nameProducts: productosBuscados , prod : "vacio"});  
         } catch (error) {
             console.log(error)
         }       
