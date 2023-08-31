@@ -1,5 +1,6 @@
   .main-registro {
     width: 100%;
+    min-height: 900px;
     position: relative;
     padding: 0;
     box-sizing: content-box;
@@ -19,7 +20,7 @@
   .fondo-image { 
     opacity: 0.5;
     width: 100%;
-    min-height: 650px;    
+    min-height: 800px;    
   } 
     
   .registro{
@@ -30,7 +31,7 @@
     margin: auto;
     margin-top: 25px;
     box-shadow: 10px 20px 20px #000;
-    padding: 10px 30px;
+    padding: 10px 20px;
     border-top: 4px solid #7FAD58;
     color: whitesmoke;
     max-width: 650px;
@@ -41,9 +42,9 @@
     text-align: center;
     height: 25px;
     margin-bottom: 5px;
-    padding-bottom: 10px;
+    padding-bottom: 8px;
     border-bottom: 1px solid;
-    font-size: 17px;
+    font-size: 16px;
     font-style: oblique;
   }
   .form-usu {
@@ -62,7 +63,7 @@
     text-align: center;
     height: 20px;
     margin-top: 10px;
-    font-size: 18px;
+    font-size: 16px;
     font-style: oblique;
   }
   input[type="file"]::file-selector-button {
@@ -94,7 +95,7 @@
     margin: 5px 0px 5px 0px;
     padding: 8px 0px;
     background: #232c1c;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: lighter;
     color: #808080;
   }
@@ -102,14 +103,14 @@
   #hContrasenia {
     margin-top: 10px;
     margin-bottom: 10px;
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .error {
     color: #c79430;
     padding: 0px 0px 5px 0px;
     margin: 0px;
-    font-size: 9px;
+    font-size: 10px;
   }
   .is-invalid {
     border: 1px solid red    ;
@@ -135,12 +136,13 @@
 
 @media(min-width: 1024px){
   .main-registro .fondo-image{
-    min-height: 550px;
+    min-height: 600px;
   }
   .registro h5 {
     margin: 0;
     margin-bottom: 5px;
     padding-bottom: 0px;
+    font-size: 14px;
     
    
   }

@@ -2,9 +2,9 @@ window.onload = function(){
     const form = document.querySelector(".registro");
 
     form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-
-        const nombre = document.querySelector("input[name='nombre']");
+        e.preventDefault();        
+   
+        const nombreInput = document.querySelector("input[name='nombre']");
         const apellido = document.querySelector("input[name='apellido']");
         const emailInput = form.querySelector("input[name='email']");
         const imagenInput = form.querySelector("input[name='imagen']");
@@ -15,21 +15,23 @@ window.onload = function(){
         let errorApellido = document.querySelector('#errorApellido');
         let errorEmail = document.querySelector('#errorEmail');
         let errorImagen = document.querySelector('#errorImagen');
-                
-        let errores = {};
+        
+        let errores = [];
 
-        if (nombre.value.length < 2 || nombre.value == '') {
-            errorNombre.nombre= "precisa completar los campos en rojo";
-            nombre.classList.add('is-invalid')
-            nombre.classList.remove('is-valid')
+        if (nombreInput.value.length < 2) {
+            errores.push('error nombre')
+            errorNombre.innerText = "precisa completar los campos en rojo";
+            nombreInput.classList.add('is-invalid')
+            nombreInput.classList.remove('is-valid')
             
         } else {
-            nombre.classList.remove('is-invalid')
-            nombre.classList.add('is-valid')
+            nombreInput.classList.remove('is-invalid')
+            nombreInput.classList.add('is-valid')
         }
 
         if (apellido.value.length < 2) {          
-            errorApellido.apellido = "precisa completar los campos en rojo";
+            errores.push('error apellido')
+            errorApellido.innerText = "precisa completar los campos en rojo";
             apellido.classList.add('is-invalid')
             apellido.classList.remove('is-valid')
         } else {
@@ -53,39 +55,37 @@ window.onload = function(){
         
         if (!ContraseniaValid) {
             console.log('contraseniano valida')
-            errores.contraseniaInput ="La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un símbolo";
+            errores.push("error contraseña");
             pError.innerText = "La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un símbolo"
         } else if (contraseniaInput.value !== confirmContraseniaInput.value) {
-            errores.confirmContraseniaInput ="Las contraseñas no coinciden";
+            errores.push ="error confirmacion contraseña";
+            pError.innerText = "Las contraseñas no coinciden"
         }
-
        
      // Validar email
-     // tengo que verificar si un email ya está registrado pero comooo?? a ver:
-        //checkEmailExiste boolea
+     // tengo que verificar si un email ya está registrado
+        //checkEmailExiste trae booleano        
         async function checkEmailExiste(email) {
-            const User = await User.findOne({ where: { correo: email } });
-        
-        return User !== null;
-
+            const user = await User.findOne({ where: { correo: email } });
+            console.log(user)
         }
-
         const email = emailInput.value;
         const esEmailValid = esValidEmail(email);
 
         if (!esEmailValid) {
-            errorEmail.emailInput = "Ingrese un email válido";
+            errorEmail.innerText = "Ingrese un email válido";
+            errores.push("email invalido" )
         } else {
         try {
         const siEmailExiste = await checkEmailExiste(email);
         if (siEmailExiste) {
-            errorEmail.emailInput = "El email ya está registrado";
+            errorEmail.innerText = "El email ya está registrado";
+            errores.push("error email registrado")
         }
         } catch (error) {
              console.error('Error al verificar el email:', error);
         }
     }
-
         function esValidEmail(email) {
             const arroba = email.indexOf("@");
             const punto = email.lastIndexOf(".");
@@ -94,33 +94,29 @@ window.onload = function(){
             return esValido;
     }
     
-               
     // Validación de la imagen 
         const imagen = imagenInput.files[0];
         if (!imagen) {
-        errorImagen.imagenInput ="Debe seleccionar una imagen de perfil";
+        errorImagen.innerText ="Debe seleccionar una imagen de perfil";
+        errores.push('error imagen')
+        
         } else {
-    // Validar tipo de archivo(necesito poner mas? verifica, no recuerdo)
         const tiposPermitidos = ['image/jpeg', 'image/png', 'image/gif']; 
 
         if (!tiposPermitidos.includes(imagen.type)) {
-        errorImagen.imagenInput ="El tipo de archivo de imagen no es válido";
+        errorImagen.innerText ="El tipo de archivo de imagen no es válido";
+        errores.push("error imagen tipo archivo")
         }
 
-        //despues validar tamaño de archivo(preguntar a gabi)
-        const maxTamano = 2 * 1024 * 1024; 
+        const maxTamano = 3 * 1024 * 1024; 
         if (imagen.size > maxTamano) {
-        errorImagen.imagenInput ="La imagen es demasiado grande. El tamaño máximo permitido es de 2 MB";
+        errorImagen.innerText ="La imagen es demasiado grande. El tamaño máximo permitido es de 2 MB";
+        errores.push("error imagen tamaño")
         }
     }
-
-        if (Object.keys(errores).length > 0){
-            pError.innerHTML = ``
-            Object.values(errores).forEach(error => {
-            pError.innerHTML += `<p>${error}</p>`;          
-        });
-        } else {
-            pError.innerHTML = ``
+console.log(errores)
+        if (errores.length == 0){
+                       
             Swal.fire(
                 'Bienvenido',
                 'Usuario regitrado!',
