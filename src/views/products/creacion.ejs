@@ -4,27 +4,27 @@
 <body>
     <%- include('../partials/header') %>
     <main class="mainEdicion">
-        <form class="edicion-form" action="/product/producto" method="POST" enctype="multipart/form-data" >
+        <form class="edicion-form" id="creacionValid" action="/product/producto" method="POST" enctype="multipart/form-data" >
             <% if(locals.errors && errors) {
                 console.log("***   errors  ****************************************");
                 console.log(errors);
             }%>
             <h5> Creación de producto</h5>
             <div>
-                <input type="text" name="nombre" placeholder="  Nombre del producto">
+                <input id="nomb-valid" type="text" name="nombre" placeholder="  Nombre del producto">
                 <% if(locals.errors && errors.nombre) { %>
                     <p class="error"> <%= errors.nombre.msg %> </p>
                 <%}%>
             </div>
             <div>
-                <textarea name="descripcion" placeholder=" Descripción del producto"></textarea>
+                <textarea id= "descr-valid" name="descripcion" placeholder=" Descripción del producto"></textarea>
                 <% if(locals.errors && errors.descripcion) {%>
                     <p class="error"> <%= errors.descripcion.msg %> </p>
                 <%}%>
             </div>
             <div class="imagenesEdicion">
                 <p>Imagenes del producto</p>
-                <input type="file" name="imagen" accept=".png, .jpg, .jpeg" multiple>
+                <input id="imag-valid" type="file" name="imagen" accept=".png, .jpg, .jpeg" multiple>
                 <% if(locals.errors && errors.image) {%>
                     <p class="error"> <%= errors.image.msg %> </p>
                 <%}%>
@@ -76,5 +76,7 @@
         </form>
     </main>
     <%- include('../partials/footer') %>
+    <script src="/js/validacionCreacionProd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
