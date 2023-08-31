@@ -4,7 +4,9 @@
 <body>
     <%- include('../partials/header') %>
     <main class="mainEdicion">
-        <form class="edicion-form" action="/product/producto/:id/edit?_method=PUT" method="POST" enctype="multipart/form-data" >
+        <ul class="erroresLista"></ul>
+        
+        <form class="edicion-form" id="editForm" action="/product/producto/:id/edit?_method=PUT" method="POST" enctype="multipart/form-data" >
             <div id="edicionInvisible">
                 <% if (prod == "vacio") {%>
                     <input type="text" name="id">
@@ -16,14 +18,14 @@
                 <% if (prod == "vacio") {%>
                     <input type="text" name="nombre"  placeholder="  Nombre del producto" >
                     <%} else {%>
-                    <input type="text" name="nombre" value="<%= prod.nombre_producto%>" placeholder="  Nombre del producto" >
-                <% }%>
+                    <input class="nombre" type="text" name="nombre" value="<%= prod.nombre_producto%>" placeholder="  Nombre del producto" >
+                <% }%> 
             </div>
            <div>
                 <% if (prod == "vacio") {%>
                     <textarea name="descripcion" placeholder=" Descipcion del producto" ></textarea>
                     <%} else {%>
-                        <textarea name="descripcion" placeholder=" Descipcion del producto" ><%= prod.detalle%></textarea>
+                    <textarea class="descripcion" name="descripcion" placeholder=" Descipcion del producto" ><%= prod.detalle%></textarea>
                 <% }%>
             </div>
             <div class="imagenesEdicion">
@@ -98,6 +100,7 @@
         </div>
     </main>
     <%- include('../partials/footer') %>
+    <script src="/js/edicion.js"></script>
 </body>
 </html>
 

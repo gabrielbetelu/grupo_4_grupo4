@@ -1,7 +1,8 @@
 const path = require ('path');
 const db = require('../database/models');
 const sequelize = db.sequelize;
-const Op = sequelize.Op
+const {Op} = require('sequelize')
+//const Op = sequelize.Op
 const { validationResult } = require("express-validator");
 
 const Products = db.Product;
