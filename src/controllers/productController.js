@@ -1,7 +1,8 @@
 const path = require ('path');
 const db = require('../database/models');
 const sequelize = db.sequelize;
-const Op = sequelize.Op
+const { Op } = require('sequelize');
+//const Op = sequelize.Op
 const { validationResult } = require("express-validator");
 
 const Products = db.Product;
@@ -35,7 +36,10 @@ module.exports = {
     },
 
     buscar: async (req, res) => {
-        console.log("Entró por buscador")
+        console.log("Entró por buscador");
+        console.log(req.body);
+        console.log(req.body.texto);
+        
         try {
             const productosBuscados = await Products.findAll({
                 where: {
@@ -61,9 +65,12 @@ module.exports = {
         processCreate: async (req, res) => {
             const rdoValidacion = validationResult(req);
             console.log("errores de validationResult");
-            console.log(rdoValidacion);
+    //        console.log(rdoValidacion);
             if(rdoValidacion.errors.length > 0) {
-                return res.render('./product/creacion', { errors: rdoValidacion.mapped(), oldData: req.body })
+                const nameCategorias = await CategoriasProduct.findAll();
+                const nameMarcas = await Marca.findAll();
+                console.log(req.body)
+                return res.render('./products/creacion', { errors: rdoValidacion.mapped(), oldData: req.body, nameCategorias : nameCategorias , nameMarcas : nameMarcas })
                  
             }
 
