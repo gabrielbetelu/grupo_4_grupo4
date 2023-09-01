@@ -61,13 +61,97 @@ window.onload = function(){
             errores.push ="error confirmacion contraseña";
             pError.innerText = "Las contraseñas no coinciden"
         }
-       
+         ///--------
+        const getUserListFromApi = async () => {
+            try {
+              const response = await fetch('/api/user');
+              const users = await response.json();
+              console.log(users)
+              return users;
+            } catch (error) {
+              console.error('Error al obtener el listado de usuarios:', error);
+              throw error; 
+            }
+          };
+          
+        const validateEmailExists = async (email) => {
+            try {
+              const userListFromApi = await getUserListFromApi();
+              const emailExists = userListFromApi.some(user => user.correo === email)
+              console.log(userListFromApi)
+              return emailExists;
+            } catch (error) {
+              console.error('Error al validar el correo electrónico:', error);
+              return false; // En caso de error, considera que el correo no existe para evitar problemas
+            }
+          };
+          
+          // Uso de la función de validación
+          const email = 'correo@example.com';
+          const emailExists = await validateEmailExists(email);
+          if (emailExists) {
+            console.log('El correo electrónico ya existe en la API.');
+          } else {
+            console.log('El correo electrónico no existe en la API.');
+          }
+         
+         
+        //---
+       /* const userListFromApi = []; // Aquí deberías almacenar el listado de usuarios obtenido de la API
+
+        emailInput.addEventListener('blur', () => {
+        const email = emailInput.value;
+        const isValidEmail = esValidoEmail(email);
+
+        if (!isValidEmail) {
+            errorEmail.innerText= 'Ingrese un correo electrónico válido';
+            return;
+        }
+
+        const emailExists = userListFromApi.some(user => user.correo === email);
+
+        if (emailExists) {
+            errorEmail.innerText = 'El correo electrónico ya está registrado';
+        } else {
+            errorEmail.innerHTML = '';
+        }
+        });
+
+        function esValidoEmail(email) {
+        const arroba = email.indexOf('@');
+        const punto = email.lastIndexOf('.');
+
+        const esValido = arroba !== -1 && punto > arroba;
+        return esValido;
+        }*/
+
+
+
+
+
+
+
      // Validar email
      // tengo que verificar si un email ya está registrado
-        //checkEmailExiste trae booleano        
+        //checkEmailExiste trae booleano 
+       /* async function checkEmailExiste(email) {
+            try {
+                const response = await fetch(`/api/user/${encodeURIComponent(email)}`);
+                const data = await response.json();
+                return data.emailExists;
+
+            } catch (error) {
+                console.error('Error al verificar el email:', error);
+                throw error;
+            }
+        }
+        
+             
+               
+               
         async function checkEmailExiste(email) {
-            const user = await User.findOne({ where: { correo: email } });
-            console.log(user)
+            
+        
         }
         const email = emailInput.value;
         const esEmailValid = esValidEmail(email);
@@ -91,8 +175,8 @@ window.onload = function(){
             const punto = email.lastIndexOf(".");
         
             const esValido = arroba !== -1 && punto > arroba;
-            return esValido;
-    }
+            return esValido;*/
+    
     
     // Validación de la imagen 
         const imagen = imagenInput.files[0];
