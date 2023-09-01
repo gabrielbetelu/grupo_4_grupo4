@@ -14397,6 +14397,7 @@ Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /user/registro
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /api/user
+<<<<<<< HEAD
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /
 Ingresó en la página /images/animacion%20logo%201.jpg
@@ -14406,6 +14407,22 @@ Ingresó en la página /user/registro
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /user/registro
 Ingresó en la página /images/animacion%20logo%201.jpg
+=======
+Ingresó en la página /
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /user/registro
+Ingresó en la página /user/registro
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /api/user
+Ingresó en la página /user/registro
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /api/user
+Ingresó en la página /user/registro
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /api/user
+Ingresó en la página /user/login
+Ingresó en la página /images/animacion%20logo%201.jpg
+>>>>>>> 2cf69b6621702586696825ea3d26012841f1524b
 Ingresó en la página /user/registro
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /api/user
@@ -14424,6 +14441,7 @@ Ingresó en la página /api/user
 Ingresó en la página /user/registro
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /api/user
+<<<<<<< HEAD
 Ingresó en la página /api/user
 Ingresó en la página /user/registro
 Ingresó en la página /images/animacion%20logo%201.jpg
@@ -14456,6 +14474,8 @@ Ingresó en la página /user/registro
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /api/user
 Ingresó en la página /api/user
+=======
+>>>>>>> 2cf69b6621702586696825ea3d26012841f1524b
 Ingresó en la página /user/registro
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /api/user
@@ -14464,7 +14484,28 @@ Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /api/user
 Ingresó en la página /user/registro
 Ingresó en la página /images/animacion%20logo%201.jpg
+<<<<<<< HEAD
 Ingresó en la página /api/user
 Ingresó en la página /user/registro
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /api/user
+=======
+Ingresó en la página /user/registro
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /user/registro
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /user/registro
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /user/registro
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /user/registro
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /api/user
+Ingresó en la página /api/user
+Ingresó en la página /user/registro
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /user/registro
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /user/registro
+Ingresó en la página /images/animacion%20logo%201.jpg
+>>>>>>> 2cf69b6621702586696825ea3d26012841f1524b
