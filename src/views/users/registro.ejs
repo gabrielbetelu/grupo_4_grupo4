@@ -8,19 +8,19 @@
              <div class="divRegistro">
              <form class="registro" action="/user/registro" method="post" enctype="multipart/form-data">
                 <h5>Registro de Usuario</h5>                        
-                <div>
-                    <p id="errorNombre"  class="error"></p> 
+                <div> 
                     <input class="form-usu" type="text" name="nombre"  value="<%= locals.oldData ? oldData.nombre : null %>"  placeholder="  Nombre">                    
                     <% if(locals.errors && errors.nombre) { %>
                         <p class="error"> <%= errors.nombre.msg %> </p>
                         <% } %>
+                    <p id="errorNombre"  class="error"></p>
                 </div>
                 <div>
-                    <p id="errorApellido"  class="error"></p> 
                     <input class="form-usu" type="text" name="apellido" value="<%= locals.oldData ? oldData.apellido : null %>" placeholder="  Apellido" >
                     <% if(locals.errors && errors.apellido) { %>
                         <p class="error"> <%= errors.apellido.msg %> </p>
                         <% } %>
+                    <p id="errorApellido"  class="error"></p> 
                 </div>
                 <div>
                     <input class="form-usu" type="number" name="cuit" value="<%= locals.oldData ? oldData.cuit : null %>" placeholder="  DNI o CUIT">
@@ -38,40 +38,40 @@
                     <input class="form-usu" type="text" name="domicilio" value="<%= locals.oldData ? oldData.domicilio : null %>" placeholder="  Domicilio">
                     <% if(locals.domicilio && errors.domicilio) { %>
                         <p class="error"> <%= errors.domicilio.msg %> </p>
-                        <% } %>
+                    <% } %>
                 </div>
                 <div>
-                    <p id="errorEmail"  class="error"></p> 
                     <input class="form-usu" type="text" name="email" value="<%= locals.oldData ? oldData.email : null %>" placeholder="  email@gmail.com" >
                     <% if(locals.errors && errors.email) { %>
                         <p class="error"> <%= errors.email.msg %> </p>
                         <% } %>
+                    <p id="errorEmail"  class="error"></p> 
                 </div>
                 <div> 
                     <div class="labelRegistro" >
                        <label>Imagen de perfil</label>
-                    </div> 
-                    <p id="errorImagen"  class="error"></p>                   
+                    </div>                   
                     <input class="fileRegistro" type="file" name="imagen" >
                     <% if(locals.errors && errors.image) { %>
                         <p class="error"> <%= errors.image.msg %> </p>
                     <% } %>
+                    <p id="errorImagen"  class="error"></p>
                 </div>
                 <div>
                 <h5 id="hContrasenia">Ingresar Contraseña</h5>               
                 <div>
-                    <p id="errores"  class="error"></p>
                     <input class="form-usu" type="password" name="contrasenia"  value="" placeholder="  Contraseña" >
                     <% if(locals.errors && errors.contrasenia) { %>
                     <p class="error"> <%= errors.contrasenia.msg %> </p>
                     <% } %>
+                    <p id="errores"  class="error"></p>
                 </div> 
                 <div>
-                    <p id="errores"  class="error"></p>
                     <input class="form-usu" type="password" name="confirm-contrasenia"  value= "" placeholder="  Confirmar contraseña">
                     <% if(locals.errors && errors.contrasenia) { %>
                     <p class="error"> <%= errors.contrasenia.msg %> </p>
                     <% } %>
+                    <p id="errores"  class="error"></p>
                 </div>
                 </div> 
                     <a href="#"> <button id="botonSubmit" class="botEnter" type="submit">Registrarse</button> </a>

@@ -66,23 +66,23 @@ window.onload = function(){
             try {
               const response = await fetch('/api/user');
               const users = await response.json();
-              console.log(users)
+              console.log(users.data[0].correo)
               return users;
             } catch (error) {
               console.error('Error al obtener el listado de usuarios:', error);
               throw error; 
             }
           };
-          
-        const validateEmailExists = async (email) => {
+            /*let emailBuscado  = emailInput.value;
+            const validateEmailExists = async (emailBuscado) => {
             try {
               const userListFromApi = await getUserListFromApi();
-              const emailExists = userListFromApi.some(user => user.correo === email)
+              const emailExists = userListFromApi.some(user => user.correo === emailBuscado)
               console.log(userListFromApi)
               return emailExists;
             } catch (error) {
               console.error('Error al validar el correo electrónico:', error);
-              return false; // En caso de error, considera que el correo no existe para evitar problemas
+              return false; 
             }
           };
           
@@ -93,7 +93,7 @@ window.onload = function(){
             console.log('El correo electrónico ya existe en la API.');
           } else {
             console.log('El correo electrónico no existe en la API.');
-          }
+          }*/
          
          
         //---
