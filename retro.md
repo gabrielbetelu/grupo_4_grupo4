@@ -182,6 +182,37 @@ El Sprint 5 fue una etapa positiva y productiva para nuestro equipo, mantuvimos 
 
 El Sprint 6 fue un éxito gracias a nuestra excelente dinámica de equipo y nuestra disposición para mejorar constantemente. Aprendimos a dividir las tareas de manera más equitativa, mantuvimos una comunicación abierta y nos enfocamos en la calidad de Patagonic. Para el próximo sprint, implementaremos cambios para mejorar aún más nuestra planificación  y continuaremos fortaleciendo nuestra colaboración y comunicación para lograr un desarrollo exitoso del proyecto.
 
+----------------------------------------------------------------------------------
+
+# RETROSPECTIVA SPRINT 7
+
+## Análisis sobre Sprint 7
+
+El Sprint 7 fue un desafío para nuestro equipo, y enfrentamos algunas dificultades significativas durante este período. Nos enfocamos en el desarrollo de la base de datos de nuestro proyecto, lo cual resultó más complicado de lo esperado. Como resultado, nos atrasamos en nuestras tareas planificadas y no pudimos implementar nuevas funcionalidades, como las APIs y el carrito de compras, como habíamos previsto.
+
+### Qué hicimos bien
+
+- A pesar de las dificultades, mantuvimos una comunicación abierta y constante entre los miembros del equipo. Continuamos compartiendo ideas y avances, lo que nos permitió identificar los problemas a tiempo.
+
+- Aprendimos valiosas lecciones sobre la importancia de la planificación detallada en proyectos. Esta experiencia nos ayudará a mejorar en futuros sprints.
+
+### Qué deberíamos mejorar
+
+- Necesitamos mejorar nuestra planificación de tareas. En el sprint 6, subestimamos la complejidad de la base de datos, lo que nos llevó a retrasos significativos.
+
+- Debemos aprender a dividir las tareas de manera más minuciosa y equitativa para evitar conflictos y garantizar que todos los miembros del equipo adquieran experiencia en diferentes aspectos del proyecto.
+
+### Qué deberíamos empezar a hacer
+
+- Implementar revisiones más frecuentes y seguimientos durante el sprint para identificar problemas de manera temprana y realizar ajustes necesarios.
+
+### Qué deberíamos hacer menos
+
+- Evitar reuniones innecesarias y asegurarnos de que las reuniones sean específicas y enfocadas para evitar la pérdida de tiempo.
+
+## Conclusiones del Sprint 7
+
+Aunque enfrentamos dificultades significativas en el sprint anterior, seguimos comprometidos a aprender de nuestros errores y mejorar constantemente. Reconocemos la importancia de la planificación detallada y la división de tareas. Para este sprint, nos centramos en fortalecer nuestra capacidad de estimación y planificación, al tiempo que mantenemos nuestra comunicación abierta y constante para superar los desafíos que puedan surgir. A pesar de los contratiempos, seguimos comprometidos con el éxito del proyecto y trabajamos arduamente para alcanzar nuestros objetivos.
 
 
 
