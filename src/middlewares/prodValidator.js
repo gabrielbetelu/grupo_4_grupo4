@@ -7,11 +7,11 @@ const CategoriasProduct = db.CategoriaProduct;
 const Marca = db.Marca;
 console.log("Entró a prodValidator")
 module.exports = [
-    check('nombre').notEmpty().withMessage('Campo obligatorio, minimo 5 caracteres').isLength({ min:5 }).withMessage('Campo obligatorio, minimo 5 caracteres'),
+    check('nombre').isLength({ min:5 }).withMessage('Campo obligatorio, minimo 5 caracteres'),
     
-    check('descripcion').notEmpty().withMessage('Campo obligatorio, minimo 20 caracteres').isLength({ min:20 }).withMessage('Campo obligatorio, minimo 20 caracteres'),
-    // .isFloat({min:0.01, max:999999.99})
-    check('precio').notEmpty().withMessage('Campo obligatorio').isDecimal().withMessage('Debe ingresar un valor mayor a cero.').custom(value => parseFloat(value) > 0).withMessage('El campo debe ser mayor a cero').custom(value => parseFloat(value) < 99999999.99).withMessage('El campo debe ser menor a 99999999.99'),
+    check('descripcion').isLength({ min:20 }).withMessage('Campo obligatorio, minimo 20 caracteres'),
+
+    check('precio').notEmpty().withMessage('Campo obligatorio').isFloat({min:0.01, max:999999.99}).withMessage('Debe ingresar un valor mayor a cero y menor a 99999999.99.'),
        
     check('categoria')        
         .custom(async values => {

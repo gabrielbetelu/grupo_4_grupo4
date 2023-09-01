@@ -26,7 +26,7 @@ router.delete('/eliminar/:id' , controller.destroy);
 
 //FORM CREACION
 router.get('/creacion', adminMiddleware, controller.creacion);
-router.post('/producto', uploadFile.any('imagen'), prodValidator , controller.processCreate);
+router.post('/producto', uploadFile.any('imagen'), prodValidator, adminMiddleware, controller.processCreate);
 
 
 //RUTA DE ADMINISTRADOR DE TABLAS DE PRODUCTOS
