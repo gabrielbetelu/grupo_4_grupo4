@@ -3,12 +3,14 @@ const db = require('../database/models');
 const sequelize = db.sequelize;
 
 
+
 const Users = db.User; 
 const CategoriaUser = db.CategoriaUser;
 
 
 
 module.exports = {
+    
     list: async (req , res) => {
         const response = {
             success : true,
