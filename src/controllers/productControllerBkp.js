@@ -129,7 +129,7 @@ module.exports = {
                     }]
                 }
             )
-    //        console.log(productoBuscado);
+            console.log(productoBuscado);
             const nameCategorias = await CategoriasProduct.findAll();
             const nameMarcas = await Marca.findAll();
             let arrayImages = [];
@@ -167,11 +167,11 @@ module.exports = {
      
         try {
             const productoModificado = await Products.findByPk (req.body.id);
-    //        console.log("*** req.body  **********************");
-    //        console.log(req.body);
+            console.log("*** req.body  **********************");
+            console.log(req.body);
             let oldImagen = productoModificado.imagenes_producto;
-    //        console.log("*** oldImagen  **********************");
-    //        console.log(oldImagen);
+            console.log("*** oldImagen  **********************");
+            console.log(oldImagen);
             if (req.files.length > 0) {
                 req.files.forEach((file) => {
                     arrayImg.push("/images/" + file.filename);                        
@@ -179,10 +179,10 @@ module.exports = {
             } else {
                 arrayImg = oldImagen;
             }
-    //        console.log("*** arrayImg  **********************");
-    //        console.log(arrayImg);
+            console.log("*** arrayImg  **********************");
+            console.log(arrayImg);
             stringImg = JSON.stringify(arrayImg);
-    //        console.log(stringImg);
+            console.log(stringImg);
             await Products.update({
                 'nombre_producto': req.body.nombre,
                 'detalle': req.body.descripcion,

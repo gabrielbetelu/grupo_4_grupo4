@@ -27,7 +27,7 @@
                 <%}%>
             </div>
             <div class="imagenesEdicion">
-                <p>Imagenes del producto</p>
+                <p class="pImagenes">Imagenes del producto</p>
                 <input type="file" name="imagen" accept=".png, .jpg, .jpeg" multiple>
                 <% if(locals.errors && errors.image) {%>
                     <p class="error"> <%= errors.image.msg %> </p>

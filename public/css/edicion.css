@@ -112,7 +112,7 @@
     color: #c79430;
 }
 
-.mainEdicion .edicion-form .imagenesEdicion p {
+.mainEdicion .edicion-form .imagenesEdicion .pImagenes {
     height: 40px;
     font-size: 17px;
     font-style: oblique;

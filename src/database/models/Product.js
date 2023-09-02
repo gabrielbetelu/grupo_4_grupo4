@@ -17,7 +17,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         imagenes_producto: {
-            type: dataTypes.STRING(100),
+            type: dataTypes.STRING(255),
             allowNull: false
         },
         precio_producto: {

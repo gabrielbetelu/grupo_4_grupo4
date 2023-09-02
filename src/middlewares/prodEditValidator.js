@@ -64,7 +64,8 @@ module.exports = [
                 if (req.fileError) {
                     throw new Error ('La imagen debe tener un formato valido');
                 } else {
-                throw new Error ('Se debe ingresar al menos una imágen'); 
+                    console.log("Se conservan imágenes")
+               // throw new Error ('Se debe ingresar al menos una imágen'); 
             }
             } 
             
