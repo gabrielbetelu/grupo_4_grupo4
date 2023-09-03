@@ -13,9 +13,9 @@
                     <%}%>
                 placeholder="  Nombre del producto">
                 <% if(locals.errors && errors.nombre) { %>
-                    <p class="error"> <%= errors.nombre.msg %> </p>
-                    <p id="errorNombre" class="error"></p>
+                    <p class="error"> <%= errors.nombre.msg %> </p> 
                 <%}%>
+                <p id="errorNombre" class="error"></p>
             </div>
             <div>
                 <% if(locals.errors && errors && oldData.descripcion != "") {%>
@@ -24,17 +24,17 @@
                     <textarea id= "descr-valid" name="descripcion" placeholder=" Descripción del producto"></textarea>
                 <%}%>
                 <% if(locals.errors && errors.descripcion) {%>
-                    <p class="error"> <%= errors.descripcion.msg %> </p>
-                    <p id="errorDescr" class="error"></p>
+                    <p class="error"> <%= errors.descripcion.msg %> </p>  
                 <%}%>
+                <p id="errorDescr" class="error"></p>
             </div>
             <div class="imagenesEdicion">
-                <p>Imagenes del producto</p>
+                <p>Imagenes del producto</p> 
                 <input id="imag-valid" type="file" name="imagen" accept=".png, .jpg, .jpeg" multiple>
                 <% if(locals.errors && errors.image) {%>
-                    <p class="error"> <%= errors.image.msg %> </p>
-                    <p id="errorImg" class="error"></p>
+                    <p class="error"> <%= errors.image.msg %> </p>   
                 <%}%>
+                    <p id="errorImg" class="error"></p>
             </div>           
             <div class="categoriaEdicion">
                 <p>Categorías</p>
