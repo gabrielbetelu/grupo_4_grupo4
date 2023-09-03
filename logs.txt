@@ -14757,6 +14757,7 @@ Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /user/login
 Ingresó en la página /
 Ingresó en la página /images/animacion%20logo%201.jpg
+<<<<<<< HEAD
 Ingresó en la página /product/creacion
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /
@@ -14793,6 +14794,9 @@ Ingresó en la página /user/login
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /user/login
 Ingresó en la página /
+=======
+Ingresó en la página /product/edicion
+>>>>>>> 3b4cdb8f3a644b577feca391b25a6f1ad0e6d309
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /product/creacion
 Ingresó en la página /images/animacion%20logo%201.jpg
@@ -14805,6 +14809,7 @@ Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /product/creacion
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /product/creacion
+<<<<<<< HEAD
 Ingresó en la página /
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /user/login
@@ -14816,18 +14821,27 @@ Ingresó en la página /product/creacion
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /product/creacion
 Ingresó en la página /
+=======
+>>>>>>> 3b4cdb8f3a644b577feca391b25a6f1ad0e6d309
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /product/creacion
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /product/creacion
 Ingresó en la página /images/animacion%20logo%201.jpg
+<<<<<<< HEAD
 Ingresó en la página /
 Ingresó en la página /images/animacion%20logo%201.jpg
+=======
+>>>>>>> 3b4cdb8f3a644b577feca391b25a6f1ad0e6d309
 Ingresó en la página /product/creacion
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /product/creacion
 Ingresó en la página /images/animacion%20logo%201.jpg
+<<<<<<< HEAD
 Ingresó en la página /
+=======
+Ingresó en la página /product/creacion
+>>>>>>> 3b4cdb8f3a644b577feca391b25a6f1ad0e6d309
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /product/creacion
 Ingresó en la página /images/animacion%20logo%201.jpg
@@ -14841,7 +14855,10 @@ Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /product/creacion
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /product/creacion
+<<<<<<< HEAD
 Ingresó en la página /images/animacion%20logo%201.jpg
+=======
+>>>>>>> 3b4cdb8f3a644b577feca391b25a6f1ad0e6d309
 Ingresó en la página /product/creacion
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /product/creacion
