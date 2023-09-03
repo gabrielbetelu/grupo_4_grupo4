@@ -1,8 +1,7 @@
 <header>
     <div class="logo-header">
         <a href="/">
-            <div class= "logotipo">
-                
+            <div class= "logotipo">                
             </div>   
         </a>            
     </div>        
@@ -12,8 +11,7 @@
             <% if(!locals.isLogged) { %>
                 <a href = "/user/registro"><i class="fa-solid fa-id-card"></i></a>                
                 <a href="/user/login"><i class="fas fa-user"></i></a>
-            <%}%>
-            
+            <%}%>            
             <!--    *******************************************   -->
             <% if(locals.isLogged) {%> 
                 <div class="usuarioLogueado">
@@ -22,25 +20,19 @@
                         <a href = "/user/perfil"><div id="saludoLog"><%= locals.userLogged.first_name %></div></a>
                     </div>
                     <div id="userPerfil" >
-                        <a href = "/user/logout"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>   
-<!--                        <a href = "/user/logout"><i class="fa-solid fa-circle-xmark"></i></i></a>   -->
-                        
+                        <a href = "/user/logout"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>                        
                     </div>
                 </div>
             <%}%>
-
             <!--    *******************************************   -->
-            <% if(locals.isLogged && locals.userLogged.categoria_user == "administrador") {%> 
+            <% if(locals.isLogged && locals.userLogged.id_categoria_user == 1) {%> 
                 <div id="productosCargaEdicion">
                     <a href = "/product/creacion"><i class="fa-regular fa-square-plus"></i></a>
                     <a href = "/product/edicion"><i class="fa-regular fa-pen-to-square"></i></a>
                 </div>
             <%}%>
-
-            <!--    *******************************************   -->       
-            
+            <!--    *******************************************   -->     
         </div>
-
         <div class="menu-buscador">
             <nav class="oculto">
                 <ul>

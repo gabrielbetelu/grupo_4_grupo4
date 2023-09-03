@@ -6,36 +6,19 @@
         <main class="main-registro">
              <img src="../images/patagonia-argentina.jpg" alt="fondo" class="fondo-image" />
              <div class="divRegistro">
-
                 <form class="registro" action="/product/categorias/delete/<%= categoriaEdit.id %>?_method=DELETE" method="post" >
-                        <% if(locals.errors && oldData) { %>
-                        <% console.log(oldData) %>
-                        <% } %>
-                
                         <h5>Categorias de Productos</h5>
-
-
                         <div>
                             <p>Seguro que desea borrar la categoría <strong> <em>--  <%=categoriaEdit.categoria%>  --</em> </strong>?</p>
-                            <% console.log(categoriaEdit.id) %>
-                            <% if(locals.errors && errors.nombre) { %>
+                                <% if(locals.errors && errors.nombre) { %>
                                 <p class="error"> <%= errors.nombre.msg %> </p>
                                 <% } %>
                         </div>
-
                         <div> 
                             <a href="#"> <button class="botEnter" type="submit">Eliminar Categoria</button> </a>
                             <a class="linkEditar" href="/product/tablasadmin"> <button class="botEnterTablas" type="button">NO, ir a Edición Tablas</button>  </a>
                         </div>
                 </form>
-               
-                
-    <!--                <div> 
-                        <a href="#"> <button class="botEnter" type="submit">Editar Marca</button> </a>
-                    </div>
-               
-                </form> 
-    --> 
             </div>
         </main>
         <%- include('../partials/footer') %>

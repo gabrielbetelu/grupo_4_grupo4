@@ -11,10 +11,6 @@
     top: -15px;
     width: 98%;
     display: flex;
-/*    flex-direction: row;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-*/
     flex-direction: column;
     align-items: center;
     justify-content: center;  
@@ -25,7 +21,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-/*    flex-wrap: wrap; */
+
   }
 
   .fondo-image { 
@@ -45,7 +41,6 @@
     padding: 10px 30px;
     border-top: 4px solid #7FAD58;
     color: whitesmoke;
-/*    max-width: 500px;  */
   
   }
 
@@ -114,9 +109,14 @@
     background-color: #7FAD58;
   }
 
-  /*.linkEditar {
-    padding-top: 10px;
-  }*/
+  #divBotonStock {
+    margin-left:80%;
+    margin-top: 15px;
+  }
+
+  .botonStock {
+    width: 20%;
+  }
 
 @media(min-width: 1024px){
   .main-tablas .fondo-image{
@@ -125,11 +125,9 @@
   .tablas h5 {
     margin: 0;
     margin-bottom: 5px;
-    padding-bottom: 0px;
-    
+    padding-bottom: 0px; 
    
   }
-
 
 }
 

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head') %>
+<body>
+    <%- include('../partials/header') %>
+    <main class="mainEdicion">
+        <form class="edicion-form" action="/product/productoedit" method="POST" >
+            <h5>Edición de producto</h5>
+            <div>
+                <select class="form-usu" name="idProducto" id="selectorId">
+                    <option value="" disabled selected required>- Seleccione el producto - </option>
+                    <% nameProducts.forEach(product => { %>
+                    <option value="<%= product.id %>"><%= product.nombre_producto %></option>
+                    <% }); %>
+                </select> 
+            </div>
+            <div>
+                    <button class="botones edicion-form" type="submit"  >Editar</button>
+            </div>
+        </form>
+    </main>
+    <%- include('../partials/footer') %>
+</body>
+</html>
+
+
+

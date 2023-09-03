@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head') %>
+<body>
+    <%- include('../partials/header') %>
+        <main class="mainEdicionDelete">    
+             <div class="divDeleteProducto">
+                <form class="edicion-form deleteProdForm" id="deleteProdForm" action="/product/eliminar/<%= prod.id%>?_method=DELETE" method="post">
+                        <h5>Edición de producto</h5>
+                        <div>
+                            <p>Seguro que desea borrar el producto <strong> <em>--  <%=prod.nombre_producto%>  --</em> </strong>?</p>
+                            <% if(locals.errors && errors.nombre) { %>
+                            <p class="error"> <%= errors.nombre.msg %> </p>
+                                <% } %>
+                        </div>
+                        <div> 
+                            <a href="#"> <button class="botEnter" type="submit">Eliminar Producto</button> </a>
+                            <a class="botones botonEliminar" href="/product/edicion"> <button class="botEnterTablas" type="button">NO, ir a Edición de Productos</button>  </a>
+                        </div>
+                </form>
+            </div>
+        </main>
+        <%- include('../partials/footer') %>
+    </body>                       
+</html>    
+      

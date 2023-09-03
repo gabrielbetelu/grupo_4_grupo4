@@ -6,18 +6,9 @@
         <main class="main-registro">
              <img src="../images/patagonia-argentina.jpg" alt="fondo" class="fondo-image" />
              <div class="divRegistro">
-
                 <%  if(categoriaEdit == "vacio") { %>
-
                 <form class="registro" action="/product/colores/:id" method="post" >
-                    <% if(locals.errors && oldData) { %>
-                    <% console.log(oldData) %>
-                    <% } %>
-            
                     <h5>Colores de Productos</h5>
-                            
-                   
-                   
                     <div>
                         <select class="form-usu" name="color" id="selectorId">
                             <option value="" disabled selected required>- Seleccione la categoria - </option>
@@ -25,27 +16,18 @@
                             <option value="<%= color.id %>"><%= color.nombre %></option>
                             <% }); %>
                         </select>
-
                     </div>
-                    
                     <div> 
                         <a href="#"> <button class="botEnter" type="submit">Editar Color</button> </a>
                         <a class="linkEditar" href="/product/tablasadmin"> <button class="botEnterTablas" type="button">Ir a Edición Tablas</button>  </a>
                     </div>
-                
                 </form>
                 <% } else { %>
                     <form class="registro" action="/product/colores/update/<%= categoriaEdit.id %>?_method=PUT" method="post" >
-                        <% if(locals.errors && oldData) { %>
-                        <% console.log(oldData) %>
-                        <% } %>
-                
-                        <h5>Colores de Productos</h5>
-                                
+                        <h5>Colores de Productos</h5>   
                         <div>
                             <input class="form-usu" type="text" name="color" value="<%= categoriaEdit.nombre %>"  placeholder="  Color">
-                            
-                            <% if(locals.errors && errors.color) { %>
+                                <% if(locals.errors && errors.color) { %>
                                 <p class="error"> <%= errors.color.msg %> </p>
                                 <% } %>
                         </div>
@@ -58,7 +40,6 @@
                             <a class="linkEditar" href="/product/colores/delete/<%= categoriaEdit.id %>"> <button class="botEnterTablas" type="button">Eliminar Color</button>  </a>
                             <a class="linkEditar" href="/product/tablasadmin"> <button class="botEnterTablas" type="button">Ir a Edición Tablas</button>  </a>
                         </div>
-                    
                     </form>
                 <% } %>    
             </div>

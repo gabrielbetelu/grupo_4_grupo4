@@ -1,11 +1,9 @@
-const fs = require ('fs');
 const path = require ('path');
 const db = require('../database/models');
-const { log, Console } = require('console');
-const { isNumberObject } = require('util/types');
 const sequelize = db.sequelize;
-const rutaJSON = path.resolve('./src/database/products.json');
-const productos = JSON.parse (fs.readFileSync(rutaJSON));
+const { Op } = require('sequelize');
+//const Op = sequelize.Op
+const { validationResult } = require("express-validator");
 
 const Products = db.Product;
 const ProductTalleColor = db.ProductTalleColor;
@@ -16,94 +14,88 @@ const CategoriasProduct = db.CategoriaProduct;
 const CategoriaProducto = db.CategoriaProducto;
 
 
-
-// Leo el JSON de categoriasProduct
-const rutaCategoriasJSON = path.resolve('./src/database/categoriasProduct.json');
-const categoriasProducts = JSON.parse (fs.readFileSync(rutaCategoriasJSON));
-
-// Leo el JSON de marca
-const rutaMarcaJSON = path.resolve('./src/database/marca.json');
-const marcas = JSON.parse (fs.readFileSync(rutaMarcaJSON));
-
-// Leo el JSON de talles
-const rutaTallesJSON = path.resolve('./src/database/talles.json');
-const talle = JSON.parse (fs.readFileSync(rutaTallesJSON));
-
-// Leo el JSON de colores
-const rutaColoresJSON = path.resolve('./src/database/colores.json');
-const color = JSON.parse (fs.readFileSync(rutaColoresJSON));
-
-
 module.exports = {
     carrito:(req, res) => {
             return res.render('./products/carrito')        
     },
+
     producto : (req, res) => {
         return res.render('./products/producto')
         
     },
+
     productos : (req, res) => {
         console.log("entraste a productos" );
         return res.render('./products/productos' , {prod : productos})
         
     },
-    edicion: (req, res) => {
-        console.log("Entró por edicion")
-        return res.render('./products/edicion' , {prod : "vacio"})
-        
+
+    edicion: async (req, res) => {
+        console.log("Entró por edicion")    
+        return res.render('./products/edicion');           
     },
+
+    buscar: async (req, res) => {
+        console.log("Entró por buscador");
+        console.log(req.body);
+        console.log(req.body.texto);
+        
+        try {
+            const productosBuscados = await Products.findAll({
+                where: {
+                    nombre_producto: {
+                        [Op.like]: '%' + req.body.texto + '%'}}
+            });
+            return res.render('./products/edicionbuscar', {nameProducts: productosBuscados , prod : "vacio"});  
+        } catch (error) {
+            console.log(error)
+        }       
+    },            
+
     creacion: async (req, res) => {
         console.log("Entró por creacion")
-        const nameCategorias = await CategoriasProduct.findAll();
-        return res.render('./products/creacion', {nameCategorias : nameCategorias});         
-         
+        try {
+            const nameCategorias = await CategoriasProduct.findAll();
+            const nameMarcas = await Marca.findAll();
+            return res.render('./products/creacion', {nameCategorias : nameCategorias , nameMarcas : nameMarcas}); 
+        } catch (error) {
+            console.log(error)
+        }    
     },
-    /*processCreate: (req, res) => {
-        console.log("entraste por creacion de item");
-        let arrayImg = [];
-        if (req.files.length > 0) {
-            req.files.forEach((file) => {
-                arrayImg.push("/images/" + file.filename);                        
-        })
-        }
-        let productoNuevo = { 
-            'id': products.length +1, 
-            'nombre_producto': req.body.nombre,
-            'detalle': req.body.descripcion,
-            'imagenes_producto': arrayImg,
-            'categoria': req.body.categoria,
-            'precio_producto': req.body.precio,
-            'borrado': false
-        }
-        products.push(productoNuevo);
-        fs.writeFileSync(path.resolve(__dirname, '../database/products.json'),JSON.stringify(products, null , 2));
-        return res.render('products/creacion')*/
         processCreate: async (req, res) => {
+            const rdoValidacion = validationResult(req);
+            console.log("errores de validationResult");
+    //        console.log(rdoValidacion);
+            if(rdoValidacion.errors.length > 0) {
+                const nameCategorias = await CategoriasProduct.findAll();
+                const nameMarcas = await Marca.findAll();
+
+                console.log(req.body)
+                return res.render('./products/creacion', { errors: rdoValidacion.mapped(), oldData: req.body, nameCategorias : nameCategorias , nameMarcas : nameMarcas })
+                 
+            }
+
             console.log("entraste por creacion de item");
-            console.log(req.body)
             let arrayImg = [];
             if (req.files.length > 0) {
                 req.files.forEach((file) => {
                     arrayImg.push("/images/" + file.filename);                        
-            })
-        
+            })      
             
             stringImg = JSON.stringify(arrayImg);
-            console.log(stringImg)
             try {
                 const newProducts = await Products.create({
                 nombre_producto: req.body.nombre,
                 detalle: req.body.descripcion,
                 imagenes_producto: stringImg,
                 precio_producto: req.body.precio,
-                id_marca: parseInt(1),
+                id_marca: parseInt(req.body.marca),
                 borrado: false
                 })
-                console.log(req.body.categoria[0])
-                console.log(newProducts.id)
+        
 
                 for (let i = 0; i < req.body.categoria.length; i++) {
-                    console.log(req.body.categoria[i])
+        
 
                         await CategoriaProducto.create({
                         id_product: newProducts.id, 
@@ -111,43 +103,75 @@ module.exports = {
                     })
                 }
                 
-                /*await CategoriaProducto.create({
-                    id_product: newProducts.id, 
-                    id_categoriaproduct: req.body.categoria[0]
-                })*/
+                
             } catch (error) {
                 console.log(error)
                 
             }       
             const nameCategorias = await CategoriasProduct.findAll();
-            return res.render('./products/creacion', {nameCategorias : nameCategorias});   
+            const nameMarcas = await Marca.findAll();
+            console.log("Pasa a la vista de creación")
+            return res.render('./products/creacion', {nameCategorias : nameCategorias , nameMarcas : nameMarcas});   
             }
         },   
-                              
-    
 
-    editId: (req , res)=> {
-        console.log("entraste a buscar el item" , req.body.codigo);
-        let productoNoEncontrado = true;
-        for (i = 0 ; i < products.length ; i++) {
-            products[i].id == req.body.codigo ? productoNoEncontrado = false : "";
+    editId: async(req , res)=> {
+        console.log("entraste a buscar el item" , req.body.idProducto);
+        if (!req.body.idProducto) {
+            return res.render('./products/edicion');
+        } 
+        try {            
+            const productoBuscado = await Products.findByPk ( req.body.idProducto ,{ 
+                    include: [{
+                    model: CategoriasProduct,
+                    as: 'categoriasproductos',
+                    attributes: ['id']
+                    }]
+                }
+            )
+    //        console.log(productoBuscado);
+            const nameCategorias = await CategoriasProduct.findAll();
+            const nameMarcas = await Marca.findAll();
+            let arrayImages = [];
+            for (i = 0 ; i < JSON.parse (productoBuscado.imagenes_producto).length ; i++) {
+                arrayImages.push(JSON.parse (productoBuscado.imagenes_producto)[i])
+            } 
+            return res.render('./products/edicionproducto', {prod: productoBuscado , nameCategorias : nameCategorias , nameMarcas : nameMarcas , arrayImages : arrayImages})
+        } catch (error) {
+            console.log(error)
         }
-        if (req.body.codigo == '' || productoNoEncontrado) {return res.render('./products/edicion' , {prod : "vacio"})};
-        const producto = products.find (elemento => elemento.id == req.body.codigo);
-        return res.render('./products/edicion', {prod: producto})
+        
     },
 
-    processEdit: (req , res)=> {
-        console.log("entraste a editar el item", req.params.id);
-        const productoId = products.find (elemento => elemento.id == req.params.id);
-        return res.render('products/edicion',{prod: productoId})
-    },
-
-    processModificar: (req , res)=> {
-        console.log("entraste a modificar el item" , req.body.id);
-        const productoId = products.find (elemento => elemento.id == req.body.id);    
+    processModificar: async (req , res)=> {
+        const rdoValidacion = validationResult(req);
+        console.log("entraste a modificar el item" , req.body.id);    
         let arrayImg = [];
-        let oldImagen = productoId.imagenes_producto;
+    //    console.log(rdoValidacion);
+        if(rdoValidacion.errors.length > 0) {
+            const nameCategorias = await CategoriasProduct.findAll();
+            const nameMarcas = await Marca.findAll();
+            const productoBuscado = await Products.findByPk ( req.body.id ,{ 
+                include: [{
+                model: CategoriasProduct,
+                as: 'categoriasproductos',
+                attributes: ['id']
+                }]
+            })
+            let arrayImages = [];
+            for (i = 0 ; i < JSON.parse (productoBuscado.imagenes_producto).length ; i++) {
+                arrayImages.push(JSON.parse (productoBuscado.imagenes_producto)[i])
+            } 
+            return res.render('./products/edicionproducto', { errors: rdoValidacion.mapped(), prod: productoBuscado ,oldData: req.body, nameCategorias : nameCategorias , nameMarcas : nameMarcas , arrayImages : arrayImages})
+        }
+     
+        try {
+            const productoModificado = await Products.findByPk (req.body.id);
+    //        console.log("*** req.body  **********************");
+    //        console.log(req.body);
+            let oldImagen = productoModificado.imagenes_producto;
+    //        console.log("*** oldImagen  **********************");
+    //        console.log(oldImagen);
             if (req.files.length > 0) {
                 req.files.forEach((file) => {
                     arrayImg.push("/images/" + file.filename);                        
@@ -155,44 +179,99 @@ module.exports = {
             } else {
                 arrayImg = oldImagen;
             }
-        productoId.imagenes_producto = arrayImg;
-        for (let propiedad in req.body) {
-            if (propiedad == "id") {
-                productoId[propiedad] = Number(req.body[propiedad]) ;    
-            } else if (propiedad == "guardar") {
-            } else {
-                let propiedadProducto = ""
-                switch (propiedad) {
-                    case "nombre":
-                        propiedadProducto = "nombre_producto";
-                        break;
-                    case "descripcion":
-                        propiedadProducto = "detalle";
-                        break;
-                    case "precio":
-                        propiedadProducto = "precio_producto";
-                        break;
-                    case "categoria":
-                        propiedadProducto = "categoria";
-                        break;
-                    default:
-                        break;
+    //        console.log("*** arrayImg  **********************");
+    //        console.log(arrayImg);
+            stringImg = JSON.stringify(arrayImg);
+    //        console.log(stringImg);
+            await Products.update({
+                'nombre_producto': req.body.nombre,
+                'detalle': req.body.descripcion,
+                'imagenes_producto': stringImg,
+                'precio_producto': req.body.precio,
+                'id_marca': req.body.marca
+            },{
+             where: {
+                    id: req.body.id
                 }
+            })
+
+    
+            const relacionesGuardadas = await CategoriaProducto.findAll(
+        //        {
+        //        where: {id_product: req.body.id}
+        //    }
+            )
+        
+            for (let i = 0; i < relacionesGuardadas.length; i++) {
+                let relacionEncontrada = 0;
                 
+                for (let j = 0 ; j < req.body.categoria.length; j++) {
+                    if (req.body.id == relacionesGuardadas[i].id_product && req.body.categoria[j] == relacionesGuardadas[i].id_categoriaproduct){
+                 
+                        indice = j;
+                        relacionEncontrada = 1;
+                    }
+                }
+                console.log(relacionEncontrada)
+                if (relacionEncontrada == 0 && req.body.id == relacionesGuardadas[i].id_product){
+        
+                    await CategoriaProducto.destroy({
+                        where: {id: relacionesGuardadas[i].id}
+                    })
+                }
+            }   
 
-
-            productoId[propiedadProducto] = req.body[propiedad];    
-            }
-        }
-        fs.writeFileSync(path.resolve(__dirname, '../database/products.json'),JSON.stringify(products, null , 2));
+            for (let i = 0; i < req.body.categoria.length; i++) {
+        
+            let relacionEncontrada = 0;
+                for (let j = 0 ; j < relacionesGuardadas.length; j++) {  
+              
+                    if (req.body.id == relacionesGuardadas[j].id_product && req.body.categoria[i] == relacionesGuardadas[j].id_categoriaproduct){
+    
+                        relacionEncontrada = 1;                        
+                    }
+                }
+       
+                if (relacionEncontrada == 0){
+        
+        
+                        await CategoriaProducto.create({
+                        id_product: req.body.id, 
+                        id_categoriaproduct: req.body.categoria[i]
+                    })
+                }
+            } 
+            
+        } catch (error) {
+            console.log(error)
+        }   
+           
         return res.render('products/edicion' , {prod : "vacio"})
     },
-    eliminar: (req , res)=> {
+
+    eliminar:  async (req , res) => {
+        console.log("entraste por vista delete de producto");
+   
+        try {
+            const productoEliminar = await Products.findByPk(req.params.id)
+            console.log(productoEliminar.dataValues);
+            return res.render('./products/edicionDelete' , {prod : productoEliminar.dataValues })
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+    destroy: async (req , res)=> {
         console.log("entraste a eliminar el item" , req.params.id);
-        const producto = products.find (elemento => elemento.id == req.params.id);
-        producto.borrado = true;
-        fs.writeFileSync(path.resolve(__dirname, '../database/products.json'),JSON.stringify(products, null , 2));
-        return res.render('./products/edicion', {prod: producto})
+        try {
+            const productoEliminado = await Products.destroy ({
+                where: {id: req.params.id}
+            })
+            return res.render('./products/edicion', {prod: "vacio"})
+        } catch (error) {
+            console.log(error)
+        }
+   
     },
 
     tablas: (req, res) => {
@@ -205,21 +284,10 @@ module.exports = {
         const nameCategorias = await CategoriasProduct.findAll();
         return res.render('./products/categorias', {nameCategorias : nameCategorias , categoriaEdit : "vacio"});         
     },
-   /* processCategorias: (req, res) => {
-        console.log("entraste por creacion de categoria");
-        let categoriaNueva = { 
-            'id': categoriasProducts.length +1, 
-            'categoria': req.body.categoria,
-            'borrado': false
-        }
-        categoriasProducts.push(categoriaNueva);
-        fs.writeFileSync(path.resolve(__dirname, '../database/categoriasProduct.json'),JSON.stringify(categoriasProducts, null , 2));
-        return res.render('products/categorias')*/
-        
+           
      processCategorias:async(req,res)=>{
              console.log("entraste por proceso de creacion de categoria");
-    //         console.log(req.body.categoria)
-            
+              
             try {
                 await CategoriasProduct.create({
                     
@@ -236,13 +304,13 @@ module.exports = {
         }, 
 
     editCategorias: async (req, res) => {
-        console.log("entraste por edicion de Categoria");
-    //    console.log(req.body.categoria);
+        console.log("entraste por edicion de Categoria");  
+
         if(req.body.categoria){
         let categoriaId = parseInt(req.body.categoria);
         let categoriaEditar = await CategoriasProduct.findByPk(categoriaId);
         let categoriaEdit = categoriaEditar.dataValues
-    //    console.log(categoriaEdit)
+    
         return res.render('./products/categorias' , {categoriaEdit})
         } else {
             const nameCategorias = await CategoriasProduct.findAll();
@@ -253,7 +321,7 @@ module.exports = {
 
     updateCategorias: async (req, res) =>{
         console.log("entraste por modificacion de categoria");
-    //    console.log(req.body.categoria);
+   
         try {
             await CategoriasProduct.update({
                 'categoria': req.body.categoria,
@@ -271,10 +339,10 @@ module.exports = {
 
     deleteCategoria:  async (req , res) => {
         console.log("entraste por vista delete de categoría");
-    //    console.log(req.params.id)
+    
         try {
             const categoriaEdit = await CategoriasProduct.findByPk(req.params.id)
-    //        console.log(categoriaEdit.dataValues);
+    
             return res.render('./products/categoriasDelete' , {categoriaEdit : categoriaEdit.dataValues })
         } catch (error) {
             console.log(error)
@@ -283,12 +351,12 @@ module.exports = {
 
     destroyCategoria: async (req , res) => {
         console.log("entraste por borrado lógico de categoría");
-    //    console.log(req.params.id);
+   
         try {
-            const categoriaEliminada = await CategoriasProduct.destroy ({
+             await CategoriasProduct.destroy ({
                 where: {id: req.params.id}
             })
-    //        console.log(categoriaEliminada);
+
             return res.redirect('/product/tablasadmin');
         } catch (error) {
             console.log(error)
@@ -301,7 +369,7 @@ module.exports = {
     marcas: async (req, res) => {
         console.log("Entró por edición de marcas")
         const nameMarcas = await Marca.findAll();
-    //    console.log(nameMarcas);
+   
         return res.render('./products/marcas' , {nameMarcas : nameMarcas , marcaEdit : "vacio"});
          
     },
@@ -317,27 +385,16 @@ module.exports = {
             console.log(error)
         }
         return res.redirect('/product/tablasadmin');
-
-/*        console.log("entraste por creacion de marca");
-        let marcaNueva = { 
-            'id': marcas.length +1, 
-            'nombre': req.body.marca,
-            'borrado': false
-        }
-        marcas.push(marcaNueva);
-        fs.writeFileSync(path.resolve(__dirname, '../database/marca.json'),JSON.stringify(marcas, null , 2));
-        return res.render('products/marcas')
-*/
     },
 
     editMarcas: async (req, res) => {
         console.log("entraste por edicion de marca");
-    //    console.log(req.body.marca);
+    
         if(req.body.marca){
         let marcaId = parseInt(req.body.marca);
         let marcaEditar = await Marca.findByPk(marcaId);
         let marcaEdit = marcaEditar.dataValues
-    //    console.log(marcaEdit)
+    
         return res.render('./products/marcas' , {marcaEdit})
         } else {
             const nameMarcas = await db.Marca.findAll();
@@ -366,10 +423,9 @@ module.exports = {
 
     deleteMarca:  async (req , res) => {
         console.log("entraste por vista delete de marca");
-    //    console.log(req.params.id)
         try {
             const marcaEdit = await Marca.findByPk(req.params.id)
-    //        console.log(marcaEdit.dataValues);
+   
             return res.render('./products/marcasDelete' , {marcaEdit : marcaEdit.dataValues })
         } catch (error) {
             console.log(error)
@@ -391,13 +447,11 @@ module.exports = {
     },
 
 
-
-
     talles: async (req, res) => {
         console.log("Entró por creacion de talles");
         const nameTalles = await Talles.findAll();
         return res.render('./products/talles', {nameTalles : nameTalles , categoriaEdit : "vacio"});   
-    //    return res.render('./products/talles')
+   
 
          
     },
@@ -417,18 +471,7 @@ module.exports = {
         console.log(req.body.talle)
         return res.redirect('/product/tablasadmin');
 
-        /*
-        console.log("entraste por creacion de marca");
-        let talleNuevo = { 
-            'id': talle.length +1, 
-            'nombre': req.body.talle,
-            'descripcion': req.body.detalle,
-            'borrado': false
-        }
-        talle.push(talleNuevo);
-        fs.writeFileSync(path.resolve(__dirname, '../database/talles.json'),JSON.stringify(talle, null , 2));
-        return res.render('products/talles') */
-    },
+           },
 
     editTalles: async (req, res) => {
         console.log("entraste por edicion de Talle");
@@ -449,7 +492,6 @@ module.exports = {
 
     updateTalles: async (req, res) => {
         console.log("entraste por modificacion de talles");
-    //    console.log(req.body.categoria);
         try {
             await Talles.update({
                 'nombre': req.body.talle,
@@ -469,10 +511,9 @@ module.exports = {
 
     deleteTalle: async (req, res) => {
         console.log("entraste por vista delete de talle");
-        //    console.log(req.params.id)
             try {
                 const talleEdit = await Talles.findByPk(req.params.id)
-        //        console.log(categoriaEdit.dataValues);
+       
                 return res.render('./products/tallesDelete' , {categoriaEdit : talleEdit.dataValues })
             } catch (error) {
                 console.log(error)
@@ -482,12 +523,12 @@ module.exports = {
 
     destroyTalle: async (req, res) => {
         console.log("entraste por borrado lógico de talle");
-    //    console.log(req.params.id);
+    
         try {
-            const talleEliminado = await Talles.destroy ({
+             await Talles.destroy ({
                 where: {id: req.params.id}
             })
-    //        console.log(talleEliminado);
+    
             return res.redirect('/product/tablasadmin');
         } catch (error) {
             console.log(error)
@@ -499,21 +540,10 @@ module.exports = {
         console.log("Entró por creacion de colores");
         const nameColores = await Colores.findAll();
         return res.render('./products/colores', {nameColores : nameColores , categoriaEdit : "vacio"});  
-    //    return res.render('./products/colores')         
+             
     },    
     
-    /*processColores: (req, res) => {
-        console.log("entraste por creacion de color");
-        let colorNuevo = { 
-            'id': color.length +1, 
-            'nombre': req.body.color,
-            'descripcion': req.body.detalle,
-            'borrado': false
-        }
-        color.push(colorNuevo);
-        fs.writeFileSync(path.resolve(__dirname, '../database/colores.json'),JSON.stringify(color, null , 2));
-        return res.render('products/colores')
-    }*/
+    
     processColores: async (req, res) => {
         console.log("entraste por creacion de color");
         console.log(req.body.color)
@@ -571,10 +601,10 @@ module.exports = {
 
     deleteColor: async (req, res) => {
         console.log("entraste por vista delete de color");
-        //    console.log(req.params.id)
+        
             try {
                 const colorEdit = await Colores.findByPk(req.params.id)
-        //        console.log(colorEdit.dataValues);
+        
                 return res.render('./products/coloresDelete' , {categoriaEdit : colorEdit.dataValues })
             } catch (error) {
                 console.log(error)
@@ -584,12 +614,12 @@ module.exports = {
 
     destroyColor: async (req, res) => {
         console.log("entraste por borrado lógico de color");
-    //    console.log(req.params.id);
+    
         try {
             const colorEliminado = await Colores.destroy ({
                 where: {id: req.params.id}
             })
-    //        console.log(talleEliminado);
+    
             return res.redirect('/product/tablasadmin');
         } catch (error) {
             console.log(error)
@@ -604,8 +634,7 @@ module.exports = {
     },
     processStock : async(req,res) => {
         console.log("entraste a proceso de carga de stock");
-        //console.log(req.body)
-        //console.log(req.body.detalle)
+        
         try {
         
         await ProductTalleColor.create({
@@ -618,7 +647,7 @@ module.exports = {
         catch (error) {
             console.log(error)
         }
-       // console.log(req.body.color)
+       
         return res.redirect('/product/tablasadmin');
     }
 
