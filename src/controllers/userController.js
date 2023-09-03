@@ -4,7 +4,7 @@ const db = require('../database/models');
 const sequelize = db.sequelize;
 
 
-const Users = db.Userconst; 
+const Users = db.User; 
 const CategoriaUser = db.CategoriaUser;
 
 const bcrypt = require('bcrypt');
@@ -19,6 +19,7 @@ module.exports = {
     },
     processLogin : async (req, res) => {
         try {
+            console.log(req.body.email)
             const usuario = await Users.findOne({
                 where: {
                     correo: req.body.email
@@ -131,7 +132,7 @@ module.exports = {
         return res.redirect('/');
     },
 
-    editarPerfil: (req, res)=> {
+    editarPerfil: async (req, res)=> {
         console.log("entraste a modificar el perfil" , req.session.usuarioLogeado.id);
         datos = JSON.parse (fs.readFileSync(rutaJSON));
         const userId = datos.find (elemento => elemento.id == req.session.usuarioLogeado.id);

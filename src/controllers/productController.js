@@ -24,8 +24,9 @@ module.exports = {
         
     },
 
-    productos : (req, res) => {
+    productos : async (req, res) => {
         console.log("entraste a productos" );
+        const productos = await Products.findAll();
         return res.render('./products/productos' , {prod : productos})
         
     },
@@ -135,7 +136,7 @@ module.exports = {
             let arrayImages = [];
             for (i = 0 ; i < JSON.parse (productoBuscado.imagenes_producto).length ; i++) {
                 arrayImages.push(JSON.parse (productoBuscado.imagenes_producto)[i])
-            } 
+            }
             return res.render('./products/edicionproducto', {prod: productoBuscado , nameCategorias : nameCategorias , nameMarcas : nameMarcas , arrayImages : arrayImages})
         } catch (error) {
             console.log(error)
