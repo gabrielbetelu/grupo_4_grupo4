@@ -1,7 +1,29 @@
 window.addEventListener("load", () =>{
     const formEdicion = document.getElementById("editForm")
     const imgEdit = document.querySelector(".imgEdit")
+    const errorImg = document.getElementById("errorImg")
+    
+    imgEdit.addEventListener('change', (event) => {
+        const files = Array.from(event.target.files);
+        let images = 0;
 
+        if (files.length === 0) {
+            errorImg.innerText = `Selecciona al menos una imágen`;
+        } else {
+            for (const file of files) {
+                const fileType = file.type;
+                if (fileType.includes('image')) {
+                    images++;
+                }
+            }
+
+            if (images !== files.length) {
+                errorImg.innerText = `Selecciona una imágen válida`;
+            } else {
+                errorImg.innerText = '';
+            }
+        }
+    });
 
     formEdicion.addEventListener("submit", (e) =>{
         
