@@ -55,5 +55,3 @@ Inspiración, fragmentos de código, etc.
  Siempre interesada en el mundo tecnológico.
  En la actualidad es estudiante de programación, desarrollo Full Stack en *Digital House*.
 
-DB_PASS="Patagonic@123"
-/*patagonic_anto--"mysql-patagonic.alwaysdata.net
