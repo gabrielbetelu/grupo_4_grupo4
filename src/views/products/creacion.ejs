@@ -7,34 +7,91 @@
         <form class="edicion-form" action="/product/producto" method="POST" enctype="multipart/form-data" >
             <h5> Creación de producto</h5>
             <div>
-                <input type="text" name="nombre" placeholder="  Nombre del producto">
+                <input type="text" name="nombre" 
+                    <% if(locals.errors && errors) { %>
+                        value = "<%= oldData.nombre%>"
+                    <%}%>
+                placeholder="  Nombre del producto">
+                <% if(locals.errors && errors.nombre) { %>
+                    <p class="error"> <%= errors.nombre.msg %> </p>
+                <%}%>
             </div>
             <div>
-                <textarea name="descripcion" placeholder=" Descripción del producto"></textarea>
+                <% if(locals.errors && errors && oldData.descripcion != "") {%>
+                    <textarea name="descripcion" placeholder=" Descripción del producto"><%=oldData.descripcion%></textarea>
+                <% } else {%>
+                    <textarea name="descripcion" placeholder=" Descripción del producto"></textarea>
+                <%}%>
+                <% if(locals.errors && errors.descripcion) {%>
+                    <p class="error"> <%= errors.descripcion.msg %> </p>
+                <%}%>
             </div>
             <div class="imagenesEdicion">
                 <p>Imagenes del producto</p>
                 <input type="file" name="imagen" accept=".png, .jpg, .jpeg" multiple>
+                <% if(locals.errors && errors.image) {%>
+                    <p class="error"> <%= errors.image.msg %> </p>
+                <%}%>
             </div>           
             <div class="categoriaEdicion">
                 <p>Categorías</p>
                 <label for="tablaCategorias">Para seleccionar más de una categoría mantener presionada la tecla control</label>
                 <select multiple class="form-cat" name="categoria" id="tablaCategorias">
                     <option value="" disabled selected required>- Seleccione categorías - </option>
-                        <% nameCategorias.forEach(categoria => { %>
-                        <option value="<%= categoria.id %>"><%= categoria.categoria %></option>
-                        <% }); %>
+                    <%  let categoriaEncontrada
+                        for ( let i = 0 ; i < nameCategorias.length ; i++) {
+                            categoriaEncontrada = 0;
+                            if(locals.errors && errors && oldData.categoria) {
+                                for ( let j = 0 ; j < oldData.categoria.length ; j++) {
+                                    if (oldData.categoria[j] == nameCategorias[i].id) {
+                                        categoriaEncontrada = 1;
+                                        } 
+                                    } 
+                                if (categoriaEncontrada == 1) { %>
+                                    <option value="<%= nameCategorias[i].id %>" selected ><%= nameCategorias[i].categoria %></option>
+                                <% } else { %>
+                                    <option value="<%= nameCategorias[i].id %>" ><%= nameCategorias[i].categoria %></option>
+                                <% }
+                            } else {%>
+                                <option value="<%= nameCategorias[i].id %>" ><%= nameCategorias[i].categoria %></option>                            
+                        <% } 
+                    }%> 
                 </select>
-                <div class="categoriaEdicion">
-                    <p>Marcas</p>
-                    <select class="form-mar" name="marca" id="tablaMarcas">
-                        <option value="" disabled selected required>- Seleccione marca - </option>
-                            <% nameMarcas.forEach(marca => { %>
-                            <option value="<%= marca.id %>"><%= marca.nombre %></option>
-                            <% }); %>
-                    </select>
+                <% if(locals.errors && errors.categoria) {%>
+                    <p class="error"> <%= errors.categoria.msg %> </p>
+                <%}%>
+            </div>
+
+            <div class="categoriaEdicion">
+                <p>Marcas</p>
+                <select class="form-mar" name="marca" id="tablaMarcas">
+                    <option value="" disabled selected required>- Seleccione marca - </option>
+                        <% for ( let i = 0 ; i < nameMarcas.length ; i++) {
+                            if(locals.errors && errors) {
+                                if (oldData.marca == nameMarcas[i].id){%>
+                                    <option value="<%= nameMarcas[i].id %>" selected ><%= nameMarcas[i].nombre %></option>
+                                <% } else {%>
+                                <option value="<%= nameMarcas[i].id %>" ><%= nameMarcas[i].nombre %></option>
+                                <% } 
+                            }else {%>
+                                <option value="<%= nameMarcas[i].id %>" ><%= nameMarcas[i].nombre %></option>                            
+                        <% }  } %>   
+                </select>
+                <% if(locals.errors && errors.marca) {%>
+                    <p class="error"> <%= errors.marca.msg %> </p>
+                <%}%>
+
+            </div>
                 <div class="precioEdicion">
-                <input type="number" name="precio" value="precio" placeholder="  Precio del producto">
+                <input type="number" step="0.01" name="precio" 
+                    <% if(locals.errors && errors) { %>
+                        value = "<%= oldData.precio%>"
+                    <%}%>
+                placeholder="  Precio del producto">
+
+                <% if(locals.errors && errors.precio) {%>
+                    <p class="error"> <%= errors.precio.msg %> </p>
+                <%}%>
             </div>           
             <div class="botonesEdicion">
                 <div>

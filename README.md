@@ -37,6 +37,8 @@ Inspiración, fragmentos de código, etc.
 
 * [TRELLO6] (https://trello.com/invite/b/vHpJ8wUq/ATTIaedaac201df84eaf91de02cd4fda512dCA5E9044/tablero-de-tareas-sprint6-grupo4)
 
+* [TRELLO7] (https://trello.com/invite/b/btiVTZnZ/ATTIe4541ec3581a8755fb38dcf365bf2d32586E893C/tablero-de-tareas-sprint7-grupo4)
+
 
 
 #### Equipo detrás del proyecto
@@ -52,5 +54,4 @@ Inspiración, fragmentos de código, etc.
 - **Antonella Martinez** Lic. en turismo y guia de turismo aventura, amante de los deportes y la naturaleza.
  Siempre interesada en el mundo tecnológico.
  En la actualidad es estudiante de programación, desarrollo Full Stack en *Digital House*.
-
 

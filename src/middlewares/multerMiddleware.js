@@ -40,11 +40,12 @@ const fileFilter = (req, file , cb) => {
     }
 }
 
-const limits = {fileSize: (1024 * 1024 * 3) }
+//const limits = {fileSize: (1024 * 1024 * 3) }
 
 
 // DE ACA PASAMOS AL MIDDLEWARE DE VALIDACIONES
 
-const fileUpload = multer ({storage:multerDiskStorage , fileFilter : fileFilter , limits : limits});
+//const fileUpload = multer ({storage:multerDiskStorage , fileFilter : fileFilter , limits : limits});
+const fileUpload = multer ({storage:multerDiskStorage , fileFilter : fileFilter});
 
 module.exports = fileUpload;

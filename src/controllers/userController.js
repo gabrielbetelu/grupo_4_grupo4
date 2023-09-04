@@ -159,6 +159,15 @@ module.exports = {
                 id: userId.id
             }
             })
+            req.session.usuarioLogeado = {
+                'image': nuevaImg,
+                'first_name':req.body.nombre,
+                'last_name': req.body.apellido,
+                'correo': req.body.email,
+                'cuil': req.body.cuit,
+                'direccion': req.body.domicilio,
+                'fecha_nacimiento': req.body.nacimiento,
+            }
             return res.redirect('/');
                 
             } catch (error) {
