@@ -73,8 +73,7 @@ window.onload = function(){
             const arroba = email.indexOf('@');
             const punto = email.lastIndexOf('.');
             const esValido = arroba !== -1 && punto > arroba;
-
-                                                            
+                                     
         return esValido;
         }
     

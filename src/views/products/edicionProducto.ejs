@@ -4,7 +4,8 @@
 <body>
     <%- include('../partials/header') %>
     <main class="mainEdicion">
-        <form class="edicion-form" action="/product/producto/:id/edit?_method=PUT" method="POST" enctype="multipart/form-data" >
+        
+        <form class="edicion-form" id="editForm" action="/product/producto/:id/edit?_method=PUT" method="POST" enctype="multipart/form-data" >
             <div id="edicionInvisible">
                 <% if (prod == "vacio") {%>
                     <input type="text" name="id">
@@ -16,15 +17,17 @@
                 <% if (prod == "vacio") {%>
                     <input type="text" name="nombre"  placeholder="  Nombre del producto" >
                     <%} else {%>
-                    <input type="text" name="nombre" value="<%= prod.nombre_producto%>" placeholder="  Nombre del producto" >
-                <% }%>
+                    <input class="nombre" type="text" name="nombre" value="<%= prod.nombre_producto%>" placeholder="  Nombre del producto" > 
+                <% }%> 
+                <p id="errorNom" class="error"></p>
             </div>
            <div>
                 <% if (prod == "vacio") {%>
                     <textarea name="descripcion" placeholder=" Descipcion del producto" ></textarea>
                     <%} else {%>
-                        <textarea name="descripcion" placeholder=" Descipcion del producto" ><%= prod.detalle%></textarea>
+                    <textarea class="descripcion" name="descripcion" placeholder=" Descipcion del producto" ><%= prod.detalle%></textarea>         
                 <% }%>
+                <p id="errorDesc" class="error"></p>  
             </div>
             <div class="imagenesEdicion">
                 <p>Imagenes del producto</p>
@@ -32,7 +35,7 @@
                     else {%>
                     <p id="parrafoFotos">Fotos actuales</p>
                     <%}%>
-                <div id="archivosImagenesProd">
+                <div class="imgEdit" id="archivosImagenesProd">
                     <% if (prod == "vacio") {%>
                         <input type="file" name="imagen" accept=".png, .jpg, .jpeg" multiple>
                         <%} else {%>
@@ -42,9 +45,9 @@
                             <% } %>
                             </div>
                             <input id="conFotos" type="file" name="imagen" accept=".png, .jpg, .jpeg" multiple >
-                    <% }%>
+                    <% }%>  
                 </div>
-                
+                <p id="errorImg" class="error"></p> 
             </div>           
             <div class="categoriaEdicion categoria_Edicion">
                 <p>Categorías</p>
@@ -98,6 +101,7 @@
         </div>
     </main>
     <%- include('../partials/footer') %>
+    <script src="/js/edicion.js"></script>
 </body>
 </html>
 
