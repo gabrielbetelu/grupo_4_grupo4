@@ -84,6 +84,7 @@ module.exports = {
             })      
             
             stringImg = JSON.stringify(arrayImg);
+    //        console.log(stringImg)
             try {
                 const newProducts = await Products.create({
                 nombre_producto: req.body.nombre,
@@ -213,7 +214,7 @@ module.exports = {
                         relacionEncontrada = 1;
                     }
                 }
-                console.log(relacionEncontrada)
+    //            console.log(relacionEncontrada)
                 if (relacionEncontrada == 0 && req.body.id == relacionesGuardadas[i].id_product){
         
                     await CategoriaProducto.destroy({
