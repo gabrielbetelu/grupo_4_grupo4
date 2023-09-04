@@ -58,7 +58,7 @@ window.onload = function(){
             errores.push("error contraseña");
             pError.innerText = "La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un símbolo"
         } else if (contraseniaInput.value !== confirmContraseniaInput.value) {
-            errores.push ="error confirmacion contraseña";
+            errores.push("error confirmacion contraseña");
             pError.innerText = "Las contraseñas no coinciden"
         }
         
@@ -83,17 +83,12 @@ window.onload = function(){
                 throw error; 
                 }
             };
-
-            
+          
             const validateEmailExists = async (email) => {
                 try {
                 const userListFromApi = await getUserListFromApi();
-    /*              console.log("userListFromApi *********************")
-                console.log(userListFromApi)
-                console.log("emailInput.value  *********************")
-                console.log(emailInput.value)
-    */
-                const emailExists = userListFromApi.data.some(user => user.correo == email)
+    
+                const emailExists = userListFromApi.data.some(user => user.correo.toLowerCase() == email.toLowerCase())
                 console.log(userListFromApi)
                 return emailExists;
                 } catch (error) {
@@ -101,9 +96,7 @@ window.onload = function(){
                 return false; // En caso de error, considera que el correo no existe para evitar problemas
                 }
             };
-
-            
-            // Uso de la función de validación
+           
             const email = emailInput.value;
             const emailExists = await validateEmailExists(email);
             if (emailExists) {
@@ -167,39 +160,7 @@ window.onload = function(){
                 throw error;
             }
         }
-        
-             
-               
-               
-        async function checkEmailExiste(email) {
-            
-        
-        }
-        const email = emailInput.value;
-        const esEmailValid = esValidEmail(email);
-
-        if (!esEmailValid) {
-            errorEmail.innerText = "Ingrese un email válido";
-            errores.push("email invalido" )
-        } else {
-        try {
-        const siEmailExiste = await checkEmailExiste(email);
-        if (siEmailExiste) {
-            errorEmail.innerText = "El email ya está registrado";
-            errores.push("error email registrado")
-        }
-        } catch (error) {
-             console.error('Error al verificar el email:', error);
-        }
-    }
-        function esValidEmail(email) {
-            const arroba = email.indexOf("@");
-            const punto = email.lastIndexOf(".");
-        
-            const esValido = arroba !== -1 && punto > arroba;
-            return esValido;*/
-    
-    
+    }    
     // Validación de la imagen 
         const imagen = imagenInput.files[0];
         if (!imagen) {
@@ -212,6 +173,7 @@ window.onload = function(){
         if (!tiposPermitidos.includes(imagen.type)) {
         errorImagen.innerText ="El tipo de archivo de imagen no es válido";
         errores.push("error imagen tipo archivo")
+        
         }
 
         const maxTamano = 3 * 1024 * 1024; 
@@ -232,6 +194,7 @@ console.log(errores)
             })
            
         }
+    
     })
 }
 

@@ -7,9 +7,14 @@
             <img src="../images/patagonia-argentina.jpg" alt="fondo" class="fondo-image" />
             <form class="login-form" action="/user/login" method="post" >
                 <h5>Patagonic</h5>
+            <div>
                 <input class="log-control" type="email" name="email" value="" placeholder=" Email">
+                <p id="errorEmail"  class="error"></p>
+            </div> 
+            <div>
                 <input class="log-control" type="password" name="contrasenia" value="" placeholder=" Password">
                 <p id="errores"  class="error"></p>
+            </div>
                 <div class="recordameLogin">
                     <label for="cookie">Recordarme</label>
                     <input type="checkbox" name="cookie" id="cookie"> 
