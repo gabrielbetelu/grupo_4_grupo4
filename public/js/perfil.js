@@ -4,13 +4,16 @@ window.onload = function(){
     form.addEventListener('submit', async (e) => {
         e.preventDefault();       
 
+        const nombreInput = document.querySelector("input[name='nombre']");
+        const apellido = document.querySelector("input[name='apellido']");
         const emailInput = form.querySelector("input[name='email']");
         const imagenInput = form.querySelector("input[name='imagen']");
         const contraseniaInput = document.querySelector("input[name='contrasenia']");
         const confirmContraseniaInput = document.querySelector("input[name='confirm-contrasenia']");
         
         let pError = document.querySelector('#errores');
-        
+        let errorNombre = document.querySelector('#errorNombre');
+        let errorApellido = document.querySelector('#errorApellido');
         let errorEmail = document.querySelector('#errorEmail');
         let errorImagen = document.querySelector('#errorImagen');
         
@@ -24,7 +27,7 @@ window.onload = function(){
         errores.push('error imagen') 
 
         const tiposPermitidos = ['image/jpeg', 'image/png', 'image/gif']; 
-
+        }
         if (!tiposPermitidos.includes(imagen.type)) {
         errorImagen.innerText ="El tipo de archivo de imagen no es válido";
         errores.push("error imagen tipo archivo")
@@ -125,7 +128,7 @@ errorEmail.innerHTML = '';
             errorEmail.innerText = "";
             console.log('El correo electrónico no existe en la API.');
         }
-
+    }
         const esEmailValid = esValidoEmail(email);
         if(esEmailValid){
         console.log("Es válido el email? =  " + esEmailValid) 
@@ -134,7 +137,7 @@ errorEmail.innerHTML = '';
     } else {
         errorEmail.innerText= "Email inválido"
     }
-}
+
    
         console.log(errores)
             if (errores.length == 0){
@@ -147,6 +150,6 @@ errorEmail.innerHTML = '';
                     form.submit();
                 })
             }
-        }
+        
     })
 }
