@@ -41,7 +41,7 @@ window.onload = function(){
             apellido.classList.add('is-valid')
             errorApellido.innerHTML = '';
         }
-        
+        //validacion contraseña
         function esValidPassword(contrasenia) {
             // Verificar que la contraseña tenga al menos 8 caracteres,
             // una mayúscula, una minúscula y un símbolo
@@ -73,13 +73,22 @@ window.onload = function(){
             const arroba = email.indexOf('@');
             const punto = email.lastIndexOf('.');
             const esValido = arroba !== -1 && punto > arroba;
-                errorEmail.innerText = "email inválido"
-                errorEmail.innerText = ''
-        
-                        
+
+                                                            
         return esValido;
-        
+        }
+    
+        if (emailInput.value == "") {
+            errores.push("email vacío");
+            errorEmail.innerText = "Por favor, complete este campo.";
+        } else {
+            if (!esValidoEmail(emailInput.value)) {
+                errores.push("email inválido");
+                errorEmail.innerText = "Email inválido";
+            } else {
+                errorEmail.innerText = ""; 
     }
+}
     errorEmail.innerHTML = '';
        if(emailInput.value == "") {
             errores.push("email vacío");
@@ -129,9 +138,13 @@ window.onload = function(){
             }
 
             const esEmailValid = esValidoEmail(email);
-            console.log("Es válido el email? =  " + esEmailValid)           
+            if(esEmailValid){
+            console.log("Es válido el email? =  " + esEmailValid) 
+            errorEmail.innerText = "";          
             
-        } 
+        } else {
+            errorEmail.innerText= "Email inválido"
+        }
         
     // Validación de la imagen 
         const imagen = imagenInput.files[0];
@@ -150,7 +163,7 @@ window.onload = function(){
 
         const maxTamano = 3 * 1024 * 1024; 
         if (imagen.size > maxTamano) {
-        errorImagen.innerText ="La imagen es demasiado grande. El tamaño máximo permitido es de 2 MB";
+        errorImagen.innerText ="La imagen es demasiado grande. El tamaño máximo permitido es de 3 MB";
         errores.push("error imagen tamaño")
         }
     }
@@ -167,7 +180,8 @@ window.onload = function(){
             })
            
         }
+    
+    }
+
     })
 }
-
-
