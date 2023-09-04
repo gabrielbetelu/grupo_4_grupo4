@@ -8,7 +8,7 @@
                 <form class="edicion-form deleteProdForm" id="deleteProdForm" action="/product/eliminar/<%= prod.id%>?_method=DELETE" method="post">
                         <h5>Edición de producto</h5>
                         <div>
-                            <p>Seguro que desea borrar el producto <strong> <em>--  <%=prod.nombre_producto%>  --</em> </strong>?</p>
+                            <p class="seguro">Seguro que desea borrar el producto <strong> <em>--  <%=prod.nombre_producto%>  --</em> </strong>?</p>
                             <% if(locals.errors && errors.nombre) { %>
                             <p class="error"> <%= errors.nombre.msg %> </p>
                                 <% } %>

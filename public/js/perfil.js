@@ -10,7 +10,6 @@ window.onload = function(){
         const imagenInput = form.querySelector("input[name='imagen']");
         const contraseniaInput = document.querySelector("input[name='contrasenia']");
         const confirmContraseniaInput = document.querySelector("input[name='confirm-contrasenia']");
-        
         let pError = document.querySelector('#errores');
         let errorNombre = document.querySelector('#errorNombre');
         let errorApellido = document.querySelector('#errorApellido');
@@ -18,7 +17,6 @@ window.onload = function(){
         let errorImagen = document.querySelector('#errorImagen');
         
         let errores = [];
-
 
         // Validación de la imagen 
         const imagen = imagenInput.files[0];
@@ -46,6 +44,7 @@ window.onload = function(){
         const tieneLowerCase = /[a-z]/.test(contrasenia);
         const tieneSymbol = /[\W_]/.test(contrasenia);
         let esValida = false;
+        
         if(tieneUpperCase && tieneLowerCase && tieneSymbol && contrasenia.length >=8)
         esValida = true
         return esValida
@@ -68,7 +67,6 @@ window.onload = function(){
         const arroba = email.indexOf('@');
         const punto = email.lastIndexOf('.');
         const esValido = arroba !== -1 && punto > arroba;
-
                                                         
     return esValido;
     }
@@ -82,9 +80,9 @@ window.onload = function(){
             errorEmail.innerText = "Email inválido";
         } else {
             errorEmail.innerText = ""; 
-}
-}
-errorEmail.innerHTML = '';
+        }
+    }
+    errorEmail.innerHTML = '';
    if(emailInput.value == "") {
         errores.push("email vacío");
         errorEmail.innerText = "precisa completar este campo"
