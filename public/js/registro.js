@@ -62,7 +62,7 @@ window.onload = function(){
             pError.innerText = "La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un símbolo"
             
         } else if (contraseniaInput.value !== confirmContraseniaInput.value) {
-            errores.push ="error confirmacion contraseña";
+            errores.push("error confirmacion contraseña");
             pError.innerText = "Las contraseñas no coinciden"
             pError.innerHTML = '';
         }
@@ -108,14 +108,11 @@ window.onload = function(){
                 throw error; 
                 }
             };
-            
+          
             const validateEmailExists = async (email) => {
                 try {
                 const userListFromApi = await getUserListFromApi();
-    /*              console.log("userListFromApi *********************")
-                console.log(userListFromApi)
-                console.log("emailInput.value  *********************")
-                */
+    
                 const emailExists = userListFromApi.data.some(user => user.correo.toLowerCase() == email.toLowerCase())
                 console.log(userListFromApi)
                 
@@ -125,7 +122,7 @@ window.onload = function(){
                 return false; 
                 }
             };
-            
+           
             const email = emailInput.value;
             const emailExists = await validateEmailExists(email);
             if (emailExists) {
@@ -145,7 +142,7 @@ window.onload = function(){
         } else {
             errorEmail.innerText= "Email inválido"
         }
-        
+    }    
     // Validación de la imagen 
         const imagen = imagenInput.files[0];
         if (!imagen) {
@@ -158,7 +155,7 @@ window.onload = function(){
         if (!tiposPermitidos.includes(imagen.type)) {
         errorImagen.innerText ="El tipo de archivo de imagen no es válido";
         errores.push("error imagen tipo archivo")
-        errorImagen.innerHTML = '';
+        
         }
 
         const maxTamano = 3 * 1024 * 1024; 
@@ -181,7 +178,5 @@ window.onload = function(){
            
         }
     
-    }
-
     })
 }
