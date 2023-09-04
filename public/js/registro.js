@@ -55,7 +55,9 @@ window.onload = function(){
         }
 
         const ContraseniaValid = esValidPassword(contraseniaInput.value);
-        
+        console.log(contraseniaInput.value);
+        console.log(confirmContraseniaInput.value);
+
         if (!ContraseniaValid) {
             console.log('contraseniano valida')
             errores.push("error contraseña");
@@ -64,7 +66,6 @@ window.onload = function(){
         } else if (contraseniaInput.value !== confirmContraseniaInput.value) {
             errores.push("error confirmacion contraseña");
             pError.innerText = "Las contraseñas no coinciden"
-            pError.innerHTML = '';
         }
         
     // validacion email

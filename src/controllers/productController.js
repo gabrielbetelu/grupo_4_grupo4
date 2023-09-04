@@ -164,6 +164,7 @@ module.exports = {
             for (i = 0 ; i < JSON.parse (productoBuscado.imagenes_producto).length ; i++) {
                 arrayImages.push(JSON.parse (productoBuscado.imagenes_producto)[i])
             } 
+            console.log(arrayImages)
             return res.render('./products/edicionproducto', { errors: rdoValidacion.mapped(), prod: productoBuscado ,oldData: req.body, nameCategorias : nameCategorias , nameMarcas : nameMarcas , arrayImages : arrayImages})
         }
      
@@ -181,14 +182,15 @@ module.exports = {
             } else {
                 arrayImg = oldImagen;
             }
-    //        console.log("*** arrayImg  **********************");
-    //        console.log(arrayImg);
+            console.log("*** arrayImg  oldImagen **********************");
+            console.log(arrayImg);
             stringImg = JSON.stringify(arrayImg);
-    //        console.log(stringImg);
+            console.log("*** stingImg **********************");
+            console.log(stringImg);
             await Products.update({
                 'nombre_producto': req.body.nombre,
                 'detalle': req.body.descripcion,
-                'imagenes_producto': stringImg,
+                'imagenes_producto': arrayImg,
                 'precio_producto': req.body.precio,
                 'id_marca': req.body.marca
             },{
