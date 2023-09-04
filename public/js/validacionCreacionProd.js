@@ -35,7 +35,7 @@ window.addEventListener("load", () =>{
 
         if(nombreProducto.value == ""){
             errores.push("Este campo es obligatorio")
-            errorNombre.innerText = "Campo obligatorio";
+            errorNombre.innerText = "Campo obligatorio, mínimo 5 caracteres";
         }else if (nombreProducto.value.length < 5){ 
             errores.push("Este campo debe tener al menos 5 caracteres")
             errorNombre.innerText= "Campo obligatorio, mínimo 5 caracteres";
@@ -48,7 +48,7 @@ window.addEventListener("load", () =>{
 
         if (imagenVacia=1) {
             errores.push("Imagen vacia")
-            errorImagen.innerText= "Debe seleccionar al menos una imagen";
+            errorImagen.innerText= "Debe seleccionar una imagen válida";
         }
     
          
