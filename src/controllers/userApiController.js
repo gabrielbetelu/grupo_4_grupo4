@@ -1,5 +1,6 @@
 const path = require ('path');
 const db = require('../database/models');
+const { error } = require('console');
 const sequelize = db.sequelize;
 
 const Users = db.User; 
@@ -10,12 +11,14 @@ module.exports = {
     list: async (req , res) => {
         const response = {
             success : true,
-            count: data.length,
             endPoint: '/api/user',
         }
         try {
-            const data = await Users.findAll();
+            const data = await Users.findAll()
             response.data = data;
+            response.count = data.length;
+            //response.data.detail = '/:id';
+
             return res.json(response);
 
         } catch (error) {
@@ -26,39 +29,37 @@ module.exports = {
     },
     detail: async (req, res) => {
         const userId = req.params.id;
+
         try {
             const user = await Users.findByPk(userId, {
                 attributes: {
-                    exclude: ['contrasenia', 'borrado', 'categoria'], 
+                    exclude: ['contrasenia', 'borrado', 'categoria'],
                 },
             });
-    
+
             if (!user) {
-                return res.send(error);
+                return  'Usuario no encontrado' 
             }
-    
-            // cuando este la tabla imagen hacer esta parte
-            //const perfilImageUrl = `/path/image/${user.image}`;
-    
+
+            //aca hacer la parte de la imagen de perfil cuando gabi tenga la tabla
+
             const response = {
                 id: user.id,
                 first_name: user.first_name,
                 last_name: user.last_name,
                 correo: user.correo,
-                image_url: profileImageUrl,
                 cuil: user.cuil,
                 direccion: user.direccion,
                 fecha_nacimiento: user.fecha_nacimiento,
-                
+                //agregar la img
             };
-    
+
             return res.json(response);
         } catch (error) {
             console.error(error);
             
+            
         }
-    }
-
-}
-
+    },
+};
 
