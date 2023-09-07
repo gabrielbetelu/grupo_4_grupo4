@@ -4,18 +4,19 @@ window.onload = function(){
     form.addEventListener('submit', async (e) => {
         e.preventDefault();       
 
+        const nombreInput = document.querySelector("input[name='nombre']");
+        const apellido = document.querySelector("input[name='apellido']");
         const emailInput = form.querySelector("input[name='email']");
         const imagenInput = form.querySelector("input[name='imagen']");
         const contraseniaInput = document.querySelector("input[name='contrasenia']");
         const confirmContraseniaInput = document.querySelector("input[name='confirm-contrasenia']");
-        
         let pError = document.querySelector('#errores');
-        
+        let errorNombre = document.querySelector('#errorNombre');
+        let errorApellido = document.querySelector('#errorApellido');
         let errorEmail = document.querySelector('#errorEmail');
         let errorImagen = document.querySelector('#errorImagen');
         
         let errores = [];
-
 
         // Validación de la imagen 
         const imagen = imagenInput.files[0];
@@ -24,7 +25,7 @@ window.onload = function(){
         errores.push('error imagen') 
 
         const tiposPermitidos = ['image/jpeg', 'image/png', 'image/gif']; 
-
+        }
         if (!tiposPermitidos.includes(imagen.type)) {
         errorImagen.innerText ="El tipo de archivo de imagen no es válido";
         errores.push("error imagen tipo archivo")
@@ -43,6 +44,7 @@ window.onload = function(){
         const tieneLowerCase = /[a-z]/.test(contrasenia);
         const tieneSymbol = /[\W_]/.test(contrasenia);
         let esValida = false;
+        
         if(tieneUpperCase && tieneLowerCase && tieneSymbol && contrasenia.length >=8)
         esValida = true
         return esValida
@@ -65,7 +67,6 @@ window.onload = function(){
         const arroba = email.indexOf('@');
         const punto = email.lastIndexOf('.');
         const esValido = arroba !== -1 && punto > arroba;
-
                                                         
     return esValido;
     }
@@ -79,9 +80,9 @@ window.onload = function(){
             errorEmail.innerText = "Email inválido";
         } else {
             errorEmail.innerText = ""; 
-}
-}
-errorEmail.innerHTML = '';
+        }
+    }
+    errorEmail.innerHTML = '';
    if(emailInput.value == "") {
         errores.push("email vacío");
         errorEmail.innerText = "precisa completar este campo"
@@ -125,7 +126,7 @@ errorEmail.innerHTML = '';
             errorEmail.innerText = "";
             console.log('El correo electrónico no existe en la API.');
         }
-
+    }
         const esEmailValid = esValidoEmail(email);
         if(esEmailValid){
         console.log("Es válido el email? =  " + esEmailValid) 
@@ -134,7 +135,7 @@ errorEmail.innerHTML = '';
     } else {
         errorEmail.innerText= "Email inválido"
     }
-}
+
    
         console.log(errores)
             if (errores.length == 0){
@@ -147,6 +148,6 @@ errorEmail.innerHTML = '';
                     form.submit();
                 })
             }
-        }
+        
     })
 }

@@ -52,7 +52,9 @@ window.onload = function(){
         }
 
         const ContraseniaValid = esValidPassword(contraseniaInput.value);
-        
+        console.log(contraseniaInput.value);
+        console.log(confirmContraseniaInput.value);
+
         if (!ContraseniaValid) {
             console.log('contraseniano valida')
             errores.push("error contraseña");
@@ -62,7 +64,28 @@ window.onload = function(){
             pError.innerText = "Las contraseñas no coinciden"
         }
         
-         
+    // validacion email
+        
+        function esValidoEmail(email) {
+            const arroba = email.indexOf('@');
+            const punto = email.lastIndexOf('.');
+            const esValido = arroba !== -1 && punto > arroba;
+                                     
+        return esValido;
+        }
+    
+        if (emailInput.value == "") {
+            errores.push("email vacío");
+            errorEmail.innerText = "Por favor, complete este campo.";
+        } else {
+            if (!esValidoEmail(emailInput.value)) {
+                errores.push("email inválido");
+                errorEmail.innerText = "Email inválido";
+            } else {
+                errorEmail.innerText = ""; 
+    }
+}
+    errorEmail.innerText = '';
        if(emailInput.value == "") {
             errores.push ="email vacío";
             console.log("email vacío")
@@ -107,7 +130,7 @@ window.onload = function(){
 
             const esEmailValid = esValidoEmail(email);
             console.log("Es válido el email? =  " + esEmailValid) 
-            
+            //errorEmail.innerText = "";          
             
         } 
          

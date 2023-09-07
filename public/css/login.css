@@ -40,13 +40,13 @@
   color: #c79430;
 }
 .erroresLogin {
-  
   padding: 0;
   margin: 0;
   border: none;
+  font-size: 15px;
 }
 .erroresLogin p.errorDatos {
-  font-size: 20px;
+  font-size: 17px;
   color: #f4db8c;
   text-align: center;
   padding: 0;

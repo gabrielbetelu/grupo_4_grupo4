@@ -21,8 +21,8 @@ module.exports = [
     ('La contraseña debe tener mínimo 8 caracteres, mínimo 1 minúscula, 1 mayúscula , 1 número y 1 caracter especial'),
     
     check('image').custom((value, {req}) => {
-        //        if (req.fileError || req.file.size > (1024 * 1024 * 3)) {
-                if (req.fileError) {
+               if (req.fileError || req.file.size > (1024 * 1024 * 3)) {
+                //  if (req.fileError) {
                     throw new Error ('La imagen debe tener un formato valido');
         //            throw new Error ('La imagen debe tener un formato valido y su tamaño ser menor a 3Mb');
                 };

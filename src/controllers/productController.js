@@ -2,6 +2,7 @@ const path = require ('path');
 const db = require('../database/models');
 const sequelize = db.sequelize;
 const { Op } = require('sequelize');
+//const {Op} = require('sequelize')
 //const Op = sequelize.Op
 const { validationResult } = require("express-validator");
 
@@ -84,6 +85,7 @@ module.exports = {
             })      
             
             stringImg = JSON.stringify(arrayImg);
+    //        console.log(stringImg)
             try {
                 const newProducts = await Products.create({
                 nombre_producto: req.body.nombre,
@@ -163,6 +165,7 @@ module.exports = {
             for (i = 0 ; i < JSON.parse (productoBuscado.imagenes_producto).length ; i++) {
                 arrayImages.push(JSON.parse (productoBuscado.imagenes_producto)[i])
             } 
+            console.log(arrayImages)
             return res.render('./products/edicionproducto', { errors: rdoValidacion.mapped(), prod: productoBuscado ,oldData: req.body, nameCategorias : nameCategorias , nameMarcas : nameMarcas , arrayImages : arrayImages})
         }
      
@@ -180,14 +183,15 @@ module.exports = {
             } else {
                 arrayImg = oldImagen;
             }
-    //        console.log("*** arrayImg  **********************");
-    //        console.log(arrayImg);
+            console.log("*** arrayImg  oldImagen **********************");
+            console.log(arrayImg);
             stringImg = JSON.stringify(arrayImg);
-    //        console.log(stringImg);
+            console.log("*** stingImg **********************");
+            console.log(stringImg);
             await Products.update({
                 'nombre_producto': req.body.nombre,
                 'detalle': req.body.descripcion,
-                'imagenes_producto': stringImg,
+                'imagenes_producto': arrayImg,
                 'precio_producto': req.body.precio,
                 'id_marca': req.body.marca
             },{
@@ -213,7 +217,7 @@ module.exports = {
                         relacionEncontrada = 1;
                     }
                 }
-                console.log(relacionEncontrada)
+    //            console.log(relacionEncontrada)
                 if (relacionEncontrada == 0 && req.body.id == relacionesGuardadas[i].id_product){
         
                     await CategoriaProducto.destroy({
