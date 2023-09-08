@@ -16,10 +16,6 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(255),
             allowNull: false
         },
-        imagenes_producto: {
-            type: dataTypes.STRING(255),
-            allowNull: false
-        },
         precio_producto: {
             type: dataTypes.DECIMAL(8, 2),
             allowNull: false
@@ -65,15 +61,8 @@ module.exports = (sequelize, dataTypes) => {
                 foreignKey:"id_product",
                 otherKey:"id_ticket"
                 //timestamps:true
-            }) 
-            
-        Product.belongsTo(models.Marca,
+            })
         
-            {
-                as:"productoMarca",
-                foreignKey:"id_marca",
-            }) 
-
         Product.belongsToMany(models.Color,
         
             {
@@ -92,10 +81,21 @@ module.exports = (sequelize, dataTypes) => {
                 foreignKey:"id_product",
                 otherKey:"id_talle"
                  //timestamps:true
+            })
+
+        Product.belongsTo(models.Marca,
+    
+            {
+                as:"productoMarca",
+                foreignKey:"id_marca",
             }) 
             
-    
+        Product.hasMany(models.Foto,
+            {
+                as:"productoFoto",
+                foreignKey:"id_producto",
 
+            })
         }
 
     return Product
