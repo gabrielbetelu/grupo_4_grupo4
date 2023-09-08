@@ -16667,3 +16667,6 @@ Ingresó en la página /api/user/:id
 Ingresó en la página /api/user/2
 Ingresó en la página /api/user/:id
 Ingresó en la página /api/user/3
+Ingresó en la página /api/user
+Ingresó en la página /favicon.ico
+Ingresó en la página /api/user/3

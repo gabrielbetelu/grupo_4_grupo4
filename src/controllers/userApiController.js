@@ -1,6 +1,6 @@
 const path = require ('path');
 const db = require('../database/models');
-const { error } = require('console');
+
 const sequelize = db.sequelize;
 
 const Users = db.User; 
@@ -50,14 +50,25 @@ module.exports = {
                 return  'Usuario no encontrado' 
             }
 
-        const userImage = await Users.findOne({ where: { id: user.id } });
-
+        //const userImage = await Users.findOne({ where: { id: user.id } });
+        const perfilImagen = `/images/${user.image}`;
         const response = {
             id: user.id,
             name: user.first_name,
             email: user.correo,
-            imagen: userImage ? `/api/user/${user.id}/image` : null,
+            imagenPerfil: perfilImagen,
+            //imagen: userImage ? `/api/user/${user.id}/image` : null,
         };
+        /*
+        const perfilImagen = `/path/to/images/${user.image}`;
+
+        const response = {
+            id: user.id,
+            first_name: user.first_name,
+            last_name: user.last_name,
+            email: user.correo,
+            image_url: perfilImagen,
+          */
 
         return res.json(response);
 
