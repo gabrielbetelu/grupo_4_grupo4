@@ -15,10 +15,19 @@ module.exports = {
         }
         try {
             const data = await Users.findAll()
-            response.data = data;
             response.count = data.length;
-            //response.data.detail = '/:id';
+            
+                        
+            const usuario = data.map(user => ({
+                id: user.id,
+                name: user.first_namename, 
+                email: user.correo, 
+                detail: `/api/user/${user.id}`
+            }));
+    
+            response.data = usuario;
 
+            console.log(data)
             return res.json(response);
 
         } catch (error) {
@@ -57,7 +66,7 @@ module.exports = {
             return res.json(response);
         } catch (error) {
             console.error(error);
-            
+         
             
         }
     },
