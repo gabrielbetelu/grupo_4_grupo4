@@ -20,7 +20,7 @@ module.exports = {
                         
             const usuario = data.map(user => ({
                 id: user.id,
-                name: user.first_namename, 
+                name: user.first_name, 
                 email: user.correo, 
                 detail: `/api/user/${user.id}`
             }));
@@ -50,23 +50,19 @@ module.exports = {
                 return  'Usuario no encontrado' 
             }
 
-            //aca hacer la parte de la imagen de perfil cuando gabi tenga la tabla
+        const userImage = await Users.findOne({ where: { id: user.id } });
 
-            const response = {
-                id: user.id,
-                first_name: user.first_name,
-                last_name: user.last_name,
-                correo: user.correo,
-                cuil: user.cuil,
-                direccion: user.direccion,
-                fecha_nacimiento: user.fecha_nacimiento,
-                //agregar la img
-            };
+        const response = {
+            id: user.id,
+            name: user.first_name,
+            email: user.correo,
+            imagen: userImage ? `/api/user/${user.id}/image` : null,
+        };
 
-            return res.json(response);
+        return res.json(response);
+
         } catch (error) {
             console.error(error);
-         
             
         }
     },
