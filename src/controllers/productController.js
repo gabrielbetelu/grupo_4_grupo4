@@ -29,7 +29,8 @@ module.exports = {
     productos : async (req, res) => {
         console.log("entraste a productos" );
         const productos = await Products.findAll();
-        return res.render('./products/productos' , {prod : productos})
+        const fotos = await Fotos.findAll()
+        return res.render('./products/productos' , {prod : productos , imagenes : fotos})
         
     },
 
