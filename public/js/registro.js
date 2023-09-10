@@ -73,8 +73,7 @@ window.onload = function(){
             const arroba = email.indexOf('@');
             const punto = email.lastIndexOf('.');
             const esValido = arroba !== -1 && punto > arroba;
-
-                                                            
+                                     
         return esValido;
         }
     
@@ -89,7 +88,7 @@ window.onload = function(){
                 errorEmail.innerText = ""; 
     }
 }
-    errorEmail.innerHTML = '';
+    errorEmail.innerText = '';
        if(emailInput.value == "") {
             errores.push("email vacío");
             errorEmail.innerText = "precisa completar este campo"
@@ -137,7 +136,7 @@ window.onload = function(){
             const esEmailValid = esValidoEmail(email);
             if(esEmailValid){
             console.log("Es válido el email? =  " + esEmailValid) 
-            errorEmail.innerText = "";          
+            //errorEmail.innerText = "";          
             
         } else {
             errorEmail.innerText= "Email inválido"

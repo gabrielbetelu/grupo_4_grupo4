@@ -30,7 +30,7 @@
                 <p id="errorDesc" class="error"></p>  
             </div>
             <div class="imagenesEdicion">
-                <p>Imagenes del producto</p>
+                <p class="tituloImag">Imagenes del producto</p>
                 <% if (prod == "vacio") { }
                     else {%>
                     <p id="parrafoFotos">Fotos actuales</p>
@@ -50,7 +50,7 @@
                 <p id="errorImg" class="error"></p> 
             </div>           
             <div class="categoriaEdicion categoria_Edicion">
-                <p>Categorías</p>
+                <p class="category">Categorías</p>
                 <label for="tablaCategorias">Para seleccionar más de una categoría mantener presionada la tecla control</label>
                 <select multiple class="form-cat" name="categoria" id="tablaCategorias">
                     <option value="" disabled selected required>- Seleccione categorías - </option>
@@ -64,7 +64,7 @@
                 </select>
             </div>    
             <div class="categoriaEdicion">
-                <p>Marcas</p>
+                <p class="marcaProd">Marcas</p>
                 <select class="form-mar" name="marca" id="tablaMarcas">
                     <option value="" disabled required>- Seleccione marca - </option>
                         <% nameMarcas.forEach(marca => { %>

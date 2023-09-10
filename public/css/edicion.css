@@ -112,7 +112,7 @@
     color: #c79430;
 }
 
-.mainEdicion .edicion-form .imagenesEdicion p {
+.mainEdicion .edicion-form .imagenesEdicion .tituloImag {
     height: 40px;
     font-size: 17px;
     font-style: oblique;
@@ -140,7 +140,7 @@
     border-bottom: 1px solid; 
 }
 
-.mainEdicion .edicion-form .categoriaEdicion p {
+.mainEdicion .edicion-form .categoriaEdicion .category {
     width: 100%;
     font-size: 17px;
     font-style: oblique;
@@ -333,7 +333,7 @@ button.botonEliminar:hover{
         font-size: 20px;
     }
 
-    .mainEdicion .edicion-form p {
+    .mainEdicion .edicion-form .seguro {
         font-size: 20px;
     }
 
@@ -350,11 +350,11 @@ button.botonEliminar:hover{
         width: 25%;
     }   
     
-    .mainEdicion .edicion-form .imagenesEdicion p {
+    .mainEdicion .edicion-form .imagenesEdicion .tituloImag {
         font-size: 20px;
     }
     
-    .mainEdicion .edicion-form .categoriaEdicion p {
+    .mainEdicion .edicion-form .categoriaEdicion .category {
         font-size: 20px;
     }
     
