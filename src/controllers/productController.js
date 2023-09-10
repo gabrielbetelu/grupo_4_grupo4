@@ -94,12 +94,10 @@ module.exports = {
                     {
                         include: [{ association: "productoFoto" }], 
                     }
-                )
-                for (let i = 0 ; i < arrayFotos.length ; i++) {
-                    await newProducts.createProductoFoto(arrayFotos[i]);
-                }
-
-    /* ---------------------------------------------------------------------------------------------- */            
+                    )
+                    for (let i = 0 ; i < arrayFotos.length ; i++) {
+                        await newProducts.createProductoFoto(arrayFotos[i]);
+                    }      
 
                     for (let i = 0; i < req.body.categoria.length; i++) {
                             await CategoriaProducto.create({
@@ -147,7 +145,6 @@ module.exports = {
         } catch (error) {
             console.log(error)
         }
-        
     },
 
     processModificar: async (req , res)=> {
