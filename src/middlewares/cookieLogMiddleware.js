@@ -24,7 +24,3 @@ const cookieExiste = async (req, res, next) => {
 }
 
 module.exports = cookieExiste;
-
-    
-
-    

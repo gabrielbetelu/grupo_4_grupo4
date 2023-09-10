@@ -19,6 +19,7 @@ module.exports = {
     },
     processLogin : async (req, res) => {
         try {
+            console.log(req.body.email)
             const usuario = await Users.findOne({
                 where: {
                     correo: req.body.email
@@ -98,7 +99,7 @@ module.exports = {
                     contrasenia: bcrypt.hashSync(req.body.contrasenia, 10),
                     image: req.file ? req.file.filename : "avatar.png",
                     cuil: req.body.cuit,
-                    direccion: req.body.domicilio,
+                    direccion: req.body.nacimiento,
                     fecha_nacimiento: req.body.nacimiento,
                     id_categoria_user: parseInt(2),
                     borrado: 0
@@ -108,8 +109,7 @@ module.exports = {
             console.log(error);
         }
         res.redirect('/user/login') 
-    },
-                          
+    },                          
 
     perfil :async (req, res) => {
         try {
@@ -132,9 +132,10 @@ module.exports = {
         return res.redirect('/');
     },
 
-    editarPerfil: async(req, res)=> {
-        const userId = await Users.findByPk(req.session.usuarioLogeado.id)
+    editarPerfil: async (req, res)=> {
         console.log("entraste a modificar el perfil" , req.session.usuarioLogeado.id);
+        datos = JSON.parse (fs.readFileSync(rutaJSON));
+        const userId = datos.find (elemento => elemento.id == req.session.usuarioLogeado.id);
         let oldContrasenia = userId.contrasenia;
         let oldImagen = userId.imagen;
         let nuevaImg= req.file ? req.file.filename : oldImagen;

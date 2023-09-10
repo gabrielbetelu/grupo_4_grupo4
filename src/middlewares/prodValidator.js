@@ -51,8 +51,8 @@ module.exports = [
     ),
     
     check('image').custom((value, {req}) => {
-        console.log("*** Files *****************")
-        console.log(req.files)
+    //    console.log("*** Files *****************")
+    //    console.log(req.files)
         if (req.files.length > 0) {                
                 for (let i = 0 ; i < req.files.length ; i++) {
                     if (req.files[i].size > (1024 * 1024 * 3)) {

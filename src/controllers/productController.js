@@ -11,6 +11,7 @@ const ProductTalleColor = db.ProductTalleColor;
 const Marca = db.Marca;
 const Talles = db.Talle;
 const Colores = db.Color;
+const Fotos = db.Foto;
 const CategoriasProduct = db.CategoriaProduct;
 const CategoriaProducto = db.CategoriaProducto;
 
@@ -25,9 +26,11 @@ module.exports = {
         
     },
 
-    productos : (req, res) => {
+    productos : async (req, res) => {
         console.log("entraste a productos" );
-        return res.render('./products/productos' , {prod : productos})
+        const productos = await Products.findAll();
+        const fotos = await Fotos.findAll()
+        return res.render('./products/productos' , {prod : productos , imagenes : fotos})
         
     },
 
@@ -65,53 +68,44 @@ module.exports = {
     },
         processCreate: async (req, res) => {
             const rdoValidacion = validationResult(req);
-            console.log("errores de validationResult");
-    //        console.log(rdoValidacion);
             if(rdoValidacion.errors.length > 0) {
                 const nameCategorias = await CategoriasProduct.findAll();
                 const nameMarcas = await Marca.findAll();
-                console.log(req.body)
                 return res.render('./products/creacion', { errors: rdoValidacion.mapped(), oldData: req.body, nameCategorias : nameCategorias , nameMarcas : nameMarcas })
                  
             }
 
             console.log("entraste por creacion de item");
-            let arrayImg = [];
             if (req.files.length > 0) {
-                req.files.forEach((file) => {
-                    arrayImg.push("/images/" + file.filename);                        
-            })      
-            
-            stringImg = JSON.stringify(arrayImg);
-            try {
-                const newProducts = await Products.create({
-                nombre_producto: req.body.nombre,
-                detalle: req.body.descripcion,
-                imagenes_producto: stringImg,
-                precio_producto: req.body.precio,
-                id_marca: parseInt(req.body.marca),
-                borrado: false
-                })
-        
-
-                for (let i = 0; i < req.body.categoria.length; i++) {
-        
-
-                        await CategoriaProducto.create({
-                        id_product: newProducts.id, 
-                        id_categoriaproduct: req.body.categoria[i]
+                try {
+                    const newProducts = await Products.create({
+                    nombre_producto: req.body.nombre,
+                    detalle: req.body.descripcion,
+                    precio_producto: req.body.precio,
+                    id_marca: parseInt(req.body.marca),
+                    borrado: false
                     })
-                }
-                
-                
-            } catch (error) {
-                console.log(error)
-                
-            }       
-            const nameCategorias = await CategoriasProduct.findAll();
-            const nameMarcas = await Marca.findAll();
-            console.log("Pasa a la vista de creación")
-            return res.render('./products/creacion', {nameCategorias : nameCategorias , nameMarcas : nameMarcas});   
+                    
+                    for (let i = 0 ; i < req.files.length ; i++) {
+                        await Fotos.create({
+                            imagen_producto: "/images/"+req.files[i].filename,
+                            id_producto:parseInt(newProducts.id)
+                        })
+                    }
+
+                    for (let i = 0; i < req.body.categoria.length; i++) {
+                            await CategoriaProducto.create({
+                            id_product: newProducts.id, 
+                            id_categoriaproduct: req.body.categoria[i]
+                        })
+                    }
+                } catch (error) {
+                    console.log(error)
+                }       
+                const nameCategorias = await CategoriasProduct.findAll();
+                const nameMarcas = await Marca.findAll();
+                console.log("Pasa a la vista de creación")
+                return res.render('./products/creacion', {nameCategorias : nameCategorias , nameMarcas : nameMarcas});   
             }
         },   
 
@@ -121,56 +115,96 @@ module.exports = {
             return res.render('./products/edicion');
         } 
         try {            
-               const productoBuscado = await Products.findByPk ( req.body.idProducto ,{ 
-                            include: [{
-                            model: CategoriasProduct,
-                            as: 'categoriasproductos',
-                            attributes: ['id']
-                            
-                        }]
-                    })
-
+            const productoBuscado = await Products.findByPk ( req.body.idProducto ,{ 
+                    include: [{
+                    model: CategoriasProduct,
+                    as: 'categoriasproductos',
+                    attributes: ['id']
+                    }]
+                }
+            )
             const nameCategorias = await CategoriasProduct.findAll();
             const nameMarcas = await Marca.findAll();
             let arrayImages = [];
-            for (i = 0 ; i < JSON.parse (productoBuscado.imagenes_producto).length ; i++) {
-                arrayImages.push(JSON.parse (productoBuscado.imagenes_producto)[i])
-            } 
-
-    
+            let idProductoBuscado = parseInt(req.body.idProducto)
+            const imagenesProducto = await Fotos.findAll(
+                {
+                where:{id_producto:idProductoBuscado}
+            }
+            );
+            for ( let i = 0 ; i < imagenesProducto.length ; i++) {
+                arrayImages.push((imagenesProducto[i].imagen_producto))
+            }
             return res.render('./products/edicionproducto', {prod: productoBuscado , nameCategorias : nameCategorias , nameMarcas : nameMarcas , arrayImages : arrayImages})
-    
-
         } catch (error) {
             console.log(error)
         }
         
     },
 
-    
-
     processModificar: async (req , res)=> {
-        console.log("entraste a modificar el item" , req.body.id);
-    
+        const rdoValidacion = validationResult(req);
+        console.log("entraste a modificar el item" , req.body.id);    
         let arrayImg = [];
-        
+        if(rdoValidacion.errors.length > 0) {
+            const nameCategorias = await CategoriasProduct.findAll();
+            const nameMarcas = await Marca.findAll();
+            const productoBuscado = await Products.findByPk ( req.body.id ,{ 
+                include: [{
+                model: CategoriasProduct,
+                as: 'categoriasproductos',
+                attributes: ['id']
+                }]
+            })
+            let arrayImages = [];
+
+            let idProductoBuscado = parseInt(req.body.id)
+            const imagenesProducto = await Fotos.findAll(
+                {
+                where:{id_producto:idProductoBuscado}
+            }
+            );
+            for ( let i = 0 ; i < imagenesProducto.length ; i++) {
+                arrayImages.push((imagenesProducto[i].imagen_producto))
+            }
+            return res.render('./products/edicionproducto', { errors: rdoValidacion.mapped(), prod: productoBuscado ,oldData: req.body, nameCategorias : nameCategorias , nameMarcas : nameMarcas , arrayImages : arrayImages})
+        }
      
         try {
             const productoModificado = await Products.findByPk (req.body.id);
+            if (req.files.length > 0){
+                try {
+                    const fotosProductoOld = await Fotos.findAll({
+                        where : {id_producto: req.body.id }
 
-            let oldImagen = productoModificado.imagenes_producto;
-            if (req.files.length > 0) {
-                req.files.forEach((file) => {
-                    arrayImg.push("/images/" + file.filename);                        
-            })
-            } else {
-                arrayImg = oldImagen;
+                    })  
+                    if ( fotosProductoOld.length > 0) {
+                        await Fotos.destroy ({
+                            where: {id_producto: req.body.id}
+                            })
+                        console.log("Borró registro/s")
+                    }
+                    
+                    } catch (error) {
+                        console.log(error)  
+                }
+                
             }
-    
+
+                try {
+                    for (let i = 0 ; i < req.files.length ; i++) {
+                        await Fotos.create({
+                            imagen_producto: "/images/"+req.files[i].filename,
+                            id_producto:parseInt(req.body.id)
+                        })
+                    }                    
+                } catch (error) {
+                    console.log(error)
+                }
+
             await Products.update({
                 'nombre_producto': req.body.nombre,
                 'detalle': req.body.descripcion,
-                'imagenes_producto': arrayImg,
                 'precio_producto': req.body.precio,
                 'id_marca': req.body.marca
             },{
@@ -178,13 +212,8 @@ module.exports = {
                     id: req.body.id
                 }
             })
-
     
-            const relacionesGuardadas = await CategoriaProducto.findAll(
-        //        {
-        //        where: {id_product: req.body.id}
-        //    }
-            )
+            const relacionesGuardadas = await CategoriaProducto.findAll()
         
             for (let i = 0; i < relacionesGuardadas.length; i++) {
                 let relacionEncontrada = 0;
@@ -196,7 +225,6 @@ module.exports = {
                         relacionEncontrada = 1;
                     }
                 }
-                console.log(relacionEncontrada)
                 if (relacionEncontrada == 0 && req.body.id == relacionesGuardadas[i].id_product){
         
                     await CategoriaProducto.destroy({
@@ -217,8 +245,6 @@ module.exports = {
                 }
        
                 if (relacionEncontrada == 0){
-        
-        
                         await CategoriaProducto.create({
                         id_product: req.body.id, 
                         id_categoriaproduct: req.body.categoria[i]

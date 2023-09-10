@@ -62,6 +62,9 @@
                             ><%= categoria.categoria %></option>
                         <% }); %>
                 </select>
+                <% if(locals.errors && errors.categoria) {%>
+                    <p class="error"> <%= errors.categoria.msg %> </p>
+                <%}%>
             </div>    
             <div class="categoriaEdicion">
                 <p class="marcaProd">Marcas</p>
@@ -76,12 +79,19 @@
                             ><%= marca.nombre %></option>
                         <% }); %>
                 </select>
+                <% if(locals.errors && errors.marca) {%>
+                    <p class="error"> <%= errors.marca.msg %> </p>
+                <%}%>
+            </div>
             <div class="precioEdicion">
                 <% if (prod == "vacio") {%>
                     <input type="number" name="precio" placeholder="  Precio del producto">
                     <%} else {%>
                         <input type="number" name="precio" value="<%=prod.precio_producto%>" placeholder="  Precio del producto">
                 <% }%>
+                <% if(locals.errors && errors.precio) {%>
+                    <p class="error"> <%= errors.precio.msg %> </p>
+                <%}%>
             </div>     
             <div class="botonesEdicion" id="divBotonesEdicion">
                 <div>

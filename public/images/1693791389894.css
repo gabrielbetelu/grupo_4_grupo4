@@ -1,0 +1,378 @@
+.mainEdicion {
+    padding: 60px 0;
+    background-image: url(../images/patagonia-argentina.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mainEdicionDelete {
+    padding: 60px 0;
+    background-image: url(../images/patagonia-argentina.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    aspect-ratio: 3/1;
+}
+
+
+.buscaEdit {
+    position: relative;
+    
+}
+
+.buscaEdit input{
+    margin-top: 5px;
+}
+.buscadorEdicion {
+    position: absolute;
+    background-color: #232c1c;
+    right: 25px;
+    bottom: 22px;
+
+}
+
+#lupa-edicion {
+    background-color: #232c1c;
+    color: #c79430;
+    font-size: 20px;
+} 
+
+#edicionInvisible {
+    display: none;
+}
+
+.divDeleteProducto {
+    position: absolute;
+    top: 150px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+.edicion-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    background: #497330;
+    margin: auto;
+    margin-top: 15px;
+    box-shadow: 15px 25px 50px #000;
+    padding: 20px 30px;
+    border-top: 4px solid #7FAD58;
+    color: whitesmoke;
+    max-width:650px;
+}
+
+.edicion-form h5 {
+    width: 90%;
+    margin: 0;
+    text-align: center;
+    height: 40px;
+    margin-bottom: 30px;
+/*    border-bottom: 1px solid; */
+    font-size: 17px;
+    font-style: oblique;
+}
+
+.mainEdicion .edicion-form div {
+    width: 90%;
+    text-align: center;
+}
+
+.mainEdicion .edicion-form input, .mainEdicion .edicion-form textarea {
+    width: 100%;
+    border: 1px solid grey;
+    margin-bottom: 15px;
+    padding: 11px 0;
+    background: #232c1c;
+    font-size: 14px;
+    font-weight: lighter;
+    color: #c79430;
+}
+
+#textarea {
+    width: 100%;
+    border: 1px solid grey;
+    margin-bottom: 15px;
+    padding: 11px 0;
+    background: #232c1c;
+    font-size: 14px;
+    font-weight: lighter;
+    color: #c79430;
+}
+
+.mainEdicion .edicion-form .imagenesEdicion .pImagenes {
+    height: 40px;
+    font-size: 17px;
+    font-style: oblique;
+    text-align: center;
+    border-top: 1px solid;
+    margin: 0;
+    padding-top: 16px;
+}
+
+.mainEdicion .edicion-form .categoriaEdicion label {
+    font-size: 14px;
+    font-style: oblique;
+    text-align: center;
+}
+
+.mainEdicion .edicion-form .categoria_Edicion{
+    border-top: 1px solid;
+}
+
+.mainEdicion .edicion-form .categoriaEdicion {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 0;
+    border-bottom: 1px solid; 
+}
+
+.mainEdicion .edicion-form .categoriaEdicion p {
+    width: 100%;
+    font-size: 17px;
+    font-style: oblique;
+    text-align: center;
+    margin-bottom: 7px;
+    margin-top: 10px;
+}
+
+.mainEdicion .edicion-form .categoriaEdicion .checkboxEdicion {
+    display: flex;    
+    width: 33.33%;
+    min-width: 110px;
+}
+
+.mainEdicion .edicion-form .categoriaEdicion .checkboxEdicion label {
+    font-size: 14px;
+    text-align: left;
+}
+
+.mainEdicion .edicion-form .categoriaEdicion .checkboxEdicion input[type="checkbox"] {
+    width: 25px;
+    text-align: left;
+}
+
+.mainEdicion .edicion-form .precioEdicion {
+    padding-top: 20px; 
+    width: 100%;
+    border-top: 1px solid;
+}
+
+#imagenesExistentes {    
+    max-width: 100px;
+}
+
+#parrafoFotos{
+    border: none;
+    font-size: 12px;
+    margin: 0;
+    padding: 0 0 5px 5px;
+    max-height: 12px;
+    text-align: left;
+}
+
+#fotosProd {
+    width: 25px;
+    padding: 0 1.5px;
+}
+
+#archivosImagenesProd {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#conFotos {
+    width:75%;
+}
+
+.mainEdicion .edicion-form input[type="file"] {
+    width: 100%;
+    border: 1px solid grey;
+    margin-bottom: 15px;
+    padding: 11px 0;
+    background: #232c1c;
+    font-size: 14px;
+    font-weight: lighter;
+    color: #808080;
+}
+
+.mainEdicion .edicion-form input[type="file"]::before {
+    content: "   ";
+}
+
+.mainEdicion .edicion-form input[type="number"] {
+    width: 25%;
+    min-width: 125px;
+}
+
+#divBotonesEdicion{
+    width: 100%;
+}
+
+.mainEdicion .edicion-form .botonesEdicion {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0px;
+    border-top: 1px solid;
+}
+
+.mainEdicion .edicion-form .botonesEdicion div {
+    width: 90%;
+    margin-top: 16px;
+}
+
+
+.mainEdicion .edicion-form .botonesEdicion .botones {
+    width: 100%;
+    height: 40px;
+    background-color: rgb(18, 94, 18);
+    color: whitesmoke;
+    margin: 0 0 15px 0;
+    padding: 0;
+    border: none;
+}
+
+.mainEdicion .edicion-form .botonesEdicion .botones:hover{
+    background-color: #7FAD58;
+}
+
+.login-form p {
+    height: 40px;
+    text-align: center;
+   /* border-bottom: 1px solid; */
+}
+
+div.botonDeleteProd {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    background: #497330;
+    margin: auto;
+    padding: 15px 30px 0px 30px;
+    color: whitesmoke;
+    max-width:650px;
+}
+form.deleteProdForm {
+    margin: 0;
+    padding: 0;  
+    border: none;  
+    width: 80%;
+    box-shadow: none;
+}
+
+#botonDeleteProd{
+    display: flex;
+    justify-content: center;
+}
+
+#deleteProdForm {
+    width: 70%;
+}
+
+button.botonEliminar {
+    background-color: rgb(18, 94, 18);
+    color: whitesmoke;
+    height: 40px;
+    width: 100%;
+    margin: 0;
+    padding: 0;  
+    border: none;
+}
+
+button.botonEliminar:hover{
+    background-color: #7FAD58;
+}
+
+.labelCategorias{
+    justify-content: center;
+}
+
+.form-cat {
+    width: 100%;
+    height: 175px;
+    border: 1px solid grey;
+    margin: 8px 0px 12px 0px;
+    padding: 8px 0px;
+    background: #232c1c;
+    font-size: 13px;
+    font-weight: lighter;
+    color: #c79430;
+  }
+
+  .form-mar {
+    width: 100%;
+    border: 1px solid grey;
+    margin: 8px 0px 10px 0px;
+    padding: 8px 0px;
+    background: #232c1c;
+    font-size: 13px;
+    font-weight: lighter;
+    color: #c79430;
+  } 
+
+@media (min-width : 481px) {
+    .edicion-form h5 {
+        font-size: 20px;
+    }
+
+    .mainEdicion .edicion-form p {
+        font-size: 20px;
+    }
+
+    .mainEdicion .edicion-form .botonesEdicion {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-top: 0px;
+        border-top: 1px solid;
+    }
+
+    .mainEdicion .edicion-form .botonesEdicion div {
+        width: 25%;
+    }   
+    
+    .mainEdicion .edicion-form .imagenesEdicion p {
+        font-size: 20px;
+    }
+    
+    .mainEdicion .edicion-form .categoriaEdicion p {
+        font-size: 20px;
+    }
+    
+    form.deleteProdForm {
+        width: 16.2%;
+    }
+    
+    #imagenesExistentes {    
+        max-width: 140px;
+    }
+        
+    #fotosProd {
+        width: 35px;
+        padding: 0 3px;
+    }
+    
+    
+
+}
+
+

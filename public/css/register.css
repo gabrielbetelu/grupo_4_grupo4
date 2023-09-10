@@ -112,6 +112,7 @@
     margin: 0px;
     font-size: 14px;
   }
+  
   .is-invalid {
     border: 1px solid red    ;
   }
