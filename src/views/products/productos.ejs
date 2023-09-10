@@ -12,9 +12,7 @@
             <article class="productArticle"> 
                 <div class="imagenesProd">
                     <a id="linkProd" href="/product/producto"><div class="contenedorImagenProd">
-                        <% let imagenesProducto = imagenes.filter(element =>element.id_producto == row.id) %>
-                        <img id="imagenProducto" src="<%= imagenesProducto[0].imagen_producto %>">
-
+                        <img id="imagenProducto" src="<%= row.productoFoto[0].imagen_producto %>">
                     </div></a>                         
                         <h4><%= row.nombre_producto %></h4>
                         <p class="precio"> $ <%= row.precio_producto %></p>
