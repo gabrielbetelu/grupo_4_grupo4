@@ -58,6 +58,10 @@
     padding-top: 16px;
 }
 
+.mainEdicion .edicion-form .imagenesEdicion p .error{
+    border-top: none;
+}
+
 .mainEdicion .edicion-form .categoriaEdicion {
     display: flex;
     flex-wrap: wrap;

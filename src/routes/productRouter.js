@@ -7,6 +7,7 @@ const adminMiddleware = require('../middlewares/adminMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
 const imageMiddleware = require('../middlewares/imageMiddleware');
 const prodValidator = require('../middlewares/prodValidator');
+const prodEditValidator = require('../middlewares/prodEditValidator');
 const imageSizeMiddleware = require('../middlewares/imageSizeMiddleware');
 const uploadFile = require ('../middlewares/multerMiddleware')
 
@@ -20,7 +21,7 @@ router.get('/productos', controller.productos);
 router.get('/edicion', adminMiddleware ,controller.edicion);
 router.post('/buscar', controller.buscar);
 router.post('/productoedit', controller.editId);
-router.put('/producto/:id/edit', uploadFile.any('imagen'),controller.processModificar);
+router.put('/producto/:id/edit', uploadFile.any('imagen'), prodEditValidator, adminMiddleware, controller.processModificar);
 router.get('/delete/:id' , controller.eliminar)
 router.delete('/eliminar/:id' , controller.destroy);
 

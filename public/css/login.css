@@ -72,7 +72,7 @@
 .botonLog:hover{
   background-color: #7FAD58;
 }
-.login-form p {
+.login-form .registrate , .login-form .olvideSenha {
   height: 40px;
   text-align: center;
   border-bottom: 1px solid;
