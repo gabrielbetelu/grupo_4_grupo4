@@ -28,10 +28,12 @@ module.exports = {
 
     productos : async (req, res) => {
         console.log("entraste a productos" );
-        const productos = await Products.findAll();
-        const fotos = await Fotos.findAll()
-        return res.render('./products/productos' , {prod : productos , imagenes : fotos})
-        
+        const productos = await Products.findAll(
+            {include: [
+                {association: 'productoFoto'}
+        ]
+    });
+        return res.render('./products/productos' , {prod : productos})  
     },
 
     edicion: async (req, res) => {
@@ -72,26 +74,30 @@ module.exports = {
                 const nameCategorias = await CategoriasProduct.findAll();
                 const nameMarcas = await Marca.findAll();
                 return res.render('./products/creacion', { errors: rdoValidacion.mapped(), oldData: req.body, nameCategorias : nameCategorias , nameMarcas : nameMarcas })
-                 
             }
 
             console.log("entraste por creacion de item");
             if (req.files.length > 0) {
+                let arrayFotos = [];
+                for (let i = 0 ; i < req.files.length ; i++) {
+                        arrayFotos.push({imagen_producto: "/images/"+req.files[i].filename});
+                    }  
                 try {
-                    const newProducts = await Products.create({
-                    nombre_producto: req.body.nombre,
-                    detalle: req.body.descripcion,
-                    precio_producto: req.body.precio,
-                    id_marca: parseInt(req.body.marca),
-                    borrado: false
-                    })
-                    
-                    for (let i = 0 ; i < req.files.length ; i++) {
-                        await Fotos.create({
-                            imagen_producto: "/images/"+req.files[i].filename,
-                            id_producto:parseInt(newProducts.id)
-                        })
+                    const newProducts = await Products.create(
+                    {
+                        nombre_producto: req.body.nombre,
+                        detalle: req.body.descripcion,
+                        precio_producto: req.body.precio,
+                        id_marca: parseInt(req.body.marca),
+                        borrado: false,
+                    },
+                    {
+                        include: [{ association: "productoFoto" }], 
                     }
+                    )
+                    for (let i = 0 ; i < arrayFotos.length ; i++) {
+                        await newProducts.createProductoFoto(arrayFotos[i]);
+                    }      
 
                     for (let i = 0; i < req.body.categoria.length; i++) {
                             await CategoriaProducto.create({
@@ -139,7 +145,6 @@ module.exports = {
         } catch (error) {
             console.log(error)
         }
-        
     },
 
     processModificar: async (req , res)=> {
