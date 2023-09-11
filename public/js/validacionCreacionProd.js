@@ -9,7 +9,7 @@ window.addEventListener("load", () =>{
     const files = Array.from(event.target.files);
     console.log(files)
         for (let i = 0; i< files.length; i++){
-            if(!files[i].type.includes('img')) {
+            if(!files[i].type.includes('image')) {
             errores.push("Imagen invalida")
             errorImagen.innerText= "Debe seleccionar una imagen válida";
             i = files.length;

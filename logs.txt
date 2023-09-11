@@ -16524,6 +16524,41 @@ Ingresó en la página /api/user
 Ingresó en la página /api/user
 Ingresó en la página /user/registro
 Ingresó en la página /images/animacion%20logo%201.jpg
+<<<<<<< HEAD
+>>>>>>> origin/anto
+Ingresó en la página /user/registro
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /user/login
+Ingresó en la página /images/animacion%20logo%201.jpg
+=======
+>>>>>>> origin/anto
+>>>>>>> origin/branchvirgi
+Ingresó en la página /
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /api/product
+Ingresó en la página /api/product
+Ingresó en la página /favicon.ico
+Ingresó en la página /api/user
+Ingresó en la página /api/product
+Ingresó en la página /api/product
+Ingresó en la página /api/product
+Ingresó en la página /api/product
+Ingresó en la página /api/product
+Ingresó en la página /
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /user/login
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /api/user
+Ingresó en la página /user/login
+Ingresó en la página /
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /product/creacion
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /product/creacion
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /product/creacion
+Ingresó en la página /images/animacion%20logo%201.jpg
+=======
 =======
 >>>>>>> origin/branchvirgi
 >>>>>>> origin/anto
@@ -16610,3 +16645,64 @@ Ingresó en la página /api/user
 Ingresó en la página /user/registro
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /api/user
+Ingresó en la página /
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /api/user
+Ingresó en la página /
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /api/user
+Ingresó en la página /favicon.ico
+Ingresó en la página /api/user/:id
+Ingresó en la página /
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /api/user
+Ingresó en la página /api/user/:id
+Ingresó en la página /api/user/:id
+Ingresó en la página /api/user
+Ingresó en la página /api/user/:id
+Ingresó en la página /api/user/:id
+Ingresó en la página /api/user/:id
+Ingresó en la página /api/user
+Ingresó en la página /api/user/2
+Ingresó en la página /api/user/4
+Ingresó en la página /api/user/6
+Ingresó en la página /api/user
+Ingresó en la página /favicon.ico
+Ingresó en la página /api/user
+Ingresó en la página /api/user/2
+Ingresó en la página /api/user
+Ingresó en la página /api/user
+Ingresó en la página /api/user
+Ingresó en la página /api/user
+Ingresó en la página /api/user
+Ingresó en la página /api/user
+Ingresó en la página /api/user
+Ingresó en la página /api/user
+Ingresó en la página /api/user
+Ingresó en la página /api/user/2
+Ingresó en la página /api/user
+Ingresó en la página /api/user
+Ingresó en la página /api/user/:id
+Ingresó en la página /api/user
+Ingresó en la página /api/user/:id
+Ingresó en la página /api/user
+Ingresó en la página /api/user
+Ingresó en la página /api/user
+Ingresó en la página /api/user/:id
+Ingresó en la página /api/user/:id
+Ingresó en la página /api/user/:id
+Ingresó en la página /api/user
+Ingresó en la página /api/user
+Ingresó en la página /api/user/:id
+Ingresó en la página /api/user/:id
+Ingresó en la página /api/user
+Ingresó en la página /api/user/:id
+Ingresó en la página /api/user
+Ingresó en la página /api/user/:id
+Ingresó en la página /api/user/2
+Ingresó en la página /api/user/:id
+Ingresó en la página /api/user/3
+Ingresó en la página /api/user
+Ingresó en la página /favicon.ico
+Ingresó en la página /api/user/3
+>>>>>>> origin/anto
