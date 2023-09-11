@@ -1,5 +1,6 @@
 const path = require ('path');
 const db = require('../database/models');
+const { response } = require('express');
 const sequelize = db.sequelize;
 
 
@@ -8,6 +9,7 @@ const Products = db.Product;
 const CategoriasProduct = db.CategoriaProduct;
 const CategoriaProducto = db.CategoriaProducto;
 const Fotos = db.Foto;
+const Marcas = db.Marca;
 
 
 
@@ -48,6 +50,34 @@ module.exports = {
             response.msg = 'Error';
             return res.json(response);
         }
-    }
+    },
     
+    detail: async (req, res) => {
+        const producId = req.params.id
+
+        try {
+            const productoBuscado = await Products.findByPk(producId, {
+                include: [{ 
+                        association: 'productoFoto', 
+                        association: 'productoMarca'
+                }],
+        
+            })
+            const imagenesProducto = await Fotos.findAll({
+                where: {
+                    id_producto:req.params.id
+                },
+                attributes: {
+                    exclude: ['id_producto', 'created_at', 'updated_at', 'deleted_at'],
+                },
+            })
+            const response = {
+                data: productoBuscado,
+                imagenes: imagenesProducto
+            }
+            return res.json(response)
+        } catch (error) {
+            console.log(error)
+        }
+    }   
 }
