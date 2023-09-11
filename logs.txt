@@ -16516,6 +16516,41 @@ Ingresó en la página /api/user
 Ingresó en la página /api/user
 Ingresó en la página /user/registro
 Ingresó en la página /images/animacion%20logo%201.jpg
+<<<<<<< HEAD
+>>>>>>> origin/anto
+Ingresó en la página /user/registro
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /user/login
+Ingresó en la página /images/animacion%20logo%201.jpg
+=======
+>>>>>>> origin/anto
+>>>>>>> origin/branchvirgi
+Ingresó en la página /
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /api/product
+Ingresó en la página /api/product
+Ingresó en la página /favicon.ico
+Ingresó en la página /api/user
+Ingresó en la página /api/product
+Ingresó en la página /api/product
+Ingresó en la página /api/product
+Ingresó en la página /api/product
+Ingresó en la página /api/product
+Ingresó en la página /
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /user/login
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /api/user
+Ingresó en la página /user/login
+Ingresó en la página /
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /product/creacion
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /product/creacion
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /product/creacion
+Ingresó en la página /images/animacion%20logo%201.jpg
+=======
 =======
 >>>>>>> origin/branchvirgi
 >>>>>>> origin/anto
@@ -16602,6 +16637,8 @@ Ingresó en la página /api/user
 Ingresó en la página /user/registro
 Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /api/user
+<<<<<<< HEAD
+=======
 Ingresó en la página /
 Ingresó en la página /images/animacion%20logo%201.jpg
 <<<<<<< HEAD
@@ -16663,6 +16700,10 @@ Ingresó en la página /api/user/3
 Ingresó en la página /api/user
 Ingresó en la página /favicon.ico
 Ingresó en la página /api/user/3
+<<<<<<< HEAD
+=======
+>>>>>>> origin/anto
+>>>>>>> origin/branchvirgi
 =======
 Ingresó en la página /user/login
 Ingresó en la página /images/animacion%20logo%201.jpg
@@ -17832,3 +17873,97 @@ Ingresó en la página /images/animacion%20logo%201.jpg
 Ingresó en la página /product/productoedit
 Ingresó en la página /images/animacion%20logo%201.jpg
 >>>>>>> origin/rama-gabriel
+<<<<<<< HEAD
+=======
+Ingresó en la página /
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /api/product
+Ingresó en la página /api/product
+Ingresó en la página /api/product
+Ingresó en la página /api/product
+Ingresó en la página /api/product
+Ingresó en la página /api/product
+Ingresó en la página /api/product
+Ingresó en la página /api/product
+Ingresó en la página /api/product
+Ingresó en la página /api/product
+Ingresó en la página /api/product
+Ingresó en la página /api/product
+Ingresó en la página /api/product/5
+Ingresó en la página /api/product
+Ingresó en la página /api/product
+Ingresó en la página /api/product
+Ingresó en la página /api/product
+Ingresó en la página /api/product
+Ingresó en la página /api/product
+>>>>>>> origin/cecii2
+Ingresó en la página /
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /user/login
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /api/product/:id
+Ingresó en la página /api/product/1
+Ingresó en la página /api/products/1
+Ingresó en la página /api/products
+Ingresó en la página /api/products
+Ingresó en la página /api/products
+Ingresó en la página /api/product
+Ingresó en la página /favicon.ico
+Ingresó en la página /
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /api/product
+Ingresó en la página /favicon.ico
+Ingresó en la página /api/product
+Ingresó en la página /api/product/4
+Ingresó en la página /api/product/4
+Ingresó en la página /api/product/4
+Ingresó en la página /api/product/4
+Ingresó en la página /api/product/4
+Ingresó en la página /api/product/4
+Ingresó en la página /api/product/4
+Ingresó en la página /api/product/4
+Ingresó en la página /api/product/4
+Ingresó en la página /api/product/4
+Ingresó en la página /api/product/4
+Ingresó en la página /api/product
+Ingresó en la página /api/product/4
+Ingresó en la página /api/product/4
+Ingresó en la página /api/product/4
+Ingresó en la página /api/product/4
+Ingresó en la página /api/product/4
+Ingresó en la página /api/product
+Ingresó en la página /api/product/4
+Ingresó en la página /api/product/4
+Ingresó en la página /api/product
+Ingresó en la página /api/product/4
+Ingresó en la página /api/product/4
+Ingresó en la página /api/product/5
+Ingresó en la página /api/product/32
+Ingresó en la página /api/product/32
+Ingresó en la página /api/product/32
+Ingresó en la página /api/product/32
+Ingresó en la página /api/product/32
+Ingresó en la página /api/product/32
+Ingresó en la página /api/product
+Ingresó en la página /api/product/52
+Ingresó en la página /
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /api/product
+Ingresó en la página /
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /api/user
+Ingresó en la página /
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /user/registro
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /user/login
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /user/login
+Ingresó en la página /
+Ingresó en la página /images/animacion%20logo%201.jpg
+Ingresó en la página /api/product
+Ingresó en la página /favicon.ico
+Ingresó en la página /api/user
+>>>>>>> origin/branchvirgi
