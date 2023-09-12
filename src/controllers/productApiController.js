@@ -6,7 +6,7 @@ const sequelize = db.sequelize;
 
 
 const Products = db.Product; 
-const CategoriasProduct = db.CategoriaProduct;
+const Categorias = db.CategoriaProduct;
 const CategoriaProducto = db.CategoriaProducto;
 const Fotos = db.Foto;
 const Marcas = db.Marca;
@@ -24,16 +24,18 @@ module.exports = {
         try {
             const data = await Products.findAll();
             response.count = data.length;
-            const productitoCat= await CategoriasProduct.findAll();
+            const productitoCat= await Categorias.findAll({include: [{association:'productos'}]});
             const productosCategory = await CategoriaProducto.findAll();
             const fotosProductos = await Fotos.findAll();
+            console.log(productitoCat)
             
-            const countByCategory = productitoCat.map(row => {
-                const contador = productosCategory.filter(category => category.id_categoriaproduct == row.id).length;
-                return { categoria: row.categoria, contador: contador };
-            });
+               
+           
             
-            response.countByCategory = countByCategory;
+            response.countByCategory = {};
+            productitoCat.forEach(categoria => {
+                response.countByCategory[categoria.categoria]=categoria.productos.length
+            })
             
             const producto = data.map(detalle => ({
                 id: detalle.id,
@@ -71,9 +73,12 @@ module.exports = {
                     exclude: ['id_producto', 'created_at', 'updated_at', 'deleted_at'],
                 },
             })
+
+            productoBuscado.dataValues.imagenes = imagenesProducto;
+
             const response = {
                 data: productoBuscado,
-                imagenes: imagenesProducto
+    //            imagenes: imagenesProducto
             }
             return res.json(response)
         } catch (error) {
