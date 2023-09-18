@@ -6,39 +6,50 @@ const Categorias = db.CategoriaProduct;
 
 module.exports = {
     list: async (req , res) => {
-        const response = {
+        const response = { data : {
             success : true,
             endPoint: '/api/product',
+            }
         }
         const PAGE_SIZE = 10; 
         const page = parseInt(req.query.page) || 1; 
         const offset = (page - 1) * PAGE_SIZE;
-
         try {
-            const { count, rows: data } = await Products.findAndCountAll({
+/*            const { count, rows: data } = await Products.findAndCountAll({
+                limit: PAGE_SIZE,
+                offset: offset,
+                include: [{ association: 'productoFoto' }],
+                distinct:true
+            });
+*/
+
+            let prods  = await Products.findAll();
+            let contador = prods.length;
+            prods = "";
+            const data  = await Products.findAll({
                 limit: PAGE_SIZE,
                 offset: offset,
                 include: [{ association: 'productoFoto' }],
             });
-            const totalPages = Math.ceil(count / PAGE_SIZE);
-            response.count = count;
-            response.currentPage = page;
-            response.totalPages = totalPages;
 
+
+    //        console.log(data);
+            const totalPages = Math.ceil(contador / PAGE_SIZE);
+    //        const registrosPage = ((page == totalPages)? contador-(page - 1) * PAGE_SIZE : PAGE_SIZE )
+            response.data.count = data.length;
+    //        response.registrosPage = registrosPage;
+            response.data.currentPage = page;
+            response.data.totalPages = totalPages;
             if (page < totalPages) {
-                response.next = `/api/product?page=${page + 1}`;
+                response.data.next = `/api/product?page=${page + 1}`;
             }
             if (page > 1) {
-                response.previous = `/api/product?page=${page - 1}`;
+                response.data.previous = `/api/product?page=${page - 1}`;
             }
-
-           // const data = await Products.findAll({include: [{association:'productoFoto'}]});
-            response.count = data.length;
             const productitoCat= await Categorias.findAll({include: [{association:'productos'}]});
-    //        const fotosProductos = await Fotos.findAll({include: [{association:'fotoProducto'}]});
-            response.countByCategory = {};
+            response.data.countByCategory = {};
             productitoCat.forEach(categoria => {
-                response.countByCategory[categoria.categoria]=categoria.productos.length
+                response.data.countByCategory[categoria.categoria]=categoria.productos.length
             })
             const producto = data.map(detalle => ({
                 id: detalle.id,
@@ -46,13 +57,13 @@ module.exports = {
                 descripcion: detalle.detalle,
                 imagenes: detalle.productoFoto[0],
                 detail: `/api/product/${detalle.id}`,
-                urlImagenes: '/public'+detalle.productoFoto[0].imagen_producto,
+                urlImagenes: detalle.productoFoto[0].imagen_producto,
             }));  
-            response.data = producto;
+            response.data.data = producto;
             return res.json(response);
         } catch (error) {
-            response.success = false;
-            response.msg = 'Error';
+            response.data.success = false;
+            response.data.msg = 'Error';
             return res.json(response);
         }
     },
