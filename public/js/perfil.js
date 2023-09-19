@@ -137,6 +137,24 @@ window.onload = function(){
     }
 
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
    
         console.log(errores)
             if (errores.length == 0){
