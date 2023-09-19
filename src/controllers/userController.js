@@ -134,17 +134,39 @@ module.exports = {
 
     editarPerfil: async (req, res)=> {
         console.log("entraste a modificar el perfil" , req.session.usuarioLogeado.id);
-        datos = JSON.parse (fs.readFileSync(rutaJSON));
-        const userId = datos.find (elemento => elemento.id == req.session.usuarioLogeado.id);
-        let oldContrasenia = userId.contrasenia;
-        let oldImagen = userId.imagen;
-        let nuevaImg= req.file ? req.file.filename : oldImagen;
-        let nuevaContrasenia = ""
-        if (req.body.contrasenia != "") {
+
+        try {            
+            const userId = await Users.findByPk ( req.session.usuarioLogeado.id)
+            console.log(userId)
+            let oldContrasenia = userId.contrasenia;
+            console.log(oldContrasenia)
+            let nuevaContrasenia = ""
+            let oldImagen = userId.image;
+            console.log(oldImagen)
+            console.log(req.file)
+            let nuevaImg= req.file != undefined ? req.file.filename : oldImagen;
+            if (req.body.contrasenia != "") {
+                nuevaContrasenia = bcrypt.hashSync(req.body.contrasenia, 10);
+            } else {
+                nuevaContrasenia = oldContrasenia;
+            }
+        
+        }
+        catch(error){
+            console.log(error)
+        }
+        //datos = JSON.parse (fs.readFileSync(rutaJSON));
+        //const userId = datos.find (elemento => elemento.id == req.session.usuarioLogeado.id);
+       // let oldContrasenia = userId.contrasenia;
+        //console.log(oldContrasenia)
+        //let oldImagen = userId.imagen;
+       // let nuevaImg= req.file ? req.file.filename : oldImagen;
+       // let nuevaContrasenia = ""
+       /* if (req.body.contrasenia != "") {
             nuevaContrasenia = bcrypt.hashSync(req.body.contrasenia, 10);
         } else {
-            nuevaContrasenia = oldContrasenia;
-        }                 
+            nuevaContrasenia = oldContrasenia;*/
+                       
         try {
             await Users.update({
                 'image': nuevaImg,
