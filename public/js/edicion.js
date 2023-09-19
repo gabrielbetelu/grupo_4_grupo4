@@ -25,6 +25,7 @@ window.addEventListener("load", () =>{
         }
     });
 
+    
     formEdicion.addEventListener("submit", (e) =>{
         
         e.preventDefault();
