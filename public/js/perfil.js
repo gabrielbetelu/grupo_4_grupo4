@@ -136,6 +136,7 @@ window.onload = function(){
         errorEmail.innerText= "Email inválido"
     }
 
+    
    
         console.log(errores)
             if (errores.length == 0){

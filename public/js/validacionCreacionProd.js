@@ -46,6 +46,7 @@ window.addEventListener("load", () =>{
             errorNombre.innerText= "Campo obligatorio, mínimo 5 caracteres";
         }
     
+        
         if(descripProducto.value.length < 20){
             errores.push("Este campo debe tener al menos 20 caracteres")
             errorDescripcion.innerText= "Campo obligatorio, mínimo 20 caracteres";

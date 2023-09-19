@@ -190,6 +190,7 @@ window.onload = function(){
         errorImagen.innerText ="Debe seleccionar una imagen de perfil";
         errores.push('error imagen')
         
+        
         } else {
         const tiposPermitidos = ['image/jpeg', 'image/png', 'image/gif']; 
 
