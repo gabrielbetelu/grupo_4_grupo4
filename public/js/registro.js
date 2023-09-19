@@ -120,6 +120,26 @@ window.onload = function(){
                 }
             };
            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
             const email = emailInput.value;
             const emailExists = await validateEmailExists(email);
             if (emailExists) {
