@@ -4,21 +4,16 @@ window.addEventListener("load", () =>{
     const errorImagen = document.getElementById("errorImg");
 
     let errores = [];
-//    let imagenVacia = 1
+    let imagenVacia = 1
     fileInput.addEventListener('change', function (event){
     const files = Array.from(event.target.files);
     console.log(files)
-        if (files.length == 0) {
-            errores.push("Imagen vacia")
-            errorImagen.innerText= "Debe seleccionar al menos una imagen válida";
-        }
-
         for (let i = 0; i< files.length; i++){
-            if(!files[i].type.includes('image')) {
+            if(!files[i].type.includes('img')) {
             errores.push("Imagen invalida")
             errorImagen.innerText= "Debe seleccionar una imagen válida";
             i = files.length;
-//            imagenVacia = 0
+            imagenVacia = 0
             }
             console.log(errores);      
         }
@@ -46,36 +41,15 @@ window.addEventListener("load", () =>{
             errorNombre.innerText= "Campo obligatorio, mínimo 5 caracteres";
         }
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-        
         if(descripProducto.value.length < 20){
             errores.push("Este campo debe tener al menos 20 caracteres")
             errorDescripcion.innerText= "Campo obligatorio, mínimo 20 caracteres";
         }
 
-    //    if (imagenVacia=1) {
-    //        errores.push("Imagen vacia")
-    //        errorImagen.innerText= "Debe seleccionar una imagen válida";
-    //    }
+        if (imagenVacia=1) {
+            errores.push("Imagen vacia")
+            errorImagen.innerText= "Debe seleccionar una imagen válida";
+        }
     
          
         console.log(errores);
@@ -91,4 +65,4 @@ window.addEventListener("load", () =>{
     })
     
 
- })       
+ })

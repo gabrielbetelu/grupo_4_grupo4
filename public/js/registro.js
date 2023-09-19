@@ -23,10 +23,11 @@ window.onload = function(){
             errorNombre.innerText = "precisa completar los campos en rojo";
             nombreInput.classList.add('is-invalid')
             nombreInput.classList.remove('is-valid')
-            
+                        
         } else {
             nombreInput.classList.remove('is-invalid')
             nombreInput.classList.add('is-valid')
+            errorNombre.innerHTML = '';
         }
 
         if (apellido.value.length < 2) {          
@@ -34,11 +35,13 @@ window.onload = function(){
             errorApellido.innerText = "precisa completar los campos en rojo";
             apellido.classList.add('is-invalid')
             apellido.classList.remove('is-valid')
+           
         } else {
             apellido.classList.remove('is-invalid')
             apellido.classList.add('is-valid')
+            errorApellido.innerHTML = '';
         }
-        
+        //validacion contraseña
         function esValidPassword(contrasenia) {
             // Verificar que la contraseña tenga al menos 8 caracteres,
             // una mayúscula, una minúscula y un símbolo
@@ -59,6 +62,7 @@ window.onload = function(){
             console.log('contraseniano valida')
             errores.push("error contraseña");
             pError.innerText = "La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un símbolo"
+            
         } else if (contraseniaInput.value !== confirmContraseniaInput.value) {
             errores.push("error confirmacion contraseña");
             pError.innerText = "Las contraseñas no coinciden"
@@ -87,20 +91,18 @@ window.onload = function(){
 }
     errorEmail.innerText = '';
        if(emailInput.value == "") {
-            errores.push ="email vacío";
+            errores.push("email vacío");
+            errorEmail.innerText = "precisa completar este campo"
             console.log("email vacío")
-
+                    
        } else {
         
-            ///--------
             const getUserListFromApi = async () => {
                 try {
                 const response = await fetch('/api/user');
                 const users = await response.json();
-    /*              console.log("users *********************")
                 console.log(users)
-    */              
-                return users;
+            return users;
                 } catch (error) {
                 console.error('Error al obtener el listado de usuarios:', error);
                 throw error; 
@@ -113,95 +115,32 @@ window.onload = function(){
     
                 const emailExists = userListFromApi.data.some(user => user.correo.toLowerCase() == email.toLowerCase())
                 console.log(userListFromApi)
+                
                 return emailExists;
                 } catch (error) {
                 console.error('Error al validar el correo electrónico:', error);
-                return false; // En caso de error, considera que el correo no existe para evitar problemas
+                return false; 
                 }
             };
-           
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
             const email = emailInput.value;
             const emailExists = await validateEmailExists(email);
             if (emailExists) {
                 console.log('El correo electrónico ya existe en la API.');
+                errorEmail.innerText = "Este email ya se encuentra registrado, intente nuevamente.";
+                errores.push("error email registrado");
             } else {
+                errorEmail.innerText = "";
                 console.log('El correo electrónico no existe en la API.');
             }
 
             const esEmailValid = esValidoEmail(email);
+            if(esEmailValid){
             console.log("Es válido el email? =  " + esEmailValid) 
             //errorEmail.innerText = "";          
             
-        } 
-         
-        //---
-       /* const userListFromApi = []; // Aquí deberías almacenar el listado de usuarios obtenido de la API
-
-        emailInput.addEventListener('blur', () => {
-        const email = emailInput.value;
-        const isValidEmail = esValidoEmail(email);
-
-        if (!isValidEmail) {
-            errorEmail.innerText= 'Ingrese un correo electrónico válido';
-            return;
-        }
-
-        const emailExists = userListFromApi.some(user => user.correo === email);
-
-        if (emailExists) {
-            errorEmail.innerText = 'El correo electrónico ya está registrado';
         } else {
-            errorEmail.innerHTML = '';
-        }
-        });
-
-        function esValidoEmail(email) {
-        const arroba = email.indexOf('@');
-        const punto = email.lastIndexOf('.');
-
-        const esValido = arroba !== -1 && punto > arroba;
-        return esValido;
-        }*/
-
-
-
-
-
-
-
-     // Validar email
-     // tengo que verificar si un email ya está registrado
-        //checkEmailExiste trae booleano 
-       /* async function checkEmailExiste(email) {
-            try {
-                const response = await fetch(`/api/user/${encodeURIComponent(email)}`);
-                const data = await response.json();
-                return data.emailExists;
-
-            } catch (error) {
-                console.error('Error al verificar el email:', error);
-                throw error;
-            }
+            errorEmail.innerText= "Email inválido"
         }
     }    
     // Validación de la imagen 
@@ -222,12 +161,13 @@ window.onload = function(){
 
         const maxTamano = 3 * 1024 * 1024; 
         if (imagen.size > maxTamano) {
-        errorImagen.innerText ="La imagen es demasiado grande. El tamaño máximo permitido es de 2 MB";
+        errorImagen.innerText ="La imagen es demasiado grande. El tamaño máximo permitido es de 3 MB";
         errores.push("error imagen tamaño")
         }
     }
-console.log(errores)
+    console.log(errores)
         if (errores.length == 0){
+            errores.innerHTML = '';
                        
             Swal.fire(
                 'Bienvenido',
@@ -241,12 +181,3 @@ console.log(errores)
     
     })
 }
-
-function esValidoEmail(email) {
-    const arroba = email.indexOf('@');
-    const punto = email.lastIndexOf('.');
-
-    const esValido = arroba !== -1 && punto > arroba;
-    return esValido;
-    }
-
