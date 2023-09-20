@@ -4,30 +4,41 @@
 <body>
     <%- include('../partials/header') %>
         <main class="mainLogin">
-            <img src="../images/patagonia-argentina.jpg" alt="fondo" class="fondo-image" />
-            <form class="login-form" action="/user/login" method="post" >
-                <h5>Patagonic</h5>
-            <div>
-                <input class="log-control" type="email" name="email" value="" placeholder=" Email">
-                <p id="errorEmail"  class="error"></p>
-            </div> 
-            <div>
-                <input class="log-control" type="password" name="contrasenia" value="" placeholder=" Password">
-                <p id="errores"  class="error"></p>
+            <div class="left">
+                <section class="copy">
+                    <h2>Calidez, siempre que lo necesites</h2>
+                </section>
             </div>
-                <div class="recordameLogin">
-                    <label for="cookie">Recordarme</label>
-                    <input type="checkbox" name="cookie" id="cookie"> 
-                </div>
-                <div class="erroresLogin">
-                    <% if(locals.errors && errors.datosMal) { %>
-                        <p class="errorDatos"> <%= errors.datosMal.msg %> </p>
-                        <% } %>
-                </div>
-                <button class="botonLog" type="submit" name="ingresar" value="Ingresar">Ingresar</button>                
-                <p class="registrate"><a href="/user/registro">Registrate aqui</a></p>
-                <p class="olvideSenha"><a href="#">¿Olvidaste tu contraseña?</a></p>
-            </form>
+            <div class="right">
+                <form class="login-form" action="/user/login" method="post" >
+                    <section class="copy">
+                        <h2>Inicia Sesión</h2>
+                        <div class="login-container">
+                            <p class="registrate">Aún no tienes una cuenta? <a href="/user/registro" class="form_link">Registrate aqui</a></p>
+                        </div>
+                    </section>
+                    <div>
+                        <input class="log-control" type="email" name="email" value="" placeholder=" Email">
+                        <p id="errorEmail"  class="error"></p>
+                    </div> 
+                    <div class="input-container password">
+                        <input class="log-control" type="password" name="contrasenia" value="" placeholder=" Password">
+                        <p id="errores"  class="error"></p>
+                    </div>
+                    <div class="recordameLogin">
+                        <input type="checkbox" name="cookie" id="cookie"> 
+                        <label for="cookie">Recordarme</label>
+                    </div>
+                    <div class="erroresLogin">
+                        <% if(locals.errors && errors.datosMal) { %>
+                            <p class="errorDatos"> <%= errors.datosMal.msg %> </p>
+                            <% } %>
+                    </div>
+                    <button class="botonLog" type="submit" name="ingresar" value="Ingresar">Ingresar</button>                
+
+                    <p class="olvideSenha"><a href="#">¿Olvidaste tu contraseña?</a></p>
+                </form>
+            </div>
         </main>
         <%- include('../partials/footer') %>  
         <script src="/js/login.js"></script>

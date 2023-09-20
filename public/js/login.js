@@ -35,7 +35,7 @@ window.onload = function(){
     errorEmail.innerHTML = '';
        if(emailInput.value == "") {
             errores.push("email vacío");
-            errorEmail.innerText = "precisa completar este campo"
+            errorEmail.innerText = "Debe completar este campo"
             console.log("email vacío")
                     
        } else {
