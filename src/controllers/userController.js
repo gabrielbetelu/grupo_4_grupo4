@@ -72,19 +72,18 @@ module.exports = {
 
     },    
       
-
     registro :(req, res) => {
             return res.render('./users/registro')
             
     },
 
-    
-        processRegister: async (req,res) => {
+    processRegister: async (req,res) => {
         const rdoValidacion = validationResult(req);
         console.log("errores de validationResult");
 //        
 
         if(rdoValidacion.errors.length > 0) {
+            console.log('no se registra usuario errorrr')
             return res.render('./users/registro', { errors: rdoValidacion.mapped(), oldData: req.body })
              
         }
@@ -134,29 +133,43 @@ module.exports = {
 
     editarPerfil: async (req, res)=> {
         console.log("entraste a modificar el perfil" , req.session.usuarioLogeado.id);
-
         try {            
             const userId = await Users.findByPk ( req.session.usuarioLogeado.id)
+            if(!userId){
+                console.log('usuario no encontrado')
+                return res.redirect('/')
+            }
             console.log(userId)
-            let oldContrasenia = userId.contrasenia;
-            console.log(oldContrasenia)
-            let nuevaContrasenia = ""
-            let oldImagen = userId.image;
-            console.log(oldImagen)
-            console.log(req.file)
-            let nuevaImg= req.file != undefined ? req.file.filename : oldImagen;
+
+            let nuevaImg = userId.image 
+            let nuevaContrasenia =userId.contrasenia
+
             if (req.body.contrasenia != "") {
                 nuevaContrasenia = bcrypt.hashSync(req.body.contrasenia, 10);
-            } else {
-                nuevaContrasenia = oldContrasenia;
             }
-        
-        }
-        catch(error){
-            console.log(error)
+
+            if (req.file) {
+                nuevaImg = req.file.filename;
+            }
+
+            await userId.update({
+                'image': nuevaImg,
+                'first_name': req.body.nombre,
+                'last_name': req.body.apellido,
+                'correo': req.body.email,
+                'cuil': req.body.cuit,
+                'direccion': req.body.domicilio,
+                'fecha_nacimiento': req.body.nacimiento,
+                'contrasenia': nuevaContrasenia
+            });
+    
+            return res.redirect('/');
+        } catch (error) {
+            console.log(error);
+            return res.redirect('/');
         }
         //datos = JSON.parse (fs.readFileSync(rutaJSON));
-        //const userId = datos.find (elemento => elemento.id == req.session.usuarioLogeado.id);
+        //const userId  datos.find (elemento => elemento.id == req.session.usuarioLogeado.id);
        // let oldContrasenia = userId.contrasenia;
         //console.log(oldContrasenia)
         //let oldImagen = userId.imagen;
@@ -166,7 +179,7 @@ module.exports = {
             nuevaContrasenia = bcrypt.hashSync(req.body.contrasenia, 10);
         } else {
             nuevaContrasenia = oldContrasenia;*/
-                       
+         /*              
         try {
             await Users.update({
                 'image': nuevaImg,
@@ -195,7 +208,7 @@ module.exports = {
                 
             } catch (error) {
             console.log(error)   
-            }
+            }*/
     },
 
     eliminarPerfil: async (req, res) => {
