@@ -438,7 +438,7 @@ main section .posicion {
 .producto {
     width: 100%;  
     margin: auto;   
-    background-color: #7FAD58;  
+    background-color: white;  
     padding-bottom: 15px; 
 }
 
@@ -452,7 +452,6 @@ main section .posicion {
 
 .producto .producto-elejido div {
     width: 85%;
-    display: flex;
     flex-wrap: wrap;
     justify-content: center;    
 }
@@ -468,9 +467,8 @@ main section .posicion {
 }
 
 .producto .producto-elejido h3 {
-    font-size: 30px;
-    font-style: oblique;
-    color: white;
+    font-size: 21px;
+    color: black;
     margin: 0;
 }
 
@@ -481,8 +479,8 @@ main section .posicion {
 }
 
 .producto .producto-elejido div img{
-    width: 33%;
-    box-shadow: 10px 20px 40px #000;
+    width: 50%;
+    
 }
 
 .producto .producto-elejido .producto-info {
