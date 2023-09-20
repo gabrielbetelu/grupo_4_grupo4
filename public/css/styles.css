@@ -36,6 +36,7 @@ header {
     width: 100%;
     background: white;
     display: flex; 
+    border-top: #1d0707;
 }
 
 header .opciones {

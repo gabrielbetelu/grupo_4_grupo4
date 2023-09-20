@@ -1,22 +1,65 @@
 .mainLogin {
-  background-color: #e5e5f7;
-  opacity: 0.8;
-  background-image:  radial-gradient(#c657d8 0.5px, transparent 0.5px), radial-gradient(#c657d8 0.5px, #e5e5f7 0.5px);
-  background-size: 20px 20px;
-  background-position: 0 0,10px 10px;
-  display: flex;
-  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
 }
 
-.login-form {
-  background-color: #fff;
-  margin: auto;
-  width: 90%;
-  max-width: 400px;
-  padding: 4.5em 3em;
-  border-radius: 10px;
-  box-shadow: 0 5px 10px -5px rgb( 0 0 0 / 30%);
+.left {
+  height: 200px;
+}
+
+.left, .right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left {
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("/images/zapatillas.jpg");
+  background-size: cover;
+}
+
+.left .copy {
+  color: white;
   text-align: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.left p{
+  font-weight: 400;
+}
+
+.right .copy {
+  color: black;
+  text-align: center;
+}
+
+.right .copy p {
+  margin: 1.5em 0;
+  font-size: 0.875rem;
+}
+
+.right form {
+  width: 328px;
+}
+
+form input[type="email"],
+form input[type="password"] {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 1px solid #c4c4c4;
+  padding: 1em;
+  margin-bottom: 1.25rem;
+  font-size: 0.875rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
 }
 
 .login-form h5 {
@@ -24,53 +67,52 @@
   margin-bottom: .5em;
 }
 
-.log-control {
-  width: 100%;
-  background: none;
-  color: #706c6c;
-  font-size: 1rem;
-  padding: .6em .3em;
-  border: none;
-
-  border-bottom: 1px solid var(--color);
-  font-family: 'Montserrat', sans-serif;
-}
-
-.erroresLogin {
-  padding: 0;
-  margin: 0;
-  border: none;
-  font-size: 15px;
-}
-
-.erroresLogin p.errorDatos {
-  font-size: 20px;
-  color: #f4db8c;
-  text-align: center;
-  padding: 0;
-  margin: 0;
-  border: none;
+.input-container .password {
+  position: relative;
 }
 
 .recordameLogin {
   display: flex;
   justify-content: left;
+  margin-bottom: 10px;
 }
 
 .recordameLogin input {
   margin: 0 0 0 10px;  
 }
 
-.botonLog {
-  background: #c79430;
-  color: #fff;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
-  font-size: 16px;
-  padding: 12px 15px;
-  border: none;
-  border-radius: .5em;
+.erroresLogin {
+  padding: 0;
   margin: 15px;
+  border: none;
+  font-size: 14px;
+}
+
+.erroresLogin p.errorDatos {
+  font-size: 14px;
+  color: #f4db8c;
+  text-align: center;
+  padding: 0;
+  margin: 15px;
+  border: none;
+}
+
+.recordameLogin label {
+  text-align: center;
+}
+
+.botonLog {
+  display: block;
+  width: 100%;
+  background: #EBB54B;
+  color: white;
+  font-weight: 700;
+  border: none;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .botonLog:hover{
@@ -78,9 +120,8 @@
 }
 
 .login-form .registrate , .login-form .olvideSenha {
-  text-transform: none;
+  margin: 15px;
 }
-
 .form_link {
   font-weight: 400;
   color: #000;
@@ -99,12 +140,20 @@
 
 .recordameLogin label {
   margin-left: 10px;
+  font-size: 14px;
 }
 
 
-@media(min-width: 1024px){
-  .mainLogin .fondo-image{
-    min-height: 500px;
+@media(min-width: 900px){
+  .mainLogin{
+    flex-direction: row;
+    height: 100vh;
+  }
+  .left,
+  .right{
+    display: flex;
+    width: 50%;
+    height: auto;
   }
 
 }
