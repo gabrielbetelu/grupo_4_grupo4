@@ -11,7 +11,7 @@ main.mainProductos #productTitle {
     padding-bottom: 30px;
     width: 100%;
     color: #000;
-    font-size: 18px;
+    font-size: 14px;
     font-family: 'Montserrat';
     font-style: bold;
 }
@@ -21,6 +21,7 @@ main.mainProductos div.galeriaProductos {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    padding: 10px;
 }
 
 main.mainProductos article.productArticle {
@@ -28,7 +29,7 @@ main.mainProductos article.productArticle {
     flex-direction: column;
     align-items: center;
     width: 42%;
-    
+    margin-bottom: 15px;
 }
 
 .imagenesProd {
@@ -41,7 +42,6 @@ main.mainProductos article.productArticle {
     display: flex;
     align-items: center;
     justify-content: center;
-
     transition: transform 0.3s, opacity 0.3s;
 
 }
@@ -59,6 +59,7 @@ main.mainProductos article.productArticle {
     width: 100%;
     aspect-ratio: 1/1.20;
     object-fit: fill;
+    margin-bottom: 5px;
 }
 
 main.mainProductos article.productArticle h4 {
@@ -86,7 +87,7 @@ main.mainProductos article.productArticle h4 {
 main.mainProductos article.productArticle p.precio {
     text-align: center;
     font-size: 14px;
-    margin: 0;
+    margin-top: 5px;
     padding: 0 0 10px 0;
     color: #000;
     opacity: 2; 

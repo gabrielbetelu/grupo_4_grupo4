@@ -313,13 +313,13 @@ main section .posicion {
 
 .camperasYBuzos h4,.camperasYBuzos h4, .pantalonesYShorts h4, .zapatillasYBotas h4, .carpasYBolsas h4, .mochilasYBolsos h4, .accesorios h4  {
     position: absolute;
-    top: 35%;
-    text-align: center;
-    max-width: 80%;
-    color:#fff;
-    font-weight: 500; 
-    font-size: 14px;
-    font-weight: bold;   
+    top: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    color: whitesmoke;
+    font-size: 21px;
+    font-weight: 500;  
+    align-items: center;
 }
 
 .camperasYBuzos a, .pantalonesYShorts a, .zapatillasYBotas a, .carpasYBolsas a, .mochilasYBolsos a, .accesorios a {
@@ -354,8 +354,7 @@ main section .posicion {
     margin-left: auto;
     margin-right: auto;
     color: whitesmoke;
-    font-size: 30px;
-    font-weight: bold;
+    font-size: 21px;
     font-weight: 500;
 }
     .camperasYBuzos img,
@@ -722,7 +721,9 @@ article div .producto-info button.producto-boton:hover {
     }
 
     header .opciones .menu-buscador nav ul li {
-        font-size: 17px;        
+        font-family: 'Montserrat', sans-serif;
+        font-size: 14px;  
+        font-weight: 600;      
     }
 
     .camperasYBuzos, .pantalonesYShorts, .zapatillasYBotas, .carpasYBolsas, .mochilasYBolsos, .accesorios  {
@@ -749,7 +750,6 @@ article div .producto-info button.producto-boton:hover {
         width: 30%; 
         height: auto;
         padding-top: 0;
-        margin-bottom: 15%;
     }
 
     .hombre h4, .mujer h4, .ninios h4 {
