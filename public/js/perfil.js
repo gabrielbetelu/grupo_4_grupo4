@@ -18,6 +18,30 @@ window.onload = function(){
         
         let errores = [];
 
+        if (nombreInput.value.length < 2) {
+            errores.push('error nombre')
+            errorNombre.innerText = "precisa completar los campos en rojo";
+            nombreInput.classList.add('is-invalid')
+            nombreInput.classList.remove('is-valid')
+                        
+        } else {
+            nombreInput.classList.remove('is-invalid')
+            nombreInput.classList.add('is-valid')
+            errorNombre.innerHTML = '';
+        }
+
+        if (apellido.value.length < 2) {          
+            errores.push('error apellido')
+            errorApellido.innerText = "precisa completar los campos en rojo";
+            apellido.classList.add('is-invalid')
+            apellido.classList.remove('is-valid')
+           
+        } else {
+            apellido.classList.remove('is-invalid')
+            apellido.classList.add('is-valid')
+            errorApellido.innerHTML = '';
+        }
+
         // Validación de la imagen 
         const imagen = imagenInput.files[0];
         if (!imagen) {
@@ -67,10 +91,10 @@ window.onload = function(){
         const arroba = email.indexOf('@');
         const punto = email.lastIndexOf('.');
         const esValido = arroba !== -1 && punto > arroba;
-                                                        
+                                                       
     return esValido;
-    }
-
+    
+}
     if (emailInput.value == "") {
         errores.push("email vacío");
         errorEmail.innerText = "Por favor, complete este campo.";
@@ -80,16 +104,8 @@ window.onload = function(){
             errorEmail.innerText = "Email inválido";
         } else {
             errorEmail.innerText = ""; 
-        }
-    }
-    errorEmail.innerHTML = '';
-   if(emailInput.value == "") {
-        errores.push("email vacío");
-        errorEmail.innerText = "precisa completar este campo"
-        console.log("email vacío")
-                
-   } else {
-    
+
+
         const getUserListFromApi = async () => {
             try {
             const response = await fetch('/api/user');
@@ -101,13 +117,12 @@ window.onload = function(){
             throw error; 
             }
         };
-      
+        
         const validateEmailExists = async (email) => {
             try {
             const userListFromApi = await getUserListFromApi();
-
-            const emailExists = userListFromApi.data.some(user => user.correo.toLowerCase() == email.toLowerCase())
-            console.log(userListFromApi)
+            const emailExists = userListFromApi.data.data.some(user => user.email.toLowerCase() == email.toLowerCase())
+            console.log(emailExists)
             
             return emailExists;
             } catch (error) {
@@ -115,26 +130,18 @@ window.onload = function(){
             return false; 
             }
         };
-       
         const email = emailInput.value;
         const emailExists = await validateEmailExists(email);
         if (emailExists) {
-            console.log('El correo electrónico ya existe en la API.');
-            errorEmail.innerText = "Este email ya se encuentra registrado, intente nuevamente.";
-            errores.push("error email registrado");
+            errorEmail.innerText = "Este email ya está registrado.";
+            errores.push("error email ya registrado");
         } else {
             errorEmail.innerText = "";
-            console.log('El correo electrónico no existe en la API.');
+            
         }
-    }
-        const esEmailValid = esValidoEmail(email);
-        if(esEmailValid){
-        console.log("Es válido el email? =  " + esEmailValid) 
-        errorEmail.innerText = "";          
-        
-    } else {
-        errorEmail.innerText= "Email inválido"
-    }
+
+    } 
+}  
 
         console.log(errores)
             if (errores.length == 0){
