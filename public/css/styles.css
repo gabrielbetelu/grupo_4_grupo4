@@ -18,7 +18,8 @@ Paleta de colores:  verde claro   #C9F4B0
 body {
     width: 100%;
     margin: 0;
-    font-family: 'Ubuntu' , sans-serif;
+    font-family: 'Montserrat';
+    font-weight: bold;
 }
 
 main {
@@ -26,16 +27,16 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background-color: #7AB35B;
+    background-color: #d3d5daa1;
 }
 
 /* ----------------------HEADER--------------------------*/
 
 header {
     width: 100%;
-    background: linear-gradient(to bottom, #C9F4B0, #073521);
+    background: white;
     display: flex; 
-    justify-content: space-between; 
+    border-bottom: solid 1px #666;
 }
 
 header .opciones {
@@ -99,10 +100,14 @@ header .opciones .log-cart {
     position: relative; 
 /* ******************************************* */     
 }
+.log-cart {
+    align-items: flex-end;
+}
 
 header .opciones .log-cart a {
     color: #000; 
-    padding: 0 5%;   
+    padding: 0 10px;
+    margin: 0 10px;
 }
 
 header .opciones .log-cart a:hover {
@@ -210,7 +215,7 @@ header .opciones .menu-buscador #buscar {
     font-size: 12px;
     border: solid 1px #000;
     border-radius: 3px;
-    font-family: Ubuntu;
+    font-family: 'Montserrat';
     font-weight: 400;
     content: "\f002";
     background-color: transparent;
@@ -248,7 +253,7 @@ header .opciones .menu-buscador .area-buscar .buscador .botonLupa {
 main {
     width: 100%;
     display: flex;
-    background-color: #283F2C;
+    background-color: white;
 }
 
 main section {  
@@ -256,54 +261,32 @@ main section {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    padding: 0px 40px 40px;
 }
 
 /*-----------------------------------------------------*/
 /* ---------------seccion carrousel -----------------*/
 
-main section .carrousel {
-    width: 100%;
-    height: 35vw;
-    border: solid 1px #000;
-    display: flex;
-    overflow: hidden;
-}
-
-main section .carrousel img {
-    width: 33.33%;
-    height: 100%;
-    object-fit: cover;
-}
-
-main section .controles {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin-top: 10px;
-}
-main section .atras-adelante {
-    font-size: 18px;
-    cursor: pointer;
-}
-
-main section .circulo {
-        width: 8px;
-        height: 8px;
-        border: solid 1.5px #000;
-        border-radius: 50%;
-        margin: 0 6px;
-        cursor: pointer;
-        background-color: transparent;
-}
-
-main section .enfocado {
-    background-color: #000;
+.banner {
+    width: 100vw;
 }
 
 /*-----------------------------------------------------*/
 
 /*------------------------galeria----------------------*/
+
+.marcas {
+    position: relative;
+    width: 100%;
+    height: auto;
+    z-index: 1;
+    display: flex;
+    box-sizing: content-box;
+}
+
+.ansilta {
+   width: 25%;
+}
 
 main section .posicion {
     display: flex;
@@ -313,9 +296,9 @@ main section .posicion {
 
 .rubros, .generoEdad {
     width: 98%;
-    display:flex;
+    display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;      
+    justify-content: space-evenly;   
 }
  
 .generoEdad {
@@ -333,13 +316,13 @@ main section .posicion {
 
 .camperasYBuzos h4,.camperasYBuzos h4, .pantalonesYShorts h4, .zapatillasYBotas h4, .carpasYBolsas h4, .mochilasYBolsos h4, .accesorios h4  {
     position: absolute;
-    top: 35%;
-    text-align: center;
-    max-width: 80%;
+    top: 40%;
+    margin-left: auto;
+    margin-right: auto;
     color: whitesmoke;
-    text-shadow: 3px 3px 7px #000;
-    font-weight: 500; 
-    font-size: 12px;    
+    font-size: 21px;
+    font-weight: 500;  
+    align-items: center;
 }
 
 .camperasYBuzos a, .pantalonesYShorts a, .zapatillasYBotas a, .carpasYBolsas a, .mochilasYBolsos a, .accesorios a {
@@ -351,22 +334,21 @@ main section .posicion {
     width: 100%;
     aspect-ratio: 1.1/1;
     object-fit: cover;
-    padding: 0;
-    box-shadow: 1vw 1vw 1vw #000;     
+    padding: 0;   
 }
 
 .hombre, .mujer, .ninios {
     display: flex;
     justify-content: center;
-    width: 28%; 
+    width: 70vw; 
     padding: 4vw 0; 
     position: relative;  
 }
 
 .hombre img, .mujer img, .ninios img {
     width: 100%;
+    height: auto;
     padding: 0;
-    box-shadow: 1vw 1vw 1vw #000;
 }
 
 .hombre h4, .mujer h4, .ninios h4 {
@@ -375,8 +357,7 @@ main section .posicion {
     margin-left: auto;
     margin-right: auto;
     color: whitesmoke;
-    text-shadow: 3px 3px 7px #000;
-    font-size: 12px;
+    font-size: 21px;
     font-weight: 500;
 }
     .camperasYBuzos img,
@@ -384,16 +365,12 @@ main section .posicion {
     .zapatillasYBotas img,
     .carpasYBolsas img,
     .mochilasYBolsos img,
-    .accesorios img,
-    .hombre img,
-    .mujer img,
-    .ninios img {
+    .accesorios img 
+    {
     width: 100%;
     height: 40vw;
-    padding: 0;
-    box-shadow: 1vw 1vw 1vw #000;
     transition: transform 0.3s, box-shadow 0.3s;
-}
+    }
 
     .camperasYBuzos img:hover,
     .pantalonesYShorts img:hover,
@@ -405,21 +382,16 @@ main section .posicion {
     .mujer img:hover,
     .ninios img:hover {
     transform: scale(1.1); 
-    box-shadow: 1vw 1vw 2vw #000; 
 }
     .camperasYBuzos img,
     .pantalonesYShorts img,
     .zapatillasYBotas img,
     .carpasYBolsas img,
     .mochilasYBolsos img,
-    .accesorios img,
-    .hombre img,
-    .mujer img,
-    .ninios img {
+    .accesorios img {
     width: 100%;
-    height: 40vw;
-    padding: 0;
-    box-shadow: 1vw 1vw 1vw #000;
+    height: 100vw;
+    padding: 0;;
     transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s;
 }
 
@@ -433,7 +405,6 @@ main section .posicion {
     .mujer img:hover,
     .ninios img:hover {
     transform: scale(1.1); 
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
     opacity: 0.8; 
 }
 
@@ -467,109 +438,286 @@ main section .posicion {
 
 /* -------------- producto.html --------------------*/
 
-.producto {
-    width: 100%;  
-    margin: auto;   
-    background-color: #7FAD58;  
-    padding-bottom: 15px; 
+
+img {
+	max-width: 100%;
 }
 
-.producto .producto-elejido {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 5%;
+header {
+	display: flex;
+	align-items: center;
+	padding: 30px;
+	justify-content: center;
 }
 
-.producto .producto-elejido div {
-    width: 85%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;    
+.container-title {
+	padding: 30px;
+	background-color: #eee;
+	margin-bottom: 50px;
+	color: #222;
 }
 
-#encabezadoProducto {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+main {
+	display: flex;
+	gap: 30px;
+	margin-bottom: 80px;
 }
 
-.producto .producto-elejido div .producto-imagenes {
-    margin: 0 0 25px 0;
+.container-img {
+	background-color: #f7f7f9;
+	flex: 1;
 }
 
-.producto .producto-elejido h3 {
-    font-size: 30px;
-    font-style: oblique;
-    color: white;
-    margin: 0;
+.container-info-product {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
 }
 
-.producto .producto-elejido p {
-    width: 100%;
-    margin: 0 0 20px 0;
-    text-align: center;
+.container-price {
+	padding-bottom: 20px;
+	border-bottom: 1px solid #e4e4e4;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 
-.producto .producto-elejido div img{
-    width: 33%;
-    box-shadow: 10px 20px 40px #000;
+.container-price span {
+	font-size: 24px;
+	font-weight: 300;
 }
 
-.producto .producto-elejido .producto-info {
-    width: 51%;
-    background-color: #C9F4B0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 10px 7px 10px #000;
-    margin-bottom: 10px;
+.container-details-product {
+	padding: 30px 0;
 }
 
-.producto .producto-elejido .producto-boton {
-    width: 70%;
-    height: 40px;
-    background-color: rgb(18, 94, 18);
-    color: whitesmoke;
-    margin-bottom: 16px;
-    border: none;
-    font-size: 16px;
+.form-group {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	margin-bottom: 15px;
 }
 
-article div .producto-info button.producto-boton:hover {
-    background-color: #c79430;
-}
-   
-
-.producto .producto-elejido .producto-descripcion {
-    background-color: #497330;
-    width: 51%;
-    text-align: center;
-    margin: 10px 0;
-    box-shadow: 10px 7px 10px #000;
+.form-group label {
+	width: 100px;
+	color: #222;
+	font-weight: 700;
 }
 
-.producto .producto-elejido .producto-descripcion h3 {
-    font-size: 20px;
-    color: whitesmoke;
-    font-style: oblique;
+.form-group select {
+	width: 300px;
+	border: none;
+	padding: 12px 15px;
+	background-color: #f7f7f7;
+	outline: none;
+	color: #666;
 }
 
-.producto .producto-elejido .producto-descripcion ul {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 0;
+.btn-clean {
+	border: none;
+	background: none;
+	color: #666;
+	margin-left: 120px;
+	cursor: pointer;
 }
 
-.producto .producto-elejido .producto-descripcion ul li {  
-    list-style: none;
-    width: 42%;
-    min-width: 110px;
-    color: whitesmoke;
+.btn-clean:hover {
+	color: #EBB54B;
 }
+
+.container-add-cart {
+	display: flex;
+	gap: 20px;
+	padding-bottom: 30px;
+	border-bottom: 1px solid #e4e4e4;
+}
+
+.container-quantity {
+	position: relative;
+}
+
+.input-quantity {
+	background-color: #f7f7f7;
+	border: none;
+	padding: 10px;
+	width: 60px;
+	height: 100%;
+	color: #666;
+	font-weight: 500;
+	line-height: 0;
+}
+
+.input-quantity:focus {
+	outline: none;
+}
+
+.input-quantity::-webkit-inner-spin-button,
+.input-quantity::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+.btn-increment-decrement {
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	top: 7px;
+	right: 7px;
+}
+
+.btn-increment-decrement i {
+	font-size: 11px;
+	color: #666;
+	cursor: pointer;
+}
+
+.fa-chevron-down:hover {
+	color: #EBB54B;
+}
+
+.fa-chevron-up:hover {
+	color: #EBB54B;
+}
+
+.btn-add-to-cart {
+	border: none;
+	background-color: #252525;
+	padding: 10px;
+	color: #f7f7f7;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.btn-add-to-cart:hover {
+	color: #EBB54B;
+}
+
+.hidden {
+	display: none;
+}
+
+.container-description,
+.container-additional-information,
+.container-reviews {
+	display: flex;
+	flex-direction: column;
+	border-bottom: 1px solid #e4e4e4;
+	padding: 10px 0;
+}
+
+.title-description,
+.title-additional-information,
+.title-reviews {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	cursor: pointer;
+}
+
+.title-description h4,
+.title-additional-information h4,
+.title-reviews h4 {
+	font-weight: 300;
+	color: #666;
+	font-size: 14px;
+}
+
+.text-description {
+	font-size: 13px;
+	color: #252525;
+	line-height: 22px;
+	margin-top: 25px;
+}
+
+.container-social {
+	display: flex;
+	justify-content: space-between;
+	padding: 10px 0;
+	align-items: center;
+	border-bottom: 1px solid #e4e4e4;
+}
+
+.container-social span {
+	font-weight: 300;
+	color: #252525;
+}
+
+.container-buttons-social {
+	display: flex;
+	gap: 15px;
+	align-items: center;
+}
+
+.container-buttons-social a:link,
+.container-buttons-social a:visited {
+	color: #666;
+	font-size: 15px;
+}
+
+.container-buttons-social a:hover {
+	color: #1bbeb4;
+}
+
+.container-related-products h2 {
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.card-list-products {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 25px;
+}
+
+.card {
+	cursor: pointer;
+}
+
+.card-img {
+	background: transparent;
+	margin-bottom: 15px;
+}
+
+.card-img img {
+	height: 400px;
+	object-fit: cover;
+	box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.info-card {
+	display: flex;
+	justify-content: space-between;
+}
+
+.text-product {
+	color: #252525;
+	font-weight: 300;
+	line-height: 1.4;
+}
+
+.text-product h3{
+    color: inherit;
+    font-weight: inherit;
+    font-size: 15px;
+}
+
+.text-product h3:hover{
+    color: #EBB54B;
+}
+
+.text-product p{
+    color: #666;
+    font-size: 13px;
+}
+
+.text-product p:hover{
+    color: #EBB54B;
+}
+
 
 .whatsapp-div {
     display: flex;
@@ -611,16 +759,15 @@ article div .producto-info button.producto-boton:hover {
     header .opciones {
         width: 75%;
         flex-direction: row-reverse;
-        align-items: flex-start;
+        padding-top: 10px;
         justify-content: space-around;
     }
 
     header .opciones .log-cart {
         flex-direction: row-reverse;
-        justify-content: space-between;
         width: 40%;
         max-width: 180px;
-        padding: 10px 0  0 0;    
+        margin: 11px;
     }
 
     .usuarioLogueado {
@@ -649,13 +796,13 @@ article div .producto-info button.producto-boton:hover {
 
     .oculto {
         display: flex;
+        padding: 10px;
     } 
 
     header .opciones .menu-buscador nav {
         width: 100%;
         display: flex;
-        flex-direction: column;
-        align-self: flex-start;
+        font-size: 14px;
         margin: 1% 0 1% 0;
     }
 
@@ -678,9 +825,12 @@ article div .producto-info button.producto-boton:hover {
         display: none;    
     }
 
-    main section .carrousel {
-        max-height: 220px;
-        justify-content: center;
+    .marcas {
+        display: flex;
+        position: relative;
+        box-sizing: content-box;
+        justify-content: space-evenly;
+        width: 50%;
     }
 
     .camperasYBuzos, .pantalonesYShorts, .zapatillasYBotas, .carpasYBolsas, .mochilasYBolsos, .accesorios  {
@@ -724,6 +874,7 @@ article div .producto-info button.producto-boton:hover {
         flex-direction: row;
         justify-content: flex-end;
         position: relative;
+        align-items: flex-end;
     }
 
     header .opciones .log-cart {
@@ -743,21 +894,25 @@ article div .producto-info button.producto-boton:hover {
 
     header .opciones .menu-buscador nav {
         flex-direction: row;
-        justify-content: space-between;
         width: 100%;
         margin-top: 20px;
         padding-bottom: 5px;
     }
 
     header .opciones .menu-buscador nav ul li {
-        font-size: 17px;        
+        font-family: 'Montserrat', sans-serif;
+        font-size: 14px;  
+        font-weight: 600;      
+    }
+
+    header .opciones .menu-buscador nav a:hover {
+        color: #EBB54B;
     }
 
     .camperasYBuzos, .pantalonesYShorts, .zapatillasYBotas, .carpasYBolsas, .mochilasYBolsos, .accesorios  {
-        width: 14.5%; 
-        height: 70%; 
+        width: 30%; 
+        height: auto; 
         padding-bottom: 0;
-        margin-bottom: 15%;
     }
 
     .camperasYBuzos img, .pantalonesYShorts img, .zapatillasYBotas img, .carpasYBolsas img, .mochilasYBolsos img, .accesorios img {    
@@ -765,25 +920,40 @@ article div .producto-info button.producto-boton:hover {
     }
 
     .camperasYBuzos h4,.camperasYBuzos h4, .pantalonesYShorts h4, .zapatillasYBotas h4, .carpasYBolsas h4, .mochilasYBolsos h4, .accesorios h4  {
-        top: 30%;   
+        font-weight: bold;
     }    
 
     .hombre img, .mujer img, .ninios img {        
-        height: 100%;      
+        height: auto;   
+        width: 100%;   
     }
 
     .hombre, .mujer, .ninios {
-        width: 20%; 
-        height: 75%;
+        display: flex;
+        width: 30%; 
+        height: auto;
         padding-top: 0;
-        margin-bottom: 15%;
     }
 
     .hombre h4, .mujer h4, .ninios h4 {
         justify-content: space-evenly;
         top: 35%;
+        font-weight: bold;
     }
-
+    
+    .banner {
+        width: 100vw;
+        height: auto;
+    }
+     
+    .tituloGeneros {
+        margin: 40px;
+        font-family: 'Montserrat';
+        font-weight: bold;
+        font-size: 21px;
+        color: #000000;
+    }
+    
 }
 
 

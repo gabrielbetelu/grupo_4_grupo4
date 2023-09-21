@@ -25,7 +25,6 @@
   }
 
   .fondo-image { 
-    opacity: 0.5;
     width: 100%;
     min-height: 650px;    
   } 
@@ -79,9 +78,7 @@
   }
   
   .error {
-    color: #c79430;
-    padding: 0px 0px 5px 0px;
-    margin: 0px;
+
   }
 
   .main-tablas .divTablas div .tablas div .textareaTablas{
