@@ -35,7 +35,7 @@ router.post('/registro', multerMiddleware.single('imagen'), imageSizeMiddleware,
  
 //RUTA PERFIL DE USUARIO
 router.get('/perfil', authMiddleware, controller.perfil);
-router.put('/perfil/:id', fileUpload.single ('imagen'), authMiddleware, controller.editarPerfil);
+router.put('/perfil/:id', multerMiddleware.single('imagen'), controller.editarPerfil);
 router.delete('/perfil/eliminar/:id', controller.eliminarPerfil);
 router.delete('/perfil/delete/:id', controller.destroyPerfil);
 
