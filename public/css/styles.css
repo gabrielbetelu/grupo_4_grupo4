@@ -36,7 +36,7 @@ header {
     width: 100%;
     background: white;
     display: flex; 
-    border-top: #1d0707;
+    border-bottom: solid 1px #666;
 }
 
 header .opciones {
@@ -106,7 +106,8 @@ header .opciones .log-cart {
 
 header .opciones .log-cart a {
     color: #000; 
-    padding: 0 5%;   
+    padding: 0 10px;
+    margin: 0 10px;
 }
 
 header .opciones .log-cart a:hover {
@@ -260,6 +261,7 @@ main section {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    padding: 0px 40px 40px;
 }
 
 /*-----------------------------------------------------*/
@@ -580,16 +582,15 @@ article div .producto-info button.producto-boton:hover {
     header .opciones {
         width: 75%;
         flex-direction: row-reverse;
-        align-items: flex-start;
+        padding-top: 10px;
         justify-content: space-around;
     }
 
     header .opciones .log-cart {
         flex-direction: row-reverse;
-        justify-content: space-between;
         width: 40%;
         max-width: 180px;
-        padding: 10px 0  0 0;    
+        margin: 11px;
     }
 
     .usuarioLogueado {
@@ -618,14 +619,13 @@ article div .producto-info button.producto-boton:hover {
 
     .oculto {
         display: flex;
+        padding: 10px;
     } 
 
     header .opciones .menu-buscador nav {
         width: 100%;
         display: flex;
         font-size: 14px;
-        flex-direction: column;
-        align-self: flex-start;
         margin: 1% 0 1% 0;
     }
 
@@ -697,6 +697,7 @@ article div .producto-info button.producto-boton:hover {
         flex-direction: row;
         justify-content: flex-end;
         position: relative;
+        align-items: flex-end;
     }
 
     header .opciones .log-cart {
@@ -727,6 +728,10 @@ article div .producto-info button.producto-boton:hover {
         font-weight: 600;      
     }
 
+    header .opciones .menu-buscador nav a:hover {
+        color: #EBB54B;
+    }
+
     .camperasYBuzos, .pantalonesYShorts, .zapatillasYBotas, .carpasYBolsas, .mochilasYBolsos, .accesorios  {
         width: 30%; 
         height: auto; 
@@ -738,7 +743,7 @@ article div .producto-info button.producto-boton:hover {
     }
 
     .camperasYBuzos h4,.camperasYBuzos h4, .pantalonesYShorts h4, .zapatillasYBotas h4, .carpasYBolsas h4, .mochilasYBolsos h4, .accesorios h4  {
-        top: 30%;   
+        font-weight: bold;
     }    
 
     .hombre img, .mujer img, .ninios img {        
@@ -756,6 +761,7 @@ article div .producto-info button.producto-boton:hover {
     .hombre h4, .mujer h4, .ninios h4 {
         justify-content: space-evenly;
         top: 35%;
+        font-weight: bold;
     }
     
     .banner {
@@ -768,6 +774,7 @@ article div .producto-info button.producto-boton:hover {
         font-family: 'Montserrat';
         font-weight: bold;
         font-size: 21px;
+        color: #000000;
     }
 }
 
