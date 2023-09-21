@@ -58,6 +58,7 @@ window.onload = function(){
         const email = emailInput.value;
         const emailExists = await validateEmailExists(email);
         if (!emailExists) {
+            console.log('no encuentra email')
             errorEmail.innerText = "Este email no está registrado.";
             errores.push("error email no registrado");
         } else {

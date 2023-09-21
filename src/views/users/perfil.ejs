@@ -26,6 +26,7 @@
                         <input class="form-usu-perfil" type="text" name="domicilio" value= "<%=usuario.direccion%>" placeholder="  Domicilio">
                     </div>
                     <div> 
+                        <input id ="oldEmail" class="form-usu-perfil" type="text" name="email" value= "<%=usuario.correo%>" placeholder="  email@gmail.com" hidden>
                         <input class="form-usu-perfil" type="text" name="email" value= "<%=usuario.correo%>" placeholder="  email@gmail.com">
                         <p id="errorEmail"  class="error"></p> 
                     </div> 
@@ -45,11 +46,11 @@
                         <h5 id="modContrasenia">Modificar Contraseña</h5>                     
                         <div> 
                             <input class="form-usu-perfil" type="password" name="contrasenia"  value="" placeholder="  Contraseña">
-                            <p id="errores"  class="error"></p>
+                            <p id="error1"  class="error"></p>
                         </div> 
                         <div>
                             <input class="form-usu-perfil" type="password" name="confirm-contrasenia"  value= "" placeholder="  Confirmar contraseña">
-                            <p id="errores"  class="error"></p>
+                            <p id="error2"  class="error"></p>
                         </div>
                     </div> 
                     <div class="botonesEdicion" id="divBotonesEdicionPerfil">
@@ -69,7 +70,8 @@
             </div>
         </main>
         <%- include('../partials/footer') %>
-<!--        <script src="/js/perfil.js"></script>  -->
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>  
+        <script src="/js/perfil.js"></script> 
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     </body>                       
 </html>    

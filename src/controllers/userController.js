@@ -133,41 +133,56 @@ module.exports = {
 
     editarPerfil: async (req, res)=> {
         console.log("entraste a modificar el perfil" , req.session.usuarioLogeado.id);
+        console.log(req.session.usuarioLogeado)
         try {            
             const userId = await Users.findByPk ( req.session.usuarioLogeado.id)
             if(!userId){
                 console.log('usuario no encontrado')
                 return res.redirect('/')
             }
-            console.log(userId)
 
-            let nuevaImg = userId.image 
-            let nuevaContrasenia =userId.contrasenia
+            let oldContrasenia = userId.contrasenia;
+            console.log(oldContrasenia)
+            let oldImagen = userId.image;
+            let nuevaImg= req.file ? req.file.filename : oldImagen;
+            let nuevaContrasenia = ""
 
             if (req.body.contrasenia != "") {
                 nuevaContrasenia = bcrypt.hashSync(req.body.contrasenia, 10);
+            } else {
+                nuevaContrasenia = oldContrasenia;
             }
 
-            if (req.file) {
-                nuevaImg = req.file.filename;
-            }
-
-            await userId.update({
+            await Users.update({
                 'image': nuevaImg,
-                'first_name': req.body.nombre,
+                'first_name':req.body.nombre,
                 'last_name': req.body.apellido,
                 'correo': req.body.email,
                 'cuil': req.body.cuit,
                 'direccion': req.body.domicilio,
                 'fecha_nacimiento': req.body.nacimiento,
                 'contrasenia': nuevaContrasenia
-            });
-    
+            },{
+            where: {
+                id: userId.id
+            }
+            })
+            req.session.usuarioLogeado = {
+                'id': userId.id,
+                'image': nuevaImg,
+                'first_name':req.body.nombre,
+                'last_name': req.body.apellido,
+                'correo': req.body.email,
+                'cuil': req.body.cuit,
+                'direccion': req.body.domicilio,
+                'fecha_nacimiento': req.body.nacimiento,
+            }
+            console.log(req.session.usuarioLogeado)
             return res.redirect('/');
-        } catch (error) {
-            console.log(error);
-            return res.redirect('/');
-        }
+                
+            } catch (error) {
+            console.log(error)   
+            }
         //datos = JSON.parse (fs.readFileSync(rutaJSON));
         //const userId  datos.find (elemento => elemento.id == req.session.usuarioLogeado.id);
        // let oldContrasenia = userId.contrasenia;
