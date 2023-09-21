@@ -9,6 +9,7 @@ module.exports = {
         const response = { data : {
             success : true,
             endPoint: '/api/product',
+            nameDB: 'Product',
             }
         }
         try {
@@ -25,9 +26,9 @@ module.exports = {
                 id: detalle.id,
                 name: detalle.nombre_producto, 
                 descripcion: detalle.detalle,
-                imagenes: detalle.productoFoto[0],
                 detail: `/api/product/${detalle.id}`,
                 urlImagenes: detalle.productoFoto[0].imagen_producto,
+                imagenes: detalle.productoFoto[0],
             }));  
             response.data.data = producto;
             return res.json(response);

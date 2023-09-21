@@ -9,6 +9,7 @@ module.exports = {
         const response = { data : {
             success : true,
             endPoint: '/api/user',
+            nameDB: 'User',
             }            
         }
 
@@ -16,12 +17,14 @@ module.exports = {
     
             const data  = await Users.findAll({
             });
+            console.log(data)
             response.data.count = data.length;
             const usuario = data.map(user => ({
                 id: user.id,
                 name: user.first_name, 
                 email: user.correo, 
-                detail: `/api/user/${user.id}`
+                detail: `/api/user/${user.id}`,
+                urlImagenes: `/images/${user.image}`,
             }));
             response.data.data = usuario;
             console.log(data)
