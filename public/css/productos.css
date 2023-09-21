@@ -10,10 +10,13 @@ main.mainProductos #productTitle {
     padding-top: 30px;
     padding-bottom: 30px;
     width: 100%;
-    color: #000;
+    color: #000000;
     font-size: 14px;
     font-family: 'Montserrat';
-    font-style: bold;
+}
+
+.tituloProduct {
+    font-weight: bold;
 }
 
 main.mainProductos div.galeriaProductos {
@@ -116,5 +119,8 @@ main.mainProductos article.productArticle p.precio:hover {
 @media (min-width : 769px) {
     main.mainProductos article.productArticle{
         width: 16%;
+    }
+    main.mainProductos div.galeriaProductos  {
+        padding: 40px;
     }
 }

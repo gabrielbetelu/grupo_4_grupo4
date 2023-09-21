@@ -1,7 +1,6 @@
 .mainLogin {
-  padding: 0;
-  margin: 0;
-  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  flex-direction: column;
 }
 
 .left {
@@ -33,6 +32,7 @@
 .right .copy {
   color: black;
   text-align: center;
+  margin-top: 20px;
 }
 
 .right .copy p {
@@ -58,7 +58,6 @@ form input[type="password"] {
 
 label {
   display: block;
-  margin-bottom: 0.5rem;
   font-size: 0.75rem;
 }
 
