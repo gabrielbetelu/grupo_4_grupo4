@@ -439,16 +439,10 @@ main section .posicion {
 /* -------------- producto.html --------------------*/
 
 
-img {
+.imgProd {
 	max-width: 100%;
 }
 
-header {
-	display: flex;
-	align-items: center;
-	padding: 30px;
-	justify-content: center;
-}
 
 .container-title {
 	padding: 30px;
