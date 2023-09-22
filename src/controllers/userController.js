@@ -14,10 +14,12 @@ const { validationResult } = require("express-validator");
 
 module.exports = {
     login : (req, res) => {
+        console.log("Entraste al Login")
         return res.render('./users/login')
 
     },
     processLogin : async (req, res) => {
+        console.log("Entraste al processLogin")
         try {
             console.log(req.body.email)
             const usuario = await Users.findOne({
@@ -27,7 +29,7 @@ module.exports = {
             })        
     
           console.log("proceso de Login")
-          console.log(usuario)
+    //      console.log(usuario)
           console.log(req.body)
           if (usuario){
             console.log(req.body.contrasenia)
@@ -73,7 +75,8 @@ module.exports = {
     },    
       
     registro :(req, res) => {
-            return res.render('./users/registro')
+        console.log("Entraste al Registro de usuario")
+        return res.render('./users/registro')
             
     },
 
@@ -132,8 +135,19 @@ module.exports = {
     },
 
     editarPerfil: async (req, res)=> {
+        const rdoValidacion = validationResult(req);
+        console.log("errores de validationResult");
+        console.log(rdoValidacion)
+
+        if(rdoValidacion.errors.length > 0) {
+            console.log('Se registra usuario errorrr')
+            return res.render('./users/perfil', { usuario: req.session.usuarioLogeado , errors: rdoValidacion.mapped(), oldData: req.body })
+             
+        }
         console.log("entraste a modificar el perfil" , req.session.usuarioLogeado.id);
+        console.log("req.session.usuarioLogeado")
         console.log(req.session.usuarioLogeado)
+        console.log(req.body.email)
         try {            
             const userId = await Users.findByPk ( req.session.usuarioLogeado.id)
             if(!userId){
@@ -152,6 +166,16 @@ module.exports = {
             } else {
                 nuevaContrasenia = oldContrasenia;
             }
+            console.log("Valores a actualizar")
+            console.log(nuevaImg)
+            console.log(req.body.nombre)
+            console.log(req.body.apellido)
+            console.log(req.body.email)
+            console.log(req.body.cuit)
+            console.log(req.body.domicilio)
+            console.log(req.body.nacimiento)
+            console.log(nuevaContrasenia)
+
 
             await Users.update({
                 'image': nuevaImg,

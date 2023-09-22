@@ -24,7 +24,11 @@ const multerDiskStorage = multer.diskStorage ({
 // AHORA VAMOS A HACER LAS VALIDACIONES
 // O SEA QUE EL ARCHIVO SEA DEL TIPO IMAGEN 
 // Y EL TAMAÑO MENOR QUE 3MB
+
+
+
 const fileFilter = (req, file , cb) => {
+    
 
     console.log("Entró a multerMiddleware");
 

@@ -92,6 +92,10 @@ window.onload = function(){
 }
 
 // validacion email
+    console.log("emailOld = " , oldEmail.value)
+    console.log("email = " , emailInput.value)
+
+
     if(oldEmail.value != emailInput.value ) {
 
     function esValidoEmail(email) {

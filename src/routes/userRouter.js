@@ -4,6 +4,7 @@ const controller = require("../controllers/userController");
 const multer = require('multer');
 const path = require('path');
 const regValidation = require('../middlewares/regValidation');
+const perfilValidation = require('../middlewares/perfilValidation');
 const guestMiddleware = require('../middlewares/guestMiddleware');
 const adminMiddleware = require('../middlewares/adminMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
@@ -35,7 +36,7 @@ router.post('/registro', multerMiddleware.single('imagen'), imageSizeMiddleware,
  
 //RUTA PERFIL DE USUARIO
 router.get('/perfil', authMiddleware, controller.perfil);
-router.put('/perfil/:id', multerMiddleware.single('imagen'), controller.editarPerfil);
+router.put('/perfil/:id', multerMiddleware.single('imagen'), imageSizeMiddleware, perfilValidation, controller.editarPerfil);
 router.delete('/perfil/eliminar/:id', controller.eliminarPerfil);
 router.delete('/perfil/delete/:id', controller.destroyPerfil);
 
