@@ -83,7 +83,7 @@ module.exports = {
     processRegister: async (req,res) => {
         const rdoValidacion = validationResult(req);
         console.log("errores de validationResult");
-//        
+        
 
         if(rdoValidacion.errors.length > 0) {
             console.log('no se registra usuario errorrr')
@@ -136,10 +136,38 @@ module.exports = {
 
     editarPerfil: async (req, res)=> {
         const rdoValidacion = validationResult(req);
+        const erroresValidacion = rdoValidacion.errors
         console.log("errores de validationResult");
-        console.log(rdoValidacion)
-
-        if(rdoValidacion.errors.length > 0) {
+        console.log(erroresValidacion)
+        for (let i = 0 ; i < erroresValidacion.length ; i++) {
+            console.log(erroresValidacion[i].path)
+            if (erroresValidacion[i].path == 'image' && erroresValidacion[i].value == undefined){
+                erroresValidacion.splice(i , 1)
+            }
+        }
+        for (let i = 0 ; i < erroresValidacion.length ; i++) {
+            console.log(erroresValidacion[i].path)
+            
+            if (erroresValidacion[i].path == 'contrasenia' && erroresValidacion[i].value == ""){
+                erroresValidacion.splice(i , 1)
+            }
+        }
+        for (let i = 0 ; i < erroresValidacion.length ; i++) {
+            console.log(erroresValidacion[i].path)
+            
+            if (erroresValidacion[i].path == 'contrasenia' && erroresValidacion[i].value == ""){
+                erroresValidacion.splice(i , 1)
+            }
+        }
+        for (let i = 0 ; i < erroresValidacion.length ; i++) {
+            console.log(erroresValidacion[i].path)
+            
+            if (erroresValidacion[i].path == 'email' && erroresValidacion[i].value == req.session.usuarioLogeado.correo){
+                erroresValidacion.splice(i , 1)
+            }
+        }
+        if(rdoValidacion.errors.length > 0) { 
+            
             console.log('Se registra usuario errorrr')
             return res.render('./users/perfil', { usuario: req.session.usuarioLogeado , errors: rdoValidacion.mapped(), oldData: req.body })
              
