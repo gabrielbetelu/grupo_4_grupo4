@@ -1,15 +1,10 @@
-
 const path = require ('path');
 const db = require('../database/models');
 const sequelize = db.sequelize;
-
-
-const Users = db.User; 
-const CategoriaUser = db.CategoriaUser;
-
 const bcrypt = require('bcrypt');
 const { validationResult } = require("express-validator");
-
+const Users = db.User; 
+const CategoriaUser = db.CategoriaUser;
 
 
 module.exports = {
@@ -29,7 +24,7 @@ module.exports = {
             })        
     
           console.log("proceso de Login")
-    //      console.log(usuario)
+    
           console.log(req.body)
           if (usuario){
             console.log(req.body.contrasenia)
