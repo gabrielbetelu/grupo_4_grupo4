@@ -3,18 +3,12 @@
     <%- include('../partials/head') %>
 <body>
     <%- include('../partials/header') %>
-        <div class="main-perfil">
-            <div class="leftPerfil">
-                <section class="copyPerfil">
-                    <h2>Comodidad extrema.</h2>
-                </section>
-            </div>
-            <div class="rightPerfil">
+        <main class="main-perfil">            
+            <img src="../images/patagonia-argentina.jpg" alt="fondo" class="fondo-image" />
+            <div class="formPerfil">
                 <form class="registroPerfil" action="/user/perfil/<%=usuario.id%>?_method=PUT" method="POST" enctype="multipart/form-data">            
-                     <section class="copyRegister">
-                        <h5>Perfil de Usuario</h5>  
-                    </section>                     
-                    <div>                           
+                    <h5>Perfil de Usuario</h5> 
+                    <% console.log(locals.errors) %>                           
                     <div>
                         <input class="form-usu-perfil" type="text" name="nombre" value= "<%=usuario.first_name%>" placeholder="  Nombre">
                         <% if(locals.errors && errors.nombre) { %>
@@ -60,10 +54,11 @@
                             <label>Imagen de perfil</label>
                         </div>                        
                     </div>
-                    <div class="labelRegistro" id="archivoImagenPerfil">
+                    <div id="archivoImagenPerfil">
                             <div id="imagenExistente">                                
                                 <img id="fotoPerfil" src="/images/<%= usuario.image%>">
                             </div>
+                             
                             <input class="filePerfil" type="file" name="imagen" value= "<%=usuario.image%>"> 
                             <% if(locals.errors && errors.image) { %>
                                 <p class="error"> <%= errors.image.msg %> </p>
@@ -72,14 +67,14 @@
                     </div>
                     <div>
                         <h5 id="modContrasenia">Modificar Contraseña</h5>                     
-                        <div class="input-container password">
+                        <div> 
                             <input class="form-usu-perfil" type="password" name="contrasenia"  value="" placeholder="  Contraseña">
                             <% if(locals.errors && errors.contrasenia) { %>
                                 <p class="error"> <%= errors.contrasenia.msg %> </p>
                                 <% } %>
                             <p id="error1"  class="error"></p>
                         </div> 
-                        <div class="input-container password">
+                        <div>
                             <input class="form-usu-perfil" type="password" name="confirm-contrasenia"  value= "" placeholder="  Confirmar contraseña">
                             <% if(locals.errors && errors.contrasenia) { %>
                                 <p class="error"> <%= errors.contrasenia.msg %> </p>
@@ -102,7 +97,7 @@
                     </form>    
                 </div>
             </div>
-        </div>
+        </main>
         <%- include('../partials/footer') %>
         <script src="/js/perfil.js"></script>   
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
