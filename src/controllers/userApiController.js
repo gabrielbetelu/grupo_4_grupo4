@@ -9,58 +9,22 @@ module.exports = {
         const response = { data : {
             success : true,
             endPoint: '/api/user',
+            nameDB: 'User',
             }            
         }
-        const PAGE_SIZE = 10;   
-        const page = parseInt(req.query.page) || 1; 
-        const offset = (page - 1) * PAGE_SIZE;
-        
+
         try {
-    /*        const { count, rows: data } = await Users.findAndCountAll({
-                limit: PAGE_SIZE,
-                offset: offset,
-            });
-    */        
-        //    const totalData = await Users.findAll();
-        //    response.data.count = totalData.length;
-            
-    /*        const { countPage, rows: data } = await Users.findAndCountAll({
-                limit: PAGE_SIZE,
-                offset: offset,
-            });
-            const totalPages = Math.ceil(countPage / PAGE_SIZE);
-            */
-
-            let usrs  = await Users.findAll();
-            let contador = usrs.length;
-            console.log("*************  usrs  ********************")
-            console.log(usrs)
-            console.log("*************  FIN usrs  ********************")
-            usrs = "";
+    
             const data  = await Users.findAll({
-                limit: PAGE_SIZE,
-                offset: offset,
             });
-            
-            const totalPages = Math.ceil(contador / PAGE_SIZE);
-
+            console.log(data)
             response.data.count = data.length;
-            response.data.currentPage = page;
-            response.data.totalPages = totalPages;
-
-            if (page < totalPages) {
-                response.data.next = `/api/user?page=${page + 1}`;
-            }
-            if (page > 1) {
-                response.data.previous = `/api/user?page=${page - 1}`;
-            }
-        //    response.data.count = data.length;
-            //const data = await Users.findAll()
             const usuario = data.map(user => ({
                 id: user.id,
                 name: user.first_name, 
                 email: user.correo, 
-                detail: `/api/user/${user.id}`
+                detail: `/api/user/${user.id}`,
+                urlImagenes: `/images/${user.image}`,
             }));
             response.data.data = usuario;
             console.log(data)
@@ -100,6 +64,5 @@ module.exports = {
         }
     },
 };
-
 
 

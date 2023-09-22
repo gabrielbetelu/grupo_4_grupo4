@@ -1,23 +1,20 @@
-
 const path = require ('path');
 const db = require('../database/models');
 const sequelize = db.sequelize;
-
-
-const Users = db.User; 
-const CategoriaUser = db.CategoriaUser;
-
 const bcrypt = require('bcrypt');
 const { validationResult } = require("express-validator");
-
+const Users = db.User; 
+const CategoriaUser = db.CategoriaUser;
 
 
 module.exports = {
     login : (req, res) => {
+        console.log("Entraste al Login")
         return res.render('./users/login')
 
     },
     processLogin : async (req, res) => {
+        console.log("Entraste al processLogin")
         try {
             console.log(req.body.email)
             const usuario = await Users.findOne({
@@ -27,7 +24,7 @@ module.exports = {
             })        
     
           console.log("proceso de Login")
-          console.log(usuario)
+    
           console.log(req.body)
           if (usuario){
             console.log(req.body.contrasenia)
@@ -72,19 +69,19 @@ module.exports = {
 
     },    
       
-
     registro :(req, res) => {
-            return res.render('./users/registro')
+        console.log("Entraste al Registro de usuario")
+        return res.render('./users/registro')
             
     },
 
-    
-        processRegister: async (req,res) => {
+    processRegister: async (req,res) => {
         const rdoValidacion = validationResult(req);
         console.log("errores de validationResult");
-//        
+        
 
         if(rdoValidacion.errors.length > 0) {
+            console.log('no se registra usuario errorrr')
             return res.render('./users/registro', { errors: rdoValidacion.mapped(), oldData: req.body })
              
         }
@@ -133,18 +130,118 @@ module.exports = {
     },
 
     editarPerfil: async (req, res)=> {
+        const rdoValidacion = validationResult(req);
+        const erroresValidacion = rdoValidacion.errors
+        console.log("errores de validationResult");
+        console.log(erroresValidacion)
+        for (let i = 0 ; i < erroresValidacion.length ; i++) {
+            console.log(erroresValidacion[i].path)
+            if (erroresValidacion[i].path == 'image' && erroresValidacion[i].value == undefined){
+                erroresValidacion.splice(i , 1)
+            }
+        }
+        for (let i = 0 ; i < erroresValidacion.length ; i++) {
+            console.log(erroresValidacion[i].path)
+            
+            if (erroresValidacion[i].path == 'contrasenia' && erroresValidacion[i].value == ""){
+                erroresValidacion.splice(i , 1)
+            }
+        }
+        for (let i = 0 ; i < erroresValidacion.length ; i++) {
+            console.log(erroresValidacion[i].path)
+            
+            if (erroresValidacion[i].path == 'contrasenia' && erroresValidacion[i].value == ""){
+                erroresValidacion.splice(i , 1)
+            }
+        }
+        for (let i = 0 ; i < erroresValidacion.length ; i++) {
+            console.log(erroresValidacion[i].path)
+            
+            if (erroresValidacion[i].path == 'email' && erroresValidacion[i].value == req.session.usuarioLogeado.correo){
+                erroresValidacion.splice(i , 1)
+            }
+        }
+        if(rdoValidacion.errors.length > 0) { 
+            
+            console.log('Se registra usuario errorrr')
+            return res.render('./users/perfil', { usuario: req.session.usuarioLogeado , errors: rdoValidacion.mapped(), oldData: req.body })
+             
+        }
         console.log("entraste a modificar el perfil" , req.session.usuarioLogeado.id);
-        datos = JSON.parse (fs.readFileSync(rutaJSON));
-        const userId = datos.find (elemento => elemento.id == req.session.usuarioLogeado.id);
-        let oldContrasenia = userId.contrasenia;
-        let oldImagen = userId.imagen;
-        let nuevaImg= req.file ? req.file.filename : oldImagen;
-        let nuevaContrasenia = ""
-        if (req.body.contrasenia != "") {
+        console.log("req.session.usuarioLogeado")
+        console.log(req.session.usuarioLogeado)
+        console.log(req.body.email)
+        try {            
+            const userId = await Users.findByPk ( req.session.usuarioLogeado.id)
+            if(!userId){
+                console.log('usuario no encontrado')
+                return res.redirect('/')
+            }
+
+            let oldContrasenia = userId.contrasenia;
+            console.log(oldContrasenia)
+            let oldImagen = userId.image;
+            let nuevaImg= req.file ? req.file.filename : oldImagen;
+            let nuevaContrasenia = ""
+
+            if (req.body.contrasenia != "") {
+                nuevaContrasenia = bcrypt.hashSync(req.body.contrasenia, 10);
+            } else {
+                nuevaContrasenia = oldContrasenia;
+            }
+            console.log("Valores a actualizar")
+            console.log(nuevaImg)
+            console.log(req.body.nombre)
+            console.log(req.body.apellido)
+            console.log(req.body.email)
+            console.log(req.body.cuit)
+            console.log(req.body.domicilio)
+            console.log(req.body.nacimiento)
+            console.log(nuevaContrasenia)
+
+
+            await Users.update({
+                'image': nuevaImg,
+                'first_name':req.body.nombre,
+                'last_name': req.body.apellido,
+                'correo': req.body.email,
+                'cuil': req.body.cuit,
+                'direccion': req.body.domicilio,
+                'fecha_nacimiento': req.body.nacimiento,
+                'contrasenia': nuevaContrasenia
+            },{
+            where: {
+                id: userId.id
+            }
+            })
+            req.session.usuarioLogeado = {
+                'id': userId.id,
+                'image': nuevaImg,
+                'first_name':req.body.nombre,
+                'last_name': req.body.apellido,
+                'correo': req.body.email,
+                'cuil': req.body.cuit,
+                'direccion': req.body.domicilio,
+                'fecha_nacimiento': req.body.nacimiento,
+            }
+            console.log(req.session.usuarioLogeado)
+            return res.redirect('/');
+                
+            } catch (error) {
+            console.log(error)   
+            }
+        //datos = JSON.parse (fs.readFileSync(rutaJSON));
+        //const userId  datos.find (elemento => elemento.id == req.session.usuarioLogeado.id);
+       // let oldContrasenia = userId.contrasenia;
+        //console.log(oldContrasenia)
+        //let oldImagen = userId.imagen;
+       // let nuevaImg= req.file ? req.file.filename : oldImagen;
+       // let nuevaContrasenia = ""
+       /* if (req.body.contrasenia != "") {
             nuevaContrasenia = bcrypt.hashSync(req.body.contrasenia, 10);
         } else {
-            nuevaContrasenia = oldContrasenia;
-        }                 
+            nuevaContrasenia = oldContrasenia;*/
+         /*              
         try {
             await Users.update({
                 'image': nuevaImg,
@@ -173,7 +270,7 @@ module.exports = {
                 
             } catch (error) {
             console.log(error)   
-            }
+            }*/
     },
 
     eliminarPerfil: async (req, res) => {
