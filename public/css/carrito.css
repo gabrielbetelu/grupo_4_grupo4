@@ -2,31 +2,8 @@
 .campTheNorth{
     max-width: 100%;
 }
-.modal::after{
-    position: fixed;
-    top: 0;
-    right: 350px;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, .4);
-    z-index: 999;
 
-    opacity: 0;
-    content: '';
-    pointer-events: none;
-    transition: all .35s ease-in;
-}
 
-.modal.active{
-    visibility: visible;
-    opacity: 1;
-    transform: none;
-}
-
-.modal.active::after{
-    opacity: 1;
-    pointer-events: auto;
-}
 .modal__container{
     height: 100%;
     padding: 30px;
@@ -55,7 +32,11 @@
     overflow: hidden;
 }
 
-
+.modal__header{
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--border);
+}
 
 .modal__header h2{
     font-size: 24px;
