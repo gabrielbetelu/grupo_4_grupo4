@@ -115,13 +115,16 @@
 @media(min-width: 900px){
   .main-registro {
     flex-direction: row;
-    height: 100vh;
   }
   .leftRegister, 
   .rightRegister {
     display: flex;
     width: 50%;
     height: auto;
+  }
+
+  .rightRegister{
+    margin-bottom: 40px;
   }
 
 }
