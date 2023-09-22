@@ -440,7 +440,7 @@ main section .posicion {
 
 
 .imgProd {
-	max-width: 100%;
+	max-width: 70%;
 }
 
 
@@ -458,7 +458,8 @@ main {
 }
 
 .container-img {
-	background-color: #f7f7f9;
+	/*background-color: #f7f7f9;*/
+    width: 100%;
 	flex: 1;
 }
 
@@ -578,7 +579,7 @@ main {
 	background-color: #252525;
 	padding: 10px;
 	color: #f7f7f7;
-	display: flex;
+	
 	align-items: center;
 	justify-content: center;
 	gap: 5px;
