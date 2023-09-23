@@ -96,11 +96,11 @@
                         </div> 
                     </div>
                 </form>
-                <div class="botonesEdicion" id="botonDeletePerfil">
-                    <form class="edicion-form deletePerfilForm" action="/user/perfil/eliminar/<%=usuario.id%>?_method=DELETE" method="post">
-                        <button class="botones botonEliminar">Eliminar</button>
+                
+                    <form action="/user/perfil/eliminar/<%=usuario.id%>?_method=DELETE" method="post">
+                        <button class="botonEliminarr">Eliminar</button>
                     </form>    
-                </div>
+                 </div>
             </div>
         </div>
         <%- include('../partials/footer') %>

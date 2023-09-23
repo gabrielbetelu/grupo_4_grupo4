@@ -1,11 +1,10 @@
 .main-perfil {
     display: flex;
     flex-direction: column;
+    height: 100px;
   }
 
-  .leftPerfil {
-    height: 200px;
-  }
+  
 
   .leftPerfil, .rightPerfil {
     display: flex;
@@ -15,7 +14,7 @@
   }
 
   .leftPerfil {
-    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("/images/carpas.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("/images/ninia.jpg");
     background-size: cover;
   }
 
@@ -34,6 +33,7 @@
     color: black;
     text-align: center;
     margin-top: 20px;
+    height: 50%;
   }
 
   .rightPerfil .copyPerfil p {
@@ -67,7 +67,7 @@
   }
 
   .registroPerfil h5 {
-    font-size: 2rem;
+    font-size: 15px;
     margin-bottom: .5em;
   }
 
@@ -82,10 +82,26 @@
     padding: 0;
     margin-bottom: 15px;
     border: none;
-  }
+    }
 
-  .botones botonGuardar {
-    display: block;
+    #fotoPerfil {
+    width: 25px;
+    padding: 10px 20px 0 10px;
+    }
+    #imagenExistente {    
+    max-width: 100px;
+    }
+    #archivoImagenPerfil {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    }
+
+
+
+  .botones {
     width: 100%;
     background: #EBB54B;
     color: white;
@@ -97,36 +113,44 @@
     text-transform: uppercase;
     letter-spacing: 0.5px;
   }
-
-  .botones botonCerrar {
-    display: block;
-    width: 100%;
-    background: #EBB54B;
-    color: white;
-    font-weight: 700;
-    border: none;
-    padding: 1rem;
-    border-radius: 8px;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
+  
 
   .botones:hover{
     background-color: #efac2f;
-  }
-
-  .registro a {
-    color: black;
-    text-decoration: none;
-    text-transform: none;
-    font-size: 14px;
   }
 
   .botones a:hover {
     color: #EBB54B;
   }
 
+  .botonEliminarr {
+    width: 100%;
+    background: #EBB54B;
+    color: white;
+    font-weight: 700;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .botonEliminarr:hover{
+    background-color: #efac2f;
+  }
+
+  .botonEliminarr:hover {
+    color: #EBB54B;
+  }
+  
+  .registro a {
+    color: black;
+    text-decoration: none;
+    text-transform: none;
+    font-size: 14px;
+  }
+  
 @media(min-width: 900px){
   .main-perfil {
     flex-direction: row;
