@@ -3,6 +3,8 @@ const db = require('../database/models');
 const Users = db.User;
 const sequelize = db.sequelize;
 
+
+
 module.exports = [
     check('nombre').notEmpty().isLength({ min:2 }).withMessage('Campo obligatorio, minimo 2 caracteres'),
     check('apellido').notEmpty().isLength({ min:2 }).withMessage('Campo obligatorio, minimo 2 caracteres'),

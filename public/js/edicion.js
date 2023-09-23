@@ -35,11 +35,13 @@ window.addEventListener("load", () =>{
         const errorNom = document.getElementById("errorNom")
         const errorDesc = document.getElementById("errorDesc")
         const erroresLista = document.getElementById("erroresLista")
-
+        
         let errores = [];
-    
+        errorNom.innerText = '';
         if (nameProd.value == "") {
             errores.push("Este campo es obligatorio");
+            errorNom.innerText = "Campo obligatorio"
+
         }else if (nameProd.value.length < 5){
             errores.push("Este campo debe de tener al menos 5 caracteres");
             errorNom.innerText = "Este campo debe de tener al menos 5 caracteres"
@@ -51,16 +53,16 @@ window.addEventListener("load", () =>{
 
         }
 
-        
-        if (errores.length > 0) {
-            //erroresLista.innerHTML = ``;
-           // for (let error of errores){
-            //   erroresLista.innerHTML += `<li>${error}</li>`
-            //}
-        }else {
-            //erroresLista.innerHTML = ``;
-            
-            formEdicion.submit();
+        console.log(errores)
+            if (errores.length == 0){
+                errores.innerHTML = '';
+                Swal.fire(
+                    'Felicidades',
+                    'Producto editado!',
+                    'Success'
+                ).then(()=> {
+                    formEdicion.submit();
+                })
         }
     })
 })
