@@ -4,30 +4,21 @@ window.addEventListener("load", () =>{
     const errorImagen = document.getElementById("errorImg");
 
     let errores = [];
-
     fileInput.addEventListener('change', function (event){
     const files = Array.from(event.target.files);
-    console.log(files)
-        for (let i = 0; i< files.length; i++){
-            if(!files[i].type.includes('image')) {
-            errores.push("Imagen invalida")
-            errorImagen.innerText= "Debe seleccionar una imagen válida";
-            i = files.length;
-            
+            for (let i = 0; i< files.length; i++){
+                console.log("i+   " +i)
+                if(!files[i].type.includes('image')) {
+                errores.push("Imagen invalida")
+                errorImagen.innerText= "Debe seleccionar una imagen válida";
+                i = files.length;
+                }
+                console.log(errores);      
             }
-            if(files.length == 0){
-               errores.push('imagen vacia')
-               errorImagen.innerText = 'debe agregar al menos una imagen' 
-            }
-            console.log(errores);      
-        }
-        
     })
-
+   
     creacionProducto.addEventListener("submit", function (e){
     e.preventDefault();
-    
-    
     const nombreProducto = document.getElementById("nomb-valid");
     const descripProducto = document.getElementById("descr-valid");
     const errorNombre = document.getElementById("errorNombre");
@@ -47,12 +38,11 @@ window.addEventListener("load", () =>{
             errores.push("Este campo debe tener al menos 20 caracteres")
             errorDescripcion.innerText= "Campo obligatorio, mínimo 20 caracteres";
         }
-       
-        /*if (files.length == 0) {
+
+        if (fileInput.value == "") {
             errores.push("Imagen vacia")
-            errorImagen.innerText= "Debe seleccionar una imagen válida";
-        }*/
-    
+            errorImagen.innerText= "Debe seleccionar al menos una imagen válida";
+        }
          
         console.log(errores);
         if (errores.length == 0){
@@ -65,6 +55,4 @@ window.addEventListener("load", () =>{
             })
         }
     })
-    
-
- })
+ }) 
