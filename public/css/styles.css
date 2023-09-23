@@ -36,8 +36,9 @@ header {
     width: 100%;
     background: white;
     display: flex; 
-    border-bottom: solid 1px #666;
+    border-bottom: solid 10px #c4c4c41f;
 }
+
 
 header .opciones {
     display: flex;
@@ -70,6 +71,7 @@ header .logo-header .logotipo {
     left: 0;
     animation: movimiento 0.8s steps(11) infinite alternate both; 
 }
+
 
 @keyframes movimiento {
     0% {background-image: url("/images/animacion-logo-1.jpg");}
