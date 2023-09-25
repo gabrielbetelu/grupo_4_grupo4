@@ -35,8 +35,16 @@ main {
 header {
     width: 100%;
     background: white;
+    display: flex;
+    flex-direction: column; 
+    
+}
+
+.header_principal {
+    width: 100%;
+    background: white;
     display: flex; 
-    border-bottom: solid 10px #c4c4c41f;
+    
 }
 
 
@@ -166,6 +174,11 @@ div#saludoLog {
     color:#EBB54B;
 }
 
+.banner_cito {
+    background-color: #bbb7b78f;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
 /* ******************************************* */
 header .opciones .log-cart #productosCargaEdicion {
@@ -263,7 +276,7 @@ main section {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    padding: 0px 40px 40px;
+    padding: 0px 0px 40px 0px;
 }
 
 /*-----------------------------------------------------*/
@@ -278,16 +291,22 @@ main section {
 /*------------------------galeria----------------------*/
 
 .marcas {
-    position: relative;
-    width: 100%;
+/*    position: relative; */
+    width: 80%;
     height: auto;
-    z-index: 1;
     display: flex;
-    box-sizing: content-box;
+    flex-wrap: wrap;
+/*    box-sizing: content-box;  */
+    justify-content: space-evenly;
+    
 }
 
-.ansilta {
+/*.ansilta {
    width: 25%;
+} */
+
+.logos_marcas {
+    width: 18%;
 }
 
 main section .posicion {
@@ -300,7 +319,8 @@ main section .posicion {
     width: 98%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;   
+    justify-content: space-evenly;  
+    text-align: center; 
 }
  
 .generoEdad {
@@ -311,7 +331,7 @@ main section .posicion {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    width: 38%; 
+    width: 45%; 
     padding: 4% 0;  
     position: relative; 
 }
@@ -455,8 +475,8 @@ main section .posicion {
 
 main {
 	display: flex;
-	gap: 30px;
-	margin-bottom: 80px;
+/*	gap: 30px;
+	margin-bottom: 80px; */
 }
 
 .container-img {
@@ -824,21 +844,27 @@ main {
 
     .marcas {
         display: flex;
-        position: relative;
-        box-sizing: content-box;
+    /*    position: relative; 
+        box-sizing: content-box;*/
         justify-content: space-evenly;
-        width: 50%;
+        width: 80%;
     }
 
     .camperasYBuzos, .pantalonesYShorts, .zapatillasYBotas, .carpasYBolsas, .mochilasYBolsos, .accesorios  {
-        width: 28%;  
+        width: 42%;  
     }
     .camperasYBuzos h4,.camperasYBuzos h4, .pantalonesYShorts h4, .zapatillasYBotas h4, .carpasYBolsas h4, .mochilasYBolsos h4, .accesorios h4  {
+        text-align: center;
         top: 40%;
     }
 
-    .hombre img, .mujer img, .ninios img {        
-        width: 100%;
+    .camperasYBuzos img, .pantalonesYShorts img, .zapatillasYBotas img, .carpasYBolsas img, .mochilasYBolsos img, .accesorios img {    
+        height: 90%;           
+    }
+
+    .hombre img, .mujer img, .ninios img { 
+        object-fit: cover;       
+        width: 70%;
         aspect-ratio: 1.2/1;
     }
 
@@ -848,9 +874,11 @@ main {
     
     .hombre, .mujer, .ninios {
         justify-content: space-evenly;
+        text-align: center;
     } 
 
     .hombre h4, .mujer h4, .ninios h4 {
+        text-align: center;
         top: 33%;
     }
 
@@ -906,6 +934,10 @@ main {
         color: #EBB54B;
     }
 
+    .rubros {
+        padding: 0 25px 0px 25px;
+    }
+
     .camperasYBuzos, .pantalonesYShorts, .zapatillasYBotas, .carpasYBolsas, .mochilasYBolsos, .accesorios  {
         width: 30%; 
         height: auto; 
@@ -917,6 +949,7 @@ main {
     }
 
     .camperasYBuzos h4,.camperasYBuzos h4, .pantalonesYShorts h4, .zapatillasYBotas h4, .carpasYBolsas h4, .mochilasYBolsos h4, .accesorios h4  {
+        text-align: center;
         font-weight: bold;
     }    
 

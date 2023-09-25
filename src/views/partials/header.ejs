@@ -1,56 +1,60 @@
 <header>
-    <div class="logo-header">
-        <a href="/">
-            <div class= "logotipo">                
-            </div>   
-        </a>            
-    </div>        
-    <div class="opciones">
-        <div class="log-cart">
-            <a href = "/product/carrito"><i class="fas fa-shopping-cart"></i></a> 
-            <% if(!locals.isLogged) { %>
-              
-                <a href="/user/login"><i class="fas fa-user"></i></a>
-            <%}%>            
-            <!--    *******************************************   -->
-            <% if(locals.isLogged) {%> 
-                <div class="usuarioLogueado">
-                    <div id = "saludo">  
-                        <img id = "imgAvatar" src="/images/<%= locals.userLogged.image%>" >               
-                        <a href = "/user/perfil"><div id="saludoLog"><%= locals.userLogged.first_name %></div></a>
-                    </div>
-                    <div id="userPerfil" >
-                        <a href = "/user/logout"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>                        
-                    </div>
+    <div class="header_principal">
+        <div class="logo-header">
+            <a href="/">
+                <div class= "logotipo">                
+                </div>   
+            </a>            
+        </div>        
+            <div class="opciones">
+                <div class="log-cart">
+                    <a href = "/product/carrito"><i class="fas fa-shopping-cart"></i></a> 
+                    <% if(!locals.isLogged) { %>
+                    
+                        <a href="/user/login"><i class="fas fa-user"></i></a>
+                    <%}%>            
+                    <!--    *******************************************   -->
+                    <% if(locals.isLogged) {%> 
+                        <div class="usuarioLogueado">
+                            <div id = "saludo">  
+                                <img id = "imgAvatar" src="/images/<%= locals.userLogged.image%>" >               
+                                <a href = "/user/perfil"><div id="saludoLog"><%= locals.userLogged.first_name %></div></a>
+                            </div>
+                            <div id="userPerfil" >
+                                <a href = "/user/logout"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>                        
+                            </div>
+                        </div>
+                    <%}%>
+                    <!--    *******************************************   -->
+                    <% if(locals.isLogged && locals.userLogged.id_categoria_user == 1) {%> 
+                        <div id="productosCargaEdicion">
+                            <a href = "/product/creacion"><i class="fa-regular fa-square-plus"></i></a>
+                            <a href = "/product/edicion"><i class="fa-regular fa-pen-to-square"></i></a>
+                        </div>
+                    <%}%>
+                    <!--    *******************************************   -->     
                 </div>
-            <%}%>
-            <!--    *******************************************   -->
-            <% if(locals.isLogged && locals.userLogged.id_categoria_user == 1) {%> 
-                <div id="productosCargaEdicion">
-                    <a href = "/product/creacion"><i class="fa-regular fa-square-plus"></i></a>
-                    <a href = "/product/edicion"><i class="fa-regular fa-pen-to-square"></i></a>
+                <div class="menu-buscador">
+                    <nav class="oculto">
+                        <ul>
+                            <li>
+                                <a href = "/">INICIO</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href = "/product/productos">PRODUCTOS</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="burger-menu visible">
+                        <i id="logo-burguer" class="fas fa-bars visible"></i>
+                    </div>              
                 </div>
-            <%}%>
-            <!--    *******************************************   -->     
-        </div>
-        <div class="menu-buscador">
-            <nav class="oculto">
-                <ul>
-                    <li>
-                        <a href = "/">INICIO</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        <a href = "/product/productos">PRODUCTOS</a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="burger-menu visible">
-                <i id="logo-burguer" class="fas fa-bars visible"></i>
-            </div>              
-        </div>
+            </div>
     </div>
-    
+    <div class="banner_cito">
+        <p>Envío gratis a partir de $50000</p>
+    </div>
     
 </header> 
