@@ -14,7 +14,7 @@ const uploadFile = require ('../middlewares/multerMiddleware')
 
 
 router.get('/carrito', controller.carrito);
-router.get('/producto', controller.producto);
+router.get('/producto/:id', controller.producto);
 router.get('/productos', controller.productos);
 
 //FORM EDICION

@@ -9,9 +9,10 @@
         </div>
         <div class="galeriaProductos">
             <% prod.forEach((row) =>{ %>
+                <% console.log(row.id) %>
             <article class="productArticle"> 
                 <div class="imagenesProd">
-                    <a id="linkProd" href="/product/producto"><div class="contenedorImagenProd">
+                    <a id="linkProd" href="/product/producto/<%= row.id %>"><div class="contenedorImagenProd">
                         <img id="imagenProducto" src="<%= row.productoFoto[0].imagen_producto %>">
                     </div></a>                         
                         <h4><%= row.nombre_producto %></h4>

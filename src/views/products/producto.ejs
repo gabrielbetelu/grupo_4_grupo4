@@ -3,15 +3,15 @@
     <%- include('../partials/head') %>
 <body>
     <%- include('../partials/header') %>
-    <div class="container-title">Campera M THERMOBALL ECO SNOW TRICLIMATE</div>
+    <div class="container-title"><%= prod.nombre_producto%></div>
 
     <main>
         <div class="container-img">
-            <img class="imgProd" src="\images\productoBeige.jpg" alt="imagen-producto" />
+            <img class="imgProd" src=<%= foto[0].imagen_producto%> alt="imagen-producto" />
         </div>
         <div class="container-info-product">
             <div class="container-price">
-                <span>$150.000</span>
+                <span>$<%= prod.precio_producto%></span>
             </div>
 
             <div class="container-details-product">
@@ -65,7 +65,7 @@
                 </div>
                 <div class="text-description">
                     <p>
-                        Impermeable por fuera. Cálido por dentro. La chaqueta ThermoBall™ Eco Snow Triclimate para hombre es una campera multiusos para deportes de nieve que te permite personalizar tus capas según las condiciones. Con DryVent™ 100% reciclado y dos aislamientos sintéticos diferentes, estará cómodo desde el ascensor hasta el alojamiento.
+                        <%= prod.detalle %>
                     </p>
                 </div>
             </div>

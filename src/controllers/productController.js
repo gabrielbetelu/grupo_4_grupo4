@@ -21,8 +21,39 @@ module.exports = {
             return res.render('./products/carrito')        
     },
 
-    producto : (req, res) => {
-        return res.render('./products/producto')
+    producto : async (req, res) => {
+        console.log("entraste a producto" , req.params.id);
+        try {
+            const productoBuscado = await Products.findByPk ( req.params.id ,{ 
+                include: [{
+                model: CategoriasProduct,
+                as: 'categoriasproductos',
+                attributes: ['id']
+                } , {
+                    model: Fotos,
+                    as: 'productoFoto',
+                    attributes: ['id']
+                }]
+                }
+            )
+            let idProductoBuscado = parseInt(req.params.id)
+            const imagenesProducto = await Fotos.findAll(
+                {
+                where:{id_producto:idProductoBuscado}
+            })
+               console.log(productoBuscado)
+            console.log(imagenesProducto)
+            console.log("***** categorias *********************")
+            console.log(productoBuscado.categoriasproductos)
+            console.log("***** fotos *********************")
+            console.log(productoBuscado.productoFoto)
+            return res.render('./products/producto' , {prod : productoBuscado , foto : imagenesProducto} )
+            
+        } catch (error) {
+            console.log(error)
+        }
+
+        
         
     },
 
