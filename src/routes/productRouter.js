@@ -13,9 +13,18 @@ const uploadFile = require ('../middlewares/multerMiddleware')
 
 
 
-router.get('/carrito', authMiddleware , controller.carrito);
-router.get('/producto', controller.producto);
+router.get('/carrito', controller.carrito);
+router.get('/producto/:id', controller.producto);
 router.get('/productos', controller.productos);
+router.get('/productos/abrigos', controller.abrigos);
+router.get('/productos/pantalones', controller.pantalones);
+router.get('/productos/calzado', controller.calzado);
+router.get('/productos/camping', controller.camping);
+router.get('/productos/mochilas', controller.mochilas);
+router.get('/productos/accesorios', controller.accesorios);
+router.get('/productos/mujer', controller.mujer);
+router.get('/productos/hombre', controller.hombre);
+router.get('/productos/ninios', controller.ninios);
 
 //FORM EDICION
 router.get('/edicion', adminMiddleware ,controller.edicion);

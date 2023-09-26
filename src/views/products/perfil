@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head') %>
+<body>
+    <%- include('../partials/header') %>
+        <main class="main-perfil">            
+            <img src="../images/patagonia-argentina.jpg" alt="fondo" class="fondo-image" />
+            <div class="formPerfil">
+                <form class="registroPerfil" action="/user/perfil/<%=usuario.id%>?_method=PUT" method="POST" enctype="multipart/form-data">            
+                    <h5>Perfil de Usuario</h5> 
+                    <% console.log(locals.errors) %>                           
+                    <div>
+                        <input class="form-usu-perfil" type="text" name="nombre" value= "<%=usuario.first_name%>" placeholder="  Nombre">
+                        <% if(locals.errors && errors.nombre) { %>
+                            <p class="error"> <%= errors.nombre.msg %> </p>
+                            <% } %>
+                        <p id="errorNombre"  class="error"></p>  
+                    </div>
+                    <div> 
+                        <input class="form-usu-perfil" type="text" name="apellido" value= "<%=usuario.last_name%>" placeholder="  Apellido">
+                        <% if(locals.errors && errors.apellido) { %>
+                            <p class="error"> <%= errors.apellido.msg %>  </p>
+                            <% } %>
+                        <p id="errorApellido"  class="error"></p>
+                    </div>
+                    <div>
+                        <input class="form-usu-perfil" type="number" name="cuit" value= "<%=usuario.cuil%>" placeholder="  DNI o CUIT">
+                        <% if(locals.cuit && errors.cuit) { %>
+                            <p class="error"> <%= errors.cuit.msg %> </p>
+                            <% } %>
+                    </div>
+                    <div>
+                        <input class="form-usu-perfil" type="date" name="nacimiento" value= "<%=usuario.fecha_nacimiento%>" placeholder=" Fecha de nacimiento ">
+                        <% if(locals.nacimiento && errors.nacimiento) { %>
+                            <p class="error"> <%= errors.nacimiento.msg %> </p>
+                            <% } %>
+                    </div>
+                    <div>
+                        <input class="form-usu-perfil" type="text" name="domicilio" value= "<%=usuario.direccion%>" placeholder="  Domicilio">
+                        <% if(locals.domicilio && errors.domicilio) { %>
+                            <p class="error"> <%= errors.domicilio.msg %> </p>
+                        <% } %>
+                    </div>
+                    <div> 
+                        <input id ="oldEmail" class="form-usu-perfil" type="text" name="emailOld" value= "<%=usuario.correo%>" placeholder="  email@gmail.com" hidden>
+                        <input class="form-usu-perfil" type="text" name="email" value= "<%=usuario.correo%>" placeholder="  email@gmail.com">
+                        <% if(locals.errors && errors.email) { %>
+                            <p class="error"> <%= errors.email.msg %> </p>
+                            <% } %>
+                        <p id="errorEmail"  class="error"></p> 
+                    </div> 
+                    <div> 
+                        <div class="labelPerfil">
+                            <label>Imagen de perfil</label>
+                        </div>                        
+                    </div>
+                    <div id="archivoImagenPerfil">
+                            <div id="imagenExistente">                                
+                                <img id="fotoPerfil" src="/images/<%= usuario.image%>">
+                            </div>
+                             
+                            <input class="filePerfil" type="file" name="imagen" value= "<%=usuario.image%>"> 
+                            <% if(locals.errors && errors.image) { %>
+                                <p class="error"> <%= errors.image.msg %> </p>
+                            <% } %>
+                            <p id="errorImagen"  class="error"></p>                  
+                    </div>
+                    <div>
+                        <h5 id="modContrasenia">Modificar Contraseña</h5>                     
+                        <div> 
+                            <input class="form-usu-perfil" type="password" name="contrasenia"  value="" placeholder="  Contraseña">
+                            <% if(locals.errors && errors.contrasenia) { %>
+                                <p class="error"> <%= errors.contrasenia.msg %> </p>
+                                <% } %>
+                            <p id="error1"  class="error"></p>
+                        </div> 
+                        <div>
+                            <input class="form-usu-perfil" type="password" name="confirm-contrasenia"  value= "" placeholder="  Confirmar contraseña">
+                            <% if(locals.errors && errors.contrasenia) { %>
+                                <p class="error"> <%= errors.contrasenia.msg %> </p>
+                                <% } %>
+                            <p id="error2"  class="error"></p>
+                        </div>
+                    </div> 
+                    <div class="botonesEdicion" id="divBotonesEdicionPerfil">
+                        <div>
+                            <button class="botones botonGuardar" type="submit" name="guardar" value="Guardar">Guardar</button>
+                        </div>
+                        <div>
+                            <a href="/"><button class="botones botonCerrar" type="button" name="cerrar" value="cerrar">Cerrar</button></a>
+                        </div> 
+                    </div>
+                </form>
+                <div class="botonesEdicion" id="botonDeletePerfil">
+                    <form class="edicion-form deletePerfilForm" action="/user/perfil/eliminar/<%=usuario.id%>?_method=DELETE" method="post">
+                        <button class="botones botonEliminar">Eliminar</button>
+                    </form>    
+                </div>
+            </div>
+        </main>
+        <%- include('../partials/footer') %>
+        <script src="/js/perfil.js"></script>   
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    </body>                       
+</html>    

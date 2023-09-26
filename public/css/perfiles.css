@@ -1,181 +1,167 @@
 .main-perfil {
-    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.main-perfil div.formPerfil {
-    position: absolute;
-    top: 95px;
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+    height: 150vh;
+  }
 
-.main-perfil .fondo-image {
+  .leftPerfil, .rightPerfil {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 150px;
+    flex-direction: column;
+  }
+
+  .leftPerfil {
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("/images/ninia.jpg");
+    background-size: cover;
+  }
+
+  .leftPerfil .copyPerfil {
+    color: white;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .leftPerfil p {
+    font-weight: 400;
+  }
+  
+
+  .rightPerfil .copyPerfil {
+    color: black;
+    text-align: center;
+    margin-top: 20px;
+    height: 50%;
+  }
+
+  .rightPerfil .copyPerfil p {
+    margin: 1.5em 0;
+    font-size: 0.875rem;
+  }
+
+  .rightPerfil form {
+    width: 328px;
+  }
+
+  form input[type="text"],
+  form input[type="number"],
+  form input[type="email"],
+  form input[type="date"],
+  form input[type="password"]
+  {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 1px solid #c4c4c4;
+  padding: 1em;
+  margin-bottom: 1.25rem;
+  font-size: 0.875rem;
+  }
+
+  label {
+    display: block;
+    font-size: 0.75rem;
+  }
+
+  .registroPerfil h5 {
+    font-size: 15px;
+    margin-bottom: .5em;
+  }
+
+  .input-container .password {
     position: relative;
-}
+  }
 
-.registroPerfil {    
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    background: #497330;
-    margin: auto;
-    margin-top: 0px;
-    box-shadow: 15px 25px 50px #000;
-    padding: 15px 30px 10px 30px;
-    border-top: 4px solid #7FAD58;
-    color: whitesmoke;
-    max-width: 650px;
-    top: 30px;  
-}
-
-.registroPerfil h5 {
-    margin: 0;
+  p.error {
+    font-size: 14px;
+    color: #f4db8c;
     text-align: center;
-    height: 15px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid;
-    font-size: 13px;
-    font-style: oblique;
-}
-#modContrasenia {
-    font-size: 16px;
-}
+    padding: 0;
+    margin-bottom: 15px;
+    border: none;
+    }
 
-.form-usu-perfil {
-    width: 100%;
-    border: 1px solid grey;
-    margin: 10px 0px 2px 0px;
-    padding: 8px 0px;
-    background: #232c1c;
-    font-size: 14px;
-    font-weight: lighter;
-    color: #c79430;
-  }
-
-.registroPerfil div.labelPerfil {
-    margin: 0;
-    text-align: center;
-    height: 20px;
-    margin-top: 10px;
-    font-size: 14px;
-    font-style: oblique;
-  }
-
-  .filePerfil{
-    width: 100%;
-    height: 20px;
-    border: 1px solid grey;
-    margin: 5px 0px 18px 0px;
-    padding: 8px 0px;
-    background: #232c1c;
-    font-size: 14px;
-    font-weight: lighter;
-    color: #808080;
-  }
-  #fotoPerfil {
+    #fotoPerfil {
     width: 25px;
     padding: 10px 20px 0 10px;
- }
- #imagenExistente {    
+    }
+    #imagenExistente {    
     max-width: 100px;
-}
-#archivoImagenPerfil {
+    }
+    #archivoImagenPerfil {
     display: flex;
     justify-content: space-between;
     width: 100%;
     margin: 0;
     padding: 0;
-}
-.main-perfil div.formPerfil .registroPerfil .form-usu {
+    }
+
+
+
+  .botones {
     width: 100%;
-    border: 1px solid grey;
-    margin-bottom: 15px;
-    padding: 8px 0px;
-    background: #232c1c;
+    background: #EBB54B;
+    color: white;
+    font-weight: 700;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+
+  .botones:hover{
+    background-color: #efac2f;
+  }
+
+  .botones a:hover {
+    color: #EBB54B;
+  }
+
+  .botonEliminarr {
+    width: 100%;
+    background: #EBB54B;
+    color: white;
+    font-weight: 700;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .botonEliminarr:hover{
+    background-color: #efac2f;
+  }
+
+  .botonEliminarr:hover {
+    color: #EBB54B;
+  }
+  
+  .registro a {
+    color: black;
+    text-decoration: none;
+    text-transform: none;
     font-size: 14px;
-    font-weight: lighter;
-    color: #c79430;
-    
-}
-
-.main-perfil div.formPerfil .registroPerfol {
-    margin-top: 0px;
-}
-
-.main-perfil div.formPerfil .registroPerfil .botonesEdicion {
-    width: 100%;
-    display: flex;
+  }
+  
+@media(min-width: 900px){
+  .main-perfil {
     flex-direction: row;
-    justify-content: space-between;
-    margin-top: 0px;
-}
-
-.main-perfil .registroPerfil #divBotonesEdicionPerfil div {
-    width: 40%;
-    max-width: 250px;
-    margin-top: 12px;
-}
-
-.main-perfil .registroPerfil #divBotonesEdicionPerfil .botones {
-    width: 100%;
-    height: 30px;
-    background-color: rgb(18, 94, 18);
-    color: whitesmoke;
-    margin: 0;
-    padding: 0;
-    border: none;
-}
-
-.main-perfil .registroPerfil #divBotonesEdicionPerfil .botones:hover{
-    background-color: #7FAD58;
-}
-
-#botonDeletePerfil {
+    height: 150vh;
+  }
+  .leftPerfil, 
+  .rightPerfil {
     display: flex;
-    justify-content: center;
     width: 50%;
-    height: 30px;
-    background: #497330;
-    margin: auto;
-    padding: 0 30px 10px 30px;
-    color: whitesmoke;
-    max-width:650px;
-    border: none;
-}
+    height: auto;
+  }
 
-.main-perfil .formPerfil div.botonesEdicion form.deletePerfilForm {
-    margin: 0;
-    padding: 0;  
-    border: none;  
-    width: 40%;
-    max-width: 250px;
-    box-shadow: none;
-    border: none;
-}
-
-button.botonEliminar:hover{
-    background-color: #7FAD58;
-}
-
-@media (min-width : 481px) {
-    .registroPerfil h5 {
-        font-size: 18px
-    }
-    #modContrasenia {
-        font-size: 16px;
-    }
-
-    .registroPerfil div.labelPerfil{
-        font-size: 18px;
-    }
-    .main-perfil div.formPerfil {
-     top: 130px;
-    
-    }
 }
