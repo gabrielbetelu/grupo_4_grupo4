@@ -13,7 +13,7 @@ const uploadFile = require ('../middlewares/multerMiddleware')
 
 
 
-router.get('/carrito', controller.carrito);
+router.get('/carrito', authMiddleware ,controller.carrito);
 router.get('/producto/:id', controller.producto);
 router.get('/productos', controller.productos);
 router.get('/productos/abrigos', controller.abrigos);

@@ -1,16 +1,23 @@
 .main-perfil {
     display: flex;
     flex-direction: column;
-    height: 150vh;
+    
+    align-items: flex-start;
+    
   }
 
   .leftPerfil, .rightPerfil {
     display: flex;
-    justify-content: center;
-    align-items: center;
+/*    justify-content: center; */
+    align-items: center; 
     width: 100%;
     height: 150px;
     flex-direction: column;
+  }
+  .rightPerfil {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: fit-content; 
   }
 
   .leftPerfil {
@@ -113,6 +120,7 @@
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    margin-bottom: 10px;
   }
   
 
@@ -154,8 +162,11 @@
   
 @media(min-width: 900px){
   .main-perfil {
+    display: flex;
     flex-direction: row;
-    height: 150vh;
+    
+    justify-content: unset;
+    align-items: unset;
   }
   .leftPerfil, 
   .rightPerfil {
@@ -163,5 +174,6 @@
     width: 50%;
     height: auto;
   }
+
 
 }
