@@ -7,10 +7,16 @@ main.mainProductos {
 main.mainProductos #productTitle {
     display: flex;
     justify-content: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
     width: 100%;
-    color: #fff;
-    font-size: 26px;
-    font-style: oblique;
+    color: #000000;
+    font-size: 14px;
+    font-family: 'Montserrat';
+}
+
+.tituloProduct {
+    font-weight: bold;
 }
 
 main.mainProductos div.galeriaProductos {
@@ -18,6 +24,7 @@ main.mainProductos div.galeriaProductos {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    padding: 10px;
 }
 
 main.mainProductos article.productArticle {
@@ -25,7 +32,7 @@ main.mainProductos article.productArticle {
     flex-direction: column;
     align-items: center;
     width: 42%;
-    
+    margin-bottom: 15px;
 }
 
 .imagenesProd {
@@ -38,9 +45,8 @@ main.mainProductos article.productArticle {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 25px 30px 50px #000;
     transition: transform 0.3s, opacity 0.3s;
-    opacity: 0.7;
+
 }
 
 .contenedorImagenProd:hover {
@@ -56,14 +62,16 @@ main.mainProductos article.productArticle {
     width: 100%;
     aspect-ratio: 1/1.20;
     object-fit: fill;
+    margin-bottom: 5px;
 }
 
 main.mainProductos article.productArticle h4 {
     text-align: center;
     margin: 0;
     padding: 10px 0 5px 0;
-    color: #fff;
-    opacity: 0; 
+    font-size: 14px;
+    color: #000;
+    opacity: 7; 
     animation: fade-in 0.5s ease-in-out forwards;
 }
     main.mainProductos article.productArticle h4:hover {
@@ -81,10 +89,11 @@ main.mainProductos article.productArticle h4 {
 
 main.mainProductos article.productArticle p.precio {
     text-align: center;
-    margin: 0;
+    font-size: 14px;
+    margin-top: 5px;
     padding: 0 0 10px 0;
-    color: #fff;
-    opacity: 0; 
+    color: #000;
+    opacity: 2; 
     animation: fade-in 0.5s ease-in-out forwards; 
 }
 
@@ -110,5 +119,8 @@ main.mainProductos article.productArticle p.precio:hover {
 @media (min-width : 769px) {
     main.mainProductos article.productArticle{
         width: 16%;
+    }
+    main.mainProductos div.galeriaProductos  {
+        padding: 40px;
     }
 }

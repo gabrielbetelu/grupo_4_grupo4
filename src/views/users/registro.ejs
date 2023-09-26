@@ -3,11 +3,17 @@
     <%- include('../partials/head') %>
 <body>
     <%- include('../partials/header') %>
-        <main class="main-registro">
-             <img src="../images/patagonia-argentina.jpg" alt="fondo" class="fondo-image" />
-             <div class="divRegistro">
+        <div class="main-registro">
+            <div class="leftRegister">
+                <section class="copyRegister">
+                    <h2>Equipate con tecnología y calidad.</h2>
+                </section>
+            </div>
+            <div class="rightRegister">
              <form class="registro" action="/user/registro" method="post" enctype="multipart/form-data">
-                <h5>Registro de Usuario</h5>                        
+                <section class="copyRegister">
+                    <h5>Registro de Usuario</h5>  
+                </section>                     
                 <div> 
                     <input class="form-usu" type="text" name="nombre"  value="<%= locals.oldData ? oldData.nombre : null %>"  placeholder="  Nombre">                    
                     <% if(locals.errors && errors.nombre) { %>
@@ -57,9 +63,8 @@
                     <% } %>
                     <p id="errorImagen"  class="error"></p>
                 </div>
-                <div>
-                <h5 id="hContrasenia">Ingresar Contraseña</h5>               
-                <div>
+                <div>             
+                <div class="input-container password">
                     <input class="form-usu" type="password" name="contrasenia"  value="" placeholder="  Contraseña" >
                     <% if(locals.errors && errors.contrasenia) { %>
                     <p class="error"> <%= errors.contrasenia.msg %> </p>
@@ -78,7 +83,7 @@
                 </div>              
             </form>
             </div>
-        </main>
+        </div>
         <%- include('../partials/footer') %>
         <script src="/js/registro.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

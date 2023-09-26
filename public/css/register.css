@@ -1,153 +1,131 @@
   .main-registro {
-    width: 100%;
-    min-height: 900px;
-    position: relative;
-    padding: 0;
-    box-sizing: content-box;
-    display: flex;
-    justify-content: center; 
-  }
-  .divRegistro {
-    position: absolute;
-    top: -15px;
-    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .fondo-image { 
-    opacity: 0.5;
-    width: 100%;
-    min-height: 800px;    
-  } 
     
-  .registro{
+  }
+
+  .leftRegister {
+    height: 200px;
+  }
+
+  .leftRegister, .rightRegister {
     display: flex;
-    flex-direction: column;
-    width: 50%;
-    background: #497330;
-    margin: auto;
-    margin-top: 25px;
-    box-shadow: 10px 20px 20px #000;
-    padding: 10px 20px;
-    border-top: 4px solid #7FAD58;
-    color: whitesmoke;
-    max-width: 650px;
-  
+    justify-content: center;
+    align-items: center;
+    width: 100%;
   }
+
+  .leftRegister {
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("/images/imagenBanner2.jpg");
+    background-size: cover;
+  }
+
+  .leftRegister .copyRegister {
+    color: white;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .leftRegister p {
+    font-weight: 400;
+  }
+
+  .rightRegister .copyRegister {
+    color: black;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .rightRegister .copyRegister p {
+    margin: 1.5em 0;
+    font-size: 0.875rem;
+  }
+
+  .rightRegister form {
+    width: 328px;
+  }
+
+  form input[type="text"],
+  form input[type="number"],
+  form input[type="email"],
+  form input[type="date"],
+  form input[type="password"]
+  {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 1px solid #c4c4c4;
+  padding: 1em;
+  margin-bottom: 1.25rem;
+  font-size: 0.875rem;
+  }
+
+  label {
+    display: block;
+    font-size: 0.75rem;
+  }
+
   .registro h5 {
-    margin: 0;
-    text-align: center;
-    height: 25px;
-    margin-bottom: 5px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid;
-    font-size: 16px;
-    font-style: oblique;
-  }
-  .form-usu {
-    width: 100%;
-    border: 1px solid grey;
-    margin: 8px 0px 2px 0px;
-    padding: 8px 0px;
-    background: #232c1c;
-    font-size: 14px;
-    font-weight: lighter;
-    color: #c79430;
+    font-size: 2rem;
+    margin-bottom: .5em;
   }
 
-  .registro div.labelRegistro {
-    margin: 0;
-    text-align: center;
-    height: 20px;
-    margin-top: 10px;
-    font-size: 16px;
-    font-style: oblique;
-  }
-  input[type="file"]::file-selector-button {
-    border: 2px solid #6c5ce7;
-    padding: 0.2em 0.4em;
-    border-radius: 0.2em;
-    background-color: #a29bfe;
-    transition: 1s;
-  }
-  
-  input[type="file"]::-ms-browse:hover {
-    background-color: #81ecec;
-    border: 2px solid #00cec9;
-  }
-  
-  input[type="file"]::-webkit-file-upload-button:hover {
-    background-color: #81ecec;
-    border: 2px solid #00cec9;
-  }
-  
-  input[type="file"]::file-selector-button:hover {
-    background-color: #81ecec;
-    border: 2px solid #00cec9;
-  }
-
-  .fileRegistro{
-    width: 100%;
-    border: 1px solid grey;
-    margin: 5px 0px 5px 0px;
-    padding: 8px 0px;
-    background: #232c1c;
-    font-size: 13px;
-    font-weight: lighter;
-    color: #808080;
-  }
-
-  #hContrasenia {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-size: 15px;
+  .input-container .password {
+    position: relative;
   }
 
   p.error {
-    color: #c79430;
-    padding: 0px 0px 5px 0px;
-    margin: 0px;
     font-size: 14px;
-  }
-  
-  .is-invalid {
-    border: 1px solid red    ;
-  }
-  .is-valid {
-    border:  1px solid lightgreen;
-  }
-  
-  .botEnter {
-    width: 100%;
-    height: 25px;
-    background-color: rgb(18, 94, 18);
+    color: #f4db8c;
+    text-align: center;
+    padding: 0;
+    margin-bottom: 15px;
     border: none;
-    color: whitesmoke;
-    margin-bottom: 5px;
-    margin-top: 15px;
-  }
-  
-  .botEnter:hover {
-    background-color: #7FAD58;
   }
 
-
-@media(min-width: 1024px){
-  .main-registro .fondo-image{
-    min-height: 600px;
+  .botEnter {
+    display: block;
+    width: 100%;
+    background: #EBB54B;
+    color: white;
+    font-weight: 700;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
   }
-  .registro h5 {
-    margin: 0;
-    margin-bottom: 5px;
-    padding-bottom: 0px;
+
+  .botEnter:hover{
+    background-color: #efac2f;
+  }
+
+  .registro a {
+    color: black;
+    text-decoration: none;
+    text-transform: none;
     font-size: 14px;
-    
-   
   }
 
+  .registro a:hover {
+    color: #EBB54B;
+  }
+
+@media(min-width: 900px){
+  .main-registro {
+    flex-direction: row;
+    height: 100vh;
+  }
+  .leftRegister, 
+  .rightRegister {
+    display: flex;
+    width: 50%;
+    height: auto;
+  }
 
 }
 

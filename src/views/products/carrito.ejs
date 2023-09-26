@@ -4,68 +4,50 @@
 <body>
     <%- include('../partials/header') %>
     <main >
-        <section class="secCarrito">
-            <div>
-            
-                <h2 class="carrTitulo">Carrito de compras</h2>
+    
+        <div class="modal" id="jsModalCarrito">
+            <div class="modal__container">
+                <a href="/product/productos"><button type="button" class="modal__close fa-solid fa-xmark jsModalClose "></button></a>
 
-                <article class="carrito">
-                    
-                    <div class="prod">
-                        <img src="/images/campera_quehuar_6_dama_imagen1.jpg" alt="campera-dama">
+                <div class="modal__info">
+                    <div class="modal__header">
+                        <h2><i class="fa-solid fa-cart-shopping"></i>Carrito</h2>
                     </div>
-                    
-                    <div class="desc">
-                        <p class="n">Campera Quehuar 6</p>
-                        <p>Color: Verde</p>
-                        <p>Talle: M</p>
-                        <p>$55.200</p>
 
-                        <div class="carrbotones">
-
-                            <button class="carrmenos" type="button">
-                                <i class="fa-solid fa-minus"></i>
-                            </button>
-
-                            <input class="cantidad" id="cantidad" type="text" value="1">
-
-                            <button class="carrmas" type="button">
-                                <i class="fa-solid fa-plus"></i>
-                            </button>
-
-                            <div class="carrBas"> 
-                                <i class="fa-solid fa-trash"></i>
+                    <div class="modal__body">
+                        <div class="modal__list">
+                            <div class="modal__item">
+                                <div class="modal__thumb">
+                                    <img class= "campTheNorth" src="/images/productoBeige.jpg" alt="campera">
+                                </div>
+                                <div class="modal__text-product">
+                                    <p>Campera The North Face</p>
+                                    <p><strong>$150.000</strong></p>
+                                </div>
                             </div>
-                            
+
                         </div>
                     </div>
-                </article>
 
-                <article class="carrCompra">
+                    <div class="modal__footer">
+                        <div class="modal__list-price">
+                            <ul>
+                                <li>Subtotal: <strong>$150.000</strong></li>
+                                <li>Descuento: <strong>$0.00</strong></li>
+                            </ul>
+                            <h4 class="modal__total-cart"> Total: $150.00</h4>
+                        </div>
 
-                    <h3>Total: $55.200</h3>
-
-                    <div>    
-                        
-                        <a href="#"><button class="carrTrash botonesCarrito" type="menu">
-                            <i class="fa-solid fa-trash"></i>Limpiar carrito</button>
-                        </a> 
-
+                        <div class="modal__btns">
+                            <a href="#" class="btn-primary">Comprar Ahora</a>
+                        </div>
                     </div>
-
-                    <div>
-                        <a href="#"><button class="carrReturn botonesCarrito" type="menu">
-                            <i class="fa-solid fa-reply"></i>Seguir comprando</button>
-                        </a> 
-                    </div>
-
-                    <div>
-                        <a href="#"><button class="carrFin botonesCarrito" type="submit">Finalizar compra</button></a> 
-                    </div>
-                </article>
+                </div>
             </div>
-        </section>
+        </div> 
+
     </main>
-    <%- include('../partials/footer') %>      
+    <%- include('../partials/footer') %>     
+    <script src="js/carrito.js"></script> 
 </body>
 </html>
