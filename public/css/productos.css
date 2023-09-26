@@ -53,12 +53,12 @@ main.mainProductos article.productArticle {
 
 .contenedorImagenProd {
     width: 100%;
-    aspect-ratio: 1/1.20;
+    /*aspect-ratio: 1/1.20;*/
     display: flex;
     align-items: center;
     justify-content: center;
     transition: transform 0.3s, opacity 0.3s;
-
+    
 }
 
 .contenedorImagenProd:hover {
@@ -73,7 +73,7 @@ main.mainProductos article.productArticle {
 #imagenProducto {
     width: 100%;
     aspect-ratio: 1/1.20;
-    object-fit: fill;
+    object-fit:contain;
     margin-bottom: 5px;
 }
 
