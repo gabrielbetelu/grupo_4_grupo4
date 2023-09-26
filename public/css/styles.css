@@ -175,9 +175,15 @@ div#saludoLog {
 }
 
 .banner_cito {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #bbb7b78f;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
+    height: 30px;
+    
+    
 }
 
 /* ******************************************* */
@@ -839,6 +845,7 @@ main {
     header .opciones .menu-buscador nav ul li a {
         color: #000;
         text-decoration: none;
+        font-weight: 700;
     }
 
     header .opciones .menu-buscador .burger-menu {
