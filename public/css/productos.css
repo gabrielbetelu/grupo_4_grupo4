@@ -34,7 +34,7 @@ main.mainProductos div.galeriaProductos {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    padding: 10px;
+    padding: 25px 10px 10px 10px;
 }
 
 
