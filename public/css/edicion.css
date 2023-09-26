@@ -1,26 +1,53 @@
 .mainEdicion {
     padding: 60px 0;
-    background-image: url(../images/patagonia-argentina.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #f5f4f4c1;
 }
 
 .mainEdicionDelete {
     padding: 60px 0;
-    background-image: url(../images/patagonia-argentina.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
     background-position: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     aspect-ratio: 3/1;
+    background-color: #f5f4f4c1;
 }
 
+.deleteBoton {
+    display: block;
+    width: 100%;
+    background: #EBB54B;
+    color: white;
+    font-weight: 700;
+    border: none;
+    padding: 1rem;
+    margin-left: 10px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+a:-webkit-any-link {
+    text-decoration: none;
+}
+
+.botEnter {
+    display: block;
+    width: 100%;
+    background: #EBB54B;
+    color: white;
+    font-weight: 700;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
 
 .buscaEdit {
     position: relative;
@@ -39,7 +66,6 @@
 }
 
 #lupa-edicion {
-    background-color: #232c1c;
     color: #c79430;
     font-size: 20px;
 } 
@@ -49,7 +75,6 @@
 }
 
 .divDeleteProducto {
-    position: absolute;
     top: 150px;
     width: 100%;
     display: flex;
@@ -58,31 +83,47 @@
     justify-content: center;
   }
 
+  .botonDelete{
+    display: flex;
+    justify-content: space-between;
+  }
 
 .edicion-form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 80%;
-    background: #497330;
+    width: 90%;
+    height: auto;
     margin: auto;
-    margin-top: 15px;
-    box-shadow: 15px 25px 50px #000;
     padding: 20px 30px;
-    border-top: 4px solid #7FAD58;
-    color: whitesmoke;
     max-width:650px;
+    font-family: 'Montserrat';
+    border-radius: 8px;
+    box-shadow: 0 5px 10px -5px rgb(0 0 0 / 30%);
+    background-color: #fff;
+}
+
+.botEditar {
+    display: block;
+    width: 100%;
+    background: #EBB54B;
+    color: white;
+    font-weight: 700;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .edicion-form h5 {
-    width: 90%;
     margin: 0;
     text-align: center;
     height: 40px;
     margin-bottom: 30px;
-/*    border-bottom: 1px solid; */
     font-size: 17px;
-    font-style: oblique;
+    color: #000000;
 }
 
 .mainEdicion .edicion-form div {
@@ -92,13 +133,12 @@
 
 .mainEdicion .edicion-form input, .mainEdicion .edicion-form textarea {
     width: 100%;
-    border: 1px solid grey;
     margin-bottom: 15px;
     padding: 11px 0;
-    background: #232c1c;
     font-size: 14px;
     font-weight: lighter;
-    color: #c79430;
+    font-family: 'Montserrat';
+    border: 1px solid #000000;
 }
 
 #textarea {
@@ -115,21 +155,13 @@
 .mainEdicion .edicion-form .imagenesEdicion .tituloImag {
     height: 40px;
     font-size: 17px;
-    font-style: oblique;
     text-align: center;
-    border-top: 1px solid;
     margin: 0;
-    padding-top: 16px;
 }
 
 .mainEdicion .edicion-form .categoriaEdicion label {
     font-size: 14px;
-    font-style: oblique;
     text-align: center;
-}
-
-.mainEdicion .edicion-form .categoria_Edicion{
-    border-top: 1px solid;
 }
 
 .mainEdicion .edicion-form .categoriaEdicion {
@@ -137,13 +169,26 @@
     flex-wrap: wrap;
     justify-content: center;
     padding-bottom: 0;
-    border-bottom: 1px solid; 
+}
+
+.form-usu {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    appearance: none;
+    margin-bottom: 30px;
+}
+
+.form-usu:hover {
+    border-color: #999;
 }
 
 .mainEdicion .edicion-form .categoriaEdicion .category {
     width: 100%;
     font-size: 17px;
-    font-style: oblique;
     text-align: center;
     margin-bottom: 7px;
     margin-top: 10px;
@@ -166,9 +211,10 @@
 }
 
 .mainEdicion .edicion-form .precioEdicion {
+    display: flex;
+    justify-content: center;
     padding-top: 20px; 
     width: 100%;
-    border-top: 1px solid;
 }
 
 #imagenesExistentes {    
@@ -182,6 +228,7 @@
     padding: 0 0 5px 5px;
     max-height: 12px;
     text-align: left;
+    margin: 20px;
 }
 
 #fotosProd {
@@ -206,10 +253,10 @@
     border: 1px solid grey;
     margin-bottom: 15px;
     padding: 11px 0;
-    background: #232c1c;
     font-size: 14px;
     font-weight: lighter;
     color: #808080;
+    border-radius: 8px;
 }
 
 .mainEdicion .edicion-form input[type="file"]::before {
@@ -219,6 +266,8 @@
 .mainEdicion .edicion-form input[type="number"] {
     width: 25%;
     min-width: 125px;
+    text-align: center;
+    border: 1px solid #000000;
 }
 
 #divBotonesEdicion{
@@ -243,15 +292,19 @@
 .mainEdicion .edicion-form .botonesEdicion .botones {
     width: 100%;
     height: 40px;
-    background-color: rgb(18, 94, 18);
-    color: whitesmoke;
+    background: #EBB54B;
+    color: white;
     margin: 0 0 15px 0;
     padding: 0;
     border: none;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .mainEdicion .edicion-form .botonesEdicion .botones:hover{
-    background-color: #7FAD58;
+    background-color: #efac2f;
 }
 
 .login-form p {
@@ -263,19 +316,20 @@
 div.botonDeleteProd {
     display: flex;
     justify-content: center;
-    width: 80%;
-    background: #497330;
+    width: 25%;
     margin: auto;
     padding: 15px 30px 0px 30px;
     color: whitesmoke;
     max-width:650px;
 }
+
 form.deleteProdForm {
-    margin: 0;
-    padding: 0;  
-    border: none;  
-    width: 80%;
-    box-shadow: none;
+    padding: 60px 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #botonDeleteProd{
@@ -288,13 +342,17 @@ form.deleteProdForm {
 }
 
 button.botonEliminar {
-    background-color: #c79430;
-    color: whitesmoke;
-    height: 40px;
+    display: block;
     width: 100%;
-    margin: 0;
-    padding: 0;  
+    background: #EBB54B;
+    color: white;
+    font-weight: 700;
     border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 button.botonEliminar:hover{
@@ -310,11 +368,8 @@ button.botonEliminar:hover{
     height: 175px;
     border: 1px solid grey;
     margin: 8px 0px 12px 0px;
-    padding: 8px 0px;
-    background: #232c1c;
     font-size: 13px;
     font-weight: lighter;
-    color: #c79430;
   }
 
   .form-mar {
@@ -322,10 +377,8 @@ button.botonEliminar:hover{
     border: 1px solid grey;
     margin: 8px 0px 10px 0px;
     padding: 8px 0px;
-    background: #232c1c;
     font-size: 13px;
     font-weight: lighter;
-    color: #c79430;
   } 
 
 @media (min-width : 481px) {
@@ -350,14 +403,6 @@ button.botonEliminar:hover{
         width: 25%;
     }   
     
-    .mainEdicion .edicion-form .imagenesEdicion .tituloImag {
-        font-size: 20px;
-    }
-    
-    .mainEdicion .edicion-form .categoriaEdicion .category {
-        font-size: 20px;
-    }
-    
     form.deleteProdForm {
         width: 16.2%;
     }
@@ -370,9 +415,9 @@ button.botonEliminar:hover{
         width: 35px;
         padding: 0 3px;
     }
-    
-    
-
 }
 
+@media (min-width : 769px) {
+    
+}
 

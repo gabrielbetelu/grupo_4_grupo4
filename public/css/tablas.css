@@ -92,18 +92,14 @@
     color: #c79430;
   }
   
-  .botEnterTablas {
+  .tablasBoton {
     width: 100%;
     height: 25px;
-    background-color: rgb(18, 94, 18);
+
     border: none;
     color: whitesmoke;
     margin-bottom: 5px;
     margin-top: 15px;
-  }
-  
-  .botEnterTablas:hover {
-    background-color: #7FAD58;
   }
 
   #divBotonStock {
