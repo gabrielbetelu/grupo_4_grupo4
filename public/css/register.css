@@ -1,6 +1,7 @@
   .main-registro {
     display: flex;
     flex-direction: column;
+    
   }
 
   .leftRegister {
@@ -11,7 +12,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 90%;
+    width: 100%;
   }
 
   .leftRegister {
@@ -96,6 +97,7 @@
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    margin-bottom: 15px;
   }
 
   .botEnter:hover{

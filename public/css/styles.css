@@ -365,12 +365,15 @@ main section .posicion {
     width: 70vw; 
     padding: 4vw 0; 
     position: relative;  
+    
 }
 
 .hombre img, .mujer img, .ninios img {
     width: 100%;
     height: auto;
     padding: 0;
+    object-fit: cover;
+    aspect-ratio: 1.2/1;
 }
 
 .hombre h4, .mujer h4, .ninios h4 {
@@ -955,7 +958,8 @@ main {
 
     .hombre img, .mujer img, .ninios img {        
         height: auto;   
-        width: 100%;   
+        width: 100%;
+        object-fit: cover;   
     }
 
     .hombre, .mujer, .ninios {

@@ -17,6 +17,8 @@ router.get('/carrito', controller.carrito);
 router.get('/producto/:id', controller.producto);
 router.get('/productos', controller.productos);
 router.get('/productos/abrigos', controller.abrigos);
+router.get('/productos/pantalones', controller.abrigos);
+router.get('/productos/calzado', controller.pantalones);
 router.get('/productos/camping', controller.camping);
 router.get('/productos/mochilas', controller.mochilas);
 router.get('/productos/accesorios', controller.accesorios);
