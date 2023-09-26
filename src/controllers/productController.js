@@ -6,6 +6,7 @@ const { Op } = require('sequelize');
 //const Op = sequelize.Op
 const { validationResult } = require("express-validator");
 
+
 const Products = db.Product;
 const ProductTalleColor = db.ProductTalleColor;
 const Marca = db.Marca;
@@ -14,6 +15,7 @@ const Colores = db.Color;
 const Fotos = db.Foto;
 const CategoriasProduct = db.CategoriaProduct;
 const CategoriaProducto = db.CategoriaProducto;
+const Categorias = db.CategoriaProduct;
 
 
 module.exports = {
@@ -59,354 +61,296 @@ module.exports = {
 
     productos : async (req, res) => {
         console.log("entraste a productos" );
-        const productos = await Products.findAll(
-            {include: [
-                {association: 'productoFoto'}
-        ]
-    });
-        console.log(productos)
-        return res.render('./products/productos' , {prod : productos})  
+        try {
+            const productos = await Products.findAll(
+                {include: [
+                    {association: 'productoFoto'}
+                ]
+            });
+            const productitoCat= await Categorias.findAll({include: [{association:'productos'}]});
+            console.log(productos)
+            console.log("****** Productos Categoria  ***********************************")
+        //    console.log(productitoCat[0].categoria)
+        //    console.log(productitoCat[0].productos)
+            for (i = 0 ; i < productitoCat.length ; i++ ) {
+                console.log("********** Productito ", productitoCat[i].categoria ,  "*************")
+                for (j = 0 ; j < productitoCat[i].productos.length ; j++){
+                    for (k = 0 ; k < productos.length ; k++){
+                        if(productos[k].id == productitoCat[i].productos[j].id){
+                            productitoCat[i].productos[j].productoFoto = productos[k].productoFoto
+                        }
+                    }
+                //    console.log(productos[0])
+                    console.log(productitoCat[i].productos[j])
+                }
+            }
+    
+            return res.render('./products/productos' , {prod : productitoCat})
+        //    return res.render('./products/productos' , {prod : productos})  
+            
+        } catch (error) {
+            console.log(error)
+        }
     },
 
     abrigos : async (req, res) => {
         console.log("entraste a productos" );
         try {
-            const buscarId = await CategoriasProduct.findAll(
-                {
-                    where : { categoria : "Abrigos"}
-                }
-            )
-            let idBuscado = buscarId[0].id
             const productos = await Products.findAll(
-                {
-                    include: [
-                        {
-                            model: CategoriasProduct,
-                            as: 'categoriasproductos',
-                            attributes: ['id']
-                        },
-                        {
-                            association: 'productoFoto'
+                {include: [
+                    {association: 'productoFoto'}
+                ]
+            });
+            const productitoCat= await Categorias.findAll({
+                where : { categoria : "Abrigos"},
+                include: [{association:'productos'}]
+            });
+                for (i = 0 ; i < productitoCat.length ; i++ ) {
+                    console.log("********** Productito ", productitoCat[i].categoria ,  "*************")
+                    for (j = 0 ; j < productitoCat[i].productos.length ; j++){
+                        for (k = 0 ; k < productos.length ; k++){
+                            if(productos[k].id == productitoCat[i].productos[j].id){
+                                productitoCat[i].productos[j].productoFoto = productos[k].productoFoto
+                            }
                         }
-                    
-                ]}
-            );
-            let products = [];
-            for (let i = 0 ; i < productos.length ; i++) {
-                for (let j = 0 ; j < productos[i].categoriasproductos.length ; j++) {
-                    if( productos[i].categoriasproductos[j].id == idBuscado) {
-                        console.log(productos[i])
-                        products.push(productos[i])
+                //        console.log(productitoCat[i].productos[j])
+                        }
+                    return res.render('./products/productos' , {prod : productitoCat})
                     }
-                }
-            }
-            return res.render('./products/productos' , {prod : products})
-        } catch (error) {
-            console.log(error)
+            } catch (error) {
+                console.log(error)
         }
     },
     
     pantalones : async (req, res) => {
         console.log("entraste a productos" );
         try {
-            const buscarId = await CategoriasProduct.findAll(
-                {
-                    where : { categoria : "Pantalones"}
-                }
-            )
-            let idBuscado = buscarId[0].id
             const productos = await Products.findAll(
-                {
-                    include: [
-                        {
-                            model: CategoriasProduct,
-                            as: 'categoriasproductos',
-                            attributes: ['id']
-                        },
-                        {
-                            association: 'productoFoto'
+                {include: [
+                    {association: 'productoFoto'}
+                ]
+            });
+            const productitoCat= await Categorias.findAll({
+                where : { categoria : "Pantalones"},
+                include: [{association:'productos'}]
+            });
+                for (i = 0 ; i < productitoCat.length ; i++ ) {
+                    console.log("********** Productito ", productitoCat[i].categoria ,  "*************")
+                    for (j = 0 ; j < productitoCat[i].productos.length ; j++){
+                        for (k = 0 ; k < productos.length ; k++){
+                            if(productos[k].id == productitoCat[i].productos[j].id){
+                                productitoCat[i].productos[j].productoFoto = productos[k].productoFoto
+                            }
                         }
-                    
-                ]}
-            );
-            let products = [];
-            for (let i = 0 ; i < productos.length ; i++) {
-                for (let j = 0 ; j < productos[i].categoriasproductos.length ; j++) {
-                    if( productos[i].categoriasproductos[j].id == idBuscado) {
-                        console.log(productos[i])
-                        products.push(productos[i])
+                //        console.log(productitoCat[i].productos[j])
+                        }
+                    return res.render('./products/productos' , {prod : productitoCat})
                     }
-                }
-            }
-            return res.render('./products/productos' , {prod : products})
-        } catch (error) {
-            console.log(error)
+            } catch (error) {
+                console.log(error)
         }
     },
 
     calzado : async (req, res) => {
         console.log("entraste a productos" );
         try {
-            const buscarId = await CategoriasProduct.findAll(
-                {
-                    where : { categoria : "Calzado"}
-                }
-            )
-            let idBuscado = buscarId[0].id
             const productos = await Products.findAll(
-                {
-                    include: [
-                        {
-                            model: CategoriasProduct,
-                            as: 'categoriasproductos',
-                            attributes: ['id']
-                        },
-                        {
-                            association: 'productoFoto'
+                {include: [
+                    {association: 'productoFoto'}
+                ]
+            });
+            const productitoCat= await Categorias.findAll({
+                where : { categoria : "Calzado"},
+                include: [{association:'productos'}]
+            });
+                for (i = 0 ; i < productitoCat.length ; i++ ) {
+                    console.log("********** Productito ", productitoCat[i].categoria ,  "*************")
+                    for (j = 0 ; j < productitoCat[i].productos.length ; j++){
+                        for (k = 0 ; k < productos.length ; k++){
+                            if(productos[k].id == productitoCat[i].productos[j].id){
+                                productitoCat[i].productos[j].productoFoto = productos[k].productoFoto
+                            }
                         }
-                    
-                ]}
-            );
-            let products = [];
-            for (let i = 0 ; i < productos.length ; i++) {
-                for (let j = 0 ; j < productos[i].categoriasproductos.length ; j++) {
-                    if( productos[i].categoriasproductos[j].id == idBuscado) {
-                        console.log(productos[i])
-                        products.push(productos[i])
+                //        console.log(productitoCat[i].productos[j])
+                        }
+                    return res.render('./products/productos' , {prod : productitoCat})
                     }
-                }
-            }
-            return res.render('./products/productos' , {prod : products})
-        } catch (error) {
-            console.log(error)
+            } catch (error) {
+                console.log(error)
         }
     },
 
     camping : async (req, res) => {
         console.log("entraste a productos" );
         try {
-            const buscarId = await CategoriasProduct.findAll(
-                {
-                    where : { categoria : "Camping"}
-                }
-            )
-            let idBuscado = buscarId[0].id
             const productos = await Products.findAll(
-                {
-                    include: [
-                        {
-                            model: CategoriasProduct,
-                            as: 'categoriasproductos',
-                            attributes: ['id']
-                        },
-                        {
-                            association: 'productoFoto'
+                {include: [
+                    {association: 'productoFoto'}
+                ]
+            });
+            const productitoCat= await Categorias.findAll({
+                where : { categoria : "Camping"},
+                include: [{association:'productos'}]
+            });
+                for (i = 0 ; i < productitoCat.length ; i++ ) {
+                    console.log("********** Productito ", productitoCat[i].categoria ,  "*************")
+                    for (j = 0 ; j < productitoCat[i].productos.length ; j++){
+                        for (k = 0 ; k < productos.length ; k++){
+                            if(productos[k].id == productitoCat[i].productos[j].id){
+                                productitoCat[i].productos[j].productoFoto = productos[k].productoFoto
+                            }
                         }
-                    
-                ]}
-            );
-            let products = [];
-            for (let i = 0 ; i < productos.length ; i++) {
-                for (let j = 0 ; j < productos[i].categoriasproductos.length ; j++) {
-                    if( productos[i].categoriasproductos[j].id == idBuscado) {
-                        console.log(productos[i])
-                        products.push(productos[i])
+                //        console.log(productitoCat[i].productos[j])
+                        }
+                    return res.render('./products/productos' , {prod : productitoCat})
                     }
-                }
-            }
-            return res.render('./products/productos' , {prod : products})
-        } catch (error) {
-            console.log(error)
+            } catch (error) {
+                console.log(error)
         }
     },
     
     mochilas : async (req, res) => {
         console.log("entraste a productos" );
         try {
-            const buscarId = await CategoriasProduct.findAll(
-                {
-                    where : { categoria : "Mochilas"}
-                }
-            )
-            let idBuscado = buscarId[0].id
             const productos = await Products.findAll(
-                {
-                    include: [
-                        {
-                            model: CategoriasProduct,
-                            as: 'categoriasproductos',
-                            attributes: ['id']
-                        },
-                        {
-                            association: 'productoFoto'
+                {include: [
+                    {association: 'productoFoto'}
+                ]
+            });
+            const productitoCat= await Categorias.findAll({
+                where : { categoria : "Mochilas"},
+                include: [{association:'productos'}]
+            });
+                for (i = 0 ; i < productitoCat.length ; i++ ) {
+                    console.log("********** Productito ", productitoCat[i].categoria ,  "*************")
+                    for (j = 0 ; j < productitoCat[i].productos.length ; j++){
+                        for (k = 0 ; k < productos.length ; k++){
+                            if(productos[k].id == productitoCat[i].productos[j].id){
+                                productitoCat[i].productos[j].productoFoto = productos[k].productoFoto
+                            }
                         }
-                    
-                ]}
-            );
-            let products = [];
-            for (let i = 0 ; i < productos.length ; i++) {
-                for (let j = 0 ; j < productos[i].categoriasproductos.length ; j++) {
-                    if( productos[i].categoriasproductos[j].id == idBuscado) {
-                        console.log(productos[i])
-                        products.push(productos[i])
+                //        console.log(productitoCat[i].productos[j])
+                        }
+                    return res.render('./products/productos' , {prod : productitoCat})
                     }
-                }
-            }
-            return res.render('./products/productos' , {prod : products})
-        } catch (error) {
-            console.log(error)
+            } catch (error) {
+                console.log(error)
         }
     },
 
     accesorios : async (req, res) => {
         console.log("entraste a productos" );
         try {
-            const buscarId = await CategoriasProduct.findAll(
-                {
-                    where : { categoria : "Accesorios"}
-                }
-            )
-            let idBuscado = buscarId[0].id
             const productos = await Products.findAll(
-                {
-                    include: [
-                        {
-                            model: CategoriasProduct,
-                            as: 'categoriasproductos',
-                            attributes: ['id']
-                        },
-                        {
-                            association: 'productoFoto'
+                {include: [
+                    {association: 'productoFoto'}
+                ]
+            });
+            const productitoCat= await Categorias.findAll({
+                where : { categoria : "Accesorios"},
+                include: [{association:'productos'}]
+            });
+                for (i = 0 ; i < productitoCat.length ; i++ ) {
+                    console.log("********** Productito ", productitoCat[i].categoria ,  "*************")
+                    for (j = 0 ; j < productitoCat[i].productos.length ; j++){
+                        for (k = 0 ; k < productos.length ; k++){
+                            if(productos[k].id == productitoCat[i].productos[j].id){
+                                productitoCat[i].productos[j].productoFoto = productos[k].productoFoto
+                            }
                         }
-                    
-                ]}
-            );
-            let products = [];
-            for (let i = 0 ; i < productos.length ; i++) {
-                for (let j = 0 ; j < productos[i].categoriasproductos.length ; j++) {
-                    if( productos[i].categoriasproductos[j].id == idBuscado) {
-                        console.log(productos[i])
-                        products.push(productos[i])
+                //        console.log(productitoCat[i].productos[j])
+                        }
+                    return res.render('./products/productos' , {prod : productitoCat})
                     }
-                }
-            }
-            return res.render('./products/productos' , {prod : products})
-        } catch (error) {
-            console.log(error)
+            } catch (error) {
+                console.log(error)
         }
     },
 
     mujer : async (req, res) => {
         console.log("entraste a productos" );
         try {
-            const buscarId = await CategoriasProduct.findAll(
-                {
-                    where : { categoria : "Mujer"}
-                }
-            )
-            let idBuscado = buscarId[0].id
             const productos = await Products.findAll(
-                {
-                    include: [
-                        {
-                            model: CategoriasProduct,
-                            as: 'categoriasproductos',
-                            attributes: ['id']
-                        },
-                        {
-                            association: 'productoFoto'
+                {include: [
+                    {association: 'productoFoto'}
+                ]
+            });
+            const productitoCat= await Categorias.findAll({
+                where : { categoria : "Mujer"},
+                include: [{association:'productos'}]
+            });
+                for (i = 0 ; i < productitoCat.length ; i++ ) {
+                    console.log("********** Productito ", productitoCat[i].categoria ,  "*************")
+                    for (j = 0 ; j < productitoCat[i].productos.length ; j++){
+                        for (k = 0 ; k < productos.length ; k++){
+                            if(productos[k].id == productitoCat[i].productos[j].id){
+                                productitoCat[i].productos[j].productoFoto = productos[k].productoFoto
+                            }
                         }
-                    
-                ]}
-            );
-            let products = [];
-            for (let i = 0 ; i < productos.length ; i++) {
-                for (let j = 0 ; j < productos[i].categoriasproductos.length ; j++) {
-                    if( productos[i].categoriasproductos[j].id == idBuscado) {
-                        console.log(productos[i])
-                        products.push(productos[i])
+                //        console.log(productitoCat[i].productos[j])
+                        }
+                    return res.render('./products/productos' , {prod : productitoCat})
                     }
-                }
-            }
-            return res.render('./products/productos' , {prod : products})
-        } catch (error) {
-            console.log(error)
+            } catch (error) {
+                console.log(error)
         }
     },
     
     hombre : async (req, res) => {
         console.log("entraste a productos" );
         try {
-            const buscarId = await CategoriasProduct.findAll(
-                {
-                    where : { categoria : "Hombre"}
-                }
-            )
-            let idBuscado = buscarId[0].id
             const productos = await Products.findAll(
-                {
-                    include: [
-                        {
-                            model: CategoriasProduct,
-                            as: 'categoriasproductos',
-                            attributes: ['id']
-                        },
-                        {
-                            association: 'productoFoto'
+                {include: [
+                    {association: 'productoFoto'}
+                ]
+            });
+            const productitoCat= await Categorias.findAll({
+                where : { categoria : "Hombre"},
+                include: [{association:'productos'}]
+            });
+                for (i = 0 ; i < productitoCat.length ; i++ ) {
+                    console.log("********** Productito ", productitoCat[i].categoria ,  "*************")
+                    for (j = 0 ; j < productitoCat[i].productos.length ; j++){
+                        for (k = 0 ; k < productos.length ; k++){
+                            if(productos[k].id == productitoCat[i].productos[j].id){
+                                productitoCat[i].productos[j].productoFoto = productos[k].productoFoto
+                            }
                         }
-                    
-                ]}
-            );
-            let products = [];
-            for (let i = 0 ; i < productos.length ; i++) {
-                for (let j = 0 ; j < productos[i].categoriasproductos.length ; j++) {
-                    if( productos[i].categoriasproductos[j].id == idBuscado) {
-                        console.log(productos[i])
-                        products.push(productos[i])
+                //        console.log(productitoCat[i].productos[j])
+                        }
+                    return res.render('./products/productos' , {prod : productitoCat})
                     }
-                }
-            }
-            return res.render('./products/productos' , {prod : products})
-        } catch (error) {
-            console.log(error)
+            } catch (error) {
+                console.log(error)
         }
     },
 
     ninios : async (req, res) => {
         console.log("entraste a productos" );
         try {
-            const buscarId = await CategoriasProduct.findAll(
-                {
-                    where : { categoria : "Niño"}
-                }
-            )
-            let idBuscado = buscarId[0].id
             const productos = await Products.findAll(
-                {
-                    include: [
-                        {
-                            model: CategoriasProduct,
-                            as: 'categoriasproductos',
-                            attributes: ['id']
-                        },
-                        {
-                            association: 'productoFoto'
+                {include: [
+                    {association: 'productoFoto'}
+                ]
+            });
+            const productitoCat= await Categorias.findAll({
+                where : { categoria : "Niño"},
+                include: [{association:'productos'}]
+            });
+                for (i = 0 ; i < productitoCat.length ; i++ ) {
+                    console.log("********** Productito ", productitoCat[i].categoria ,  "*************")
+                    for (j = 0 ; j < productitoCat[i].productos.length ; j++){
+                        for (k = 0 ; k < productos.length ; k++){
+                            if(productos[k].id == productitoCat[i].productos[j].id){
+                                productitoCat[i].productos[j].productoFoto = productos[k].productoFoto
+                            }
                         }
-                    
-                ]}
-            );
-            let products = [];
-            for (let i = 0 ; i < productos.length ; i++) {
-                for (let j = 0 ; j < productos[i].categoriasproductos.length ; j++) {
-                    if( productos[i].categoriasproductos[j].id == idBuscado) {
-                        console.log(productos[i])
-                        products.push(productos[i])
+                //        console.log(productitoCat[i].productos[j])
+                        }
+                    return res.render('./products/productos' , {prod : productitoCat})
                     }
-                }
-            }
-            return res.render('./products/productos' , {prod : products})
-        } catch (error) {
-            console.log(error)
+            } catch (error) {
+                console.log(error)
         }
     },
 

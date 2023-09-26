@@ -19,8 +19,11 @@ module.exports = {
             response.data.count = data.length;
             const productitoCat= await Categorias.findAll({include: [{association:'productos'}]});
             response.data.countByCategory = {};
+            response.data.prodsByCategory = {};
+
             productitoCat.forEach(categoria => {
                 response.data.countByCategory[categoria.categoria]=categoria.productos.length
+                response.data.prodsByCategory[categoria.categoria]=categoria.productos
             })
             const producto = data.map(detalle => ({
                 id: detalle.id,

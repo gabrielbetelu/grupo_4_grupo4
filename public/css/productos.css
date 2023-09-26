@@ -7,8 +7,8 @@ main.mainProductos {
 main.mainProductos #productTitle {
     display: flex;
     justify-content: center;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 15px;
+    padding-bottom: 0px;
     width: 100%;
     color: #000000;
     font-size: 14px;
@@ -16,10 +16,20 @@ main.mainProductos #productTitle {
 }
 
 .tituloProduct {
-    font-weight: bold;
+    font-weight: bolder;
 }
 
 main.mainProductos div.galeriaProductos {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+/*    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 10px;*/
+}
+
+.categorySection{
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -27,11 +37,13 @@ main.mainProductos div.galeriaProductos {
     padding: 10px;
 }
 
+
+
 main.mainProductos article.productArticle {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 42%;
+    width: 48%;
     margin-bottom: 15px;
 }
 
@@ -112,13 +124,13 @@ main.mainProductos article.productArticle p.precio:hover {
 
 @media (min-width : 481px) {
     main.mainProductos article.productArticle{
-        width: 24%;
+        width: 30%;
     }
 }
 
 @media (min-width : 769px) {
     main.mainProductos article.productArticle{
-        width: 16%;
+        width: 24%;
     }
     main.mainProductos div.galeriaProductos  {
         padding: 40px;

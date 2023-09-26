@@ -8,18 +8,56 @@
             <h2 id="tituloProduct">PRODUCTOS</h2>
         </div>
         <div class="galeriaProductos">
-            <% prod.forEach((row) =>{ %>
-                <% console.log(row.id) %>
-            <article class="productArticle"> 
-                <div class="imagenesProd">
-                    <a id="linkProd" href="/product/producto/<%= row.id %>"><div class="contenedorImagenProd">
-                        <img id="imagenProducto" src="<%= row.productoFoto[0].imagen_producto %>">
-                    </div></a>                         
-                        <h4><%= row.nombre_producto %></h4>
-                        <p class="precio"> $ <%= row.precio_producto %></p>
-                </div>        
-            </article>
-            <% }) %>
+
+
+    <!--        <% //prod.forEach((row) =>{ %>
+                <% //console.log(row.id) %>
+                <article class="productArticle"> 
+                    <div class="imagenesProd">
+                        <a id="linkProd" href="/product/producto/<%=// row.id %>"><div class="contenedorImagenProd">
+                            <img id="imagenProducto" src="<%= //row.productoFoto[0].imagen_producto %>">
+                        </div></a>                         
+                            <h4><%= //row.nombre_producto %></h4>
+                            <p class="precio"> $ <%=// row.precio_producto %></p>
+                    </div>        
+                </article>
+            <% //}) %>
+    -->
+
+            <% prod.forEach((categ) =>{ %> 
+                <h2><%=categ.categoria%></h2>
+                <section class="categorySection">
+                
+                    <%categ.productos.forEach((row) =>{
+                    %>
+                    
+                    
+                        <% console.log(row.id) %>
+                        <article class="productArticle"> 
+                            <div class="imagenesProd">
+                                <a id="linkProd" href="/product/producto/<%= row.id %>"><div class="contenedorImagenProd">
+                                    <img id="imagenProducto" src="<%= row.productoFoto[0].imagen_producto %>">
+                                </div></a>                         
+                                    <h4><%= row.nombre_producto %></h4>
+                                    <p class="precio"> $ <%= row.precio_producto %></p>
+                            </div>        
+                        </article>
+                    
+                    <%})%>
+                </section>
+                
+            <%}) %>
+
+
+            
+
+
+
+            
+    
+
+
+
         </div>
     </main>   
 </body>
