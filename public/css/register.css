@@ -8,12 +8,18 @@
     height: 200px;
   }
 
+  .rightRegister {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: fit-content;
+  }
+
   .leftRegister, .rightRegister {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-  }
+   }
 
   .leftRegister {
     background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("/images/imagenBanner2.jpg");
@@ -118,13 +124,19 @@
 @media(min-width: 900px){
   .main-registro {
     flex-direction: row;
-    height: 100vh;
+  /*  height: 100vh;*/
   }
-  .leftRegister, 
-  .rightRegister {
+
+  .leftRegister {
     display: flex;
     width: 50%;
     height: auto;
+  }
+
+  .rightRegister {
+    display: flex;
+    width: 50%;
+    
   }
 
 }
