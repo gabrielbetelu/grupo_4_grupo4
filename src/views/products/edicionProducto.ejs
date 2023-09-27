@@ -105,10 +105,14 @@
                 </div> 
             </div> 
                           
-        </form>   
-        <div class="botonesEdicion botonDeleteProd" id="botonDeleteProd">
-            <a class="botones botonEliminar" href="/product/delete/<%= prod.id %>"> <button class="botones botonEliminar"type="button">Eliminar</button>  </a>       
-        </div>
+        </form>  
+        <form class="botonesEdicion botonDeleteProd" id="botonDeleteProd" action="/product/delete/<%= prod.id %>?_method=DELETE" method="post">
+            
+                <button class="botones botonEliminar">Eliminar</button>       
+            
+        </form>
+
+        
     </main>
     <%- include('../partials/footer') %>
     <script src="/js/edicion.js"></script>

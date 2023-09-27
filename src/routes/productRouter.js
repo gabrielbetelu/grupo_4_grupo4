@@ -31,7 +31,7 @@ router.get('/edicion', adminMiddleware ,controller.edicion);
 router.post('/buscar', controller.buscar);
 router.post('/productoedit', controller.editId);
 router.put('/producto/:id/edit', uploadFile.any('imagen'), prodEditValidator, adminMiddleware, controller.processModificar);
-router.get('/delete/:id' , controller.eliminar)
+router.delete('/delete/:id' , controller.eliminar)
 router.delete('/eliminar/:id' , controller.destroy);
 
 //FORM CREACION
