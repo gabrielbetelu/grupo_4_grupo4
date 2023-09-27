@@ -20,7 +20,7 @@ window.onload = function(){
 
         if (nombreInput.value.length < 2) {
             errores.push('error nombre')
-            errorNombre.innerText = "precisa completar los campos en rojo";
+            errorNombre.innerText = "Por favor, complete este campo.";
             nombreInput.classList.add('is-invalid')
             nombreInput.classList.remove('is-valid')
                         
@@ -32,7 +32,7 @@ window.onload = function(){
 
         if (apellido.value.length < 2) {          
             errores.push('error apellido')
-            errorApellido.innerText = "precisa completar los campos en rojo";
+            errorApellido.innerText = "Por favor, complete este campo.";
             apellido.classList.add('is-invalid')
             apellido.classList.remove('is-valid')
            
@@ -61,11 +61,11 @@ window.onload = function(){
         if (!ContraseniaValid) {
             console.log('contraseniano valida')
             errores.push("error contraseña");
-            pError.innerText = "La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un símbolo"
+            pError.innerText = "La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un símbolo."
             
         } else if (contraseniaInput.value !== confirmContraseniaInput.value) {
             errores.push("error confirmacion contraseña");
-            pError.innerText = "Las contraseñas no coinciden"
+            pError.innerText = "Las contraseñas no coinciden."
         }
    
         // validacion email
@@ -129,7 +129,7 @@ window.onload = function(){
     // Validación de la imagen 
         const imagen = imagenInput.files[0];
         if (!imagen) {
-        errorImagen.innerText ="Debe seleccionar una imagen de perfil";
+        errorImagen.innerText ="Debe seleccionar una imagen de perfil.";
         errores.push('error imagen')
         
         

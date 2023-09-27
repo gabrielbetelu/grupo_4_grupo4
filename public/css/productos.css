@@ -22,8 +22,8 @@ main.mainProductos #productTitle {
 main.mainProductos div.galeriaProductos {
     width: 100%;
     text-align: center;
-    margin-top: 10px;
-/*    display: flex;
+ /*   margin-top: 10px;
+    display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
     padding: 10px;*/
@@ -86,7 +86,7 @@ main.mainProductos article.productArticle h4 {
     opacity: 7; 
     animation: fade-in 0.5s ease-in-out forwards;
 }
-    main.mainProductos article.productArticle h4:hover {
+main.mainProductos article.productArticle h4:hover {
         color: darkgrey; 
     
 }
@@ -132,7 +132,5 @@ main.mainProductos article.productArticle p.precio:hover {
     main.mainProductos article.productArticle{
         width: 24%;
     }
-    main.mainProductos div.galeriaProductos  {
-        padding: 40px;
-    }
+    
 }

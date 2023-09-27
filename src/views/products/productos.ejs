@@ -4,9 +4,9 @@
 <%-include('../partials/header')%>
 <body>
     <main class="mainProductos">
-        <div id="productTitle">
+        <!--<div id="productTitle">
             <h2 id="tituloProduct">PRODUCTOS</h2>
-        </div>
+        </div>-->
         <div class="galeriaProductos">
 
 
@@ -25,7 +25,9 @@
     -->
 
             <% prod.forEach((categ) =>{ %> 
+                <div class="container-title">
                 <h2><%=categ.categoria%></h2>
+                </div>
                 <section class="categorySection">
                 
                     <%categ.productos.forEach((row) =>{
