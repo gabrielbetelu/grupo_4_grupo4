@@ -19,7 +19,7 @@ body {
     width: 100%;
     margin: 0;
     font-family: 'Montserrat';
-    font-weight: bold;
+    
 }
 
 main {
@@ -960,7 +960,7 @@ main {
 
     .camperasYBuzos h4,.camperasYBuzos h4, .pantalonesYShorts h4, .zapatillasYBotas h4, .carpasYBolsas h4, .mochilasYBolsos h4, .accesorios h4  {
         text-align: center;
-        font-weight: bold;
+
     }    
 
     .hombre img, .mujer img, .ninios img {        
@@ -979,7 +979,7 @@ main {
     .hombre h4, .mujer h4, .ninios h4 {
         justify-content: space-evenly;
         top: 35%;
-        font-weight: bold;
+
     }
     
     .banner {

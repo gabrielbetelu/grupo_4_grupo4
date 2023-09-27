@@ -124,7 +124,6 @@
 @media(min-width: 900px){
   .main-registro {
     flex-direction: row;
-  /*  height: 100vh;*/
   }
 
   .leftRegister {
