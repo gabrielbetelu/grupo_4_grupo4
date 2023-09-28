@@ -47,8 +47,9 @@
                                 <p class="error"> <%= errors.domicilio.msg %> </p>
                             <% } %>
                         </div>
+                        <input id ="oldEmail"  hidden type="text" name="emailOld" value= "<%=usuario.correo%>" placeholder="  email@gmail.com" >
                         <div> 
-                            <input id ="oldEmail" class="form-usu-perfil" type="text" name="emailOld" value= "<%=usuario.correo%>" placeholder="  email@gmail.com" hidden>
+                            
                             <input class="form-usu-perfil" type="text" name="email" value= "<%=usuario.correo%>" placeholder="  email@gmail.com">
                             <% if(locals.errors && errors.email) { %>
                                 <p class="error"> <%= errors.email.msg %> </p>
