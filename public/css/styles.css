@@ -471,7 +471,7 @@ main section .posicion {
 
 
 .imgProd {
-	max-width: 70%;
+	max-width: 45%;
 }
 
 
@@ -492,6 +492,9 @@ main {
 	/*background-color: #f7f7f9;*/
     width: 100%;
 	flex: 1;
+    display: flex;
+    justify-content: center;
+
 }
 
 .container-info-product {
