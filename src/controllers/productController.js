@@ -43,12 +43,7 @@ module.exports = {
                 {
                 where:{id_producto:idProductoBuscado}
             })
-               console.log(productoBuscado)
-            console.log(imagenesProducto)
-            console.log("***** categorias *********************")
-            console.log(productoBuscado.categoriasproductos)
-            console.log("***** fotos *********************")
-            console.log(productoBuscado.productoFoto)
+               
             return res.render('./products/producto' , {prod : productoBuscado , foto : imagenesProducto} )
             
         } catch (error) {
@@ -81,7 +76,7 @@ module.exports = {
                         }
                     }
                 //    console.log(productos[0])
-                    console.log(productitoCat[i].productos[j])
+                    
                 }
             }
     
@@ -361,8 +356,6 @@ module.exports = {
 
     buscar: async (req, res) => {
         console.log("Entró por buscador");
-        console.log(req.body);
-        console.log(req.body.texto);
         
         try {
             const productosBuscados = await Products.findAll({
