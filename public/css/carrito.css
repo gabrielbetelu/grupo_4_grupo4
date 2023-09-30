@@ -66,7 +66,8 @@
 }
 
 .modal__thumb{
-    width: 80px;
+    width: 150px;
+    padding-bottom: 25px;
 }
 
 .modal__text-product{
@@ -113,6 +114,8 @@
 }
 
 
-
+.fa-trash {
+    color: #252525;
+}
 
   

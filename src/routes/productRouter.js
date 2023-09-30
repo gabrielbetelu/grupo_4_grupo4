@@ -14,6 +14,8 @@ const uploadFile = require ('../middlewares/multerMiddleware')
 
 
 router.get('/carrito', authMiddleware ,controller.carrito);
+//router.post('/carrito/finalizar' , controller.procesoCompra);S
+
 router.get('/producto/:id', controller.producto);
 router.get('/productos', controller.productos);
 router.get('/productos/abrigos', controller.abrigos);

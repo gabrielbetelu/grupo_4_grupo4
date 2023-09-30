@@ -69,6 +69,10 @@
   font-size: 0.875rem;
   }
 
+  #oldEmail{
+    display: none;
+  }
+
   label {
     display: block;
     font-size: 0.75rem;

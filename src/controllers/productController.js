@@ -23,6 +23,12 @@ module.exports = {
             return res.render('./products/carrito')        
     },
 
+//    procesoCompra:(req, res) => {
+
+
+//        return res.render('./products/carrito')        
+//    },    
+
     producto : async (req, res) => {
         console.log("entraste a producto" , req.params.id);
         try {

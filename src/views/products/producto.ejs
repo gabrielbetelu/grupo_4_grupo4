@@ -3,15 +3,17 @@
     <%- include('../partials/head') %>
 <body>
     <%- include('../partials/header') %>
-    <div class="container-title"><%= prod.nombre_producto%></div>
+
+    <div class="container-title"><%= prod.nombre_producto%>
+    </div>
 
     <main>
         <div class="container-img">
-            <img class="imgProd" src=<%= foto[0].imagen_producto%> alt="imagen-producto" />
+            <img class="imgProd" src=<%= foto[0].imagen_producto%> alt="<%= foto[0].imagen_producto%>" />
         </div>
         <div class="container-info-product">
             <div class="container-price">
-                <span>$<%= prod.precio_producto%></span>
+                <span class="container-price-spam">$<%= prod.precio_producto%></span>
             </div>
 
             <div class="container-details-product">
@@ -43,8 +45,8 @@
                     <input
                         type="number"
                         placeholder="1"
-                        value="1"
-                        min="1"
+                        value=1
+                        min=1
                         class="input-quantity"
                     />
                     <div class="btn-increment-decrement">
@@ -52,10 +54,15 @@
                         <i class="fa-solid fa-chevron-down" id="decrement"></i>
                     </div>
                 </div>
-                <a href="/product/carrito"><button class="btn-add-to-cart">
+                <button id="botonAddCarrito" class="btn-add-to-cart" type="submit">
+                    <i class="fa-solid fa-plus"></i>
+                    Añadir al carrito
+                </button>
+        <!--        <a href="/product/carrito"><button id="botonAddCarrito" class="btn-add-to-cart" type="submit">
                     <i class="fa-solid fa-plus"></i>
                     Añadir al carrito
                 </button></a>
+                -->
             </div>
 
             <div class="container-description">
@@ -69,15 +76,16 @@
                     </p>
                 </div>
             </div>
-            
+        </div>    
 
-    <script
-        src="https://kit.fontawesome.com/81581fb069.js"
-        crossorigin="anonymous"
-    ></script>
-    <script src="/js/producto.js"></script>
-    <script src="/js/carrito.js"></script>
-        </main>
+        <script src="https://kit.fontawesome.com/81581fb069.js" crossorigin="anonymous">
+        </script>
+        <script src="/js/producto.js"></script>
+ 
+        
+        <script src="/js/agregarCarrito.js"></script>  
+        
+    </main>
     
     <%- include('../partials/footer') %>          
 </body>
