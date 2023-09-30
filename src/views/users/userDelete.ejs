@@ -4,19 +4,19 @@
 <body>
     <%- include('../partials/header') %>
         <main class="main-registro">
-             <img src="../images/patagonia-argentina.jpg" alt="fondo" class="fondo-image" />
+        <!--     <img src="../images/patagonia-argentina.jpg" alt="fondo" class="fondo-image" /> -->
              <div class="divRegistro">
-                <form class="registro" action="/user/perfil/delete/<%= perfilEdit.id %>?_method=DELETE" method="post" >
+                <form class="registro registroDelete" action="/user/perfil/delete/<%= perfilEdit.id %>?_method=DELETE" method="post" >
                         <h5>Registro de Usuario</h5>
                         <div>
-                            <p>Seguro que desea borrar el usuario <strong> <em>--  <%=perfilEdit.first_name + " " + perfilEdit.last_name %>  --</em> </strong>?</p>
+                            <p class="parrafoSeguro">Seguro que desea borrar el usuario <strong> <em>--  <%=perfilEdit.first_name + " " + perfilEdit.last_name %>  --</em> </strong>?</p>
                             <% if(locals.errors && errors.nombre) { %>
                             <p class="error"> <%= errors.nombre.msg %> </p>
                             <% } %>
                         </div>
                         <div> 
-                            <a href="#"> <button class="botEnter" type="submit">Eliminar Usuario</button> </a>
-                            <a class="linkEditar" href="/"> <button class="botEnterTablas" type="button">NO, volver al inicio</button> </a>
+                            <a href="#"> <button class="botEnter " type="submit">Eliminar Usuario</button> </a>
+                            <a class="linkEditar" href="/"> <button class="botEnter" type="button">NO, volver al inicio</button> </a>
                         </div>
                 </form>
             </div>

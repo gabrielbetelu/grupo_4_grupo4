@@ -533,13 +533,14 @@ main {
 	flex: 1;
     display: flex;
     justify-content: center;
-
+    margin-bottom: 20px;
 }
 
 .container-info-product {
 	flex: 1;
 	display: flex;
 	flex-direction: column;
+    margin-bottom: 20px;
 }
 
 .container-price {
@@ -675,6 +676,7 @@ main {
 	flex-direction: column;
 	border-bottom: 1px solid #e4e4e4;
 	padding: 10px 0;
+    margin-right: 30px;
 }
 
 .title-description,
