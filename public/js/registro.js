@@ -154,7 +154,7 @@ window.onload = function(){
                        
             Swal.fire(
                 'Bienvenido',
-                'Usuario regitrado!',
+                'Usuario registrado!',
                 'Success'
             ).then(()=> {
                 form.submit();
