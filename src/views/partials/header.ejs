@@ -1,37 +1,40 @@
 <header>
     <div class="header_principal">
-        <div class="logo-header">
-            <a href="/">
-                <div class= "logotipo">                
-                </div>   
-            </a>            
-        </div>        
+        <div class="infoHeader">
+            <div class="logo-header">
+                <a href="/">
+                    <div class= "logotipo">                
+                    </div>   
+                </a>            
+            </div>        
             <div class="opciones">
-                <div class="log-cart">
-                    <a href = "/product/carrito"><i class="fas fa-shopping-cart"></i></a> 
+                <div class="log-cart"> 
                     <% if(!locals.isLogged) { %>
                     
                         <a href="/user/login"><i class="fas fa-user"></i></a>
                     <%}%>            
-                    <!--    *******************************************   -->
+                    <!-- ******************************************* -->
                     <% if(locals.isLogged) {%> 
                         <div class="usuarioLogueado">
-                            <div id = "saludo">  
-                                <img id = "imgAvatar" src="/images/<%= locals.userLogged.image%>" >               
-                                <a href = "/user/perfil"><div id="saludoLog"><%= locals.userLogged.first_name %></div></a>
+                            <div id="saludo">
+                                <img id="imgAvatar" src="/images/<%= locals.userLogged.image%>">
+                                <a href="/user/perfil"><div id="saludoLog"><%= locals.userLogged.first_name %></div></a>
                             </div>
-                            <div id="userPerfil" >
-                                <a href = "/user/logout"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>                        
+                            <div id="userPerfil">
+                                <a href="/user/logout"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
                             </div>
                         </div>
                     <%}%>
-                    <!--    *******************************************   -->
+                    <!-- ******************************************* -->
+                    <div class="carrito_links">
                     <% if(locals.isLogged && locals.userLogged.id_categoria_user == 1) {%> 
                         <div id="productosCargaEdicion">
                             <a href = "/product/creacion"><i class="fa-regular fa-square-plus"></i></a>
                             <a href = "/product/edicion"><i class="fa-regular fa-pen-to-square"></i></a>
                         </div>
                     <%}%>
+                    <a href = "/product/carrito"><i class="fas fa-shopping-cart"></i></a>
+                    </div>
                     <!--    *******************************************   -->     
                 </div>
                 <div class="menu-buscador">
@@ -52,6 +55,7 @@
                     </div>              
                 </div>
             </div>
+    </div>
     </div>
     <div class="banner_cito">
         <p>Envío gratis a partir de $50.000 + 3 cuotas sin interés.</p>

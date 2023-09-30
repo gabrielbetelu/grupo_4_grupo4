@@ -6,14 +6,7 @@
 @import 'login.css';
 @import 'perfiles.css';
 @import 'tablas.css';
-/*-----------------------------------------------*/
-/* -----------------------------------------------------
-Paleta de colores:  verde claro   #C9F4B0
-                    verde medio claro  #7AB35B
-                    verde medio oscuro   #7FAD58
-                    verde oscuro   #497330
-                    ocre    #EBB54B
--------------------------------------------------------*/
+
 
 body {
     width: 100%;
@@ -39,7 +32,12 @@ header {
     flex-direction: column; 
     
 }
-
+.infoHeader{
+    width: 100%;
+    background: white;
+    display: flex;
+    justify-content: space-around;
+}
 .header_principal {
     width: 100%;
     background: white;
@@ -47,15 +45,12 @@ header {
     
 }
 
-
 header .opciones {
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: flex-end;   
+    justify-content: space-around;
     padding-right: 2%; 
     width: 70%;
+    height: 90px;
 }
 
 header .logo-header {
@@ -95,24 +90,26 @@ header .logo-header .logotipo {
     100% {background-image: url("/images/animacion-logo-6.jpg");}
 }
 
-
 .oculto {
     display: none;
 }
 
 header .opciones .log-cart {
     display: flex;
-    flex-direction: row-reverse;
-    width: 75%;
-    justify-content: end;
+    flex-direction: column;
+    width: 90%;
+/*    justify-content: start;*/
     font-size: 20px;
-/* ******************************************* */
-    position: relative; 
-/* ******************************************* */     
+/*    position: relative;  */
+/*    align-items:end;*/
+/*    align-content: space-around; */
+    justify-content: space-between;
+    height: fit-content; 
 }
-.log-cart {
+
+/*.log-cart {
     align-items: flex-end;
-}
+}*/
 
 header .opciones .log-cart a {
     color: #000; 
@@ -125,14 +122,16 @@ header .opciones .log-cart a:hover {
 }
 
 .usuarioLogueado {
+    width: 100%;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    /*flex-wrap: wrap;*/
+    justify-content: flex-end;
+    margin-top: 10px;
 }
 
 #saludo {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     font-size: 12px;
     margin: 0;
     min-width: 40px;
@@ -174,6 +173,7 @@ div#saludoLog {
     color:#EBB54B;
 }
 
+
 .banner_cito {
     display: flex;
     align-items: center;
@@ -189,7 +189,7 @@ div#saludoLog {
 /* ******************************************* */
 header .opciones .log-cart #productosCargaEdicion {
     display: flex;    
-    position: absolute;
+/*    position: absolute;*/
     left: -50px;
     font-size: 18px;
    
@@ -206,18 +206,26 @@ header .opciones .log-cart #productosCargaEdicion i{
 }
 
 /* ******************************************* */
+.carrito_links{
+    display: flex; 
+    margin-top: 4px;      
+    margin-bottom: 10px;
+    align-self: flex-end;
+}
 
 header .opciones .menu-buscador {
-    width: 100%;
+    width: 10%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
 }
 
 header .opciones .menu-buscador .burger-menu {
+    display: flex;
+    align-items: flex-end;
+    padding-bottom:10px ;
     padding-right: 3%;  
-    padding-left: 3%;  
+    
 }
-
 #logo-burguer {
     font-size: 22px;
 }
@@ -256,20 +264,20 @@ header .opciones .menu-buscador .area-buscar .buscador {
     padding-right: 2.5%;  
     background-color: transparent;
 }
-
+/*
 header .opciones .menu-buscador .area-buscar .buscador .botonLupa {
     border: none;
     padding: 0;
     background-color: transparent;
 }
-
+/*
 #logo-lupa {
     font-size: 12px;
     padding: 1px;
     border: solid 1px #000;
     background-color: transparen;
     border-radius: 3px;    
-}
+}*/
 
 main {
     width: 100%;
@@ -340,6 +348,7 @@ main section .posicion {
     width: 45%; 
     padding: 4% 0;  
     position: relative; 
+    box-shadow: 0 0 10 #121212;
 }
 
 .camperasYBuzos h4,.camperasYBuzos h4, .pantalonesYShorts h4, .zapatillasYBotas h4, .carpasYBolsas h4, .mochilasYBolsos h4, .accesorios h4  {
@@ -792,16 +801,79 @@ main {
         justify-content: space-around;
     }
 
-    header .opciones .log-cart {
+/*    header .opciones .log-cart {
         flex-direction: row-reverse;
         width: 40%;
         max-width: 180px;
         margin: 11px;
+    }*/
+
+/*    .usuarioLogueado {
+        width: 70%;
+    }*/
+
+    header .opciones .log-cart {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        justify-content: end;
+        font-size: 20px;
+    /*    position: relative;  */
+    /*    align-items:end;*/
+    /*    align-content: space-around; */
+    /*    justify-content: space-between;*/
+        height: fit-content; 
     }
 
     .usuarioLogueado {
         width: 70%;
+        display: flex;
+        /*flex-wrap: wrap;*/
+        justify-content: end;
+        align-self: flex-end;
+        margin-top: 10px;
     }
+    
+    #saludo {
+        display: flex;
+        justify-content: space-around;
+        font-size: 12px;
+        margin: 0;
+        min-width: 40px;
+        padding: 0 2px;
+    }
+    
+    #imgAvatar {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+    }
+    
+    div#saludoLog {
+        display: flex;
+        min-height: 42px;
+        margin: 0;
+        padding-left: 2px;
+    }
+    #saludo a {
+        text-decoration: none;
+    }
+    
+    #userPerfil {
+        display: flex;
+        flex-direction: column;
+        height: 20px;
+        font-size: 17px;
+        font-weight: 700;
+        margin: 2px;
+    }
+    
+    #userPerfil a {
+        text-decoration: none;
+        padding: 0 5px 0 5px;
+        color: #000;
+    }
+    
 
     /* ******************************************* */
     header .opciones .log-cart #productosCargaEdicion {
@@ -815,8 +887,8 @@ main {
         width: 50%;  
         padding: 10px 0 0 0;  
         flex-direction: column-reverse; 
-        align-items: center; 
-        justify-content: space-between;  
+    /*    align-items: center; */
+        justify-content: end;  
     }
     
     header .opciones .menu-buscador .area-buscar {
@@ -825,7 +897,7 @@ main {
 
     .oculto {
         display: flex;
-        padding: 10px;
+        padding: 10px 10px 0 10px;
     } 
 
     header .opciones .menu-buscador nav {
@@ -908,17 +980,21 @@ main {
     }
 
     header .opciones {
-        padding-top: 10px;
-        flex-direction: row;
+        padding-top: 15px;
+    /*    flex-direction: row;
         justify-content: flex-end;
         position: relative;
-        align-items: flex-end;
+        align-items: flex-end;*/
     }
 
     header .opciones .log-cart {
-        position: absolute;
-
+    /*    position: absolute; */
+        margin-right: 15px;
         max-width: 180px;
+    }
+
+    .carrito_links{
+        margin-top: 0px;  ;
     }
 
     header .opciones .menu-buscador {
@@ -934,7 +1010,7 @@ main {
         flex-direction: row;
         width: 100%;
         margin-top: 20px;
-        padding-bottom: 5px;
+        padding-bottom: 0px;
     }
 
     header .opciones .menu-buscador nav ul li {
@@ -946,6 +1022,52 @@ main {
     header .opciones .menu-buscador nav a:hover {
         color: #EBB54B;
     }
+    .usuarioLogueado {
+        display: flex;
+        /*flex-wrap: wrap;*/
+        justify-content: center;
+    }
+    
+    #saludo {
+        display: flex;
+        justify-content: space-around;
+        font-size: 12px;
+        margin: 0;
+        min-width: 40px;
+        padding: 0 2px;
+    }
+    
+    #imgAvatar {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+    }
+    
+    div#saludoLog {
+        display: flex;
+        min-height: 42px;
+        margin: 0;
+        padding-left: 2px;
+    }
+    #saludo a {
+        text-decoration: none;
+    }
+    
+    #userPerfil {
+        display: flex;
+        flex-direction: column;
+        height: 20px;
+        font-size: 17px;
+        font-weight: 700;
+        margin: 2px;
+    }
+    
+    #userPerfil a {
+        text-decoration: none;
+        padding: 0 5px 0 5px;
+        color: #000;
+    }
+    
 
     .rubros {
         padding: 0 25px 0px 25px;
