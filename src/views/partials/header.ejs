@@ -10,8 +10,12 @@
             <div class="opciones">
                 <div class="log-cart"> 
                     <% if(!locals.isLogged) { %>
-                    
-                        <a href="/user/login"><i class="fas fa-user"></i></a>
+                        <div class="usuarioLogueado">
+                            <div id="saludo">
+                                <a  href="/user/login"><i class="fas fa-user"></i></a>
+                                <a href = "/product/carrito"><i class="fas fa-shopping-cart"></i></a>                                
+                            </div>
+                        </div>
                     <%}%>            
                     <!-- ******************************************* -->
                     <% if(locals.isLogged) {%> 
@@ -32,8 +36,8 @@
                             <a href = "/product/creacion"><i class="fa-regular fa-square-plus"></i></a>
                             <a href = "/product/edicion"><i class="fa-regular fa-pen-to-square"></i></a>
                         </div>
-                    <%}%>
-                    <a href = "/product/carrito"><i class="fas fa-shopping-cart"></i></a>
+                        <a href = "/product/carrito"><i class="fas fa-shopping-cart"></i></a>
+                        <%}%>
                     </div>
                     <!--    *******************************************   -->     
                 </div>
@@ -52,13 +56,28 @@
                     </nav>
                     <div class="burger-menu visible">
                         <i id="logo-burguer" class="fas fa-bars visible"></i>
-                    </div>              
+                    </div> 
+                                
                 </div>
             </div>
+        </div>
     </div>
-    </div>
+    
     <div class="banner_cito">
         <p>Envío gratis a partir de $50.000 + 3 cuotas sin interés.</p>
     </div>
-    
+
+    <nav class="desplegable">
+        <ul>
+            <li>
+                <a href = "/">INICIO</a>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a href = "/product/productos">PRODUCTOS</a>
+            </li>
+        </ul>
+    </nav> 
+    <script src="js/menuDesplegable.js"></script>
 </header> 

@@ -94,6 +94,31 @@ header .logo-header .logotipo {
     display: none;
 }
 
+.desplegable {
+    width: max-content;
+    height: max-content;
+    position: absolute;
+    top: 90px;
+    right: -500px;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 5px 70px 5px 10px;
+    transition: all .4s;
+}
+
+.desplegable ul li{
+    font-size: 12px;
+    font-weight: 700;
+    color: #252525;
+    padding: 5px 0 5px 0;
+    text-decoration: none;
+}
+
+.desplegable ul li a{
+    color: #252525;
+    text-decoration: none;
+}
+
 header .opciones .log-cart {
     display: flex;
     flex-direction: column;
@@ -132,7 +157,7 @@ header .opciones .log-cart a:hover {
 #saludo {
     display: flex;
     justify-content: center;
-    font-size: 12px;
+    font-size: 14px;
     margin: 0;
     min-width: 40px;
     padding: 0 2px;
@@ -182,8 +207,7 @@ div#saludoLog {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     height: 30px;
-    
-    
+    font-size: 11px;
 }
 
 /* ******************************************* */
@@ -834,7 +858,7 @@ main {
     #saludo {
         display: flex;
         justify-content: space-around;
-        font-size: 12px;
+        font-size: 20px;
         margin: 0;
         min-width: 40px;
         padding: 0 2px;
@@ -855,7 +879,16 @@ main {
     #saludo a {
         text-decoration: none;
     }
+
+    .desplegable {
+        display: none;
+        right: -500px;
+    }
     
+    .banner_cito {
+        font-size: 16px;
+    }
+
     #userPerfil {
         display: flex;
         flex-direction: column;
@@ -900,6 +933,7 @@ main {
     header .opciones .menu-buscador nav {
         width: 100%;
         display: flex;
+    /*    flex-direction: column;  */
         font-size: 14px;
         margin: 1% 0 1% 0;
     }
@@ -1028,7 +1062,7 @@ main {
     #saludo {
         display: flex;
         justify-content: space-around;
-        font-size: 12px;
+        font-size: 20px;
         margin: 0;
         min-width: 40px;
         padding: 0 2px;
@@ -1038,7 +1072,7 @@ main {
         width: 20px;
         height: 20px;
         border-radius: 50%;
-    }
+    }    
     
     div#saludoLog {
         display: flex;
