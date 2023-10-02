@@ -510,7 +510,8 @@ main section .posicion {
 
 
 .imgProd {
-	max-width: 45%;
+	width: 100%;
+
 }
 
 
@@ -530,17 +531,18 @@ main {
 .container-img {
 	/*background-color: #f7f7f9;*/
     width: 100%;
-	flex: 1;
+/*	flex: 1; */
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
 }
 
 .container-info-product {
-	flex: 1;
+/*	flex: 1; */
 	display: flex;
+    width: 100%;
 	flex-direction: column;
-    margin-bottom: 20px;
+    margin: 0 30px 20px 30px;
 }
 
 .container-price {
@@ -1009,6 +1011,23 @@ main {
         top: 33%;
     }
 
+    .container-img {
+        width: 47%;
+    }
+
+    .imgProd {
+        object-fit: contain;
+    }
+
+    
+    .container-info-product {
+        display: flex;
+        width: 47%;
+        flex-direction: column;
+        margin: 0 10px 20px 0px;
+    }
+    
+
 }
 
 @media (min-width : 769px) {
@@ -1161,6 +1180,10 @@ main {
         font-weight: bold;
         font-size: 21px;
         color: #000000;
+    }
+
+    .imgProd {
+        max-height: 450px;
     }
     
 }
