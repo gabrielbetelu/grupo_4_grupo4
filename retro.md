@@ -214,7 +214,47 @@ El Sprint 7 fue un desafío para nuestro equipo, y enfrentamos algunas dificulta
 
 Aunque enfrentamos dificultades significativas en el sprint anterior, seguimos comprometidos a aprender de nuestros errores y mejorar constantemente. Reconocemos la importancia de la planificación detallada y la división de tareas. Para este sprint, nos centramos en fortalecer nuestra capacidad de estimación y planificación, al tiempo que mantenemos nuestra comunicación abierta y constante para superar los desafíos que puedan surgir. A pesar de los contratiempos, seguimos comprometidos con el éxito del proyecto y trabajamos arduamente para alcanzar nuestros objetivos.
 
+-------------------------------------------------------------------------------------
 
+# RETROSPECTIVA SPRINT 8
+
+## Análisis sobre Sprint 8
+
+Este sprint marca el final de nuestro proyecto y del curso, y ha sido una experiencia increíblemente enriquecedora para todos nosotros. Durante este tiempo, hemos aprendido no solo sobre el desarrollo del proyecto, sino también sobre nosotros mismos y el poder del trabajo en equipo en un entorno de desarrollo real.
+
+### Qué hicimos bien
+
+- En este sprint, enfrentamos el desafío final con muchas ansias. A pesar de los nervios, nos unimos como equipo y abordamos las tareas con emoción y energía. Logramos cambiar el aspecto y estilo de la página, algo que queriamos lograr hace tiempo y por otras tareas a cumplir no conseguiamos llegar a tiempo. 
+
+- Mantuvimos una comunicación abierta y constante, lo que nos permitió enfrentar los desafíos con confianza y resolver problemas de manera efectiva.
+
+- Aprovechamos al máximo nuestras habilidades individuales y trabajamos en armonía para lograr nuestros objetivos finales.
+
+### Qué deberíamos mejorar
+
+- A medida que avanzamos en este sprint, reconocimos la importancia de la gestión del tiempo y la priorización de tareas. Deberíamos haber mejorado en estas áreas para garantizar una finalización sin contratiempos.
+
+- La planificación detallada sigue siendo un área de mejora para nosotros. Hubiera sido beneficioso haber anticipado posibles obstáculos y tener estrategias de respaldo listas para abordarlos. Tal vez haber abordado otros temas al comienzo para no atrasarnos tan cerca del final.
+
+- Escucharnos mas y prestar atención a las necesidades de otros compañeros.
+
+### Qué deberíamos empezar a hacer
+
+- Reflexionar sobre los desafíos enfrentados y aprender de ellos. Estas lecciones serán valiosas para futuros proyectos y experiencias laborales.
+
+- Celebrar nuestros logros y reconocer el arduo trabajo y la dedicación de cada miembro del equipo. Es importante apreciar el esfuerzo y el trabajo en equipo que nos ha llevado hasta aquí.
+
+### Qué deberíamos hacer menos
+
+- Evitar la procrastinación y asegurarnos de que cada tarea se complete a tiempo. La gestión efectiva del tiempo es clave para el éxito en cualquier proyecto.
+
+## Conclusiones del Sprint 8
+
+Este sprint fue el más emocionante y desafiante para todos nosotros. A medida que nos acercamos al final del proyecto y del curso, nos dimos cuenta de cuánto hemos crecido como equipo y como individuos. A pesar de los desafíos, enfrentamos cada obstáculo con determinación.
+
+Mirando hacia atrás, estamos orgullosos de lo lejos que hemos llegado y de las habilidades que hemos desarrollado juntos. Esta experiencia nos ha preparado para futuros desafíos y nos ha enseñado la importancia del trabajo en equipo, la comunicación efectiva,la gestión del tiempo, la paciencia, el respeto y sobre todo a lidiar con la frustración.
+
+Agradecemos a cada miembro del equipo por su arduo trabajo y dedicación. Este sprint final fue un recordatorio de nuestra capacidad para superar dificultades y lograr grandes cosas juntos. A medida que cerramos este capítulo, llevamos con nosotros las lecciones aprendidas y la gratitud por esta experiencia inolvidable. ¡Felicitaciones a cada uno de nosotros!
 
 
 

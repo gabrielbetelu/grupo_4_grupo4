@@ -39,6 +39,9 @@ Inspiración, fragmentos de código, etc.
 
 * [TRELLO7] (https://trello.com/invite/b/btiVTZnZ/ATTIe4541ec3581a8755fb38dcf365bf2d32586E893C/tablero-de-tareas-sprint7-grupo4)
 
+* [TRELLO8] (https://trello.com/invite/b/sQjHNUt6/ATTI557a8b88e6a43d5acfd36158716765304CC4BB40/tablero-de-tareas-sprint8-grupo4)
+
+
 
 
 #### Equipo detrás del proyecto
@@ -55,5 +58,4 @@ Inspiración, fragmentos de código, etc.
  Siempre interesada en el mundo tecnológico.
  En la actualidad es estudiante de programación, desarrollo Full Stack en *Digital House*.
 
-DB_PASS="Patagonic@123"
-/*patagonic_anto--"mysql-patagonic.alwaysdata.net
+
