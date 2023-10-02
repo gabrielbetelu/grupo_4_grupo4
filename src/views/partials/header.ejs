@@ -31,16 +31,16 @@
                     <%}%>
                     <!-- ******************************************* -->
                     <div class="carrito_links">
-                    <% if(locals.isLogged && locals.userLogged.id_categoria_user == 1) {%> 
-                        <div id="productosCargaEdicion">
-                            <a href = "/product/creacion"><i class="fa-regular fa-square-plus"></i></a>
-                            <a href = "/product/edicion"><i class="fa-regular fa-pen-to-square"></i></a>
-                        </div>
-                        <a href = "/product/carrito"><i class="fas fa-shopping-cart"></i></a>
-                    <%}%>
-                    <% if(locals.isLogged && locals.userLogged.id_categoria_user == 2) {%>
-                        <a href = "/product/carrito"><i class="fas fa-shopping-cart"></i></a>
-                    <%}%>
+                        <% if(locals.isLogged && locals.userLogged.id_categoria_user == 1) {%> 
+                            <div id="productosCargaEdicion">
+                                <a href = "/product/creacion"><i class="fa-regular fa-square-plus"></i></a>
+                                <a href = "/product/edicion"><i class="fa-regular fa-pen-to-square"></i></a>
+                            </div>
+                            <a href = "/product/carrito"><i class="fas fa-shopping-cart"></i></a>
+                        <%}%>
+                        <% if(locals.isLogged && locals.userLogged.id_categoria_user != 1) {%>
+                            <a href = "/product/carrito"><i class="fas fa-shopping-cart"></i></a>
+                        <%}%>
 
                     </div>
                     <!--    *******************************************   -->     
