@@ -22,7 +22,7 @@ window.onload = function(){
 
         if (nombreInput.value.length < 2) {
             errores.push('error nombre')
-            errorNombre.innerText = "mínimo 2 caracteres";
+            errorNombre.innerText = "Por favor, complete este campo.";
             nombreInput.classList.add('is-invalid')
             nombreInput.classList.remove('is-valid')
                         
@@ -34,7 +34,7 @@ window.onload = function(){
 
         if (apellido.value.length < 2) {          
             errores.push('error apellido')
-            errorApellido.innerText = "mínimo 2 caracteres";
+            errorApellido.innerText = "Por favor, complete este campo.";
             apellido.classList.add('is-invalid')
             apellido.classList.remove('is-valid')
            
