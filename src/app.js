@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const app = express();
+const port = process.env.PORT || 3004;
 const mainRouter = require('./routes/mainRouter');
 const userRouter = require('./routes/userRouter');
 const productRouter = require('./routes/productRouter');
@@ -34,8 +35,8 @@ app.use(log);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.listen(3004, () => 
-console.log ('servidor corriendo en el puerto 3004'));
+app.listen(port, () => 
+console.log(`servidor corriendo en el puerto ${port}`));
 
 
 app.use(mainRouter);
